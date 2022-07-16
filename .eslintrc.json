@@ -29,6 +29,7 @@
                 "code": 80,
                 "tabWidth": 2
             }
-        ]
+        ],
+        "eol-last": ["error", "always"]
     }
 }

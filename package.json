@@ -13,6 +13,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "dotenv": "^16.0.1",
     "react": "^18.2.0",
@@ -29,11 +30,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --ci --detectOpenHandles --color --runInBand --watchAll --forceExit",
+    "test:ci": "react-scripts test --ci --detectOpenHandles --color --runInBand --env=jsdom --watchAll=false",
     "eject": "react-scripts eject",
     "lint:ts": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:css": "stylelint --allow-empty-input 'src/**/*.{css,scss}'",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json}\"",
+    "deploy:dev": "firebase deploy -P default --only hosting:test",
+    "deploy:prod": "firebase deploy -P production --only hosting:production"
+  },
+  "engines": {
+    "node": "^16",
+    "yarn": "^1.22"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +73,7 @@
     "husky": "^8.0.1",
     "install-peers": "^1.0.4",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "stylelint": "^14.9.1"
   }
 }
