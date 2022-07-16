@@ -1,7 +1,5 @@
 name: cruzhacks-2023-website-production
 
-env:
-
 on:
   push:
     branches: [production]

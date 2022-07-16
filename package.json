@@ -74,6 +74,7 @@
     "install-peers": "^1.0.4",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "stylelint": "^14.9.1"
+    "stylelint": "^14.9.1",
+    "stylelint-scss": "^4.3.0"
   }
 }
