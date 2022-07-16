@@ -1,6 +1,4 @@
 name: cruzhacks-2023-website-development
-
-env:
   
 on:
   push:
