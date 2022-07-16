@@ -17,7 +17,6 @@
     "babel-loader": "^8.2.5",
     "dotenv": "^16.0.1",
     "firebase": "^9.9.0",
-    "firebase-cli": "^1.2.0",
     "firebase-tools": "^11.2.2",
     "open": "6.0.0",
     "react": "^18.2.0",
