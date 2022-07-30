@@ -1,9 +1,9 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import App from "../App"
+import ErrorView from "./index.view.tsx"
 
 test("renders welcome text", () => {
-  render(<App />)
-  const elem = screen.getByText(/Welcome CruzHacks 2023 Engineers!/i)
+  render(<ErrorView />)
+  const elem = screen.getByText(/404 Not Found/i)
   expect(elem).toBeInTheDocument()
 })
