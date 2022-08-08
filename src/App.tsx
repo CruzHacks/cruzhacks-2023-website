@@ -5,10 +5,12 @@ import "./App.scss"
 import { Routes, Route } from "react-router-dom"
 
 const App: React.FC = () => (
-  <Routes>
-    <Route path='/' element={<Landing />} />
-    <Route path='*' element={<ErrorView />} />
-  </Routes>
+  <div className='App'>
+    <Routes>
+      <Route path='/' element={<Landing />} />
+      <Route path='*' element={<ErrorView />} />
+    </Routes>
+  </div>
 )
 
 export default App

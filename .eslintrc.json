@@ -30,6 +30,14 @@
                 "tabWidth": 2
             }
         ],
-        "eol-last": ["error", "always"]
+        "eol-last": [
+            "error",
+            "always"
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
