@@ -1,7 +1,7 @@
 import React from "react"
 import Landing from "./views/Landing/index.view"
 import ErrorView from "./views/Error/index.view"
-import Team from "./views/Team/Team"
+import Team from "./views/Team/index.view"
 import Navbar from "./components/Navbar"
 import "./App.scss"
 import { Routes, Route } from "react-router-dom"
