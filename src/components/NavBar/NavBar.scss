@@ -1,0 +1,13 @@
+.nav__container {
+  display: flex;
+  justify-content: end;
+  padding-right: 10%;
+  &--items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
