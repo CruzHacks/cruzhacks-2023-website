@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 import { BrowserRouter, MemoryRouter } from "react-router-dom"
 import App from "./App.tsx"
 
@@ -10,6 +10,23 @@ test("renders welcome text", () => {
   render(<App />, { wrapper: BrowserRouter })
   const elem = screen.getByText(/Welcome CruzHacks 2023 Engineers!/i)
   expect(elem).toBeInTheDocument()
+})
+
+test("renders Team on navbar click", () => {
+  render(<App />, { wrapper: BrowserRouter })
+  const elem = screen.getByText(/Team/i)
+  fireEvent.click(elem)
+  expect(screen.getByText(/Our Team/i)).toBeInTheDocument()
+})
+
+test("clicking Home from Team component renders appropriately", () => {
+  render(<App />, { wrapper: BrowserRouter })
+  // team component render persists here from prev
+  const elem = screen.getByText(/Home/i)
+  fireEvent.click(elem)
+  expect(
+    screen.getByText(/Welcome CruzHacks 2023 Engineers!/i)
+  ).toBeInTheDocument()
 })
 
 test("landing on bad route", () => {
