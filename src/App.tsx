@@ -8,12 +8,12 @@ import { Routes, Route } from "react-router-dom"
 
 const App: React.FC = () => (
   <div className='App'>
+    <Navbar />
     <Routes>
       <Route path='/' element={<Landing />} />
       <Route path='*' element={<ErrorView />} />
       <Route path='team' element={<Team />} />
     </Routes>
-    <Navbar />
   </div>
 )
 
