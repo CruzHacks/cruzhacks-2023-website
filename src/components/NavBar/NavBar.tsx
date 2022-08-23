@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "./NavBar.scss"
 
 const NavBar: React.FC = () => (
-  <nav className='nav'>
-    <ul>
+  <nav className='nav__container'>
+    <ul className='nav__container--items'>
       <li>
         <Link to='/'>Home</Link>
       </li>
