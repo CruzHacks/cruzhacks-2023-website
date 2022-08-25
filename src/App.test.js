@@ -24,9 +24,7 @@ test("clicking Home from Team component renders appropriately", () => {
   // team component render persists here from prev
   const elem = screen.getByText(/Home/i)
   fireEvent.click(elem)
-  expect(
-    screen.getByText(/CruzHacks 2023/i)
-  ).toBeInTheDocument()
+  expect(screen.getByText(/CruzHacks 2023/i)).toBeInTheDocument()
 })
 
 test("landing on bad route", () => {
