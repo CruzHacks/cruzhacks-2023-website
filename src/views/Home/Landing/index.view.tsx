@@ -1,8 +1,10 @@
 import React, { useState } from "react"
 import "./index.scss"
+import axios from "axios"
 
 const Landing: React.FC = () => {
   const [email, setEmail] = useState<string>("")
+  const MAILCHIMP_API_KEY = process.env.REACT_APP_MAILCHIMP_API_KEY || ""
   return (
     <div className='landing__container'>
       <div className='landing__container__title'>CruzHacks 2023</div>
@@ -15,7 +17,20 @@ const Landing: React.FC = () => {
             className='landing__container__inputs__row1__button1'
             onChange={e => setEmail(e.target.value)}
           />
-          <button className='landing__container__inputs__row1__button2'>
+          <button className='landing__container__inputs__row1__button2' 
+          onClick={()=>{ 
+            axios({
+              method: 'get',
+              url: `${process.env.REACT_APP_MAILCHIMP_ENDPOINT}/cruzhacks-4a899/us-central1/subscribe`,
+              headers: {
+                'autentication' : MAILCHIMP_API_KEY,
+                'content-type' : 'application/json'
+              },
+              data: {
+                "email" : email
+              }
+            })
+          }}>
             --&gt;
           </button>
         </div>
