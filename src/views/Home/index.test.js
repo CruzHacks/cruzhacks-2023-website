@@ -4,7 +4,7 @@ import Home from "./index.view.tsx"
 
 test("renders welcome text", () => {
   render(<Home />)
-  const elem = screen.getByText(/Welcome CruzHacks 2023 Engineers!/i)
+  const elem = screen.getByText(/CruzHacks 2023/i)
   expect(elem).toBeInTheDocument()
 })
 
