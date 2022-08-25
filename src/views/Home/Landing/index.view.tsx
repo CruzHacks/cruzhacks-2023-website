@@ -17,20 +17,22 @@ const Landing: React.FC = () => {
             className='landing__container__inputs__row1__button1'
             onChange={e => setEmail(e.target.value)}
           />
-          <button className='landing__container__inputs__row1__button2' 
-          onClick={()=>{ 
-            axios({
-              method: 'get',
-              url: `${process.env.REACT_APP_MAILCHIMP_ENDPOINT}/cruzhacks-4a899/us-central1/subscribe`,
-              headers: {
-                'autentication' : MAILCHIMP_API_KEY,
-                'content-type' : 'application/json'
-              },
-              data: {
-                "email" : email
-              }
-            })
-          }}>
+          <button
+            className='landing__container__inputs__row1__button2'
+            onClick={() => {
+              axios({
+                method: "get",
+                url: `${process.env.REACT_APP_MAILCHIMP_ENDPOINT}/cruzhacks-4a899/us-central1/subscribe`,
+                headers: {
+                  autentication: MAILCHIMP_API_KEY,
+                  "content-type": "application/json",
+                },
+                data: {
+                  email: email,
+                },
+              })
+            }}
+          >
             --&gt;
           </button>
         </div>
