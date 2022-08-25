@@ -22,7 +22,8 @@ const Landing: React.FC = () => {
             onClick={() => {
               axios({
                 method: "get",
-                url: `${process.env.REACT_APP_MAILCHIMP_ENDPOINT}/cruzhacks-4a899/us-central1/subscribe`,
+                url: `${process.env.REACT_APP_MAILCHIMP_ENDPOINT}
+                /cruzhacks-4a899/us-central1/subscribe`,
                 headers: {
                   autentication: MAILCHIMP_API_KEY,
                   "content-type": "application/json",
