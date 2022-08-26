@@ -7,21 +7,26 @@
   border: 5px solid black;
   padding: 5px;
 
-  &__inputs {
+  &--inputs {
     margin-top: 5px;
 
     &__row1 {
       margin-bottom: 5px;
 
-      &__button1 {
+      &--button1 {
         margin-right: 5px;
       }
     }
 
     &__row2 {
-      &__button1 {
+      &--button1 {
         margin-right: 5px;
       }
+    }
+  }
+  &--res {
+    &__error{
+      color: red;
     }
   }
 }
