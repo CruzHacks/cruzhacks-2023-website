@@ -1,3 +1,33 @@
 .landing__container {
-  text-align: center;
+  margin-left: 70%;
+  margin-top: 10%;
+  text-align: left;
+  align-items: center;
+  width: 300px;
+  border: 5px solid black;
+  padding: 5px;
+
+  &--inputs {
+    margin-top: 5px;
+
+    &__row1 {
+      margin-bottom: 5px;
+
+      &--button1 {
+        margin-right: 5px;
+      }
+    }
+
+    &__row2 {
+      &--button1 {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &--res {
+    &__error {
+      color: red;
+    }
+  }
 }

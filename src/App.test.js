@@ -8,7 +8,7 @@ import App from "./App.tsx"
 
 test("renders welcome text", () => {
   render(<App />, { wrapper: BrowserRouter })
-  const elem = screen.getByText(/Welcome CruzHacks 2023 Engineers!/i)
+  const elem = screen.getByText(/CruzHacks 2023/i)
   expect(elem).toBeInTheDocument()
 })
 
@@ -24,9 +24,7 @@ test("clicking Home from Team component renders appropriately", () => {
   // team component render persists here from prev
   const elem = screen.getByText(/Home/i)
   fireEvent.click(elem)
-  expect(
-    screen.getByText(/Welcome CruzHacks 2023 Engineers!/i)
-  ).toBeInTheDocument()
+  expect(screen.getByText(/CruzHacks 2023/i)).toBeInTheDocument()
 })
 
 test("landing on bad route", () => {
