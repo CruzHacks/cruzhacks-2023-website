@@ -2,9 +2,30 @@ import React from "react"
 import { render, screen, fireEvent } from "@testing-library/react"
 import { BrowserRouter, MemoryRouter } from "react-router-dom"
 import App from "./App.tsx"
+import crypto from "crypto"
 
 /* See: https://testing-library.com/docs/example-react-router/
  */
+
+Object.defineProperty(window.self, "crypto", {
+  value: {
+    getRandomValues: arr => crypto.randomBytes(arr.length),
+  },
+})
+window.crypto.subtle = {}
+
+jest.mock("@auth0/auth0-react", () => ({
+  Auth0Provider: ({ children }) => children,
+  withAuthenticationRequired: component => component,
+  useAuth0: () => {
+    return {
+      isLoading: false,
+      user: { sub: "foobar" },
+      isAuthenticated: true,
+      loginWithRedirect: jest.fn(),
+    }
+  },
+}))
 
 test("renders welcome text", () => {
   render(<App />, { wrapper: BrowserRouter })
