@@ -10,22 +10,23 @@
   border: 3px solid var(--color-bg-secondary);
   box-sizing: border-box;
   border-radius: 14px;
+
   @include typography.button-text;
   text-align: center;
   text-decoration: none;
 
   // default styling - transparent
-  color: #FFFFFF;
+  color: #fff;
   background: transparent;
 
   &:hover {
-    color: #D9Efff;
+    color: #d9efff;
   }
 
   &:disabled {
     cursor: not-allowed;
-    border: 3px solid #8C8C8C;
-    color: #8C8C8C;
+    border: 3px solid #8c8c8c;
+    color: #8c8c8c;
     background: #505050;
   }
 
@@ -41,5 +42,4 @@
       color: var(--color-bg-secondary);
     }
   }
-
 }
