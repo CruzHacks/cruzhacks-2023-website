@@ -1,0 +1,36 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.resendVerification-component {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8%;
+    &__recaptcha {
+        margin-bottom: 5%;
+    }
+    &__response {
+        text-align: center;
+        margin-top: 2%;
+        font-family: "Source Sans Pro", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        @include responsiveness.font(3.1vw, 14px, 32px);
+
+        @include responsiveness.screen(smallest, mobile) {
+            @include responsiveness.font(3.5vw, 12px, 20px);
+        }
+
+        @include responsiveness.screen(desktop, big-desktop) {
+            margin-bottom: 4%;
+            font-size: 32px;
+        }
+    }
+    
+}
+
+// .g-recaptcha {
+//     transform:scale(0.77);
+//     transform-origin:0 0;
+// }

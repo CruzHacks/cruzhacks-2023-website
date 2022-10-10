@@ -1,0 +1,34 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.verify-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    @include responsiveness.screen(tablet) {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+
+    &__text {
+        text-align: center;
+        margin-bottom: 8%;
+        font-family: "Source Sans Pro", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        @include responsiveness.font(3.1vw, 14px, 32px);
+
+        @include responsiveness.screen(smallest, mobile) {
+            @include responsiveness.font(3.5vw, 12px, 20px);
+        }
+
+        @include responsiveness.screen(desktop, big-desktop) {
+            margin-bottom: 4%;
+            font-size: 32px;
+        }
+    }
+}
