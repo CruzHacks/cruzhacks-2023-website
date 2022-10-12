@@ -8,3 +8,13 @@ body,
   padding: 0;
   overscroll-behavior: contain;
 }
+
+.app {
+  .app--light {
+    background-color: white;
+  }
+
+  .app--dark {
+    background-color: black;
+  }
+}
