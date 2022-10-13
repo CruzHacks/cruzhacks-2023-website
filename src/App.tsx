@@ -6,21 +6,26 @@ import Team from "./views/Team/index.view"
 import NavBar from "./components/NavBar/NavBar"
 import "./App.scss"
 import { Routes, Route } from "react-router-dom"
+import ThemeController from "./components/ThemeController"
 
 const App: React.FC = () => (
-  <div className='App'>
+  <div className='app'>
     <Auth0ProviderWithHistory
       domain={process.env.REACT_APP_AUTH0_DOMAIN || ""}
       clientId={process.env.REACT_APP_AUTH0_CLIENTID || ""}
       audience={process.env.REACT_APP_AUTH0_AUDIENCE || ""}
       redirectUri={window.location.origin}
     >
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='*' element={<ErrorView />} />
-        <Route path='team' element={<Team />} />
-      </Routes>
+      <ThemeController>
+        <>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='*' element={<ErrorView />} />
+            <Route path='team' element={<Team />} />
+          </Routes>
+        </>
+      </ThemeController>
     </Auth0ProviderWithHistory>
   </div>
 )
