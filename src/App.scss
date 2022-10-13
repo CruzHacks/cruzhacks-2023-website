@@ -12,9 +12,11 @@ body,
 .app {
   .app--light {
     background-color: white;
+    color: black;
   }
 
   .app--dark {
     background-color: black;
+    color: white;
   }
 }

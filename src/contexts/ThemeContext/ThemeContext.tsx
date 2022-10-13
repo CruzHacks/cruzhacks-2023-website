@@ -28,7 +28,7 @@ interface Props {
 const StateProvider: React.FC<Props> = ({ children }: Props) => {
   const [theme, setTheme] = useState(initialTheme)
 
-  console.log("Theme is", theme)
+  // console.log("Theme is", theme)
 
   return (
     <ThemeContext.Provider value={[theme, setTheme]}>
