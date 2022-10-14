@@ -1,22 +1,22 @@
 // update when color theme available
 
 // dark theme colors
-$darkDarkBlue: #081428;
-$darkNavyBlue: #142132;
-$darkDarkPurple: #2a1d3e;
-$darkWhite: #fdfffa;
-$darkGreen: #7dcfb6;
-$darkFadedBlue: #5b85aa;
-$darkLightBlue: #4ba5d7;
+$dark-dark-blue: #081428;
+$dark-navy-blue: #142132;
+$dark-dark-purple: #2a1d3e;
+$dark-white: #fdfffa;
+$dark-green: #7dcfb6;
+$dark-faded-blue: #5b85aa;
+$dark-light-blue: #4ba5d7;
 
 // light theme colors
-$lightDarkBlue: #194263;
-$lightGreen: #649185;
-$lightFadedBlue: #395477;
-$lightLightOrange: #d68c74;
-$lightOrange: #d45c3e;
-$lightBlue: #3d8dba;
-$lightLightBlue: #4ba5d7;
+$light-dark-blue: #194263;
+$light-green: #649185;
+$light-faded-blue: #395477;
+$light-light-orange: #d68c74;
+$light-orange: #d45c3e;
+$light-blue: #3d8dba;
+$light-light-blue: #4ba5d7;
 
 @mixin dark-background {
   background: linear-gradient(

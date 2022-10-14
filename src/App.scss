@@ -13,10 +13,10 @@ body,
 
 .app {
   .app--light {
-    @include variables.light--background;
+    @include variables.light-background;
   }
 
   .app--dark {
-    @include variables.dark--background;
+    @include variables.dark-background;
   }
 }
