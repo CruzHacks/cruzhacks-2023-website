@@ -1,6 +1,6 @@
 // update when fonts are selected
-@mixin navbar-font {
-  font-family: "Nunito";
+@mixin navbar {
+  font-family: Nunito;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -9,8 +9,8 @@
 }
 
 // Front page Cruzhacks 2023
-@mixin h1-font {
-  font-family: "Montserrat";
+@mixin h1 {
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 700;
   font-size: 90px;
@@ -18,16 +18,16 @@
 }
 
 // About Us
-@mixin h2-font {
-  font-family: "Montserrat";
+@mixin h2 {
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 700;
   font-size: 64px;
   line-height: 78px;
 }
 
-@mixin subheader-font {
-  font-family: "Inter";
+@mixin subheader {
+  font-family: Inter;
   font-style: normal;
   font-weight: 600;
   font-size: 40px;
@@ -36,8 +36,8 @@
   text-transform: uppercase;
 }
 
-@mixin para-font {
-  font-family: "Nunito";
+@mixin para {
+  font-family: Nunito;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
