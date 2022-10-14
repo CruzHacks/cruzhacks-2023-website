@@ -1,24 +1,24 @@
 // update when color theme available
 
 // dark theme colors
-$dark--dark-blue: #081428;
-$dark--navy-blue: #142132;
-$dark--dark-purple: #2a1d3e;
-$dark--white: #fdfffa;
-$dark--green: #7dcfb6;
-$dark--faded-blue: #5b85aa;
-$dark--light-blue: #4ba5d7;
+$dark-darkBlue: #081428;
+$dark-navyBlue: #142132;
+$dark-darkPurple: #2a1d3e;
+$dark-white: #fdfffa;
+$dark-green: #7dcfb6;
+$dark-fadedBlue: #5b85aa;
+$dark-lightBlue: #4ba5d7;
 
 // light theme colors
-$light--dark-blue: #194263;
-$light--green: #649185;
-$light--faded-blue: #395477;
-$light--light-orange: #d68c74;
-$light--orange: #d45c3e;
-$light--blue: #3d8dba;
-$light--light-blue: #4ba5d7;
+$light-darkBlue: #194263;
+$light-green: #649185;
+$light-fadedBlue: #395477;
+$light-lightOrange: #d68c74;
+$light-orange: #d45c3e;
+$light-blue: #3d8dba;
+$light-lightBlue: #4ba5d7;
 
-@mixin dark--background {
+@mixin dark-background {
   background: linear-gradient(
     180deg,
     #081428 22.92%,
@@ -27,19 +27,19 @@ $light--light-blue: #4ba5d7;
   );
 }
 
-@mixin dark--about-background {
+@mixin dark-about-background {
   background: linear-gradient(
     180deg,
-    rgba(57, 39, 84, 0.7) 0%,
+    rgba(57, 39, 84, 70%) 0%,
     rgba(42, 29, 62, 0) 100%
   );
 }
 
-@mixin light--background {
+@mixin light-background {
   background: linear-gradient(
     180deg,
-    rgba(51, 104, 146, 0.3) 0%,
-    rgba(255, 204, 0, 0.3) 68.75%,
-    rgba(244, 247, 142, 0.3) 100%
+    rgba(51, 104, 146, 30%) 0%,
+    rgba(255, 204, 0, 30%) 68.75%,
+    rgba(244, 247, 142, 30%) 100%
   );
 }
