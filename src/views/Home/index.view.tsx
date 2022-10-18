@@ -1,5 +1,4 @@
 import React from "react"
-import About from "./About/index.view"
 import FAQs from "./FAQs/index.view"
 import Gallery from "./Gallery/index.view"
 import Landing from "./Landing/index.view"
@@ -12,7 +11,6 @@ import Tracks from "./Tracks/index.view"
 const Home: React.FC = () => (
   <div className='home__container'>
     <Landing />
-    <About />
     <Tracks />
     <Stats />
     <FAQs />
