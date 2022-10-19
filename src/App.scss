@@ -1,3 +1,5 @@
+@use "stylesheets/variables";
+
 html,
 body,
 #root,
@@ -11,12 +13,10 @@ body,
 
 .app {
   .app--light {
-    background-color: white;
-    color: black;
+    @include variables.light-background;
   }
 
   .app--dark {
-    background-color: black;
-    color: white;
+    @include variables.dark-background;
   }
 }
