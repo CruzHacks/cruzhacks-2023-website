@@ -28,6 +28,10 @@ const FAQs: React.FC = () => {
           />
         </div>
       </div>
+      <div className='faqs__container--blurb'>
+        <h3>{"Can't find your question?"}</h3>
+        <p>Email us at cruzhacks2023@gmail.com</p>
+      </div>
     </div>
   )
 }
