@@ -44,6 +44,11 @@
       border-radius: 2px;
     }
 
+    /* Morph the shape when the button is hovered over */
+    .open span {
+      transform: rotate(90deg);
+    }
+
     /* Create the "+" shape by positioning the spans absolutely */
     button span:first-child {
       top: 0%;
@@ -67,13 +72,9 @@
       background: $dark-green;
     }
 
-    .open button span {
-      transform: rotate(90deg);
-
-      &:last-child {
-        left: 50%;
-        right: 50%;
-      }
+    .open span:last-child {
+      left: 50%;
+      right: 50%;
     }
   }
 
