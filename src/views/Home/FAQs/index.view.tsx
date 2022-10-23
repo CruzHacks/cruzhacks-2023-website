@@ -16,6 +16,14 @@ const FAQs: React.FC = () => {
             question='Where will CruzHacks take place?'
             answer='this is the answer to the question'
           />
+          <QaBlurb
+            question='Where will CruzHacks take place?'
+            answer='this is the answer to the question'
+          />
+          <QaBlurb
+            question='Where will CruzHacks take place?'
+            answer='this is the answer to the question'
+          />
         </div>
         <div className='faqs__container--qas--right'>
           <QaBlurb

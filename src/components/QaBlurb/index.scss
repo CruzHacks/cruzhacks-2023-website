@@ -22,6 +22,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 1.5em;
+    align-items: center;
 
     h3 {
       margin: 0;
@@ -81,7 +83,7 @@
   p {
     margin: 0;
     padding: 1em 0;
-    height: 5em;
+    height: 7.1em;
 
     .app--dark & {
       color: $dark-gray;
