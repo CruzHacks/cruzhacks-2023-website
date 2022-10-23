@@ -40,9 +40,11 @@
 
   &--blurb {
     float: right;
-    width: 20em;
+    width: 18em;
     margin-top: 3em;
     padding: 1.5em;
+    position: relative;
+    transition: margin-right 300ms;
 
     background-color: $dark-gray;
     box-shadow: 0 0 16px rgb(255 255 255 / 25%);
@@ -60,6 +62,18 @@
     p {
       margin: 0;
     }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      right: 50px;
+      border-width: 15px 15px 0;
+      border-style: solid;
+      border-color: $dark-gray transparent;
+      display: block;
+      width: 0;
+    }
   }
 }
 
@@ -68,6 +82,14 @@
     &--qas {
       flex-direction: column;
       gap: 1em;
+    }
+  }
+}
+
+@media only screen and (min-width: 1220px) {
+  .faqs__container {
+    &--blurb {
+      margin-right: -100px;
     }
   }
 }
