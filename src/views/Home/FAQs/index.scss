@@ -63,7 +63,7 @@
       margin: 0;
     }
 
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       bottom: -15px;
