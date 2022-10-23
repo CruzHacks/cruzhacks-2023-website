@@ -28,7 +28,7 @@ test("renders stats text", () => {
 
 test("renders FAQs text", () => {
   render(<Home />)
-  const elem = screen.getByText(/FAQ/i)
+  const elem = screen.getByText(/Q&A/i)
   expect(elem).toBeInTheDocument()
 })
 
