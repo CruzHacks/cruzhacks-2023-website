@@ -8,6 +8,8 @@ import "./App.scss"
 import { Routes, Route } from "react-router-dom"
 import ThemeController from "./components/ThemeController"
 
+import "./App.scss"
+
 const App: React.FC = () => (
   <div className='app'>
     <Auth0ProviderWithHistory

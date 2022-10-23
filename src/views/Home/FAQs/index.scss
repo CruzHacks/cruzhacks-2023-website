@@ -1,3 +1,52 @@
+@use "../../../stylesheets/variables";
+
 .faqs__container {
   text-align: center;
+  flex-direction: row;
+
+  h2 {
+    padding-bottom: 1em;
+  }
+
+  padding: 2em 0;
+
+  &--qas {
+    display: flex;
+    gap: 2.5em;
+    flex-direction: row;
+    align-items: stretch;
+    transition: 300ms;
+
+    h3 {
+      font-weight: normal;
+    }
+
+    &--left {
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      //
+    }
+
+    &--right {
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      // width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  .faqs__container {
+    &--qas {
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
 }

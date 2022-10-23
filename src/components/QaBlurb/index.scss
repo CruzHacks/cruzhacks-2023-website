@@ -1,0 +1,92 @@
+@import "../../stylesheets/variables";
+
+.qablurb__container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  padding: 1em;
+
+  .app--dark & {
+    background: $dark-dark-purple;
+  }
+
+  .app--light & {
+    background: $light-orange;
+  }
+
+  box-shadow: 0px 0px 7px #E7E7E7;
+  border-radius: 12px;
+
+  &--question {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0px;
+    }
+
+    button {
+      background: none;
+      width: 0.8em;
+      height: 0.8em;
+      border: 0;
+      font-size: 1.5em;
+      position: relative;
+    }
+
+
+    button span {
+      position: absolute;
+      // background: $dark-green;
+      transition: 300ms;
+      border-radius: 2px;
+    }
+
+    .app--light & button span {
+      background: $dark-white;
+    }
+
+    .app--dark & button span {
+      background: $dark-green;
+    }
+
+    /* Create the "+" shape by positioning the spans absolutely */
+    button span:first-child {
+      top: 0%;
+      bottom: 0%;
+      width: 10%;
+      left: 45%;
+    }
+
+    button span:last-child {
+      left: 0%;
+      right: 0%;
+      height: 10%;
+      top: 45%;
+    }
+
+    /* Morph the shape when the button is hovered over */
+    .open span {
+      transform: rotate(90deg);
+    }
+
+    .open span:last-child {
+      left: 50%;
+      right: 50%;
+    }
+
+  }
+
+  p {
+    margin: 0px;
+    padding: 1em 0;
+    height: 5em;
+
+    .app--dark & {
+      color: $dark-gray;
+    }
+  }
+
+}

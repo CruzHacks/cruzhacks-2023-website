@@ -9,6 +9,8 @@ import Sponsors from "./Sponsors/index.view"
 import Stats from "./Stats/index.view"
 import Tracks from "./Tracks/index.view"
 
+import "./index.scss"
+
 const Home: React.FC = () => (
   <div className='home__container'>
     <Landing />
