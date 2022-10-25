@@ -27,6 +27,18 @@ jest.mock("@auth0/auth0-react", () => ({
   },
 }))
 
+jest.mock("./contexts/ThemeContext/ThemeContext.tsx", () => ({
+  ThemeProvider: ({ children }) => children,
+  useTheme: () => {
+    return {
+      theme: {
+        mode: "dark"
+      },
+      toggleTheme: jest.fn(),
+    }
+  },
+}))
+
 test("renders welcome text", () => {
   render(<App />, { wrapper: BrowserRouter })
   const elem = screen.getByText(/CruzHacks 2023/i)

@@ -6,7 +6,7 @@ import Team from "./views/Team/index.view"
 import NavBar from "./components/NavBar/NavBar"
 import "./App.scss"
 import { Routes, Route } from "react-router-dom"
-import ThemeController from "./components/ThemeController"
+import ThemeProvider from "./contexts/ThemeContext/ThemeContext"
 
 import "./App.scss"
 
@@ -18,7 +18,7 @@ const App: React.FC = () => (
       audience={process.env.REACT_APP_AUTH0_AUDIENCE || ""}
       redirectUri={window.location.origin}
     >
-      <ThemeController>
+      <ThemeProvider>
         <>
           <NavBar />
           <Routes>
@@ -27,7 +27,7 @@ const App: React.FC = () => (
             <Route path='team' element={<Team />} />
           </Routes>
         </>
-      </ThemeController>
+      </ThemeProvider>
     </Auth0ProviderWithHistory>
   </div>
 )
