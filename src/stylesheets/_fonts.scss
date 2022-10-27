@@ -1,12 +1,14 @@
-@import "https://fonts.googleapis.com/css?family=Nunito|Monsterrat|Inter";
+@import "https://fonts.googleapis.com/css?family=Nunito|Nunito Sans|Monsterrat|Inter|Barlow";
 
+$nunito_sans: "Nunito Sans", sans-serif;
 $nunito: "Nunito", sans-serif;
 $monsterrat: "Monsterrat", sans-serif;
 $inter: "Inter", sans-serif;
+$barlow: "Barlow", sans-serif;
 
 // update when fonts are selected
 @mixin navbar {
-  font-family: $nunito;
+  font-family: $nunito_sans;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -16,7 +18,7 @@ $inter: "Inter", sans-serif;
 
 // Front page Cruzhacks 2023
 @mixin h1 {
-  font-family: $montserrat;
+  font-family: $barlow;
   font-style: normal;
   font-weight: 700;
   font-size: 90px;
@@ -25,7 +27,7 @@ $inter: "Inter", sans-serif;
 
 // About Us
 @mixin h2 {
-  font-family: $montserrat;
+  font-family: $barlow;
   font-style: normal;
   font-weight: 700;
   font-size: 64px;
@@ -43,7 +45,7 @@ $inter: "Inter", sans-serif;
 }
 
 @mixin para {
-  font-family: $nunito;
+  font-family: $nunito_sans;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;

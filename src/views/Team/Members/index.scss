@@ -1,0 +1,44 @@
+@import "../../../stylesheets/variables";
+@import "../../../stylesheets/fonts";
+
+.members__container {
+  position: absolute;
+  width: 1195px;
+  height: 48px;
+  left: 134px;
+  top: 1265px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  text-transform: uppercase;
+
+  & --thanks {
+    position: absolute;
+    width: 1023px;
+    height: 50px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+  }
+
+  &--names {
+    position: absolute;
+    width: 824px;
+    height: 100px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+  }
+}

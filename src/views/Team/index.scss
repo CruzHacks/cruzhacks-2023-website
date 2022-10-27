@@ -1,3 +1,17 @@
+@import "../../stylesheets/variables";
+@import "../../stylesheets/fonts";
+
 .team__container {
   text-align: center;
+  flex-direction: column;
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2em;
+  overflow: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(57 39 84 / 70%) 0%,
+    rgba(42 29 62 / 0%) 100%
+  );
 }
