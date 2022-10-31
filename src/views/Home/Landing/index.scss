@@ -1,146 +1,150 @@
 @import '../../../stylesheets/fonts';
 @import '../../../stylesheets/variables';
+@import '../../../stylesheets/responsiveness';
 
-.landing__container {
-  margin-left: 40%;
-  margin-top: 10%;
-  width: 55%;
-  padding: 5px;
-  @media screen and (max-width: 700px) {
-    text-align: center;
-    margin-left: 0%;
-    width: 95%;
-  }
 
-  &--title {
-    @include title;
-    @media screen and (max-width: 700px) {
-      font-size: 36px;
-    }
-  }
-
-  &--blurb {
-    margin-top: 50px;
-    @include para;
-    color: #CFD1D4;
-    margin-bottom: 4rem;
-  }
-
-  &--inputs {
-    width: 80%;
-    margin-top: 10px;
-    text-align: center;
-    @media screen and (max-width: 700px) {
-      width: 100%;
+.landing {
+  &__container {
+    margin-left: 40%;
+    margin-top: 10%;
+    width: 55%;
+    padding: 5px;
+    @media screen and (max-width: $medium) {
+      text-align: center;
+      margin-left: 0%;
+      width: 95%;
     }
 
-    &__row-container {
-      display: flex;
-      justify-content: center;
-      &__row1 {
-        margin-bottom: 10px;
-        background-color: white;
-        width: 70%;
-        padding-left: 5px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        padding-right: 5px;
-        border-radius: 5px;
-        display: grid;
-        grid-template-columns: 6fr 1fr;
-        min-width: fit-content;
+    &--title {
+      @include title;
+      @media screen and (max-width: $medium) {
+        font-size: 36px;
+      }
+    }
+
+    &--blurb {
+      margin-top: 50px;
+      @include para;
+      color: #CFD1D4;
+      margin-bottom: 4rem;
+    }
+
+    &--inputs {
+      width: 80%;
+      margin-top: 10px;
+      text-align: center;
+      @media screen and (max-width: $medium) {
+        width: 100%;
+      }
+
+      &__row-container {
         display: flex;
-        align-items: center;
-      
-        &--email-input {
-          text-overflow: ellipsis;
-          &:focus {
-            outline: none;
-          }
-          border: none;
-        }
-
-        &__arrow-container {
-          width: 100%;
+        justify-content: center;
+        &__row1 {
+          margin-bottom: 10px;
+          background-color: white;
+          width: 70%;
+          padding-left: 5px;
+          padding-top: 2px;
+          padding-bottom: 2px;
+          padding-right: 5px;
+          border-radius: 5px;
+          display: grid;
+          grid-template-columns: 6fr 1fr;
+          min-width: fit-content;
           display: flex;
-          justify-content: right;
           align-items: center;
-          &--arrow {
-            background-color: $dark-purple;
+        
+          &--email-input {
+            text-overflow: ellipsis;
+            &:focus {
+              outline: none;
+            }
             border: none;
-            border-radius: 12px;
-            color: white;
+          }
+
+          &__arrow-container {
+            width: 100%;
             display: flex;
+            justify-content: right;
             align-items: center;
-            justify-content: center;
-            height: 2rem;
-            width: 2.5rem;
+            &--arrow {
+              background-color: $dark-purple;
+              border: none;
+              border-radius: 12px;
+              color: white;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 2rem;
+              width: 2.5rem;
+            }
+          }
+        }
+      }
+
+      &__row2 {
+        &--button1 {
+          @include para;
+          color: white;
+          font-size: 1rem;
+          width: 35%;
+          min-width: 10rem;
+          background-color: transparent;
+          outline: none;
+          border-width: 3px;
+          border-radius: 12px;
+          border-color: $dark-purple;
+          border-style: solid;
+          margin: 5px;
+          
+          &:active {
+            border-style: solid;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        &--button2 {
+          @include para;
+          font-size: 1rem;
+          width: 35%;
+          min-width: 10rem;
+          border-radius: 12px;
+          border-width: 3px;
+          border-style: solid;
+          background-color: $dark-purple;
+          border-color: $dark-purple;
+          margin: 5px;
+
+          &:active {
+            border-style: solid;
+          }
+
+          &:hover {
+            cursor: pointer;
           }
         }
       }
     }
 
-    &__row2 {
-      &--button1 {
-        @include para;
-        color: white;
-        font-size: 1rem;
-        width: 35%;
-        min-width: 10rem;
-        background-color: transparent;
-        outline: none;
-        border-width: 3px;
-        border-radius: 12px;
-        border-color: $dark-purple;
-        border-style: solid;
-        margin: 5px;
-        
-        &:active {
-          border-style: solid;
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
+    &--res {
+      &__error {
+        color: red;
       }
-
-      &--button2 {
-        @include para;
-        font-size: 1rem;
-        width: 35%;
-        min-width: 10rem;
-        border-radius: 12px;
-        border-width: 3px;
-        border-style: solid;
-        background-color: $dark-purple;
-        border-color: $dark-purple;
-        margin: 5px;
-
-        &:active {
-          border-style: solid;
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-  &--res {
-    &__error {
-      color: red;
     }
   }
 }
-
 .landing__socials {
   width: fit-content;
   height: 200px;
   margin-left: 20px;
+  margin-top: 100px;
   display: flex;
   justify-content: center;
-  @media screen and (max-width: 700px ) {
+  @media screen and (max-width: $medium ) {
    margin-left: 0px;
    width: 100%;
   }
@@ -156,12 +160,14 @@
   &--svg {
     height: 52px;
     width: 52px;
-    filter: grayscale(100%) sepia(100%);
     margin-left: 10px;
     margin-right: 10px; 
-    @media screen and (max-width: 700px ) {
+    @media screen and (max-width: $medium) {
       height: 33px;
       width: 33px;
+    }
+    &:hover {
+
     }
   }
 }

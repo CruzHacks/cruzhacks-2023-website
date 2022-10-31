@@ -1,4 +1,4 @@
-import React, { ReactComponentElement, useState } from "react"
+import React, { useState } from "react"
 import { subscribeMailchimp } from "../../../utils/api"
 import { validateEmail } from "../../../utils/validate"
 import "./index.scss"
@@ -53,7 +53,7 @@ const Landing: React.FC = () => {
     })
   }
   return (
-    <div>
+    <div className='landing'>
       <div className='landing__container'>
         <div className='landing__container--title'>CRUZHACKS 2023</div>
         <div className='landing__container--blurb'>
