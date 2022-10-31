@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./index.scss"
 import { useAuth0 } from "@auth0/auth0-react"
-import NavBar from "../../components/NavBar/NavBar"
+import NavBar from "../../components/NavBar"
 import ResendVerification from "../../components/ResendVerification"
 import VerifyMessages from "./VerifyMessages/VerifyMessage"
 

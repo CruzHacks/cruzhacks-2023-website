@@ -3,7 +3,8 @@
 // dark theme colors
 $dark-dark-blue: #081428;
 $dark-navy-blue: #142132;
-$dark-dark-purple: #2a1d3e;
+$dark-dark-purple: #1b1b37;
+$dark-purple: #2a1d3e;
 $dark-white: #fdfffa;
 $dark-gray: #cfd1d4;
 $dark-green: #7dcfb6;
@@ -26,6 +27,8 @@ $light-light-blue: #4ba5d7;
     #13243c 52.08%,
     #243d5e 100%
   );
+
+  z-index: 1;
 }
 
 @mixin dark-about-background {
@@ -34,6 +37,8 @@ $light-light-blue: #4ba5d7;
     rgba(57 39 84 / 70%) 0%,
     rgba(42 29 62 / 0%) 100%
   );
+  transition: background 5s ease;
+  transition: background-color 5s ease;
 }
 
 @mixin light-background {
