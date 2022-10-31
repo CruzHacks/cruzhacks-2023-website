@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom"
 import ThemeProvider from "./contexts/ThemeContext/ThemeContext"
 
 import "./App.scss"
+import Footer from "./components/Footer"
 
 const App: React.FC = () => (
   <div className='app'>
@@ -26,6 +27,7 @@ const App: React.FC = () => (
             <Route path='*' element={<ErrorView />} />
             <Route path='team' element={<Team />} />
           </Routes>
+          <Footer />
         </>
       </ThemeProvider>
     </Auth0ProviderWithHistory>

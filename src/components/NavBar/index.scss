@@ -1,16 +1,17 @@
 @import "../../stylesheets/variables";
 
-.nav__container {
+.nav {
   position: fixed;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   top: 0;
   height: 4em;
-  width: 100%;
+  width: 100vw;
   z-index: 1000;
   box-shadow: 0 4px 11px #000;
-  transition: background-color 300ms ease;
 
   .app--dark & {
     background-color: $dark-dark-purple;
@@ -19,6 +20,18 @@
   .app--light & {
     background-color: $light-faded-blue;
   }
+
+}
+
+.nav__container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+
+  transition: background-color 300ms ease;
 
   a {
     text-decoration: none;

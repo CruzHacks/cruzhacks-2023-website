@@ -18,37 +18,39 @@ const NavBar: React.FC = () => {
   console.log(page)
 
   return (
-    <nav className='nav__container'>
-      <div className='nav__container--left'>
-        <img
-          src={process.env.PUBLIC_URL + "/logo_cruzhacks-main-white.svg"}
-          alt='CruzHacks Logo'
-        />
-        <ThemeSlider />
-      </div>
-      <div className='nav__container--right'>
-        <Link
-          className={
-            "nav__container--right--item " + (page == "/" ? "active" : "")
-          }
-          to='/'
-        >
-          <span className='nav__container--right--item__link'>Home</span>
-        </Link>
-        <Link
-          className={
-            "nav__container--right--item " + (page == "/team" ? "active" : "")
-          }
-          to='/team'
-        >
-          <span className='nav__container--right--item__link'>About Us</span>
-        </Link>
-        <span className='nav__container--right--item'>{auth()}</span>
-        <div className='nav__container--right--item'>
+    <nav className='nav'>
+      <div className='nav__container'>
+        <div className='nav__container--left'>
           <img
-            src={process.env.PUBLIC_URL + "/logo_MLH-main-white.svg"}
-            alt='Major League Hacking Logo'
+            src={process.env.PUBLIC_URL + "/logo_CRUZHACKS-main-white.svg"}
+            alt='CruzHacks Logo'
           />
+          <ThemeSlider />
+        </div>
+        <div className='nav__container--right'>
+          <Link
+            className={
+              "nav__container--right--item " + (page == "/" ? "active" : "")
+            }
+            to='/'
+          >
+            <span className='nav__container--right--item__link'>Home</span>
+          </Link>
+          <Link
+            className={
+              "nav__container--right--item " + (page == "/team" ? "active" : "")
+            }
+            to='/team'
+          >
+            <span className='nav__container--right--item__link'>About Us</span>
+          </Link>
+          <span className='nav__container--right--item'>{auth()}</span>
+          <div className='nav__container--right--item'>
+            <img
+              src={process.env.PUBLIC_URL + "/logo_MLH-main-white.svg"}
+              alt='Major League Hacking Logo'
+            />
+          </div>
         </div>
       </div>
     </nav>

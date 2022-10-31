@@ -10,19 +10,29 @@ import Stats from "./Stats/index.view"
 import Tracks from "./Tracks/index.view"
 
 import "./index.scss"
+import { useTheme } from "../../contexts/ThemeContext/ThemeContext"
 
-const Home: React.FC = () => (
-  <div className='home__container'>
-    <Landing />
-    <About />
-    <Tracks />
-    <Stats />
-    <FAQs />
-    <Gallery />
-    <Projects />
-    <Quotes />
-    <Sponsors />
-  </div>
-)
+const Home: React.FC = () => {
+  const [theme] = useTheme()
+
+  return (
+    <div className='home__container'>
+      <Landing />
+      <About />
+      <Tracks />
+      <Stats />
+      <FAQs />
+      <Gallery />
+      <Projects />
+      <Quotes />
+      <Sponsors />
+      <img
+        src={
+          process.env.PUBLIC_URL + "/illustration_footer-" + theme.mode + ".svg"
+        }
+      />
+    </div>
+  )
+}
 
 export default Home
