@@ -5,16 +5,17 @@ import TeamGrid from "../../../components/TeamGrid/index"
 const Members: React.FC = () => {
   return (
     <div className='members__container'>
-      <div>2023 Organizing Team</div>
+      <h3>2023 Organizing Team</h3>
       <div>
         <TeamGrid />
       </div>
-      <div className='members__container--thanks'>
-        Special thanks to our Board of Directors
-      </div>
-      <div className='members_container--names'>
-        Doug Erickson, Nathan Westrup, Amanda Rotella, Nada Milijkovic, and Drew
-        Meyer
+      <div className='members__container--names'>
+        <h4>Board of Directors</h4>
+        <h5>Doug Erickson</h5>
+        <h5>Nathan Westrup</h5>
+        <h5>Amanda Rotella</h5>
+        <h5>Nada Milijkovic</h5>
+        <h5>Drew Meyer</h5>
       </div>
     </div>
   )

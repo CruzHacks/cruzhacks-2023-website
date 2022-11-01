@@ -8,30 +8,28 @@
   width: 90%;
   max-width: 292px;
   min-height: 392px;
-  max-height: 500px;
-  margin: 3em 2.5em 0;
+  margin: 30px;
   @media (max-width: 320px) {
-    margin: 3em 10px 0;
+    margin: 250px;
   }
   border-radius: 27px;
-  padding-bottom: 10px;
-  background: linear-gradient(#34486b, #34486b) padding-box,
-    linear-gradient(to right, #bd9bf3, #c0cafc, #80b0f8) border-box;
   border: 4px solid transparent;
 
-  &__Image {
+  &--Image {
     display: block;
     margin-left: auto;
     margin-top: 10%;
     margin-right: auto;
-    height: 158px;
-    width: 158px;
+    margin-bottom: 10%;
+    height: 250px;
+    width: 250px;
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid white;
+    box-sizing: border-box;
   }
 
-  &__Name {
+  &--Name {
     font-family: $inter;
     font-style: normal;
     font-weight: 500;
@@ -40,7 +38,8 @@
 
     text-align: center;
   }
-  &__Title {
+
+  &--Title {
     font-family: $inter;
     font-style: normal;
     font-weight: 500;
@@ -48,16 +47,17 @@
     line-height: 29px;
 
     text-align: center;
+    color: #cbcbcb;
   }
 
-  &__Logo {
+  &--Logo {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
     margin-bottom: 30px;
 
-    &__LogoBg {
+    &--LogoBg {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -78,11 +78,12 @@
   }
 }
 
-.team-grid {
+.team-grid__container {
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: auto;
   width: 80%;
 
   @include responsiveness.screen(large-tablet) {

@@ -1,17 +1,18 @@
+@use "../../stylesheets/variables";
 @import "../../stylesheets/variables";
 @import "../../stylesheets/fonts";
+@import "../../App.scss";
 
 .team__container {
-  text-align: center;
+  display: flex;
   flex-direction: column;
 
-  max-width: 1000px;
+  max-width: 1500px;
+  height: 10000px;
   margin: 0 auto;
   padding: 0 2em;
-  overflow: auto;
-  background: linear-gradient(
-    180deg,
-    rgba(57 39 84 / 70%) 0%,
-    rgba(42 29 62 / 0%) 100%
-  );
+
+  .app--dark {
+    @include variables.dark-about-background;
+  }
 }

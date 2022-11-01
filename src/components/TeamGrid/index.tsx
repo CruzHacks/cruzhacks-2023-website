@@ -10,13 +10,13 @@ const MemberCard: React.FC<MemberProps> = ({
   title,
   LinkedInLink,
 }: MemberProps) => (
-  <div className=''>
-    <img src={image} alt={name} className='Member_Image' />
-    <div className='Member__Name'>{name}</div>
-    <div className='Member__Title'>{title}</div>
-    <div className='Member__Logo'>
+  <div className='Member'>
+    <img src={image} alt={name} className='Member--Image' />
+    <div className='Member--Name'>{name}</div>
+    <div className='Member--Title'>{title}</div>
+    <div className='Member--Logo'>
       <a href={LinkedInLink}>
-        <div className='Member__Logo__LogoBg'>
+        <div className='Member--Logo--LogoBg'>
           <img src={LiLogo} alt='LinkedIn Logo' />
         </div>
       </a>

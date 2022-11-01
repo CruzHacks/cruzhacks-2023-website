@@ -2,43 +2,46 @@
 @import "../../../stylesheets/fonts";
 
 .members__container {
-  position: absolute;
-  width: 1195px;
-  height: 48px;
-  left: 134px;
-  top: 1265px;
+  position: relative;
+  padding-top: 500px;
+  justify-content: center;
 
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: center;
-  text-transform: uppercase;
-
-  & --thanks {
-    position: absolute;
-    width: 1023px;
-    height: 50px;
-
+  h3 {
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
-    font-size: 48px;
-    line-height: 58px;
+    font-size: 40px;
+    line-height: 48px;
     text-align: center;
+    text-transform: uppercase;
   }
 
   &--names {
-    position: absolute;
-    width: 824px;
-    height: 100px;
+    position: relative;
+    justify-content: center;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 44px;
-    text-align: center;
+    h4 {
+      position: relative;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h5 {
+      position: relative;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 44px;
+      text-align: center;
+      text-transform: uppercase;
+    }
   }
 }

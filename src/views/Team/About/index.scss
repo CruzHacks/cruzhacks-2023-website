@@ -1,21 +1,19 @@
+@use "../../../stylesheets/variables";
+@use "../../../stylesheets/fonts";
 @import "../../../stylesheets/variables";
 @import "../../../stylesheets/fonts";
 
 .about__container {
-  .app--dark & {
-    background: $dark-violet;
-  }
-
-  .app--light & {
-    background: $light-orange;
-  }
+  text-align: center;
+  flex-direction: row;
 
   h2 {
-    position: absolute;
-    width: 360px;
-    height: 77px;
+    position: relative;
+    max-width: 360px;
+    max-height: 77px;
     left: 608px;
-    top: 285px;
+    top: 220px;
+    margin-bottom: 16px;
 
     font-family: $barlow;
     font-style: normal;
@@ -27,11 +25,12 @@
   }
 
   h3 {
-    position: absolute;
-    width: 1195px;
-    height: 48px;
+    position: relative;
+    max-width: 1195px;
+    max-height: 48px;
     left: 123px;
-    top: 845px;
+    top: 345px;
+    padding: 16px;
 
     font-family: $inter;
     font-style: normal;
@@ -51,13 +50,13 @@
       line-height: 33px;
       text-align: left;
 
-      position: absolute;
+      position: relative;
       width: 708px;
       height: 231px;
       left: 642px;
-      top: 378px;
+      top: 220px;
 
-      color: $dark-violet;
+      color: $dark-white;
     }
   }
 
@@ -66,14 +65,17 @@
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      padding: 5px 77px;
+      padding-top: 5px;
+      padding-left: 77px;
+      padding-right: 77px;
+      padding-bottom: 5px;
       gap: 10px;
 
-      position: absolute;
-      width: 279px;
-      height: 43px;
+      position: relative;
+      max-width: 300px;
+      max-height: 43px;
       left: 649px;
-      top: 660px;
+      top: 260px;
 
       font-family: $nunito;
       font-style: normal;
@@ -99,23 +101,39 @@
   }
 
   &--history {
-    p {
-      position: absolute;
-      width: 1078px;
-      height: 132px;
-      left: 180px;
-      top: 927px;
+    position: relative;
+    max-width: 1078px;
+    max-height: 132px;
+    left: 180px;
+    top: 360px;
 
-      font-family: $nunito_sans;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 33px;
-      text-align: justify;
-    }
+    font-family: $nunito_sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: justify;
+    color: $dark-white;
+  }
+
+  &--history-2 {
+    position: relative;
+    max-width: 1078px;
+    max-height: 132px;
+    left: 180px;
+    top: 380px;
+
+    font-family: $nunito_sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: justify;
+    color: $dark-white;
   }
 }
 
+/*
 @media only screen and (max-width: 800px) {
   .about__container {
     &--blurb {
@@ -128,7 +146,8 @@
 @media only screen and (min-width: 1220px) {
   .about__container {
     &--history {
-      margin-right: -100px;
+      margin-right: 100px;
     }
   }
 }
+*/

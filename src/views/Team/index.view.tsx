@@ -1,6 +1,7 @@
 import React from "react"
 import About from "./About/index.view"
 import Members from "./Members/index.view"
+
 import "./index.scss"
 
 const Team: React.FC = () => {
