@@ -4,11 +4,12 @@
 @import "../../stylesheets/fonts";
 
 .Member {
-  animation: fadeIn 1s;
+  animation: fade-in 1s;
   width: 90%;
   max-width: 292px;
   min-height: 392px;
   margin: 30px;
+
   @media (max-width: 320px) {
     margin: 250px;
   }
@@ -20,7 +21,6 @@
     margin-left: auto;
     margin-top: 10%;
     margin-right: auto;
-    margin-bottom: 10%;
     height: 250px;
     width: 250px;
     object-fit: cover;
@@ -35,6 +35,7 @@
     font-weight: 500;
     font-size: 32px;
     line-height: 39px;
+    margin-top: 20px;
 
     text-align: center;
   }
@@ -69,17 +70,18 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
 
 .team-grid__container {
-  margin-top: 40px;
+  // margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
