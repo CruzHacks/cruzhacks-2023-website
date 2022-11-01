@@ -1,9 +1,13 @@
 import React from "react"
+import Logo from "../../../images/icons/LogowStars.svg"
 import "./index.scss"
 
 const About: React.FC = () => {
   return (
     <div className='about__container'>
+      <div className='about__container--logo'>
+        <img src={Logo} alt='CruzHacks Logo' />
+      </div>
       <h2>About Us</h2>
       <div className='about__container--blurb'>
         <p>
@@ -16,10 +20,11 @@ const About: React.FC = () => {
           sparking the drive to innovate within all our participants.
         </p>
       </div>
-      {/* TODO: Add Sponsor button functionality */}
-      <div className='about__container--sponsor'>
-        <button>Sponsor Us</button>
-      </div>
+      <a href='mailto:sponsor@cruzhacks.com'>
+        <div className='about__container--sponsor'>
+          <button>Sponsor Us</button>
+        </div>
+      </a>
       <h3>Our History</h3>
       <div className='about__container--history'>
         CruzHacks was founded in 2013 as Hack UCSC by Mark Adams, Brent Haddad,

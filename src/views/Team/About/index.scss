@@ -4,8 +4,11 @@
 @import "../../../stylesheets/fonts";
 
 .about__container {
-  text-align: center;
-  flex-direction: row;
+  &--logo {
+    position: relative;
+    top: 125px;
+    left: -410px;
+  }
 
   h2 {
     position: relative;
@@ -13,6 +16,7 @@
     max-height: 77px;
     left: 608px;
     top: 220px;
+    margin-top: -400px;
     margin-bottom: 16px;
 
     font-family: $barlow;
@@ -39,6 +43,10 @@
     line-height: 48px;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   &--blurb {
