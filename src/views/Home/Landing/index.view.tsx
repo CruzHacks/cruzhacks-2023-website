@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { subscribeMailchimp } from "../../../utils/api"
 import { validateEmail } from "../../../utils/validate"
 import "./index.scss"
+import { ReactComponent as Moon } from "../../../assets/Moon.svg"
 import { ReactComponent as Arrow } from "../../../assets/Arrow.svg"
 import { ReactComponent as Instagram } from "../../../assets/Instagram.svg"
 import { ReactComponent as Facebook } from "../../../assets/Facebook.svg"
@@ -54,6 +55,9 @@ const Landing: React.FC = () => {
   }
   return (
     <div className='landing'>
+      <div className='landing__moon'>
+        <Moon className='landing__moon--moon' />
+      </div>
       <div className='landing__container'>
         <div className='landing__container--title'>CRUZHACKS 2023</div>
         <div className='landing__container--blurb'>
@@ -101,6 +105,7 @@ const Landing: React.FC = () => {
           </div>
         )}
       </div>
+
       <div className='landing__socials'>
         <SocialButton logo={Instagram} />
         <SocialButton logo={Facebook} />

@@ -4,7 +4,22 @@
 
 
 .landing {
+  &__moon {
+    @media screen and (max-width: $medium) {
+      visibility: hidden;
+    }
+    width: 500px;
+    &--moon {
+      width: 1000px;
+      position: absolute;
+      z-index: 0;
+      margin-left: -25%;
+      margin-top: -10%;
+    }
+  }
   &__container {
+    position: relative;
+    z-index: 1;
     margin-left: 40%;
     margin-top: 10%;
     width: 55%;
@@ -138,6 +153,7 @@
   }
 }
 .landing__socials {
+  position: relative;
   width: fit-content;
   height: 200px;
   margin-left: 20px;
