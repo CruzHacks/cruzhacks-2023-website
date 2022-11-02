@@ -38,10 +38,5 @@ $light-light-blue: #4ba5d7;
 }
 
 @mixin light-background {
-  background: linear-gradient(
-    180deg,
-    rgba(51 104 146 / 100%) 0%,
-    rgba(255 204 0 / 30%) 68.75%,
-    rgba(244 247 142 / 30%) 100%
-  );
+  background: linear-gradient(180deg, #336892 0%, #fc0 30%, #f4f78e 100%);
 }

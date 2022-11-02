@@ -38,6 +38,7 @@
     margin-top: 20px;
 
     text-align: center;
+    color: white;
   }
 
   &--Title {
@@ -48,7 +49,14 @@
     line-height: 29px;
 
     text-align: center;
-    color: #cbcbcb;
+
+    .app--dark & {
+      color: #cbcbcb;
+    }
+
+    .app--light & {
+      color: #f3f3f3;
+    }
   }
 
   &--Logo {
@@ -81,12 +89,11 @@
 }
 
 .team-grid__container {
-  // margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
-  width: 80%;
+  align-items: center;
 
   @include responsiveness.screen(large-tablet) {
     width: 100%;

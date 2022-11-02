@@ -2,8 +2,6 @@
 @import "../../../stylesheets/fonts";
 
 .members__container {
-  position: relative;
-  padding-top: 500px;
   justify-content: center;
 
   h3 {
@@ -17,12 +15,9 @@
   }
 
   &--names {
-    position: relative;
     justify-content: center;
 
     h4 {
-      position: relative;
-
       font-family: $inter;
       font-style: normal;
       font-weight: 600;
@@ -33,8 +28,6 @@
     }
 
     h5 {
-      position: relative;
-
       font-family: $inter;
       font-style: normal;
       font-weight: 600;
