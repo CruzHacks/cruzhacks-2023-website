@@ -46,15 +46,22 @@
   @include responsiveness.screen('small-laptop') {
     width: 158px;
     height: 119px;
-    font-size: 16px;
     &--title {
       font-size: 30px;
     }
     &--desc {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
   @include responsiveness.screen('large-tablet') {
+    width: 120px;
+    height: 90px;
+    &--title {
+      font-size: 24px;
+    }
+    &--desc {
+      font-size: 15px;
+    }
   }
   @include responsiveness.screen('tablet') {
   }
@@ -80,6 +87,8 @@
       left: 20px;
     }
     @include responsiveness.screen('large-tablet') {
+      top: 79px;
+      left: 58px;
     }
     @include responsiveness.screen('tablet') {
     }
@@ -98,6 +107,8 @@
       left: 265px;
     }
     @include responsiveness.screen('large-tablet') {
+      top: 47px;
+      left: 258px;
     }
     @include responsiveness.screen('tablet') {
     }
@@ -116,6 +127,8 @@
       right: 290px;
     }
     @include responsiveness.screen('large-tablet') {
+      top: 68px;
+      right: 278px;
     }
     @include responsiveness.screen('tablet') {
     }
@@ -133,7 +146,9 @@
       top: 104px;
       right: 5px;
     }
-    @include responsiveness.screen('tablet') {
+    @include responsiveness.screen('large-tablet') {
+      top: 79px;
+      right: 48px;
     }
     @include responsiveness.screen('phone') {
     }
@@ -149,17 +164,18 @@
     width: 800px;
     margin-bottom: -150px;
   }
-  @include responsiveness.screen('tablet') {
-    width: 400px;
+  @include responsiveness.screen('large-tablet') {
+    width: 650px;
     margin-bottom: -150px;
+  }
+  @include responsiveness.screen('tablet') {
+    display: none;
   }
   @include responsiveness.screen('phone') {
-    width: 300px;
-    margin-bottom: -150px;
+    display: none;
   }
   @include responsiveness.screen('smallest') {
-    width: 200px;
-    margin-bottom: -150px;
+    display: none;
   }
 }
 
@@ -170,10 +186,7 @@
   @include responsiveness.screen('small-laptop') {
     width: 950px;
   }
-  @include responsiveness.screen('tablet') {
-  }
-  @include responsiveness.screen('phone') {
-  }
-  @include responsiveness.screen('smallest') {
+  @include responsiveness.screen('large-tablet') {
+    width: 850px;
   }
 }
