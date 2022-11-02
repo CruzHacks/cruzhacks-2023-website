@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  const [navHidden, setNavHidden] = useState(true)
+  const [navHidden, setNavHidden] = useState(false)
 
   const page = useLocation().pathname
 
