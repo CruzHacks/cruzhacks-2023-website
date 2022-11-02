@@ -27,6 +27,7 @@ $size: 2em;
   position: relative;
   width: $size;
   height: $size;
+  z-index: 11;
 
   .app--dark & {
     background-color: $dark-dark-blue;

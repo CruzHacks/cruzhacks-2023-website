@@ -65,18 +65,15 @@ const NavBar: React.FC = () => {
     <>
       <DropdownButton
         onClick={() => setNavHidden(!navHidden)}
-        checked={navHidden}
+        checked={!navHidden}
       ></DropdownButton>
-      {/* <button onClick={() => setNavHidden(!navHidden)}>Dropdown</button> */}
-      {navHidden && (
-        <div
-          className={
-            "nav__container--right__dropdown " + (navHidden ? "hidden" : "")
-          }
-        >
-          {nav}
-        </div>
-      )}
+      <div
+        className={
+          "nav__container--right__dropdown " + (navHidden ? "hidden" : "")
+        }
+      >
+        {nav}
+      </div>
     </>
   )
 

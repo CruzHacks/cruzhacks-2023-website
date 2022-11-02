@@ -136,13 +136,21 @@
     }
 
     &--left {
-      margin-top: 1em;
+      position: absolute;
+      margin: 0;
+      padding: 1em;
+      width: 100vw;
+      z-index: 10;
 
-      // border: 1px solid red;
-      // margin: 0px;
-      // justify-content: space-evenly;
-      // border: 1px solid red;
       font-size: 0.8em;
+
+      .app--dark & {
+        background-color: $dark-dark-blue;
+      }
+
+      .app--light & {
+        background-color: $light-faded-blue;
+      }
 
       img {
         height: 3em;
@@ -161,6 +169,12 @@
         align-items: flex-end;
         gap: 1em;
         margin-top: 1em;
+        transition: margin-top 300ms ease;
+
+        &.hidden {
+          margin-top: -8em;
+          z-index: -1;
+        }
       }
 
       img {
