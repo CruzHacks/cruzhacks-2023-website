@@ -1,0 +1,179 @@
+@use '../../../stylesheets/variables';
+@use '../../../stylesheets/fonts';
+@use '../../../stylesheets/responsiveness.scss';
+@import '../../../stylesheets/variables';
+@import '../../../stylesheets/fonts';
+@import '../../../stylesheets/responsiveness.scss';
+
+@mixin StatPanel {
+  width: 175px;
+  height: 136px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  .app--dark & {
+    border: 3px solid $dark-green;
+  }
+  .app--light & {
+    border: 3px solid $light-lighter-blue;
+  }
+
+  &--title {
+    @include fonts.para;
+    font-size: 32px;
+    font-weight: 600;
+    .app--dark & {
+      color: $dark-green;
+    }
+    .app--light & {
+      color: $light-lighter-blue;
+    }
+  }
+  &--desc {
+    text-align: center;
+    max-height: 80%;
+    max-width: 95%;
+    color: white;
+    @include fonts.para;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: normal;
+    flex-wrap: wrap;
+  }
+
+  @include responsiveness.screen('small-laptop') {
+    width: 158px;
+    height: 119px;
+    font-size: 16px;
+    &--title {
+      font-size: 30px;
+    }
+    &--desc {
+      font-size: 20px;
+    }
+  }
+  @include responsiveness.screen('large-tablet') {
+  }
+  @include responsiveness.screen('tablet') {
+  }
+  @include responsiveness.screen('phone') {
+  }
+  @include responsiveness.screen('smallest') {
+  }
+}
+
+.milestones__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--stats__hackers {
+    position: absolute;
+    top: 73px;
+    left: 16px;
+    @include StatPanel;
+    @include responsiveness.screen('small-laptop') {
+      top: 105px;
+      left: 20px;
+    }
+    @include responsiveness.screen('large-tablet') {
+    }
+    @include responsiveness.screen('tablet') {
+    }
+    @include responsiveness.screen('phone') {
+    }
+    @include responsiveness.screen('smallest') {
+    }
+  }
+  &--stats__prizes {
+    position: absolute;
+    top: 28px;
+    left: 290px;
+    @include StatPanel;
+    @include responsiveness.screen('small-laptop') {
+      top: 65px;
+      left: 265px;
+    }
+    @include responsiveness.screen('large-tablet') {
+    }
+    @include responsiveness.screen('tablet') {
+    }
+    @include responsiveness.screen('phone') {
+    }
+    @include responsiveness.screen('smallest') {
+    }
+  }
+  &--stats__beginners {
+    position: absolute;
+    top: 57px;
+    right: 318px;
+    @include StatPanel;
+    @include responsiveness.screen('small-laptop') {
+      top: 90px;
+      right: 290px;
+    }
+    @include responsiveness.screen('large-tablet') {
+    }
+    @include responsiveness.screen('tablet') {
+    }
+    @include responsiveness.screen('phone') {
+    }
+    @include responsiveness.screen('smallest') {
+    }
+  }
+  &--stats__gender {
+    position: absolute;
+    top: 72px;
+    right: 0px;
+    @include StatPanel;
+    @include responsiveness.screen('small-laptop') {
+      top: 104px;
+      right: 5px;
+    }
+    @include responsiveness.screen('tablet') {
+    }
+    @include responsiveness.screen('phone') {
+    }
+    @include responsiveness.screen('smallest') {
+    }
+  }
+}
+
+.nodesIcon {
+  width: 900px;
+  margin-bottom: -100px;
+  @include responsiveness.screen('small-laptop') {
+    width: 800px;
+    margin-bottom: -150px;
+  }
+  @include responsiveness.screen('tablet') {
+    width: 400px;
+    margin-bottom: -150px;
+  }
+  @include responsiveness.screen('phone') {
+    width: 300px;
+    margin-bottom: -150px;
+  }
+  @include responsiveness.screen('smallest') {
+    width: 200px;
+    margin-bottom: -150px;
+  }
+}
+
+.stats-wrapper {
+  position: relative;
+  width: 1050px;
+  height: 250px;
+  @include responsiveness.screen('small-laptop') {
+    width: 950px;
+  }
+  @include responsiveness.screen('tablet') {
+  }
+  @include responsiveness.screen('phone') {
+  }
+  @include responsiveness.screen('smallest') {
+  }
+}
