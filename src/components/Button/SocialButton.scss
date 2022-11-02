@@ -1,0 +1,24 @@
+@import "../../stylesheets/responsiveness";
+
+.social_button {
+  all: unset;
+
+  &:hover {
+    cursor: pointer; 
+  }
+
+  &--svg {
+    height: 52px;
+    width: 52px;
+    margin-left: 20px;
+    margin-right: 20px; 
+    @media screen and (max-width: $medium) {
+      height: 33px;
+      width: 33px;
+    }
+    @media screen and (max-width: $smallest) {
+      margin-left: 15px;
+      margin-right: 15px; 
+    }
+  }
+}

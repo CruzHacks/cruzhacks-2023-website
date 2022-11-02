@@ -42,6 +42,10 @@
       @include para;
       color: #CFD1D4;
       margin-bottom: 4rem;
+      @media screen and (max-width: $medium) {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
     }
 
     &--inputs {
@@ -152,6 +156,7 @@
     }
   }
 }
+
 .landing__socials {
   position: relative;
   width: fit-content;
@@ -163,27 +168,5 @@
   @media screen and (max-width: $medium ) {
    margin-left: 0px;
    width: 100%;
-  }
-}
-
-.social_button {
-  all: unset;
-
-  &:hover {
-    cursor: pointer; 
-  }
-
-  &--svg {
-    height: 52px;
-    width: 52px;
-    margin-left: 10px;
-    margin-right: 10px; 
-    @media screen and (max-width: $medium) {
-      height: 33px;
-      width: 33px;
-    }
-    &:hover {
-
-    }
   }
 }

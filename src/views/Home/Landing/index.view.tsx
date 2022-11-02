@@ -4,11 +4,11 @@ import { validateEmail } from "../../../utils/validate"
 import "./index.scss"
 import { ReactComponent as Moon } from "../../../assets/Moon.svg"
 import { ReactComponent as Arrow } from "../../../assets/Arrow.svg"
-import { ReactComponent as Instagram } from "../../../assets/Instagram.svg"
-import { ReactComponent as Facebook } from "../../../assets/Facebook.svg"
-import { ReactComponent as LinkedIn } from "../../../assets/Linkedin.svg"
-import { ReactComponent as Twitter } from "../../../assets/Twitter.svg"
-import { ReactComponent as Discord } from "../../../assets/Discord.svg"
+import { SocialButton } from "../../../components/Button/SocialButton"
+import {
+  SocialButtonInputs,
+  SocialButtonProps,
+} from "../../../Props/Socials/props"
 
 const SubmissionStates = {
   NotSubmitted: 0,
@@ -16,16 +16,6 @@ const SubmissionStates = {
   Submitted: 2,
   Errored: 3,
 }
-
-interface SocialButtonProps {
-  logo: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-}
-
-const SocialButton = (props: SocialButtonProps) => (
-  <button className='social_button'>
-    <props.logo className='social_button--svg' />
-  </button>
-)
 
 const Landing: React.FC = () => {
   const [email, setEmail] = useState<string>("")
@@ -107,11 +97,9 @@ const Landing: React.FC = () => {
       </div>
 
       <div className='landing__socials'>
-        <SocialButton logo={Instagram} />
-        <SocialButton logo={Facebook} />
-        <SocialButton logo={LinkedIn} />
-        <SocialButton logo={Twitter} />
-        <SocialButton logo={Discord} />
+        {SocialButtonInputs.map(({ logo, link }) => (
+          <SocialButton logo={logo} link={link} key={link} />
+        ))}
       </div>
     </div>
   )
