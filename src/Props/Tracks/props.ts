@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
-import React, { ReactSVG, ReactSVGElement, SVGProps } from "react"
+import React, { SVGProps } from "react"
 import { ReactComponent as Beginner } from "../../assets/Beginner.svg"
-import { ReactComponent as Education } from "../../assets/Education.svg"
 import { ReactComponent as Healthcare } from "../../assets/Healthcare.svg"
 import { ReactComponent as Justice } from "../../assets/Justice.svg"
 import { ReactComponent as Sustainability } from "../../assets/Sustainability.svg"
