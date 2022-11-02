@@ -7,7 +7,7 @@ import sToh from "../../images/team/Toh_Shantelle.png"
 import vTran from "../../images/team/Tran_Vivica.jpg"
 import sUtekar from "../../images/team/Utekar_Shruti.jpg"
 import cGowdru from "../../images/team/Placeholder.jpg"
-import nSin from "../../images/team/Placeholder.jpg"
+import nSin from "../../images/team/Sin_Nelly.jpg"
 import jLi from "../../images/team/Li_Jiewen.png"
 import cHein from "../../images/team/Hein_Christopher.jpeg"
 import mGallardo from "../../images/team/Gallardo_Mia.jpg"
@@ -16,7 +16,7 @@ import sPrayaga from "../../images/team/Prayaga_Sriramya.jpg"
 import zTraczyk from "../../images/team/Traczyk_Zack.jpg"
 import dOBoyle from "../../images/team/OBoyle_Devan.jpg"
 import sKim from "../../images/team/Kim_Sean.jpg"
-import eFonseca from "../../images/team/Placeholder.jpg"
+import eFonseca from "../../images/team/Fonseca_Elizabeth.png"
 
 const images = {
   tMa,
