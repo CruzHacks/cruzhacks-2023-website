@@ -1,0 +1,17 @@
+@import "../../stylesheets/variables";
+
+.logout__button {
+  padding: 0.5em 2em;
+  border: none;
+  border-radius: 6px;
+
+  color: $dark-white;
+
+  .app--dark & {
+    background-color: $dark-button;
+  }
+
+  .app--light & {
+    background-color: $light-orange;
+  }
+}

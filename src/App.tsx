@@ -7,31 +7,33 @@ import NavBar from "./components/NavBar"
 import "./App.scss"
 import { Routes, Route } from "react-router-dom"
 import ThemeProvider from "./contexts/ThemeContext/ThemeContext"
-
-import "./App.scss"
 import Footer from "./components/Footer"
 
-const App: React.FC = () => (
-  <div className='app'>
-    <Auth0ProviderWithHistory
-      domain={process.env.REACT_APP_AUTH0_DOMAIN || ""}
-      clientId={process.env.REACT_APP_AUTH0_CLIENTID || ""}
-      audience={process.env.REACT_APP_AUTH0_AUDIENCE || ""}
-      redirectUri={window.location.origin}
-    >
-      <ThemeProvider>
-        <>
-          <NavBar />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='*' element={<ErrorView />} />
-            <Route path='team' element={<Team />} />
-          </Routes>
-          <Footer />
-        </>
-      </ThemeProvider>
-    </Auth0ProviderWithHistory>
-  </div>
-)
+import "./App.scss"
+
+const App: React.FC = () => {
+  return (
+    <div className='app'>
+      <Auth0ProviderWithHistory
+        domain={process.env.REACT_APP_AUTH0_DOMAIN || ""}
+        clientId={process.env.REACT_APP_AUTH0_CLIENTID || ""}
+        audience={process.env.REACT_APP_AUTH0_AUDIENCE || ""}
+        redirectUri={window.location.origin}
+      >
+        <ThemeProvider>
+          <>
+            <NavBar />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='*' element={<ErrorView />} />
+              <Route path='team' element={<Team />} />
+            </Routes>
+            <Footer />
+          </>
+        </ThemeProvider>
+      </Auth0ProviderWithHistory>
+    </div>
+  )
+}
 
 export default App

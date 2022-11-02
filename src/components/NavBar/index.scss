@@ -20,18 +20,15 @@
   .app--light & {
     background-color: $light-faded-blue;
   }
-
 }
 
 .nav__container {
   position: relative;
   width: 100%;
   max-width: 1000px;
-  position: fixed;
+
   display: flex;
   justify-content: space-between;
-
-  transition: background-color 300ms ease;
 
   a {
     text-decoration: none;
@@ -104,4 +101,71 @@
   }
 
   // padding-right: 10%;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    align-items: flex-start;
+
+    height: 12em; // height: 4em;
+    width: 100vw;
+    box-shadow: none;
+
+    .app--dark & {
+      background-color: transparent;
+    }
+
+    .app--light & {
+      background-color: transparent;
+    }
+  }
+
+  .nav__container {
+    padding-bottom: 1em;
+    align-items: flex-start;
+    width: 100vw;
+
+    // border: 1px solid red;
+
+    .app--dark & {
+      background-color: $dark-dark-blue;
+    }
+
+    .app--light & {
+      background-color: $light-faded-blue;
+    }
+
+    &--left {
+      margin-top: 1em;
+
+      // border: 1px solid red;
+      // margin: 0px;
+      // justify-content: space-evenly;
+      // border: 1px solid red;
+      font-size: 0.8em;
+
+      img {
+        height: 3em;
+      }
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 1em;
+
+      &__dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1em;
+        margin-top: 1em;
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
 }
