@@ -97,7 +97,7 @@ const Landing: React.FC = () => {
       </div>
 
       <div className='landing__socials'>
-        {SocialButtonInputs.map(({ logo, link }) => (
+        {SocialButtonInputs.map(({ logo, link }: SocialButtonProps) => (
           <SocialButton logo={logo} link={link} key={link} />
         ))}
       </div>
