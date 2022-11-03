@@ -47,12 +47,43 @@ const FAQs: React.FC = () => {
             are passionate about learning something new and creating a vision.
             25% of hackers in 2021 and 47% in 2020 were first time hackers.
           </QaBlurb>
+          {/* eslint-disable max-len */}
           <QaBlurb question='What rules do I need to follow?'>
             All CruzHacks 2023 participants will need to follow the{" "}
-            <a href=''>MLH Code of Conduct</a>, the CruzHacks 2023 Participant
-            and Release Agreement, the CruzHacks 2023 Rules, and the CruzHacks
-            2023 COVID Safety Policy.
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'
+            >
+              MLH Code of Conduct
+            </a>
+            , the{" "}
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://docs.google.com/document/u/1/d/1298VyEqrSIvbzM3U8nvLQsLtY78Vi2mbndr3d5w0UKk/edit'
+            >
+              CruzHacks 2023 Participant and Release Agreement
+            </a>
+            , the{" "}
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://github.com/CruzHacks/hackathon-rules/blob/master/Rules.md'
+            >
+              CruzHacks 2023 Rules
+            </a>
+            , and the{" "}
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://docs.google.com/document/u/1/d/1aq7xN3c8t8AWS-yDBcvqu4EMYmw0025HAoCFuOVld7c/edit'
+            >
+              CruzHacks 2023 COVID Safety Policy
+            </a>
+            .
           </QaBlurb>
+          {/* eslint-enable max-len */}
           <QaBlurb question='What are the prize tracks?'>
             CruzHacks 2023 offers 4 main prize tracks (Health Hacks, Justice
             Hacks, Sustainability Hacks, and Fintech Hacks). Hackers can submit
@@ -120,8 +151,7 @@ const FAQs: React.FC = () => {
           </QaBlurb>
           <QaBlurb question='What are CruzPoints?'>
             CruzPoints is CruzHacks 2023’s point reward system for Hackers! For
-            more information,
-            {/* eslint-disable max-len */}
+            more information, {" " /* eslint-disable max-len */}
             <a
               target='_blank'
               rel='noreferrer'

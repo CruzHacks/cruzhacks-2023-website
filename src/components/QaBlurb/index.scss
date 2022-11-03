@@ -32,13 +32,13 @@
     h3 {
       margin: 0;
       padding-right: 1em;
-      line-height: 1.3em;
+      line-height: 1.2em;
     }
 
     button {
       background: none;
-      width: 0.8em;
-      height: 0.8em;
+      min-width: 0.8em;
+      min-height: 0.8em;
       border: 0;
       font-size: 1.5em;
       position: relative;
