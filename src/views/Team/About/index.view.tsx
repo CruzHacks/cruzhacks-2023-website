@@ -6,11 +6,13 @@ const About: React.FC = () => {
   return (
     <div className='about__container'>
       <div className='about__container--top'>
-        <div className='about__container--logo'>
-          <img src={Logo} alt='CruzHacks Logo' />
-        </div>
+        <img
+          className='about__container--logo'
+          src={Logo}
+          alt='CruzHacks Logo'
+        />
         <div className='about__container--left'>
-          <div className='about__container--title'>About Us</div>
+          <h2 className='about__container--title'>About Us</h2>
           <div className='about__container--blurb'>
             CruzHacks is an event where people can collaborate, network, and
             wield technology to solve problems. Each year, we welcome hundreds
