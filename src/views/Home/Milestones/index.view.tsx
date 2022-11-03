@@ -34,7 +34,7 @@ const stats: Array<Stat> = [
 const Milestones: React.FC = () => {
   return (
     <div className='milestones__container'>
-      <div className='milestones__container--title'>Milestones of 2022</div>
+      <div className='milestones__container--title'>MILESTONES OF 2022</div>
       <div className='milestones__container--nodes'>
         <Nodes className='nodesIcon' />
       </div>
