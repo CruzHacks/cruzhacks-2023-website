@@ -11,18 +11,20 @@ import Tracks from "./Tracks/index.view"
 
 import "./index.scss"
 
-const Home: React.FC = () => (
-  <div className='home__container'>
-    <Landing />
-    <About />
-    <Tracks />
-    <Stats />
-    <FAQs />
-    <Gallery />
-    <Projects />
-    <Quotes />
-    <Sponsors />
-  </div>
-)
+const Home: React.FC = () => {
+  return (
+    <div className='home__container'>
+      <Landing />
+      <About />
+      <Tracks />
+      <Stats />
+      <FAQs />
+      <Gallery />
+      <Projects />
+      <Quotes />
+      <Sponsors />
+    </div>
+  )
+}
 
 export default Home
