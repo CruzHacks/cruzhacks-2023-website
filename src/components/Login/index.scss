@@ -7,6 +7,8 @@
 
   color: $dark-white;
 
+  cursor: not-allowed;
+
   .app--dark & {
     background-color: $dark-button;
   }
