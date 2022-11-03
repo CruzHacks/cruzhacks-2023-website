@@ -1,0 +1,149 @@
+@import "../../stylesheets/variables";
+
+.footer__image {
+  width: 100vw;
+  margin-top: 3em;
+  margin-bottom: -10px;
+}
+
+.footer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 3em;
+  z-index: 100;
+  transition: background-color 300ms ease;
+
+  overflow: hidden; // shouldn't need
+
+  .app--dark & {
+    background-color: $dark-dark-purple;
+  }
+
+  .app--light & {
+    background-color: $light-faded-blue;
+  }
+}
+
+.footer__container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 0;
+  height: 5em;
+  width: 100vw;
+
+  // width: 50vw;
+  // width: 100%;
+  max-width: 1000px;
+  z-index: 1000;
+
+  font-size: 0.6em;
+  transition: background-color 300ms ease;
+
+  a {
+    color: $dark-white;
+    text-decoration: none;
+  }
+
+  &--left {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    z-index: 10;
+    padding: 1em;
+    padding-left: 4em;
+    align-items: center;
+    justify-content: stretch;
+
+    height: 40%;
+
+    a {
+      text-align: center;
+      flex-grow: 1;
+      height: min-content;
+      width: max-content;
+    }
+
+    &--divider {
+      border-right: 1px solid $dark-white;
+      width: 0;
+      height: stretch;
+    }
+  }
+
+  &--right {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    z-index: 10;
+    padding: 1em;
+    padding-right: 4em;
+
+    img {
+      height: 1.8em;
+    }
+  }
+}
+
+.footer__copyright {
+  position: absolute;
+  font-size: 0.6em;
+
+  // display: absolute;
+  margin-left: 0;
+  padding-left: 0;
+  text-align: center;
+
+  // width: inherit;
+  z-index: 100;
+  width: 100vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    font-size: 1.5em;
+    flex-direction: column;
+    gap: 0;
+    padding: 1em 0;
+    height: 4em;
+  }
+
+  .footer__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    height: 4em;
+
+    &--left {
+      padding: 0;
+
+      a {
+        width: min-content;
+      }
+
+      &--divider {
+        border-right: 1px solid $dark-white;
+        width: 0;
+        height: 2em;
+      }
+    }
+
+    &--right {
+      display: none;
+    }
+  }
+
+  .footer__copyright {
+    position: relative;
+    margin-bottom: 1em;
+  }
+}

@@ -42,7 +42,7 @@
     "eject": "react-scripts eject",
     "lint:ts": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:css": "stylelint --allow-empty-input \"src/**/*.{css,scss}\"",
-    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix; stylelint --fix --allow-empty-input \"src/**/*.{css,scss}\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json}\"",
     "deploy:dev": "firebase deploy -P default --only hosting:test",
     "deploy:prod": "firebase deploy -P production --only hosting:production"
