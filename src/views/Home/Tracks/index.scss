@@ -1,3 +1,52 @@
-.tracks__container {
+@import "../../../stylesheets/fonts";
+
+.track-card {
+  background-color: white;
+  width: 240px;
+  height: 340px;
+  max-width: 66%;
+  color: black;
+  border-radius: 12px;
+  margin: 20px;
+
+  &__SVG {
+    &--image {
+      width: 45%;
+      margin-top: 10px;
+    }
+  }
+
+  &__title {
+    font-family: $inter;
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__blurb {
+    font-family: $nunito;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: justify;
+    text-justify: auto;
+    text-overflow: clip;
+  }
+}
+
+.tracks__title {
   text-align: center;
+  font-family: $inter;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.tracks__container {
+
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
