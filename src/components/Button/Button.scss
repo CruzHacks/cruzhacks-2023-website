@@ -1,27 +1,5 @@
 @use "~stylesheets/typography";
 
-.social_button {
-  all: unset;
-
-  &:hover {
-    cursor: pointer; 
-  }
-
-  &--svg {
-    height: 52px;
-    width: 52px;
-    margin-left: 10px;
-    margin-right: 10px; 
-    @media screen and (max-width: $medium) {
-      height: 33px;
-      width: 33px;
-    }
-    &:hover {
-
-    }
-  }
-}
-
 .Button {
   margin: 0;
   padding: 8px 10px;

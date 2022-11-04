@@ -1,7 +1,6 @@
-@import '../../../stylesheets/fonts';
-@import '../../../stylesheets/variables';
-@import '../../../stylesheets/responsiveness';
-
+@import "../../../stylesheets/fonts";
+@import "../../../stylesheets/variables";
+@import "../../../stylesheets/responsiveness";
 
 .landing {
   &__moon {
@@ -9,6 +8,7 @@
       visibility: hidden;
     }
     width: 500px;
+
     &--moon {
       width: 1000px;
       position: absolute;
@@ -17,6 +17,7 @@
       margin-top: -10%;
     }
   }
+
   &__container {
     position: relative;
     z-index: 1;
@@ -24,6 +25,7 @@
     margin-top: 10%;
     width: 55%;
     padding: 5px;
+
     @media screen and (max-width: $medium) {
       text-align: center;
       margin-left: 0%;
@@ -32,6 +34,7 @@
 
     &--title {
       @include title;
+
       @media screen and (max-width: $medium) {
         font-size: 36px;
       }
@@ -39,9 +42,11 @@
 
     &--blurb {
       margin-top: 50px;
+
       @include para;
-      color: #CFD1D4;
+      color: #cfd1d4;
       margin-bottom: 4rem;
+
       @media screen and (max-width: $medium) {
         margin-left: 20px;
         margin-right: 20px;
@@ -52,6 +57,7 @@
       width: 80%;
       margin-top: 10px;
       text-align: center;
+
       @media screen and (max-width: $medium) {
         width: 100%;
       }
@@ -59,23 +65,20 @@
       &__row-container {
         display: flex;
         justify-content: center;
+
         &__row1 {
           margin-bottom: 10px;
           background-color: white;
           width: 70%;
-          padding-left: 5px;
-          padding-top: 2px;
-          padding-bottom: 2px;
-          padding-right: 5px;
-          border-radius: 5px;
+          padding: 2px 5px;
           display: grid;
           grid-template-columns: 6fr 1fr;
           min-width: fit-content;
-          display: flex;
           align-items: center;
-        
+
           &--email-input {
             text-overflow: ellipsis;
+
             &:focus {
               outline: none;
             }
@@ -87,6 +90,7 @@
             display: flex;
             justify-content: right;
             align-items: center;
+
             &--arrow {
               background-color: $dark-purple;
               border: none;
@@ -116,7 +120,7 @@
           border-color: $dark-purple;
           border-style: solid;
           margin: 5px;
-          
+
           &:active {
             border-style: solid;
           }
@@ -165,8 +169,9 @@
   margin-top: 100px;
   display: flex;
   justify-content: center;
-  @media screen and (max-width: $medium ) {
-   margin-left: 0px;
-   width: 100%;
+
+  @media screen and (max-width: $medium) {
+    margin-left: 0;
+    width: 100%;
   }
 }
