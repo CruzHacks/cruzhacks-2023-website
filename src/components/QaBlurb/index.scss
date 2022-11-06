@@ -63,15 +63,15 @@
 
     /* Create the "+" shape by positioning the spans absolutely */
     button span:first-child {
-      top: 0px;
-      bottom: 0px;
+      top: 0;
+      bottom: 0;
       width: 2px;
       left: 9px;
     }
 
     button span:last-child {
-      left: 0px;
-      right: 0px;
+      left: 0;
+      right: 0;
       height: 2px;
       top: 9px;
     }
