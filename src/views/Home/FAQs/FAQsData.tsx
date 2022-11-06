@@ -217,7 +217,7 @@ const FAQsData = [
             rel='noreferrer'
             href='https://docs.google.com/document/d/1kExaZxBGb4VveTr6TDdAOKWLCM7E22OmGRxP4htBTok/edit?usp=share_link'
           >
-            click here
+            click here.
           </a>
         </>
       ),

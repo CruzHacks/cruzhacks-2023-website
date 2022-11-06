@@ -22,6 +22,10 @@
     display: none;
   }
 
+  &--QA {
+    display: block;
+  }
+
   &--QA--question {
     display: flex;
     flex-direction: row;
@@ -37,8 +41,8 @@
 
     button {
       background: none;
-      min-width: 0.8em;
-      min-height: 0.8em;
+      min-width: 20px;
+      min-height: 20px;
       border: 0;
       font-size: 1.5em;
       position: relative;
@@ -59,17 +63,17 @@
 
     /* Create the "+" shape by positioning the spans absolutely */
     button span:first-child {
-      top: 0%;
-      bottom: 0%;
-      width: 10%;
-      left: 45%;
+      top: 0px;
+      bottom: 0px;
+      width: 2px;
+      left: 9px;
     }
 
     button span:last-child {
-      left: 0%;
-      right: 0%;
-      height: 10%;
-      top: 45%;
+      left: 0px;
+      right: 0px;
+      height: 2px;
+      top: 9px;
     }
 
     .app--light & button span {
