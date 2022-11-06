@@ -1,3 +1,95 @@
+@import "../../../stylesheets/variables";
+
 .faqs__container {
   text-align: center;
+  flex-direction: row;
+
+  h2 {
+    padding-bottom: 1em;
+  }
+
+  padding: 2em 0;
+
+  &--qas {
+    display: flex;
+    gap: 2.5em;
+    flex-direction: row;
+    align-items: stretch;
+    transition: 300ms;
+
+    h3 {
+      font-weight: normal;
+    }
+
+    &--left {
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    &--right {
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
+
+  &--blurb {
+    float: right;
+    width: 18em;
+    margin-top: 3em;
+    padding: 1.5em;
+    position: relative;
+    transition: margin-right 300ms;
+
+    background-color: $dark-gray;
+    box-shadow: 0 0 16px rgb(255 255 255 / 25%);
+    border-radius: 12px;
+
+    font-size: 1em;
+    color: black;
+    text-align: left;
+
+    h3 {
+      font-size: 1em;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      right: 50px;
+      border-width: 15px 15px 0;
+      border-style: solid;
+      border-color: $dark-gray transparent;
+      display: block;
+      width: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .faqs__container {
+    &--qas {
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
+}
+
+@media only screen and (min-width: 1220px) {
+  .faqs__container {
+    &--blurb {
+      margin-right: -100px;
+    }
+  }
 }

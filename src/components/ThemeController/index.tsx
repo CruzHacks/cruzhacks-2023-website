@@ -1,16 +1,12 @@
-import React, { useContext } from "react"
-import {
-  ThemeContext,
-  ThemeContextType,
-} from "../../contexts/ThemeContext/ThemeContext"
+import React from "react"
+import { useTheme } from "../../contexts/ThemeContext/ThemeContext"
 
 interface Props {
   children: React.ReactElement
 }
 
 const ThemeController: React.FC<Props> = ({ children }: Props) => {
-  const context = useContext(ThemeContext) as ThemeContextType
-  const [theme] = context
+  const [theme] = useTheme()
 
   return <div className={`app--${theme.mode}`}>{children}</div>
 }
