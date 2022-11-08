@@ -93,7 +93,7 @@
             align-items: center;
 
             &--arrow {
-              background-color: $dark-purple;
+              background-color: $dark-light-purple;
               border: none;
               border-radius: 12px;
               color: white;
@@ -118,7 +118,7 @@
           outline: none;
           border-width: 3px;
           border-radius: 12px;
-          border-color: $dark-purple;
+          border-color: $dark-light-purple;
           border-style: solid;
           margin: 5px;
 
@@ -139,8 +139,8 @@
           border-radius: 12px;
           border-width: 3px;
           border-style: solid;
-          background-color: $dark-purple;
-          border-color: $dark-purple;
+          background-color: $dark-light-purple;
+          border-color: $dark-light-purple;
           margin: 5px;
 
           &:active {
