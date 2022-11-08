@@ -9,12 +9,17 @@
     }
     width: 500px;
 
-    &--moon {
+    &--sun {
       width: 1000px;
       position: absolute;
       z-index: 0;
       margin-left: -25%;
       margin-top: -10%;
+    }
+
+    &--moon {
+      @extend .landing__moon--sun;
+      margin-left: -40%;
     }
   }
 
@@ -102,6 +107,11 @@
               justify-content: center;
               height: 2rem;
               width: 2.5rem;
+
+              &--light {
+                @extend .landing__container--inputs__row-container__row1__arrow-container--arrow;
+                background-color: $light-orange;
+              }
             }
           }
         }
@@ -121,6 +131,11 @@
           border-color: $dark-light-purple;
           border-style: solid;
           margin: 5px;
+
+          &--light {
+            @extend .landing__container--inputs__row2--button1;
+            border-color: $light-orange;
+          }
 
           &:active {
             border-style: solid;
@@ -142,6 +157,12 @@
           background-color: $dark-light-purple;
           border-color: $dark-light-purple;
           margin: 5px;
+
+          &--light {
+            @extend .landing__container--inputs__row2--button2;
+            background-color: $light-orange;
+          border-color: $light-orange;
+          }
 
           &:active {
             border-style: solid;

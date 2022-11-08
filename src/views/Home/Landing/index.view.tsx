@@ -3,12 +3,14 @@ import { subscribeMailchimp } from "../../../utils/api"
 import { validateEmail } from "../../../utils/validate"
 import "./index.scss"
 import { ReactComponent as Moon } from "../../../assets/Moon.svg"
+import { ReactComponent as Sun } from "../../../assets/Sun.svg"
 import { ReactComponent as Arrow } from "../../../assets/Arrow.svg"
 import { SocialButton } from "../../../components/Button/SocialButton"
 import {
   SocialButtonInputs,
   SocialButtonProps,
 } from "../../../Props/Socials/props"
+import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
 
 const SubmissionStates = {
   NotSubmitted: 0,
@@ -21,6 +23,9 @@ const Landing: React.FC = () => {
   const [email, setEmail] = useState<string>("")
   const [state, setState] = useState<number>(0)
   const [message, setMessage] = useState<string>("")
+  const [theme] = useTheme()
+
+  const isLightClass = () => (theme.mode === "light" ? "--light" : "")
 
   const handleSubmit = () => {
     if (!validateEmail(email)) {
@@ -46,7 +51,11 @@ const Landing: React.FC = () => {
   return (
     <div className='landing'>
       <div className='landing__moon'>
-        <Moon className='landing__moon--moon' />
+        {theme.mode === "light" ? (
+          <Sun className='landing__moon--sun' />
+        ) : (
+          <Moon className='landing__moon--moon' />
+        )}
       </div>
       <div className='landing__container'>
         <div className='landing__container--title'>CRUZHACKS 2023</div>
@@ -65,10 +74,13 @@ const Landing: React.FC = () => {
                 placeholder='Enter Email for updates'
               ></input>
               {/*eslint-disable-next-line max-len*/}
-              <div className='landing__container--inputs__row-container__row1__arrow-container'>
+              <div
+                // eslint-disable-next-line max-len
+                className={`landing__container--inputs__row-container__row1__arrow-container`}
+              >
                 <button
                   // eslint-disable-next-line max-len
-                  className='landing__container--inputs__row-container__row1__arrow-container--arrow'
+                  className={`landing__container--inputs__row-container__row1__arrow-container--arrow${isLightClass()}`}
                   onClick={() => handleSubmit()}
                 >
                   <Arrow />
@@ -77,10 +89,16 @@ const Landing: React.FC = () => {
             </div>
           </div>
           <div className='landing__container--inputs__row2'>
-            <button className='landing__container--inputs__row2--button1'>
+            <button
+              // eslint-disable-next-line max-len
+              className={`landing__container--inputs__row2--button1${isLightClass()}`}
+            >
               Sponsor Us
             </button>
-            <button className='landing__container--inputs__row2--button2'>
+            <button
+              // eslint-disable-next-line max-len
+              className={`landing__container--inputs__row2--button2${isLightClass()}`}
+            >
               Apply
             </button>
           </div>
