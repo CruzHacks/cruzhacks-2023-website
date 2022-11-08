@@ -54,7 +54,7 @@
     }
 
     &--inputs {
-      width: 80%;
+      width: 100%;
       margin-top: 10px;
       text-align: center;
 
@@ -75,9 +75,11 @@
           grid-template-columns: 6fr 1fr;
           min-width: fit-content;
           align-items: center;
+          border-radius: 12px;
 
           &--email-input {
             text-overflow: ellipsis;
+            
 
             &:focus {
               outline: none;
