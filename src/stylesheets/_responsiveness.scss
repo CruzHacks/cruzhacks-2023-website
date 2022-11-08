@@ -8,6 +8,9 @@ Sample usage::
 */
 @use "sass:math";
 
+$medium: 768px;
+$smallest: 350px;
+
 @mixin screen($breakpoints...) {
   @each $breakpoint in $breakpoints {
     @if $breakpoint == smallest {

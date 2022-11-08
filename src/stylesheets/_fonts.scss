@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Nunito|Barlow|Inter";
+@import "https://fonts.googleapis.com/css?family=Nunito|Monsterrat|Inter|Barlow";
 
 $nunito: "Nunito", sans-serif;
 $barlow: "Barlow", sans-serif;
@@ -48,4 +48,11 @@ $inter: "Inter", sans-serif;
   font-weight: 400;
   font-size: 24px;
   line-height: 33px;
+}
+
+@mixin title {
+  font-family: $barlow;
+  font-weight: 500;
+  font-size: 90px;
+  color: white;
 }
