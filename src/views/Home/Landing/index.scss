@@ -132,7 +132,6 @@
           font-size: 1rem;
           width: 35%;
           min-width: 10rem;
-          background-color: transparent;
           outline: none;
           border-width: 3px;
           border-radius: 12px;
@@ -142,10 +141,12 @@
 
         &--button1 {
           @extend %button;
+          background-color: transparent;
           border-color: $dark-light-purple;
 
           &--light {
             @extend %button;
+            background-color: transparent;
             border-color: $light-orange;
           }
 
