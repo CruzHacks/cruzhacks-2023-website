@@ -63,6 +63,12 @@ const members: MemberProps[] = [
     LinkedInLink: "http://www.linkedin.com/in/nelly-sin-bb0672140",
   },
   {
+    name: "Lia Fung",
+    title: "Marketing",
+    image: images.lFung,
+    LinkedInLink: "",
+  },
+  {
     name: "Jiewen Li",
     title: "Sponsorship",
     image: images.jLi,

@@ -30,6 +30,7 @@
       line-height: 48px;
       text-align: center;
       text-transform: uppercase;
+      margin-top: 125px;
 
       @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
         font-size: 29px;

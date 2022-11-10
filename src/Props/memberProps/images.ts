@@ -17,6 +17,7 @@ import zTraczyk from "../../images/team/Traczyk_Zack.jpg"
 import dOBoyle from "../../images/team/OBoyle_Devan.jpg"
 import sKim from "../../images/team/Kim_Sean.jpg"
 import eFonseca from "../../images/team/Fonseca_Elizabeth.png"
+import lFung from "../../images/team/Fung_Lia.jpg"
 
 const images = {
   tMa,
@@ -38,6 +39,7 @@ const images = {
   dOBoyle,
   sKim,
   eFonseca,
+  lFung,
 }
 
 export default images
