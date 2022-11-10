@@ -22,6 +22,7 @@
   &--top {
     display: flex;
     margin-top: 50px;
+    align-items: center;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       margin-top: 20px;
