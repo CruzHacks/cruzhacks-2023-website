@@ -6,7 +6,6 @@ import sSharma from "../../images/team/Sharma_Sid.jpg"
 import sToh from "../../images/team/Toh_Shantelle.png"
 import vTran from "../../images/team/Tran_Vivica.jpg"
 import sUtekar from "../../images/team/Utekar_Shruti.jpg"
-import cGowdru from "../../images/team/Placeholder.jpg"
 import nSin from "../../images/team/Sin_Nelly.jpg"
 import jLi from "../../images/team/Li_Jiewen.png"
 import cHein from "../../images/team/Hein_Christopher.jpeg"
@@ -28,7 +27,6 @@ const images = {
   sToh,
   vTran,
   sUtekar,
-  cGowdru,
   nSin,
   jLi,
   cHein,

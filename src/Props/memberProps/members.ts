@@ -51,12 +51,6 @@ const members: MemberProps[] = [
     LinkedInLink: "https://www.linkedin.com/in/shruti-utekar/",
   },
   {
-    name: "Chinmay Gowdru",
-    title: "Marketing",
-    image: images.cGowdru,
-    LinkedInLink: "https://www.linkedin.com/in/chinmaygowdru/",
-  },
-  {
     name: "Nelly Sin",
     title: "Marketing",
     image: images.nSin,
