@@ -1,0 +1,133 @@
+/* stars animation: https://www.youtube.com/watch?v=pdNJQzPqLns */
+.Shooting-Wrapper {
+  position: absolute;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.Shooting-Container {
+  position: relative;
+  transform: rotateZ(120deg);
+}
+
+.Shooter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 2px;
+  background: linear-gradient(-45deg, #7dcfb6 2.17%, rgb(125 207 182 / 0%) 122.05%);
+  filter: drop-shadow(0 0 6px #7dcfb6);
+  animation: tail 7s ease-in-out infinite, shooting 7s ease-in-out infinite;
+}
+
+.Shooter::before,
+.Shooter::after {
+  position: absolute;
+  content: "";
+  top: calc(50% - 1px);
+  right: 0;
+  height: 2px;
+  width: 30px;
+  background: linear-gradient(-45deg, rgb(0 0 255 / 0%), #7dcfb6, rgb(0 0 255 / 0%));
+  border-radius: 100%;
+  transform: translateX(50%) rotateZ(45deg);
+  animation: shining 7s ease-in-out infinite;
+}
+
+.Shooter::after {
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+.Shooter:nth-child(1) {
+  top: calc(50% - 200px);
+  left: calc(50% - 300px);
+  animation-delay: 650ms;
+}
+
+.Shooter:nth-child(1)::before,
+.Shooter:nth-child(1)::after {
+  animation-delay: 650ms;
+}
+
+.Shooter:nth-child(2) {
+  top: calc(50% - -50px);
+  left: calc(50% - 190px);
+  animation-delay: 150ms;
+}
+
+.Shooter:nth-child(2)::before,
+.Shooter:nth-child(2)::after {
+  animation-delay: 150ms;
+}
+
+.Shooter:nth-child(3) {
+  top: calc(50% - -90px);
+  left: calc(50% - 200px);
+  animation-delay: 1600ms;
+}
+
+.Shooter:nth-child(3)::before,
+.Shooter:nth-child(3)::after {
+  animation-delay: 1600ms;
+}
+
+.Shooter:nth-child(4) {
+  top: calc(50% - 50px);
+  left: calc(50% - 250px);
+  animation-delay: 4700ms;
+}
+
+.Shooter:nth-child(4)::before,
+.Shooter:nth-child(4)::after {
+  animation-delay: 4700ms;
+}
+
+.Shooter:nth-child(5) {
+  top: calc(0);
+  left: calc(0);
+  animation-delay: 2100ms;
+}
+
+.Shooter:nth-child(5)::before,
+.Shooter:nth-child(5)::after {
+  animation-delay: 2100ms;
+}
+
+@keyframes tail {
+  0% {
+    width: 0;
+  }
+
+  30% {
+    width: 100px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 30px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(80vh);
+  }
+}
