@@ -6,46 +6,55 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   &__badge {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     &--icon {
       margin-top: -50px;
       margin-left: -8vw;
+
       &__sun {
         width: 800px;
         margin-bottom: -130px;
       }
+
       &__moon {
         width: 800px;
         margin-bottom: -130px;
       }
+
       &__socials {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+
       @media screen and (max-width: 1455px) {
         margin-top: -88px;
+
         &__sun {
           width: 700px;
           margin-bottom: -160px;
         }
+
         &__moon {
           width: 700px;
           margin-bottom: -160px;
         }
       }
+
       @media screen and (max-width: 1050px) {
         margin-top: -126px;
+
         &__sun {
           width: 600px;
           margin-bottom: -210px;
         }
+
         &__moon {
           width: 600px;
           margin-bottom: -210px;
@@ -54,10 +63,12 @@
 
       @media screen and (max-width: 930px) {
         margin-top: -166px;
+
         &__sun {
           width: 500px;
           margin-bottom: -240px;
         }
+
         &__moon {
           width: 500px;
           margin-bottom: -240px;
@@ -79,9 +90,11 @@
     &--title {
       @include title;
       font-size: max(min(5vw, 64px), 36px);
+
       @media screen and (max-width: $medium) {
         font-size: 36px;
       }
+
       @media screen and (max-width: 350px) {
         font-size: 28px;
       }
@@ -210,57 +223,68 @@
         }
       }
     }
-    
+
     &--res {
       &__error {
         color: red;
       }
     }
+
     @media screen and (max-width: 1455px) {
       margin-top: 100px;
     }
+
     @media screen and (max-width: 1050px) {
       margin-top: 120px;
     }
-    
+
     @media screen and (max-width: 930px) {
       margin-top: 130px;
     }
   }
+
   &__socials-mobile {
     display: none;
   }
+
   @media screen and (max-width: 800px) {
     flex-direction: column;
+
     &__badge {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      
+
       &--icon {
         margin: 0;
+
         &__sun {
-          margin: 80px 0 0 0;
+          margin: 80px 0 0;
           height: 200px;
           width: 200px;
         }
+
         &__moon {
-          margin: 80px 0 0 0;
+          margin: 80px 0 0;
           height: 200px;
           width: 200px;
         }
+
         &__socials {
           display: none;
         }
       }
     }
+
     &__container {
       margin-top: 0;
+
       &--blurb {
         display: none;
       }
     }
+
     &__socials-mobile {
       display: flex;
       justify-content: center;
@@ -268,7 +292,4 @@
       margin-top: 10px;
     }
   }
-
 }
-
-
