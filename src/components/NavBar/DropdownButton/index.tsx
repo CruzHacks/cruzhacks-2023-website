@@ -17,6 +17,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = (
       <input
         type='checkbox'
         onClick={() => onClick()}
+        onChange={() => {}}
         checked={checked}
       ></input>
       <span className='bun'>

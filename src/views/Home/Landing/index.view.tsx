@@ -50,12 +50,19 @@ const Landing: React.FC = () => {
   }
   return (
     <div className='landing'>
-      <div className='landing__moon'>
-        {theme.mode === "light" ? (
-          <Sun className='landing__moon--sun' />
-        ) : (
-          <Moon className='landing__moon--moon' />
-        )}
+      <div className='landing__badge'>
+        <div className='landing__badge--icon'>
+          {theme.mode === "light" ? (
+            <Sun className='landing__badge--icon__sun' />
+          ) : (
+            <Moon className='landing__badge--icon__moon' />
+          )}
+          <div className='landing__badge--icon__socials'>
+            {SocialButtonInputs.map(({ logo, link }: SocialButtonProps) => (
+              <SocialButton logo={logo} link={link} key={link} />
+            ))}
+          </div>
+        </div>
       </div>
       <div className='landing__container'>
         <div className='landing__container--title'>CRUZHACKS 2023</div>
@@ -113,8 +120,7 @@ const Landing: React.FC = () => {
           </div>
         )}
       </div>
-
-      <div className='landing__socials'>
+      <div className='landing__socials-mobile'>
         {SocialButtonInputs.map(({ logo, link }: SocialButtonProps) => (
           <SocialButton logo={logo} link={link} key={link} />
         ))}
