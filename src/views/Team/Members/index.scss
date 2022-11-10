@@ -1,3 +1,4 @@
+@use "../../../stylesheets/responsiveness";
 @import "../../../stylesheets/variables";
 @import "../../../stylesheets/fonts";
 
@@ -12,6 +13,10 @@
     line-height: 48px;
     text-align: center;
     text-transform: uppercase;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      font-size: 29px;
+    }
   }
 
   &--names {
@@ -25,6 +30,11 @@
       line-height: 48px;
       text-align: center;
       text-transform: uppercase;
+
+      @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+        font-size: 29px;
+        line-height: 35px;
+      }
     }
 
     h5 {
@@ -35,6 +45,11 @@
       line-height: 44px;
       text-align: center;
       text-transform: uppercase;
+
+      @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+        font-size: 26px;
+        line-height: 25px;
+      }
     }
   }
 }

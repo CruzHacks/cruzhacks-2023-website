@@ -1,5 +1,6 @@
 @use "../../../stylesheets/variables";
 @use "../../../stylesheets/fonts";
+@use "../../../stylesheets/responsiveness";
 @import "../../../stylesheets/variables";
 @import "../../../stylesheets/fonts";
 
@@ -7,20 +8,37 @@
   &--logo {
     max-height: 348px;
     max-width: 469px;
-    width: 469vw;
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
   }
 
   &--top {
     display: flex;
-    flex-direction: row;
-    gap: 50px;
     margin-top: 50px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-top: 20px;
+      flex-direction: column;
+    }
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      gap: 50px;
+      flex-direction: row;
+    }
   }
 
   &--left {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-top: 10px;
+    }
   }
 
   &--title {
@@ -33,6 +51,18 @@
     line-height: 77px;
     text-align: left;
     text-transform: uppercase;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 50px;
+      line-height: 64px;
+      text-align: center;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
   }
 
   &--history_title {
@@ -62,6 +92,18 @@
 
     .app--light & {
       color: #dee2e5;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
     }
   }
 
@@ -104,6 +146,11 @@
       order: 0;
       flex-grow: 0;
     }
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &--history {
@@ -121,6 +168,18 @@
 
     .app--light & {
       color: #dee2e5;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
     }
   }
 
@@ -142,24 +201,23 @@
     .app--light & {
       color: #dee2e5;
     }
-  }
-}
 
-/*
-@media only screen and (max-width: 800px) {
-  .about__container {
-    &--blurb {
-      flex-direction: column;
-      gap: 1em;
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
     }
   }
 }
 
-@media only screen and (min-width: 1220px) {
+@media only screen and (max-width: 600px) {
   .about__container {
-    &--history {
-      margin-right: 100px;
-    }
+    width: 100%;
   }
 }
-*/
