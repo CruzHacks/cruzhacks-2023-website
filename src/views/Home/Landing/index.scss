@@ -225,7 +225,12 @@
     }
 
     &--res {
+      text-align: center;
+
       &__error {
+        @include para;
+        font-size: 16px;
+        text-align: center;
         color: red;
       }
     }
