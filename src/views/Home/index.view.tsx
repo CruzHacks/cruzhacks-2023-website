@@ -12,11 +12,13 @@ import "./index.scss"
 const Home: React.FC = () => (
   <>
     <Landing />
-    <HeroBlurb />
-    <Tracks />
-    <Milestones />
-    <FAQs />
-  </div>
+    <div className='home__container'>
+      <HeroBlurb />
+      <Tracks />
+      <Milestones />
+      <FAQs />
+    </div>
+  </>
 )
 
 export default Home
