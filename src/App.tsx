@@ -24,13 +24,15 @@ const App: React.FC = () => {
         <ThemeProvider>
           <>
             <NightSky />
-            <NavBar />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='*' element={<ErrorView />} />
-              <Route path='team' element={<Team />} />
-            </Routes>
-            <Footer />
+            <div className='fg'>
+              <NavBar />
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='*' element={<ErrorView />} />
+                <Route path='team' element={<Team />} />
+              </Routes>
+              <Footer />
+            </div>
           </>
         </ThemeProvider>
       </Auth0ProviderWithHistory>

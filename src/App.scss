@@ -19,12 +19,17 @@ body,
 .app {
   font-family: Arial, Helvetica, sans-serif;
   color: $dark-white;
-
+  
   .app--light {
     @include variables.light-background;
   }
-
+  
   .app--dark {
     @include variables.dark-background;
   }
+}
+
+.fg {
+  position: relative;
+  z-index: 2;
 }

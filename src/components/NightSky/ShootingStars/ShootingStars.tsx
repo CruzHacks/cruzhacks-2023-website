@@ -8,6 +8,8 @@ const ShootingStars: React.FC = () => (
       <div className='Shooter'></div>
       <div className='Shooter'></div>
       <div className='Shooter'></div>
+      <div className='Shooter'></div>
+      <div className='Shooter'></div>
     </div>
   </div>
 )
