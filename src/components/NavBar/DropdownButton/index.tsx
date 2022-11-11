@@ -18,6 +18,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = (
         type='checkbox'
         onClick={() => onClick()}
         checked={checked}
+        readOnly
       ></input>
       <span className='bun'>
         <span className='burger'></span>
