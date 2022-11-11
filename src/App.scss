@@ -1,15 +1,19 @@
 @use "stylesheets/variables";
+@use "stylesheets/responsiveness";
 @import "stylesheets/variables";
 
 html,
 body,
 #root,
 #root > div {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
   overscroll-behavior: contain;
+  overscroll-behavior-x: contain;
+  position: sticky;
+  overflow-x: hidden;
 }
 
 .app {

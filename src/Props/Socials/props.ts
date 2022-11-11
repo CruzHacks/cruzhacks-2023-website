@@ -2,6 +2,7 @@ import { ReactComponent as Instagram } from "../../assets/Instagram.svg"
 import { ReactComponent as Facebook } from "../../assets/Facebook.svg"
 import { ReactComponent as LinkedIn } from "../../assets/Linkedin.svg"
 import { ReactComponent as Twitter } from "../../assets/Twitter.svg"
+import { ReactComponent as Discord } from "../../assets/Discord.svg"
 
 export interface SocialButtonProps {
   logo: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
@@ -24,5 +25,9 @@ export const SocialButtonInputs: Array<SocialButtonProps> = [
   {
     logo: Twitter,
     link: "https://twitter.com/CruzHacks",
+  },
+  {
+    logo: Discord,
+    link: "https://discord.gg/NBUHWbmaeb",
   },
 ]

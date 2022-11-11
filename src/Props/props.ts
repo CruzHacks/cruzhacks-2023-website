@@ -7,3 +7,10 @@ export interface MessageProps {
   message: string
   key: string
 }
+
+export interface MemberProps {
+  name: string
+  image: string
+  title: string
+  LinkedInLink: string
+}

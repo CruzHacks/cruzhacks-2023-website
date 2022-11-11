@@ -3,6 +3,7 @@
 // dark theme colors
 $dark-dark-blue: #081428;
 $dark-navy-blue: #142132;
+$dark-violet: #6f6fe8;
 $dark-dark-purple: #1b1b37;
 $dark-purple: #2a1d3e;
 $dark-white: #fdfffa;
@@ -46,8 +47,9 @@ $light-lighter-blue: #a0dafa;
 @mixin light-background {
   background: linear-gradient(
     180deg,
-    rgba(51 104 146 / 30%) 0%,
-    rgba(255 204 0 / 30%) 68.75%,
-    rgba(244 247 142 / 30%) 100%
+    #224e71 0%,
+    #598d91 35%,
+    #83a993 45%,
+    #edb760 100%
   );
 }

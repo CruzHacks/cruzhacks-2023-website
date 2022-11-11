@@ -1,28 +1,24 @@
 import React from "react"
-import About from "./About/index.view"
+import HeroBlurb from "./HeroBlurb/index.view"
 import FAQs from "./FAQs/index.view"
-import Gallery from "./Gallery/index.view"
 import Landing from "./Landing/index.view"
-import Projects from "./Projects/index.view"
-import Quotes from "./Quotes/index.view"
-import Sponsors from "./Sponsors/index.view"
+// import Projects from "./Projects/index.view"
+// import Sponsors from "./Sponsors/index.view"
 import Milestones from "./Milestones/index.view"
 import Tracks from "./Tracks/index.view"
 
 import "./index.scss"
 
 const Home: React.FC = () => (
-  <div className='home__container'>
+  <>
     <Landing />
-    <About />
-    <Tracks />
-    <Milestones />
-    <FAQs />
-    <Gallery />
-    <Projects />
-    <Quotes />
-    <Sponsors />
-  </div>
+    <div className='home__container'>
+      <HeroBlurb />
+      <Tracks />
+      <Milestones />
+      <FAQs />
+    </div>
+  </>
 )
 
 export default Home
