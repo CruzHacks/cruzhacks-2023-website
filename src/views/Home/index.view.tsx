@@ -10,7 +10,7 @@ import Tracks from "./Tracks/index.view"
 import "./index.scss"
 
 const Home: React.FC = () => (
-  <div className='home__container'>
+  <>
     <Landing />
     <HeroBlurb />
     <Tracks />

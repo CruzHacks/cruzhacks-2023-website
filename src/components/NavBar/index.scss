@@ -9,9 +9,10 @@
 
   top: 0;
   height: 4em;
-  width: 100vw;
+  width: 100%;
   z-index: 1000;
   box-shadow: 0 4px 11px #000;
+  overflow: hidden;
 
   .app--dark & {
     background-color: $dark-dark-purple;
