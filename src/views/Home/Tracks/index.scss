@@ -7,6 +7,7 @@
   color: black;
   border-radius: 12px;
   margin: 20px;
+
   &__SVG {
     &--image {
       width: 45%;
@@ -26,7 +27,7 @@
 
   &__blurb-container {
     font-family: $nunito;
-    font-size: 1.0rem;
+    font-size: 1rem;
     margin-top: 10px;
     margin-left: 15px;
     margin-right: 15px;
@@ -35,7 +36,7 @@
     text-overflow: clip;
     display: flex;
     height: 150px;
-    align-items: center; 
+    align-items: center;
   }
 }
 
@@ -52,5 +53,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
+  width: 120%;
+  margin-left: -10%;
+
+  @media screen and (max-width: 1200px) {
+    margin-left: 0%;
+    margin-right: 0%;
+    align-items: center;
+    width: 100%;
+  }
 }
