@@ -67,10 +67,14 @@
       margin-right: auto;
       align-items: center;
     }
+
+    @media screen and (max-width: 500px) {
+      font-size: 38px;
+    }
   }
 
   &--history_title {
-    margin-top: 75px;
+    margin-top: 3em;
     margin-bottom: 40px;
 
     font-family: $inter;
@@ -80,6 +84,10 @@
     line-height: 48px;
     text-align: center;
     text-transform: uppercase;
+
+    @media screen and (max-width: 500px) {
+      font-size: 36px;
+    }
   }
 
   &--blurb {
@@ -112,7 +120,7 @@
   }
 
   &--sponsor {
-    max-width: 300px;
+    max-width: 250px;
     max-height: 43px;
     border-radius: 12px;
     margin-top: 40px;
@@ -191,7 +199,6 @@
   &--history-2 {
     margin-top: 35px;
     margin-bottom: 35px;
-
     font-family: $nunito-sans;
     font-style: normal;
     font-weight: 400;
