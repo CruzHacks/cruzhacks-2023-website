@@ -78,7 +78,7 @@ const Landing: React.FC = () => {
                 //eslint-disable-next-line max-len
                 className='landing__container--inputs__row-container__row1--email-input'
                 onChange={e => setEmail(e.target.value)}
-                placeholder='Enter Email for updates'
+                placeholder='Enter email for updates'
               ></input>
               {/*eslint-disable-next-line max-len*/}
               <div
@@ -90,7 +90,7 @@ const Landing: React.FC = () => {
                   className={`landing__container--inputs__row-container__row1__arrow-container--arrow${isLightClass()}`}
                   onClick={() => handleSubmit()}
                 >
-                  <Arrow />
+                  <Arrow className='arrow-icon' />
                 </button>
               </div>
             </div>
