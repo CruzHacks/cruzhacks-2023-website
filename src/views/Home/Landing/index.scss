@@ -3,54 +3,111 @@
 @import "../../../stylesheets/responsiveness";
 
 .landing {
-  &__moon {
-    @media screen and (max-width: $medium) {
-      visibility: hidden;
-    }
-    width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &--moon {
-      width: 1000px;
-      position: absolute;
-      z-index: 0;
-      margin-left: -25%;
-      margin-top: -10%;
+  &__badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--icon {
+      margin-top: -50px;
+      margin-left: -8vw;
+
+      &__sun {
+        width: 800px;
+        margin-bottom: -130px;
+      }
+
+      &__moon {
+        width: 800px;
+        margin-bottom: -130px;
+      }
+
+      &__socials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media screen and (max-width: 1455px) {
+        margin-top: -88px;
+
+        &__sun {
+          width: 700px;
+          margin-bottom: -160px;
+        }
+
+        &__moon {
+          width: 700px;
+          margin-bottom: -160px;
+        }
+      }
+
+      @media screen and (max-width: 1050px) {
+        margin-top: -126px;
+
+        &__sun {
+          width: 600px;
+          margin-bottom: -210px;
+        }
+
+        &__moon {
+          width: 600px;
+          margin-bottom: -210px;
+        }
+      }
+
+      @media screen and (max-width: 930px) {
+        margin-top: -166px;
+
+        &__sun {
+          width: 500px;
+          margin-bottom: -240px;
+        }
+
+        &__moon {
+          width: 500px;
+          margin-bottom: -240px;
+        }
+      }
     }
   }
 
   &__container {
     position: relative;
-    z-index: 1;
-    margin-left: 40%;
-    margin-top: 10%;
-    width: 55%;
-    padding: 5px;
+    max-width: 600px;
+    min-width: 300px;
 
     @media screen and (max-width: $medium) {
       text-align: center;
-      margin-left: 0%;
       width: 95%;
     }
 
     &--title {
       @include title;
+      font-weight: 500;
+      font-size: max(min(5vw, 64px), 36px);
 
       @media screen and (max-width: $medium) {
         font-size: 36px;
       }
+
+      @media screen and (max-width: 350px) {
+        font-size: 32px;
+      }
     }
 
     &--blurb {
-      margin-top: 50px;
+      margin-top: 1em;
 
       @include para;
-      color: #cfd1d4;
-      margin-bottom: 4rem;
-
-      @media screen and (max-width: $medium) {
-        margin-left: 20px;
-        margin-right: 20px;
-      }
+      color: #f0f0f0;
+      font-size: max(min(2vw, 32px), 20px);
+      margin-bottom: 1em;
     }
 
     &--inputs {
@@ -58,24 +115,28 @@
       margin-top: 10px;
       text-align: center;
 
-      @media screen and (max-width: $medium) {
-        width: 100%;
-      }
-
       &__row-container {
         display: flex;
         justify-content: center;
 
+        @media screen and (max-width: 800px) {
+          margin-top: 1.5em;
+        }
+
         &__row1 {
           margin-bottom: 10px;
           background-color: white;
-          width: 70%;
-          padding: 2px 5px;
+          width: 75%;
+          height: 30px;
+          padding: 0 5px;
           display: grid;
           grid-template-columns: 6fr 1fr;
-          min-width: fit-content;
           align-items: center;
-          border-radius: 12px;
+          border-radius: 6px;
+
+          @media screen and (max-width: 800px) {
+            height: 35px;
+          }
 
           &--email-input {
             text-overflow: ellipsis;
@@ -92,35 +153,77 @@
             justify-content: right;
             align-items: center;
 
-            &--arrow {
-              background-color: $dark-light-purple;
+            %arrow {
               border: none;
-              border-radius: 12px;
+              border-radius: 6px;
               color: white;
               display: flex;
               align-items: center;
               justify-content: center;
-              height: 2rem;
+              height: 25px;
               width: 2.5rem;
+
+              @media screen and (max-width: 800px) {
+                border-radius: 3px;
+              }
+            }
+
+            &--arrow {
+              @extend %arrow;
+              background-color: $dark-light-purple;
+
+              &--light {
+                @extend %arrow;
+                background-color: $light-orange;
+              }
             }
           }
         }
       }
 
       &__row2 {
-        &--button1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+
+        @media screen and (max-width: 500px) {
+          margin-top: 10px;
+          flex-direction: column-reverse;
+          gap: 0;
+        }
+        %button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
           @include para;
           color: white;
           font-size: 1rem;
-          width: 35%;
-          min-width: 10rem;
-          background-color: transparent;
+          width: 30%;
+          height: 30px;
+          min-width: 8rem;
           outline: none;
-          border-width: 3px;
-          border-radius: 12px;
-          border-color: $dark-light-purple;
+          border-width: 1px;
+          border-radius: 6px;
           border-style: solid;
-          margin: 5px;
+          margin: 10px;
+
+          @media screen and (max-width: 500px) {
+            width: 163px;
+          }
+        }
+
+        &--button1 {
+          @extend %button;
+          background-color: transparent;
+          border-color: $dark-light-purple;
+
+          &--light {
+            @extend %button;
+            background-color: transparent;
+            border-color: $light-orange;
+          }
 
           &:active {
             border-style: solid;
@@ -132,16 +235,16 @@
         }
 
         &--button2 {
+          @extend %button;
           @include para;
-          font-size: 1rem;
-          width: 35%;
-          min-width: 10rem;
-          border-radius: 12px;
-          border-width: 3px;
-          border-style: solid;
           background-color: $dark-light-purple;
           border-color: $dark-light-purple;
-          margin: 5px;
+
+          &--light {
+            @extend %button;
+            background-color: $light-orange;
+            border-color: $light-orange;
+          }
 
           &:active {
             border-style: solid;
@@ -155,24 +258,80 @@
     }
 
     &--res {
+      text-align: center;
+
       &__error {
+        @include para;
+        font-size: 16px;
+        text-align: center;
         color: red;
       }
+    }
+
+    @media screen and (max-width: 1455px) {
+      margin-top: 100px;
+    }
+
+    @media screen and (max-width: 1050px) {
+      margin-top: 120px;
+    }
+
+    @media screen and (max-width: 930px) {
+      margin-top: 130px;
+    }
+  }
+
+  &__socials-mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+
+    &__badge {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &--icon {
+        margin: 0;
+
+        &__sun {
+          margin: 80px 0 0;
+          height: 200px;
+          width: 200px;
+        }
+
+        &__moon {
+          margin: 80px 0 0;
+          height: 200px;
+          width: 200px;
+        }
+
+        &__socials {
+          display: none;
+        }
+      }
+    }
+
+    &__container {
+      margin-top: 0;
+
+      &--blurb {
+        display: none;
+      }
+    }
+
+    &__socials-mobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3em;
     }
   }
 }
 
-.landing__socials {
-  position: relative;
-  width: fit-content;
-  height: 200px;
-  margin-left: 20px;
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-
-  @media screen and (max-width: $medium) {
-    margin-left: 0;
-    width: 100%;
-  }
+.arrow-icon {
+  width: 1.5em;
 }

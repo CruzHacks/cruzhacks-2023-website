@@ -4,6 +4,6 @@ import Team from "./index.view.tsx"
 
 test("renders team text", () => {
   render(<Team />)
-  const elem = screen.getByText(/Our Team/i)
+  const elem = screen.getByText(/About Us/i)
   expect(elem).toBeInTheDocument()
 })
