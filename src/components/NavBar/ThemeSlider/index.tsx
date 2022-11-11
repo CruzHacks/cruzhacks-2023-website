@@ -14,7 +14,7 @@ const ThemeSlider: React.FC = () => {
         className='toggle--checkbox'
         onClick={() => toggleTheme()}
         checked={theme.mode == "dark" ? true : false}
-        onChange={() => {}}
+        readOnly
       />
       <label htmlFor='toggle' className='toggle--label'>
         <span className='toggle--label-background'></span>

@@ -1,0 +1,119 @@
+@use "/src/stylesheets/fonts";
+@use "/src/stylesheets/responsiveness";
+@import "../../stylesheets/variables";
+@import "../../stylesheets/fonts";
+
+.Member {
+  animation: fade-in 1s;
+  width: 90%;
+  max-width: 292px;
+  max-height: 392px;
+  margin: 30px;
+  margin-top: 80px;
+
+  border-radius: 27px;
+  border: 4px solid transparent;
+
+  @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    width: 125px;
+    height: 300px;
+    margin: 20px;
+    margin-top: 1px;
+  }
+
+  &--Image {
+    display: block;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-right: auto;
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-sizing: border-box;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      height: 125px;
+      width: 125px;
+    }
+  }
+
+  &--Name {
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 39px;
+    margin-top: 20px;
+
+    text-align: center;
+    color: white;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      font-size: 15px;
+      line-height: 15px;
+      margin-top: 20px;
+    }
+  }
+
+  &--Title {
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+
+    text-align: center;
+
+    .app--dark & {
+      color: #cbcbcb;
+    }
+
+    .app--light & {
+      color: #f3f3f3;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      font-size: 15px;
+      line-height: 20px;
+      margin-top: 5px;
+    }
+  }
+
+  &--Logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &--LogoBg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 9px;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.team-grid__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
