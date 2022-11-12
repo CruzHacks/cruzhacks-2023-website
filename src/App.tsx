@@ -8,6 +8,7 @@ import "./App.scss"
 import { Routes, Route } from "react-router-dom"
 import ThemeProvider from "./contexts/ThemeContext/ThemeContext"
 import Footer from "./components/Footer"
+import NightSky from "./components/NightSky"
 
 import "./App.scss"
 
@@ -22,13 +23,16 @@ const App: React.FC = () => {
       >
         <ThemeProvider>
           <>
-            <NavBar />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='*' element={<ErrorView />} />
-              <Route path='team' element={<Team />} />
-            </Routes>
-            <Footer />
+            <NightSky />
+            <div className='fg'>
+              <NavBar />
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='*' element={<ErrorView />} />
+                <Route path='team' element={<Team />} />
+              </Routes>
+              <Footer />
+            </div>
           </>
         </ThemeProvider>
       </Auth0ProviderWithHistory>
