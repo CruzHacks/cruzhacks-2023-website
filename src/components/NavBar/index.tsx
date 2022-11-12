@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom"
 import Login from "../Login/index"
 import Logout from "../Logout/index"
 import ThemeSlider from "./ThemeSlider"
+import { ReactComponent as CruzHacksLogo } from "../../assets/CruzHacksLogo.svg"
 
 import "./index.scss"
 import DropdownButton from "./DropdownButton"
@@ -81,10 +82,9 @@ const NavBar: React.FC = () => {
     <nav className='nav'>
       <div className='nav__container'>
         <div className='nav__container--left'>
-          <img
-            src={process.env.PUBLIC_URL + "/logo_CRUZHACKS-main-white.svg"}
-            alt='CruzHacks Logo'
-          />
+          <Link to='/'>
+            <CruzHacksLogo />
+          </Link>
           <ThemeSlider />
         </div>
         <div className='nav__container--right'>
