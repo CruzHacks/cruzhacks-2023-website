@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, Dispatch } from "react"
 import { subscribeMailchimp } from "../../../utils/api"
 import { validateEmail } from "../../../utils/validate"
 import "./index.scss"
@@ -11,6 +11,7 @@ import {
   SocialButtonProps,
 } from "../../../Props/Socials/props"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
+import { Modal, Box, SxProps } from "@mui/material"
 
 const SubmissionStates = {
   NotSubmitted: 0,
@@ -19,10 +20,79 @@ const SubmissionStates = {
   Errored: 3,
 }
 
+const style: SxProps = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 250,
+  bgcolor: "#13243c",
+  border: "2px solid #243d5e",
+  borderRadius: "10px",
+  boxShadow: 24,
+  p: 2,
+}
+
+interface ApplicationModalProps {
+  modalOpen: boolean
+  setModalOpen: Dispatch<boolean>
+}
+
+const ApplicationModal = ({
+  modalOpen,
+  setModalOpen,
+}: ApplicationModalProps) => {
+  const openApplication = (link: string) => {
+    window.open(link, "_blank")
+  }
+
+  return (
+    <Modal
+      open={modalOpen}
+      onClose={() => setModalOpen(false)}
+      aria-labelledby='apply modal'
+      aria-describedby='choose application type'
+    >
+      <Box sx={style}>
+        <div className='application-modal__container'>
+          <div className='application-modal__container__title'>
+            APPLICATION TYPE
+          </div>
+          <button
+            onClick={() =>
+              openApplication("https://forms.gle/RiY8GDxoCR1xmCbc7")
+            }
+            className='application-modal__container--button'
+          >
+            Hacker Application
+          </button>
+          <button
+            onClick={() =>
+              openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
+            }
+            className='application-modal__container--button'
+          >
+            Mentor / Judge Application
+          </button>
+          <button
+            onClick={() =>
+              openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
+            }
+            className='application-modal__container--button'
+          >
+            Volunteer Application
+          </button>
+        </div>
+      </Box>
+    </Modal>
+  )
+}
+
 const Landing: React.FC = () => {
   const [email, setEmail] = useState<string>("")
   const [state, setState] = useState<number>(0)
   const [message, setMessage] = useState<string>("")
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [theme] = useTheme()
 
   const isLightClass = () => (theme.mode === "light" ? "--light" : "")
@@ -99,15 +169,24 @@ const Landing: React.FC = () => {
             <button
               // eslint-disable-next-line max-len
               className={`landing__container--inputs__row2--button1${isLightClass()}`}
+              onClick={e => {
+                window.location.href = "mailto:sponsor@cruzhacks.com"
+                e.preventDefault()
+              }}
             >
               Sponsor Us
             </button>
             <button
               // eslint-disable-next-line max-len
               className={`landing__container--inputs__row2--button2${isLightClass()}`}
+              onClick={() => setModalOpen(true)}
             >
               Apply
             </button>
+            <ApplicationModal
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+            />
           </div>
         </div>
         {message && (
