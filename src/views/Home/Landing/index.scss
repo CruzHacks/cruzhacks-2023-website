@@ -169,6 +169,8 @@
             }
 
             &--arrow {
+              cursor: pointer;
+
               @extend %arrow;
               background-color: $dark-light-purple;
 
