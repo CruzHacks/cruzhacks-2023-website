@@ -1,6 +1,12 @@
 @import "../../stylesheets/variables";
 
 .qablurb__container {
+  width: 97%;
+  transition: width ease 0.1s;
+  &:hover {
+    width: 98%
+  }
+
   display: flex;
   flex-direction: column;
   text-align: left;
