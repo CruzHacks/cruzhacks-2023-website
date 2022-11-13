@@ -13,9 +13,7 @@
     width: 52px;
     margin: 0 20px;
 
-    transition: height ease 0.1s,
-      width ease 0.1s,
-      margin ease 0.1s;
+    transition: all ease 0.1s;
 
     &:hover {
       height: 55px;
