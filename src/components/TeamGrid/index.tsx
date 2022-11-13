@@ -14,13 +14,15 @@ const MemberCard: React.FC<MemberProps> = ({
     <img src={image} alt={name} className='Member--Image' />
     <div className='Member--Name'>{name}</div>
     <div className='Member--Title'>{title}</div>
-    <div className='Member--Logo'>
-      <a href={LinkedInLink}>
-        <div className='Member--Logo--LogoBg'>
-          <img src={LiLogo} alt='LinkedIn Logo' />
-        </div>
-      </a>
-    </div>
+    {LinkedInLink ? (
+      <div className='Member--Logo'>
+        <a href={LinkedInLink}>
+          <div className='Member--Logo--LogoBg'>
+            <img src={LiLogo} alt='LinkedIn Logo' />
+          </div>
+        </a>
+      </div>
+    ) : null}
   </div>
 )
 
