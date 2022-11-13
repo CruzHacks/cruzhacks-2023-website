@@ -1,4 +1,5 @@
 @import "../../../stylesheets/variables";
+@import "../../../stylesheets/fonts";
 
 .faqs__container {
   text-align: center;
@@ -6,6 +7,8 @@
   cursor: pointer;
 
   h2 {
+    font-family: $inter;
+    font-size: 34px;
     padding-bottom: 1em;
   }
 

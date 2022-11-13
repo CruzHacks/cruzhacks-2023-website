@@ -14,7 +14,7 @@ const Members: React.FC = () => {
         <h5>Doug Erickson</h5>
         <h5>Nathan Westrup</h5>
         <h5>Amanda Rotella</h5>
-        <h5>Nada Milijkovic</h5>
+        <h5>Nada Miljkovic</h5>
         <h5>Drew Meyer</h5>
       </div>
     </div>

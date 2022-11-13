@@ -1,6 +1,8 @@
 @import "../../stylesheets/variables";
+@import "../../stylesheets/fonts";
 
 .qablurb__container {
+  font-family: $inter;
   width: 97%;
   transition: width ease 0.1s;
   &:hover {
@@ -101,6 +103,7 @@
   p {
     margin: 0;
     padding: 1em 0;
+    width: 98%;
 
     line-height: 1.5em;
 
