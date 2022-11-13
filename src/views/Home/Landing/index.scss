@@ -207,12 +207,18 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          transition: width ease 0.1s, height ease 0.1s;
+          transition: width ease 0.1s,
+                      height ease 0.1s,
+                      margin-top ease 0.1s,
+                      margin-bottom ease 0.1s;
 
           &:hover {
             cursor: pointer;
             width: 34%;
             height: 32px;
+            margin-top: 9px;
+            margin-bottom: 9px;
+
           }
 
           @include para;
