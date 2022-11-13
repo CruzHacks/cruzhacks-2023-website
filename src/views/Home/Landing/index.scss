@@ -114,6 +114,7 @@
       width: 100%;
       margin-top: 10px;
       text-align: center;
+      
 
       &__row-container {
         display: flex;
@@ -140,6 +141,7 @@
 
           &--email-input {
             text-overflow: ellipsis;
+            font-family: $nunito;
 
             &:focus {
               outline: none;

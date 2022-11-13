@@ -4,7 +4,6 @@
 .faqs__container {
   text-align: center;
   flex-direction: row;
-  cursor: pointer;
 
   h2 {
     font-family: $inter;
@@ -43,6 +42,7 @@
   }
 
   &--blurb {
+    font-family: $inter;
     float: right;
     width: 18em;
     margin-top: 3em;

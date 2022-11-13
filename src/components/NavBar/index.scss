@@ -1,11 +1,12 @@
 @import "../../stylesheets/variables";
-
+@import "../../stylesheets/fonts";
 .nav {
   position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: $nunito;
 
   top: 0;
   height: 4em;
