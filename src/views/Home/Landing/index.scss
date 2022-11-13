@@ -152,6 +152,7 @@
             display: flex;
             justify-content: right;
             align-items: center;
+            
 
             %arrow {
               border: none;
@@ -162,6 +163,12 @@
               justify-content: center;
               height: 25px;
               width: 2.5rem;
+              transition: width ease 0.1s;
+            
+              &:hover {
+                width: 2.8rem;
+                cursor: pointer;
+              }
 
               @media screen and (max-width: 800px) {
                 border-radius: 3px;
@@ -170,6 +177,8 @@
 
             &--arrow {
               cursor: pointer;
+              
+
 
               @extend %arrow;
               background-color: $dark-light-purple;
@@ -198,6 +207,13 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          transition: width ease 0.1s, height ease 0.1s;
+
+          &:hover {
+            cursor: pointer;
+            width: 34%;
+            height: 32px;
+          }
 
           @include para;
           color: white;
@@ -220,20 +236,25 @@
           @extend %button;
           background-color: transparent;
           border-color: $dark-light-purple;
+          
+          &:hover {
+            background-color: $dark-light-purple;
+          }
 
           &--light {
             @extend %button;
             background-color: transparent;
             border-color: $light-orange;
+
+            &:hover {
+              background-color: $light-orange;
+            }
           }
 
           &:active {
             border-style: solid;
           }
 
-          &:hover {
-            cursor: pointer;
-          }
         }
 
         &--button2 {
