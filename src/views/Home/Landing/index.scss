@@ -361,11 +361,22 @@
   }
 }
 
+@keyframes show {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .application-modal__container {
   display: flex;
   align-items: center;
   flex-direction: column;
-
+  animation: show 200ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+  opacity: 0;
+  // remove transform for just a fade-in
+  transform: rotateX(-90deg);
+  transform-origin: top center;
   &__title {
     font-family: $nunito;
     color: white;

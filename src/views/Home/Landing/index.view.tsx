@@ -11,7 +11,7 @@ import {
   SocialButtonProps,
 } from "../../../Props/Socials/props"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
-import { Modal, Box, SxProps } from "@mui/material"
+import { Modal, Box, SxProps, Fade } from "@mui/material"
 
 const SubmissionStates = {
   NotSubmitted: 0,
@@ -53,37 +53,39 @@ const ApplicationModal = ({
       aria-labelledby='apply modal'
       aria-describedby='choose application type'
     >
-      <Box sx={style}>
-        <div className='application-modal__container'>
-          <div className='application-modal__container__title'>
-            APPLICATION TYPE
+      <Fade in={modalOpen}>
+        <Box sx={style}>
+          <div className='application-modal__container'>
+            <div className='application-modal__container__title'>
+              APPLICATION TYPE
+            </div>
+            <button
+              onClick={() =>
+                openApplication("https://forms.gle/RiY8GDxoCR1xmCbc7")
+              }
+              className='application-modal__container--button'
+            >
+              Hacker Application
+            </button>
+            <button
+              onClick={() =>
+                openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
+              }
+              className='application-modal__container--button'
+            >
+              Mentor / Judge Application
+            </button>
+            <button
+              onClick={() =>
+                openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
+              }
+              className='application-modal__container--button'
+            >
+              Volunteer Application
+            </button>
           </div>
-          <button
-            onClick={() =>
-              openApplication("https://forms.gle/RiY8GDxoCR1xmCbc7")
-            }
-            className='application-modal__container--button'
-          >
-            Hacker Application
-          </button>
-          <button
-            onClick={() =>
-              openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
-            }
-            className='application-modal__container--button'
-          >
-            Mentor / Judge Application
-          </button>
-          <button
-            onClick={() =>
-              openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
-            }
-            className='application-modal__container--button'
-          >
-            Volunteer Application
-          </button>
-        </div>
-      </Box>
+        </Box>
+      </Fade>
     </Modal>
   )
 }
