@@ -383,8 +383,12 @@
     height: 50px;
     border-radius: 12px;
     font-family: $nunito;
+    transition: all ease 0.1s;
 
     &:hover {
+      height: 55px;
+      width: 203px;
+      margin: 2.5px 0;
       background-color: #6f6fe8;
       cursor: pointer;
     }
