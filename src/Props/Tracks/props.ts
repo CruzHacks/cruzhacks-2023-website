@@ -23,7 +23,7 @@ export const TechCaresTracks: Array<PrizeTrackProps> = [
   },
   {
     logo: Healthcare,
-    title: "HEALTHCARE",
+    title: "HEALTH",
     blurb:
       "This category aspires to address healthcare disparities. How do we support mental & physical well-being with accessible services?",
   },
