@@ -45,7 +45,12 @@
     margin-top: 3em;
     padding: 1.5em;
     position: relative;
-    transition: margin-right 300ms;
+    transition: all ease 0.25s;
+    height: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     background-color: $dark-gray;
     box-shadow: 0 0 16px rgb(255 255 255 / 25%);
@@ -58,10 +63,12 @@
     h3 {
       font-size: 1em;
       margin: 0;
+      width: 75%
     }
 
     p {
       margin: 0;
+      width: 75%;
     }
 
     &::after {
@@ -74,6 +81,12 @@
       border-color: $dark-gray transparent;
       display: block;
       width: 0;
+    }
+
+    &:hover {
+      height: 3.5em;
+      margin-top: 2.5em;
+      width: 19em;
     }
   }
 }
