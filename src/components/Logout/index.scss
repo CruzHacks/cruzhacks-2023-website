@@ -1,9 +1,11 @@
 @import "../../stylesheets/variables";
+@import "../../stylesheets//fonts";
 
 .logout__button {
   padding: 0.5em 2em;
   border: none;
   border-radius: 6px;
+  font-family: $nunito;
 
   color: $dark-white;
 
