@@ -5,8 +5,9 @@
   font-family: $inter;
   width: 97%;
   transition: width ease 0.1s;
+
   &:hover {
-    width: 98%
+    width: 98%;
   }
 
   display: flex;
