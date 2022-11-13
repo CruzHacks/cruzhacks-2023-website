@@ -38,10 +38,12 @@ const Footer: React.FC = () => {
             </a>
           </div>
           <div className='footer__container--right'>
+            <div className='footer__copyright'>CRUZHACKS © 2023</div>
             <a
               target='_blank'
               rel='noopener noreferrer'
               href='https://2022.cruzhacks.com/'
+              className='footer__container--right--socials'
             >
               <img src={process.env.PUBLIC_URL + "/logo_2022-white.svg"} />
             </a>
@@ -49,6 +51,7 @@ const Footer: React.FC = () => {
               target='_blank'
               rel='noopener noreferrer'
               href='https://www.instagram.com/cruzhacks/?hl=en'
+              className='footer__container--right--socials'
             >
               <img
                 src={
@@ -60,6 +63,7 @@ const Footer: React.FC = () => {
               target='_blank'
               rel='noopener noreferrer'
               href='https://www.facebook.com/CruzHacks/'
+              className='footer__container--right--socials'
             >
               <img
                 src={process.env.PUBLIC_URL + "/logo_social-facebook-white.svg"}
@@ -69,6 +73,7 @@ const Footer: React.FC = () => {
               target='_blank'
               rel='noopener noreferrer'
               href='https://www.linkedin.com/company/cruzhacks'
+              className='footer__container--right--socials'
             >
               <img
                 src={process.env.PUBLIC_URL + "/logo_social-linkedin-white.svg"}
@@ -78,6 +83,7 @@ const Footer: React.FC = () => {
               target='_blank'
               rel='noopener noreferrer'
               href='mailto:contact@cruzhacks.com'
+              className='footer__container--right--socials'
             >
               <img
                 src={process.env.PUBLIC_URL + "/logo_social-mail-white.svg"}
@@ -87,6 +93,7 @@ const Footer: React.FC = () => {
               target='_blank'
               rel='noopener noreferrer'
               href='https://twitter.com/CruzHacks'
+              className='footer__container--right--socials'
             >
               <img
                 src={process.env.PUBLIC_URL + "/logo_social-twitter-white.svg"}
@@ -94,7 +101,6 @@ const Footer: React.FC = () => {
             </a>
           </div>
         </div>
-        <div className='footer__copyright'>CRUZHACKS © 2023</div>
       </footer>
     </>
   )

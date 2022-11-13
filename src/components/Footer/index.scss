@@ -85,6 +85,7 @@
     z-index: 10;
     padding: 1em;
     padding-right: 4em;
+    align-items: center;
 
     img {
       height: 1.8em;
@@ -93,20 +94,12 @@
 }
 
 .footer__copyright {
-  position: absolute;
-  font-size: 0.6em;
-
-  // display: absolute;
-  margin-left: 0;
-  padding-left: 0;
+  font-size: 1em;
+  vertical-align: center;
   text-align: center;
-
-  // width: inherit;
-  z-index: 100;
-  width: 100vw;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .footer {
     font-size: 1.5em;
     flex-direction: column;
@@ -138,7 +131,12 @@
     }
 
     &--right {
-      display: none;
+      margin-top: 10px;
+      padding-right: 2em;
+
+      &--socials {
+        display: none;
+      }
     }
   }
 

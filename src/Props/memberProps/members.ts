@@ -15,7 +15,7 @@ const members: MemberProps[] = [
     LinkedInLink: "https://www.linkedin.com/in/eliot-winchell/",
   },
   {
-    name: "Glomorie Ramos",
+    name: "Glomarie Ramos",
     title: "Director of Design",
     image: images.gRamos,
     LinkedInLink: "http://linkedin.com/in/glomarie-ramos-a0083116b",

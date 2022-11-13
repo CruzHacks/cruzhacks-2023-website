@@ -31,6 +31,7 @@
       text-align: center;
       text-transform: uppercase;
       margin-top: 125px;
+      margin-bottom: 37px;
 
       @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
         font-size: 29px;
@@ -39,11 +40,12 @@
     }
 
     h5 {
+      margin: 20px;
       font-family: $inter;
       font-style: normal;
-      font-weight: 600;
-      font-size: 36px;
-      line-height: 44px;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
       text-align: center;
       text-transform: uppercase;
 

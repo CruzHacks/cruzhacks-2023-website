@@ -33,7 +33,8 @@ const FAQsData = [
         <>
           Yes! We’ll be providing meals starting from dinner on Friday until
           lunch on Sunday. There will also be a sleeping space set up for
-          non-UCSC students to sleep.
+          non-local students to sleep (make sure to bring a sleeping bag or
+          blankets!).
         </>
       ),
     },
@@ -163,7 +164,9 @@ const FAQsData = [
         <>
           It is not necessary to have a team at the time of application nor at
           the actual event! If you choose to build a team, there can be a
-          maximum of 4 people.
+          maximum of 4 people. However, we accept all applicants individually,
+          and once decisions are released, you can form a team with other
+          accepted applicants.
         </>
       ),
     },

@@ -24,7 +24,7 @@
   }
 
   &--title {
-    @include fonts.para;
+    font-family: $inter;
     font-size: 24px;
     font-weight: 600;
 

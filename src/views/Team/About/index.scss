@@ -39,6 +39,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    align-items: center;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       margin-top: 10px;
@@ -120,11 +121,23 @@
   }
 
   &--sponsor {
-    max-width: 250px;
-    max-height: 43px;
+    width: 250px;
+    height: 43px;
     border-radius: 12px;
     margin-top: 40px;
     text-align: center;
+    transition: all ease 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      height: 46px;
+      width: 253px;
+      margin-top: 38.5px;
+      margin-bottom: -1.5px;
+      margin-left: -1.5px;
+    }
 
     .app--dark & {
       background: $dark-violet;
@@ -137,9 +150,9 @@
     a {
       display: inline-block;
       width: 100%;
-      height: 100%;
       text-decoration: none;
       border: none;
+      vertical-align: center;
 
       font-family: $nunito;
       font-style: normal;
@@ -154,16 +167,6 @@
       .app--light & {
         color: #f2f0f0;
       }
-
-      flex: none;
-      order: 0;
-      flex-grow: 0;
-    }
-
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 

@@ -12,16 +12,13 @@ const QaBlurb: React.FC<QaBlurbProps> = (props: QaBlurbProps) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className='qablurb__container'>
+    <div className='qablurb__container' onClick={() => setOpen(!open)}>
       <img
         className='qablurb__container--star'
         src={process.env.PUBLIC_URL + "/icon_star-green.svg"}
       />
       <div className='qablurb__container--QA'>
-        <div
-          className='qablurb__container--QA--question'
-          onClick={() => setOpen(!open)}
-        >
+        <div className='qablurb__container--QA--question'>
           <h3>{question}</h3>
           <button className={open ? "open" : ""}>
             <span></span>
