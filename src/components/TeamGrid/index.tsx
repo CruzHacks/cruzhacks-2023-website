@@ -16,7 +16,7 @@ const MemberCard: React.FC<MemberProps> = ({
     <div className='Member--Title'>{title}</div>
     {LinkedInLink ? (
       <div className='Member--Logo'>
-        <a href={LinkedInLink}>
+        <a href={LinkedInLink} target='_blank' rel='noreferrer'>
           <div className='Member--Logo--LogoBg'>
             <img src={LiLogo} alt='LinkedIn Logo' />
           </div>

@@ -33,7 +33,12 @@ const Footer: React.FC = () => {
               Code of Conduct
             </a>
             <span className='footer__container--left--divider'></span>
-            <a target='_blank' rel='noopener noreferrer' href=''>
+            <a
+              target='_blank'
+              // eslint-disable-next-line max-len
+              href='https://docs.google.com/document/d/1298VyEqrSIvbzM3U8nvLQsLtY78Vi2mbndr3d5w0UKk/edit?usp=sharing'
+              rel='noopener noreferrer'
+            >
               Participant Agreement
             </a>
           </div>
