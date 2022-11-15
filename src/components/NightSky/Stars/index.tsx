@@ -1,5 +1,6 @@
 import React from "react"
 import Particles from "react-tsparticles"
+import "./index.scss"
 
 const Stars: React.FC = () => (
   <div className='stars'>
