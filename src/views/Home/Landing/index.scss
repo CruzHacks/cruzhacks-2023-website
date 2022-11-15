@@ -282,6 +282,16 @@
       }
     }
 
+    &__email-copied-msg {
+      visibility: hidden;
+      &--visible {
+        visibility: visible;
+        transition: opacity ease 5s;
+        opacity: 1;
+        font-family: $nunito;
+      }
+    }
+
     &--res {
       text-align: center;
 
