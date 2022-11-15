@@ -96,9 +96,13 @@ const Landing: React.FC = () => {
   const [message, setMessage] = useState<string>("")
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [theme] = useTheme()
+  const [sponsorEmailVisible, setSponsorEmailVisible] = useState<boolean>(false)
 
   const isLightClass = () => (theme.mode === "light" ? "--light" : "")
-
+  const showSponsorEmailCopiedMsg = () => {
+    setSponsorEmailVisible(true)
+    setTimeout(() => setSponsorEmailVisible(false), 5000)
+  }
   const handleSubmit = () => {
     if (!validateEmail(email)) {
       setState(SubmissionStates.Errored)
@@ -172,6 +176,8 @@ const Landing: React.FC = () => {
               // eslint-disable-next-line max-len
               className={`landing__container--inputs__row2--button1${isLightClass()}`}
               onClick={e => {
+                navigator.clipboard.writeText("sponsor@cruzhacks.com")
+                showSponsorEmailCopiedMsg()
                 window.location.href = "mailto:sponsor@cruzhacks.com"
                 e.preventDefault()
               }}
@@ -200,7 +206,15 @@ const Landing: React.FC = () => {
             {message}
           </div>
         )}
+        <div
+          className={`landing__container__email-copied-msg${
+            sponsorEmailVisible ? "--visible" : ""
+          }`}
+        >
+          Sponsor Email Copied!
+        </div>
       </div>
+
       <div className='landing__socials-mobile'>
         {SocialButtonInputs.map(({ logo, link }: SocialButtonProps) => (
           <SocialButton logo={logo} link={link} key={link} />

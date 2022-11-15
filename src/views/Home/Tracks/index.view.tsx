@@ -31,6 +31,7 @@ const Tracks: React.FC = () => (
         <TrackCard key={title} SVG={logo} title={title} blurb={blurb} />
       ))}
     </div>
+    <div className='tracks--space-between'></div>
     <div className='tracks__title'>CATEGORY PRIZES</div>
     <div className='tracks__container'>
       {CategoryTracks.map(({ logo, title, blurb }: PrizeTrackProps) => (
