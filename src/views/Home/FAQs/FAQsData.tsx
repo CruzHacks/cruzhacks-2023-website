@@ -4,7 +4,7 @@ const FAQsData = [
   // Left <--------------------------------------------------
   [
     {
-      question: "What is Cruzhacks?",
+      question: "What is CruzHacks?",
       answer: (
         <>
           CruzHacks is UCSC’s largest hackathon. It is a three day event where
@@ -174,8 +174,12 @@ const FAQsData = [
       question: "Can I become a judge or mentor?",
       answer: (
         <>
-          If you’re not a high school or undergraduate college student, you can
-          apply to be a judge or mentor at CruzHacks 2023! Click{" "}
+          For CruzHacks 2023, mentors and judges will not be allowed to
+          participate as hackers. In addition, judges cannot be a current high
+          school or undergraduate college student. Mentors that are in the
+          industry/working professionally are preferred, but we will still
+          evaluate mentor applications from high school or undergraduate college
+          students based on their experience. Click{" "}
           <a
             target='_blank'
             rel='noreferrer'
