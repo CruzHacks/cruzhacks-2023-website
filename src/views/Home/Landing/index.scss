@@ -284,7 +284,10 @@
 
     &__email-copied-msg {
       visibility: hidden;
+
       &--visible {
+        text-align: center;
+        margin-top: 10px;
         visibility: visible;
         transition: opacity ease 5s;
         opacity: 1;

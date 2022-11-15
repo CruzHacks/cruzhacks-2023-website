@@ -196,13 +196,6 @@ const Landing: React.FC = () => {
               setModalOpen={setModalOpen}
             />
           </div>
-          <div
-            className={`landing__container__email-copied-msg${
-              sponsorEmailVisible ? "--visible" : ""
-            }`}
-          >
-            Sponsor Email Copied!
-          </div>
         </div>
         {message && (
           <div
@@ -213,7 +206,15 @@ const Landing: React.FC = () => {
             {message}
           </div>
         )}
+        <div
+          className={`landing__container__email-copied-msg${
+            sponsorEmailVisible ? "--visible" : ""
+          }`}
+        >
+          Sponsor Email Copied!
+        </div>
       </div>
+
       <div className='landing__socials-mobile'>
         {SocialButtonInputs.map(({ logo, link }: SocialButtonProps) => (
           <SocialButton logo={logo} link={link} key={link} />
