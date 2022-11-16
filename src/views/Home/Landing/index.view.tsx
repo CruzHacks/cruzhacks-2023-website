@@ -10,6 +10,8 @@ import {
   SocialButtonInputs,
   SocialButtonProps,
 } from "../../../Props/Socials/props"
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
+import LocationOnIcon from "@mui/icons-material/LocationOn"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
 import { Modal, Box, SxProps, Fade } from "@mui/material"
 
@@ -146,6 +148,16 @@ const Landing: React.FC = () => {
           CruzHacks is the largest hackathon in Santa Cruz. Each year, we invite
           hundreds of students to develop solutions to real-world problems,
           pursue inclusion in tech, and kindle the spirit of innovation.
+        </div>
+        <div className='more-info'>
+          <div className='date'>
+            <CalendarTodayIcon />
+            January 13-15, 2023
+          </div>
+          <div className='location'>
+            |<LocationOnIcon />
+            In-Person @ UC Santa Cruz
+          </div>
         </div>
         <div className='landing__container--inputs'>
           <div className='landing__container--inputs__row-container'>
