@@ -1,3 +1,6 @@
+@use "../../../stylesheets/fonts";
+@use "../../../stylesheets/variables";
+@use "../../../stylesheets/responsiveness";
 @import "../../../stylesheets/fonts";
 @import "../../../stylesheets/variables";
 @import "../../../stylesheets/responsiveness";
@@ -419,4 +422,36 @@
 
 .arrow-icon {
   width: 1.5em;
+}
+
+.more-info {
+  display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding-bottom: 1.5em;
+
+  @include fonts.para;
+  font-size: 1.15em;
+  font-weight: 500;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 1em;
+    font-size: 1em;
+    padding-bottom: 0;
+  }
+}
+
+.date {
+  gap: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+.location {
+  gap: 0.25em;
+  display: flex;
+  align-items: center;
 }
