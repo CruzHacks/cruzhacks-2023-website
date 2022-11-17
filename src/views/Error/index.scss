@@ -8,14 +8,18 @@
   align-items: center;
   min-height: 100vh;
   gap: 5em;
+
   &--title {
     display: flex;
+
     @include fonts.h1;
     font-size: 8vw;
   }
+
   &--blurb {
     display: flex;
     text-align: center;
+
     @include fonts.h2;
     font-size: 3vw;
   }
