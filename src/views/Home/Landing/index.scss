@@ -85,7 +85,7 @@
     max-width: 600px;
     min-width: 300px;
 
-    @media screen and (max-width: $medium) {
+    @media screen and (max-width: 800px) {
       text-align: center;
       width: 95%;
     }
@@ -95,7 +95,7 @@
       font-weight: 500;
       font-size: max(min(5vw, 64px), 36px);
 
-      @media screen and (max-width: $medium) {
+      @media screen and (max-width: 800px) {
         font-size: 36px;
       }
 
@@ -437,6 +437,10 @@
   font-size: 1.15em;
   font-weight: 500;
 
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    flex-direction: column;
+  }
+
   @media screen and (max-width: 800px) {
     padding-top: 1em;
     font-size: 1em;
@@ -445,12 +449,20 @@
 }
 
 .date {
+
   gap: 0.5em;
   display: flex;
   align-items: center;
 }
 
 .location {
+  &::before {
+    content: "|";
+
+    @media screen and (min-width: 800px) and (max-width: 1000px) {
+      content: none;
+    }
+  }
   gap: 0.25em;
   display: flex;
   align-items: center;
