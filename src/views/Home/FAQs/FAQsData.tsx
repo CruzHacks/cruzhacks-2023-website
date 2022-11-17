@@ -72,6 +72,17 @@ const FAQsData = [
       ),
     },
     {
+      question: "What should I bring?",
+      answer: (
+        <>
+          Some essential things to bring include a laptop (with charger), an
+          empty bag for swag, a change of clothes if you plan on spending the
+          night, and a sleeping bag/blanket if you&apos;re not local to Santa
+          Cruz!
+        </>
+      ),
+    },
+    {
       question: "What rules do I need to follow?",
       /* eslint-disable max-len */
       answer: (
