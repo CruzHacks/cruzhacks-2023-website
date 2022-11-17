@@ -148,6 +148,15 @@ const FAQsData = [
       ),
     },
     {
+      question: "How do you evaluate the applications?",
+      answer: (
+        <>
+          The short answer responses are the most critical part of your
+          application. Make sure to put effort into those responses!
+        </>
+      ),
+    },
+    {
       question: "Will CruzHacks be in-person? Where is it located?",
       answer: (
         <>
