@@ -55,7 +55,9 @@ const FAQsData = [
       answer: (
         <>
           Thanks to our generous sponsors, CruzHacks 2023 is free for our
-          student attendees!
+          student attendees, mentors, judges, and volunteers! We will cover all
+          meals for the entire duration of the event. Note: CruzHacks 2023 may
+          be unable to cover travel costs.
         </>
       ),
     },
@@ -144,6 +146,15 @@ const FAQsData = [
         <>
           Yes! Mentors with various skills are present throughout the event to
           assist anyone on their project.
+        </>
+      ),
+    },
+    {
+      question: "How do you evaluate the applications?",
+      answer: (
+        <>
+          The short answer responses are the most critical part of your
+          application. Make sure to put effort into those responses!
         </>
       ),
     },
