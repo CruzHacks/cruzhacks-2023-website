@@ -2,11 +2,9 @@
 .shooter-Wrapper {
   position: relative;
   z-index: -1000;
-  overflow: hidden;
+  overflow: visible;
   min-height: 100%;
   width: 100%;
-  top: 0;
-  right: 0;
   display: flex;
   justify-content: right;
   gap: 30vw;
