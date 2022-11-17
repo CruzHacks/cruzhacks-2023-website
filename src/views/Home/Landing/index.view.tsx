@@ -155,7 +155,7 @@ const Landing: React.FC = () => {
             January 13-15, 2023
           </div>
           <div className='location'>
-            |<LocationOnIcon />
+            <LocationOnIcon />
             In-Person @ UC Santa Cruz
           </div>
         </div>
