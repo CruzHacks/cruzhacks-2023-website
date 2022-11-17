@@ -1,0 +1,42 @@
+.Button {
+  margin: 0;
+  padding: 8px 10px;
+  min-width: 150px;
+
+  cursor: pointer;
+  user-select: none;
+  border: 3px solid var(--color-bg-secondary);
+  box-sizing: border-box;
+  border-radius: 14px;
+
+  text-align: center;
+  text-decoration: none;
+
+  // default styling - transparent
+  color: #fff;
+  background: transparent;
+
+  &:hover {
+    color: #d9efff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border: 3px solid #8c8c8c;
+    color: #8c8c8c;
+    background: #505050;
+  }
+
+  &--primary {
+    background: var(--color-bg-secondary);
+  }
+
+  &--secondary {
+    color: var(--color-bg-primary);
+    background: var(--color-text-primary);
+
+    &:hover {
+      color: var(--color-bg-secondary);
+    }
+  }
+}

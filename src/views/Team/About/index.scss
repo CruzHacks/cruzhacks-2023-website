@@ -1,0 +1,237 @@
+@use "../../../stylesheets/variables";
+@use "../../../stylesheets/fonts";
+@use "../../../stylesheets/responsiveness";
+@import "../../../stylesheets/variables";
+@import "../../../stylesheets/fonts";
+
+.about__container {
+  &--logo {
+    max-height: 348px;
+    max-width: 469px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
+  }
+
+  &--top {
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-top: 20px;
+      flex-direction: column;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      gap: 50px;
+      flex-direction: row;
+    }
+  }
+
+  &--left {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-top: 10px;
+    }
+  }
+
+  &--title {
+    margin-bottom: 20px;
+
+    font-family: $barlow;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 77px;
+    text-align: left;
+    text-transform: uppercase;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 50px;
+      line-height: 64px;
+      text-align: center;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 38px;
+    }
+  }
+
+  &--history_title {
+    margin-top: 3em;
+    margin-bottom: 40px;
+
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 500px) {
+      font-size: 36px;
+    }
+  }
+
+  &--blurb {
+    font-family: $nunito-sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: left;
+
+    .app--dark & {
+      color: #cfd1d4;
+    }
+
+    .app--light & {
+      color: #dee2e5;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
+  }
+
+  &--sponsor {
+    width: 250px;
+    height: 43px;
+    border-radius: 12px;
+    margin-top: 40px;
+    text-align: center;
+    transition: all ease 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      height: 46px;
+      width: 253px;
+      margin-top: 38.5px;
+      margin-bottom: -1.5px;
+      margin-left: -1.5px;
+    }
+
+    .app--dark & {
+      background: $dark-violet;
+    }
+
+    .app--light & {
+      background: $light-orange;
+    }
+
+    a {
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+      border: none;
+      vertical-align: center;
+
+      font-family: $nunito;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 33px;
+
+      .app--dark & {
+        color: #e6e4e9;
+      }
+
+      .app--light & {
+        color: #f2f0f0;
+      }
+    }
+  }
+
+  &--history {
+    font-family: $nunito-sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: $dark-white;
+
+    .app--dark & {
+      color: $dark-gray;
+    }
+
+    .app--light & {
+      color: #dee2e5;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 16px;
+      line-height: 21px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
+  }
+
+  &--history-2 {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-family: $nunito-sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+
+    .app--dark & {
+      color: $dark-gray;
+    }
+
+    .app--light & {
+      color: #dee2e5;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: 80%;
+      font-size: 16px;
+      line-height: 21px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .about__container {
+    width: 100%;
+  }
+}

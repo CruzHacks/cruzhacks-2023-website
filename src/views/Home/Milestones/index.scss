@@ -1,0 +1,274 @@
+@use "../../../stylesheets/variables";
+@use "../../../stylesheets/fonts";
+@use "../../../stylesheets/responsiveness.scss";
+@use "sass:math";
+@import "../../../stylesheets/variables";
+@import "../../../stylesheets/fonts";
+@import "../../../stylesheets/responsiveness";
+
+@mixin stat-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 200px;
+  height: 115px;
+
+  .app--dark & {
+    border: 3px solid $dark-green;
+  }
+
+  .app--light & {
+    border: 3px solid $light-lighter-blue;
+  }
+
+  &--title {
+    font-family: $inter;
+    font-size: 24px;
+    font-weight: 600;
+
+    .app--dark & {
+      color: $dark-green;
+    }
+
+    .app--light & {
+      color: $light-lighter-blue;
+    }
+  }
+
+  &--desc {
+    text-align: center;
+    max-height: 80%;
+    max-width: 95%;
+    color: white;
+
+    @include fonts.para;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    flex-wrap: wrap;
+  }
+
+  @include responsiveness.screen("big-desktop", "desktop") {
+    width: 175px;
+    height: 136px;
+
+    &--title {
+      @include fonts.para;
+      font-size: 32px;
+      font-weight: 600;
+
+      .app--dark & {
+        color: $dark-green;
+      }
+
+      .app--light & {
+        color: $light-lighter-blue;
+      }
+    }
+
+    &--desc {
+      text-align: center;
+      max-height: 80%;
+      max-width: 95%;
+      color: white;
+
+      @include fonts.para;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: normal;
+      flex-wrap: wrap;
+    }
+  }
+
+  @include responsiveness.screen("small-laptop") {
+    width: 158px;
+    height: 119px;
+
+    &--title {
+      font-size: 30px;
+    }
+
+    &--desc {
+      font-size: 18px;
+    }
+  }
+
+  @include responsiveness.screen("large-tablet") {
+    width: 120px;
+    height: 90px;
+
+    &--title {
+      font-size: 24px;
+    }
+
+    &--desc {
+      font-size: 15px;
+    }
+  }
+}
+
+.milestones__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 0.75em;
+  }
+
+  &--title {
+    @include fonts.subheader;
+    font-size: 5vw;
+
+    @media (min-width: 700px) {
+      font-size: 34px;
+    }
+  }
+
+  &--stats__hackers {
+    @include stat-panel;
+
+    @include responsiveness.screen("big-desktop", "desktop") {
+      position: absolute;
+      top: 73px;
+      left: 16px;
+    }
+
+    @include responsiveness.screen("small-laptop") {
+      position: absolute;
+      top: 105px;
+      left: 20px;
+    }
+
+    @include responsiveness.screen("large-tablet") {
+      position: absolute;
+      top: 79px;
+      left: 58px;
+    }
+  }
+
+  &--stats__prizes {
+    @include stat-panel;
+
+    @include responsiveness.screen("big-desktop", "desktop") {
+      position: absolute;
+      top: 28px;
+      left: 290px;
+    }
+
+    @include responsiveness.screen("small-laptop") {
+      position: absolute;
+      top: 65px;
+      left: 265px;
+    }
+
+    @include responsiveness.screen("large-tablet") {
+      position: absolute;
+      top: 47px;
+      left: 258px;
+    }
+  }
+
+  &--stats__beginners {
+    @include stat-panel;
+
+    @include responsiveness.screen("big-desktop", "desktop") {
+      position: absolute;
+      top: 57px;
+      right: 318px;
+    }
+
+    @include responsiveness.screen("small-laptop") {
+      position: absolute;
+      top: 90px;
+      right: 290px;
+    }
+
+    @include responsiveness.screen("large-tablet") {
+      position: absolute;
+      top: 68px;
+      right: 278px;
+    }
+  }
+
+  &--stats__gender {
+    @include stat-panel;
+
+    @include responsiveness.screen("big-desktop", "desktop") {
+      position: absolute;
+      top: 72px;
+      right: 0;
+    }
+
+    @include responsiveness.screen("small-laptop") {
+      position: absolute;
+      top: 104px;
+      right: 5px;
+    }
+
+    @include responsiveness.screen("large-tablet") {
+      position: absolute;
+      top: 79px;
+      right: 48px;
+    }
+  }
+}
+
+.nodesIcon {
+  width: 900px;
+  margin-bottom: -100px;
+  margin-top: -10px;
+
+  @include responsiveness.screen("small-laptop") {
+    width: 800px;
+    margin-bottom: -150px;
+    margin-top: -30px;
+  }
+
+  @include responsiveness.screen("large-tablet") {
+    width: 650px;
+    margin-bottom: -150px;
+    margin-top: -55px;
+  }
+
+  @include responsiveness.screen("tablet") {
+    display: none;
+  }
+
+  @include responsiveness.screen("phone") {
+    display: none;
+  }
+
+  @include responsiveness.screen("smallest") {
+    display: none;
+  }
+}
+
+.stats-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+
+  @include responsiveness.screen("big-desktop", "desktop") {
+    position: relative;
+    width: 1050px;
+    height: 250px;
+  }
+
+  @include responsiveness.screen("small-laptop") {
+    position: relative;
+    width: 950px;
+    height: 250px;
+  }
+
+  @include responsiveness.screen("large-tablet") {
+    position: relative;
+    width: 850px;
+    height: 250px;
+  }
+}

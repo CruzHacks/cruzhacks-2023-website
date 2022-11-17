@@ -1,0 +1,81 @@
+@import "../../../stylesheets/fonts";
+
+.track-card {
+  background-color: white;
+  width: 240px;
+  height: 365px;
+  color: black;
+  border-radius: 12px;
+  margin: 20px;
+  padding: 5px;
+  transition: width ease 0.25s, height ease 0.25s, margin ease 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover {
+    width: 250px;
+    height: 375px;
+    margin: 10px;
+  }
+
+  &__SVG {
+    &--image {
+      width: 75%;
+      margin-top: 10px;
+      height: 100px;
+    }
+  }
+
+  &__title {
+    font-family: $inter;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 10px;
+    height: fit-content;
+  }
+
+  &__blurb-container {
+    font-family: $nunito;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: left;
+    text-justify: auto;
+    text-overflow: clip;
+    display: flex;
+    height: 150px;
+    width: 200px;
+    align-items: center;
+  }
+}
+
+.tracks__title {
+  text-align: center;
+  font-family: $inter;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.tracks__container {
+
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 120%;
+  margin-left: -10%;
+  margin-bottom: 5em;
+
+  @media screen and (max-width: 1200px) {
+    margin-left: 0%;
+    margin-right: 0%;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.tracks--space-between {
+  margin-bottom: 40px;
+}

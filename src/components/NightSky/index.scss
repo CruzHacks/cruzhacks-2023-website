@@ -1,0 +1,17 @@
+.NightSky__wrapper {
+  position: absolute;
+  overflow: visible;
+  height: 100%;
+}
+
+.NightSky__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  z-index: 1;
+  overflow: hidden;
+  padding-bottom: 10em;
+}

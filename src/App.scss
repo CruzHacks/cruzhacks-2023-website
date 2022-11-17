@@ -1,0 +1,32 @@
+@use "stylesheets/variables";
+@use "stylesheets/responsiveness";
+@import "stylesheets/variables";
+
+html,
+body,
+#root,
+#root > div {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: contain;
+  position: sticky;
+  overflow-x: hidden;
+}
+
+.app {
+  font-family: Arial, Helvetica, sans-serif;
+  color: $dark-white;
+
+  .app--light {
+    @include variables.light-background;
+  }
+
+  .app--dark {
+    @include variables.dark-background;
+  }
+}
+
+.fg {
+  position: relative;
+  z-index: 2;
+}

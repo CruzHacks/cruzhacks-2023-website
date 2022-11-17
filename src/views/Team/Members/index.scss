@@ -1,0 +1,58 @@
+@use "../../../stylesheets/responsiveness";
+@import "../../../stylesheets/variables";
+@import "../../../stylesheets/fonts";
+
+.members__container {
+  justify-content: center;
+
+  h3 {
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      font-size: 29px;
+    }
+  }
+
+  &--names {
+    justify-content: center;
+
+    h4 {
+      font-family: $inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 125px;
+      margin-bottom: 37px;
+
+      @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+        font-size: 29px;
+        line-height: 35px;
+      }
+    }
+
+    h5 {
+      margin: 20px;
+      font-family: $inter;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: uppercase;
+
+      @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+        font-size: 26px;
+        line-height: 25px;
+      }
+    }
+  }
+}

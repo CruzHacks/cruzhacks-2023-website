@@ -1,0 +1,457 @@
+@use "../../../stylesheets/fonts";
+@use "../../../stylesheets/variables";
+@use "../../../stylesheets/responsiveness";
+@import "../../../stylesheets/fonts";
+@import "../../../stylesheets/variables";
+@import "../../../stylesheets/responsiveness";
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--icon {
+      margin-top: -50px;
+      margin-left: -8vw;
+
+      &__sun {
+        width: 800px;
+        margin-bottom: -130px;
+      }
+
+      &__moon {
+        width: 800px;
+        margin-bottom: -130px;
+      }
+
+      &__socials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media screen and (max-width: 1455px) {
+        margin-top: -88px;
+
+        &__sun {
+          width: 700px;
+          margin-bottom: -160px;
+        }
+
+        &__moon {
+          width: 700px;
+          margin-bottom: -160px;
+        }
+      }
+
+      @media screen and (max-width: 1050px) {
+        margin-top: -126px;
+
+        &__sun {
+          width: 600px;
+          margin-bottom: -210px;
+        }
+
+        &__moon {
+          width: 600px;
+          margin-bottom: -210px;
+        }
+      }
+
+      @media screen and (max-width: 930px) {
+        margin-top: -166px;
+
+        &__sun {
+          width: 500px;
+          margin-bottom: -240px;
+        }
+
+        &__moon {
+          width: 500px;
+          margin-bottom: -240px;
+        }
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    max-width: 600px;
+    min-width: 300px;
+
+    @media screen and (max-width: $medium) {
+      text-align: center;
+      width: 95%;
+    }
+
+    &--title {
+      @include title;
+      font-weight: 500;
+      font-size: max(min(5vw, 64px), 36px);
+
+      @media screen and (max-width: $medium) {
+        font-size: 36px;
+      }
+
+      @media screen and (max-width: 350px) {
+        font-size: 32px;
+      }
+    }
+
+    &--blurb {
+      margin-top: 1em;
+
+      @include para;
+      color: #f0f0f0;
+      font-size: max(min(2vw, 32px), 20px);
+      margin-bottom: 1em;
+    }
+
+    &--inputs {
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+
+      &__row-container {
+        display: flex;
+        justify-content: center;
+
+        @media screen and (max-width: 800px) {
+          margin-top: 1.5em;
+        }
+
+        &__row1 {
+          margin-bottom: 10px;
+          background-color: white;
+          width: 75%;
+          height: 30px;
+          padding: 0 5px;
+          display: grid;
+          grid-template-columns: 6fr 1fr;
+          align-items: center;
+          border-radius: 6px;
+
+          @media screen and (max-width: 800px) {
+            height: 35px;
+          }
+
+          &--email-input {
+            text-overflow: ellipsis;
+            font-family: $nunito;
+
+            &:focus {
+              outline: none;
+            }
+            border: none;
+          }
+
+          &__arrow-container {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+
+            %arrow {
+              border: none;
+              border-radius: 6px;
+              color: white;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 25px;
+              width: 2.5rem;
+              transition: width ease 0.1s;
+
+              &:hover {
+                width: 2.8rem;
+                cursor: pointer;
+              }
+
+              @media screen and (max-width: 800px) {
+                border-radius: 3px;
+              }
+            }
+
+            &--arrow {
+              cursor: pointer;
+
+              @extend %arrow;
+              background-color: $dark-light-purple;
+
+              &--light {
+                @extend %arrow;
+                background-color: $light-orange;
+              }
+            }
+          }
+        }
+      }
+
+      &__row2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+
+        @media screen and (max-width: 500px) {
+          margin-top: 10px;
+          flex-direction: column-reverse;
+          gap: 0;
+        }
+        %button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: width ease 0.1s,
+            height ease 0.1s,
+            margin-top ease 0.1s,
+            margin-bottom ease 0.1s;
+
+          &:hover {
+            cursor: pointer;
+            width: 34%;
+            height: 32px;
+            margin-top: 9px;
+            margin-bottom: 9px;
+          }
+
+          @include para;
+          color: white;
+          font-size: 1rem;
+          width: 30%;
+          height: 30px;
+          min-width: 8rem;
+          outline: none;
+          border-width: 1px;
+          border-radius: 6px;
+          border-style: solid;
+          margin: 10px;
+
+          @media screen and (max-width: 500px) {
+            width: 163px;
+          }
+        }
+
+        &--button1 {
+          @extend %button;
+          background-color: transparent;
+          border-color: $dark-light-purple;
+
+          &:hover {
+            background-color: $dark-light-purple;
+          }
+
+          &--light {
+            @extend %button;
+            background-color: transparent;
+            border-color: $light-orange;
+
+            &:hover {
+              background-color: $light-orange;
+            }
+          }
+
+          &:active {
+            border-style: solid;
+          }
+        }
+
+        &--button2 {
+          @extend %button;
+          @include para;
+          background-color: $dark-light-purple;
+          border-color: $dark-light-purple;
+
+          &--light {
+            @extend %button;
+            background-color: $light-orange;
+            border-color: $light-orange;
+          }
+
+          &:active {
+            border-style: solid;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    &__email-copied-msg {
+      visibility: hidden;
+
+      &--visible {
+        text-align: center;
+        margin-top: 10px;
+        visibility: visible;
+        transition: opacity ease 5s;
+        opacity: 1;
+        font-family: $nunito;
+      }
+    }
+
+    &--res {
+      text-align: center;
+
+      &__error {
+        @include para;
+        font-size: 16px;
+        text-align: center;
+        color: red;
+      }
+    }
+
+    @media screen and (max-width: 1455px) {
+      margin-top: 100px;
+    }
+
+    @media screen and (max-width: 1050px) {
+      margin-top: 120px;
+    }
+
+    @media screen and (max-width: 930px) {
+      margin-top: 130px;
+    }
+  }
+
+  &__socials-mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+
+    &__badge {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &--icon {
+        margin: 0;
+
+        &__sun {
+          margin: 80px 0 0;
+          height: 200px;
+          width: 200px;
+        }
+
+        &__moon {
+          margin: 80px 0 0;
+          height: 200px;
+          width: 200px;
+        }
+
+        &__socials {
+          display: none;
+        }
+      }
+    }
+
+    &__container {
+      margin-top: 0;
+
+      &--blurb {
+        display: none;
+      }
+    }
+
+    &__socials-mobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3em;
+    }
+  }
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.application-modal__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  animation: show 200ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+  opacity: 0;
+
+  // remove transform for just a fade-in
+  transform: rotateX(-90deg);
+  transform-origin: top center;
+
+  &__title {
+    font-family: $nunito;
+    color: white;
+    margin: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &--button {
+    margin: 5px 0;
+    border: 1px solid #6f6fe8;
+    background-color: transparent;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 12px;
+    font-family: $nunito;
+    transition: all ease 0.1s;
+
+    &:hover {
+      height: 55px;
+      width: 203px;
+      margin: 2.5px 0;
+      background-color: #6f6fe8;
+      cursor: pointer;
+    }
+  }
+}
+
+.arrow-icon {
+  width: 1.5em;
+}
+
+.more-info {
+  display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding-bottom: 1.5em;
+
+  @include fonts.para;
+  font-size: 1.15em;
+  font-weight: 500;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 1em;
+    font-size: 1em;
+    padding-bottom: 0;
+  }
+}
+
+.date {
+  gap: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+.location {
+  gap: 0.25em;
+  display: flex;
+  align-items: center;
+}

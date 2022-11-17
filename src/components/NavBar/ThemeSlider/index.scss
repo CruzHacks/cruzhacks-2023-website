@@ -1,0 +1,164 @@
+@import "../../../stylesheets/variables";
+
+.toggle {
+  --yellow-background: #fffaa8;
+  --yellow-border: #f5eb71;
+
+  font-size: 3px;
+}
+
+.toggle--checkbox {
+  display: none;
+}
+
+.toggle--label {
+  /** Placeholder element, starting at blue **/
+  cursor: pointer;
+  width: 20em;
+  height: 10em;
+  background: none;
+  border-radius: 10em;
+  border: 0.5em solid $dark-white;
+  display: flex;
+  position: relative;
+  transition: all 250ms ease-in;
+
+  /** The sun cloud and moon stars **/
+
+  /** Sun/Moon element **/
+
+  /** Gray dots on the moon **/
+}
+
+.toggle--label-background {
+  width: 1em;
+  height: 0.5em;
+  border-radius: 0.5em;
+  position: relative;
+  background: $dark-white;
+  left: 13.5em;
+  top: 4.5em;
+  transition: all 50ms ease-in;
+}
+
+.toggle--label-background::before {
+  content: "";
+  position: absolute;
+  top: -0.5em;
+  width: 4em;
+  height: 0.5em;
+  border-radius: 0.5em;
+  background: $dark-white;
+  left: -2em;
+  transition: all 50ms ease-in;
+}
+
+.toggle--label-background::after {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  width: 4em;
+  height: 0.5em;
+  border-radius: 0.5em;
+  background: $dark-white;
+  left: -1em;
+  transition: all 50ms ease-in;
+}
+
+.toggle--label::before {
+  animation-name: reverse;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+  transition: all 250ms ease-in;
+  content: "";
+  width: 8.2em;
+  height: 8.2em;
+  border: 0.5em solid var(--yellow-border);
+  top: 0.4em;
+  left: 0.4em;
+  position: absolute;
+  border-radius: 8.2em;
+  background: var(--yellow-background);
+}
+
+.toggle--label::after {
+  transition: all 250ms ease-in;
+  position: absolute;
+  content: "";
+  box-shadow: $dark-gray -1.3em 0 0 0.2em, $dark-gray -2.4em 1.4em 0 -0.2em;
+  left: 14.3em;
+  top: 2.3em;
+  width: 1em;
+  height: 1em;
+  background: transparent;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.toggle--checkbox:checked + .toggle--label {
+  background: none;
+  border-color: $dark-white;
+}
+
+.toggle--checkbox:checked + .toggle--label .toggle--label-background {
+  left: 6em;
+  width: 0.5em;
+}
+
+.toggle--checkbox:checked + .toggle--label .toggle--label-background::before {
+  width: 0.5em;
+  height: 0.5em;
+  top: -2.5em;
+}
+
+.toggle--checkbox:checked + .toggle--label .toggle--label-background::after {
+  width: 0.5em;
+  height: 0.5em;
+  left: -3em;
+  top: 2em;
+}
+
+.toggle--checkbox:checked + .toggle--label::before {
+  background: $dark-white;
+  border-color: $dark-gray;
+  animation-name: switch;
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+}
+
+.toggle--checkbox:checked + .toggle--label::after {
+  transition-delay: 250ms;
+  opacity: 1;
+}
+
+@keyframes switch {
+  0% {
+    left: 0.4em;
+  }
+
+  60% {
+    left: 0.4em;
+    width: 11.2em;
+  }
+
+  100% {
+    left: 10.4em;
+    width: 8.2em;
+  }
+}
+
+@keyframes reverse {
+  0% {
+    left: 10.4em;
+    width: 8.2em;
+  }
+
+  60% {
+    left: 7.2em;
+    width: 11.2em;
+  }
+
+  100% {
+    left: 0.4em;
+  }
+}

@@ -1,0 +1,47 @@
+.clouds__container {
+  z-index: 1;
+  position: absolute;
+}
+
+.clouds {
+  position: relative;
+  width: min(100vw);
+  height: 85vh;
+}
+
+.cloud {
+  position: absolute;
+  width: 30vw;
+}
+
+.cloud.first {
+  bottom: 0;
+  left: -8%;
+  animation: sway 5.5s ease-in-out infinite;
+}
+
+.cloud.second {
+  right: 0;
+  top: 0;
+  animation: sway 6s ease-in-out infinite;
+}
+
+.cloud.third {
+  right: 15vw;
+  bottom: -30vw;
+  animation: sway 6.5s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0.1vw, -2vh);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}

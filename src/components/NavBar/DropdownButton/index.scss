@@ -1,0 +1,112 @@
+@import "../../../stylesheets/variables";
+
+$color: $dark-green;
+$size: 2em;
+
+@mixin pill() {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 12%;
+  background: $dark-white;
+
+  .app--dark & {
+    box-shadow: 0 0 0 calc($size / 10) $dark-dark-blue;
+  }
+
+  .app--light & {
+    box-shadow: 0 0 0 calc($size / 10) $light-faded-blue;
+  }
+
+  border-radius: $size;
+  transition: all 0.5s cubic-bezier(0.1, 0.9, 0, 1.2);
+}
+
+.wrapper {
+  display: block;
+  position: relative;
+  width: $size;
+  height: $size;
+  z-index: 11;
+
+  .app--dark & {
+    background-color: $dark-dark-blue;
+  }
+
+  .app--light & {
+    background-color: $light-faded-blue;
+  }
+
+  // background-color: $background;
+
+  .bun {
+    &::before {
+      @include pill;
+      top: 10%;
+      right: 0;
+    }
+
+    &::after {
+      @include pill;
+      bottom: 10%;
+      left: 0;
+    }
+
+    .burger {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      height: $size;
+      width: $size;
+
+      &::before,
+      &::after {
+        @include pill;
+      }
+    }
+  }
+
+  input {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    width: $size;
+    height: $size;
+
+    &:hover ~ .bun {
+      &::before,
+      &::after,
+      ::before,
+      ::after {
+        background: $dark-white;
+      }
+    }
+  }
+}
+
+.wrapper input:checked ~ .bun {
+  &::before,
+  &::after {
+    width: 0;
+  }
+
+  .burger {
+    &::before {
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+
+      .app--dark & {
+        box-shadow: 0 0 0 0 $dark-dark-blue;
+      }
+
+      .app--light & {
+        box-shadow: 0 0 0 0 $light-faded-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "../../stylesheets/variables";
+@use "../../stylesheets/responsiveness";
+@import "../../stylesheets/variables";
+@import "../../stylesheets/fonts";
+@import "../../App";
+
+.team__container {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4em 2em;
+
+  scroll-behavior: contain;
+
+  .app--dark {
+    @include variables.dark-about-background;
+  }
+}

@@ -1,0 +1,170 @@
+@import "../../stylesheets/variables";
+@import "../../stylesheets/fonts";
+
+.qablurb__container {
+  font-family: $inter;
+  width: 97%;
+  transition: width ease 0.1s;
+
+  &:hover {
+    width: 98%;
+  }
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  box-shadow: 0 0 7px #e7e7e7;
+  border-radius: 12px;
+
+  padding: 1em;
+
+  .app--dark & {
+    background: $dark-purple;
+  }
+
+  .app--light & {
+    background: $light-orange;
+  }
+
+  &--star {
+    display: none;
+  }
+
+  &--QA {
+    display: block;
+  }
+
+  &--QA--question {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: min-content;
+    align-items: center;
+    width: 98%;
+
+    h3 {
+      margin: 0;
+      padding-right: 1em;
+      line-height: 1.2em;
+    }
+
+    button {
+      cursor: pointer;
+      background: none;
+      min-width: 20px;
+      min-height: 20px;
+      border: 0;
+      font-size: 1.5em;
+      position: relative;
+    }
+
+    button span {
+      position: absolute;
+
+      // background: $dark-green;
+      transition: 300ms;
+      border-radius: 2px;
+    }
+
+    /* Morph the shape when the button is hovered over */
+    .open span {
+      transform: rotate(90deg);
+    }
+
+    /* Create the "+" shape by positioning the spans absolutely */
+    button span:first-child {
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      left: 9px;
+    }
+
+    button span:last-child {
+      left: 0;
+      right: 0;
+      height: 2px;
+      top: 9px;
+    }
+
+    .app--light & button span {
+      background: $dark-white;
+    }
+
+    .app--dark & button span {
+      background: $dark-green;
+    }
+
+    .open span:last-child {
+      left: 50%;
+      right: 50%;
+    }
+  }
+
+  p {
+    margin: 0;
+    padding: 1em 0;
+    width: 98%;
+
+    line-height: 1.5em;
+
+    a {
+      text-decoration: none;
+    }
+
+    .app--dark & {
+      color: $dark-gray;
+
+      a {
+        color: $dark-green;
+      }
+    }
+
+    .app--light & a {
+      color: $light-faded-blue;
+    }
+
+    &.closed {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .qablurb__container {
+    flex-direction: row;
+    box-shadow: none;
+    align-items: flex-start;
+
+    &:hover {
+      width: 97%;
+    }
+
+    &--star {
+      display: block;
+      width: 5em;
+    }
+
+    .app--dark &,
+    .app--light & {
+      background: transparent;
+    }
+
+    &--QA--question {
+      align-items: flex-start;
+      justify-content: center;
+      height: 3em;
+
+      display: flex;
+      flex-direction: column;
+
+      button {
+        display: none;
+      }
+    }
+
+    p.closed {
+      display: block;
+    }
+  }
+}

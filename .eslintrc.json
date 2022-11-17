@@ -23,6 +23,11 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/no-explicit-any":
+            "off",
+        "@typescript-eslint/no-empty-function": [
+            "off"
+        ],
         "max-len": [
             "error",
             {
@@ -30,6 +35,14 @@
                 "tabWidth": 2
             }
         ],
-        "eol-last": ["error", "always"]
+        "eol-last": [
+            "error",
+            "always"
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }

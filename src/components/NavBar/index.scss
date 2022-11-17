@@ -1,0 +1,188 @@
+@import "../../stylesheets/variables";
+@import "../../stylesheets/fonts";
+
+.nav {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: $nunito;
+
+  top: 0;
+  height: 4em;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 11px #000;
+  overflow: hidden;
+
+  .app--dark & {
+    background-color: $dark-dark-purple;
+  }
+
+  .app--light & {
+    background-color: $light-faded-blue;
+  }
+}
+
+.nav__container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: $dark-white;
+  }
+
+  &--left {
+    flex-grow: 2;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+
+    margin-left: 2em;
+  }
+
+  &--right {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+
+    margin-right: 1em;
+
+    &--item {
+      flex-grow: 1;
+
+      text-align: center;
+      position: relative;
+    }
+
+    &--item__link {
+      position: relative;
+
+      // Link Underline
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 120%;
+        width: 100%;
+        height: 3px;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+        transform-origin: 0 0;
+      }
+
+      // Underline Color
+      .app--light &::after {
+        background-color: $light-orange;
+      }
+
+      .app--dark &::after {
+        background-color: $dark-green;
+      }
+
+      // Underline Transition
+      .active &::after {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    // MLH Logo
+    img {
+      height: 2em;
+    }
+  }
+
+  // padding-right: 10%;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    align-items: flex-start;
+
+    height: 12em; // height: 4em;
+    width: 100vw;
+    box-shadow: none;
+
+    .app--dark & {
+      background-color: transparent;
+    }
+
+    .app--light & {
+      background-color: transparent;
+    }
+  }
+
+  .nav__container {
+    padding-bottom: 1em;
+    align-items: flex-start;
+    width: 100vw;
+
+    // border: 1px solid red;
+
+    .app--dark & {
+      background-color: $dark-dark-blue;
+    }
+
+    .app--light & {
+      background-color: $light-faded-blue;
+    }
+
+    &--left {
+      position: absolute;
+      margin: 0;
+      padding: 1em;
+      width: 100vw;
+      z-index: 10;
+
+      font-size: 0.8em;
+
+      .app--dark & {
+        background-color: $dark-dark-blue;
+      }
+
+      .app--light & {
+        background-color: $light-faded-blue;
+      }
+
+      img {
+        height: 3em;
+      }
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 1.5em;
+
+      &__dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1em;
+        margin-top: 1em;
+        transition: margin-top 300ms ease;
+
+        &.hidden {
+          margin-top: -8em;
+          z-index: -1;
+        }
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
+}
