@@ -85,7 +85,7 @@
     max-width: 600px;
     min-width: 300px;
 
-    @media screen and (max-width: $medium) {
+    @media screen and (max-width: 800px) {
       text-align: center;
       width: 95%;
     }
@@ -95,7 +95,7 @@
       font-weight: 500;
       font-size: max(min(5vw, 64px), 36px);
 
-      @media screen and (max-width: $medium) {
+      @media screen and (max-width: 800px) {
         font-size: 36px;
       }
 
@@ -437,6 +437,9 @@
   font-size: 1.15em;
   font-weight: 500;
 
+  @media screen and (max-width: 1000px) {
+    font-size: 0.8em;
+  }
   @media screen and (max-width: 800px) {
     padding-top: 1em;
     font-size: 1em;
