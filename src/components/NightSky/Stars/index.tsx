@@ -47,6 +47,9 @@ const Stars: React.FC = () => (
           },
         },
       }}
+      style={{
+        width: "90%",
+      }}
     />
   </div>
 )
