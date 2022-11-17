@@ -7,7 +7,7 @@ const RESEND_VERIFICATION_EMAIL_ENDPOINT =
   `${process.env.REACT_APP_ENDPOINT_URL}/auth/resend` || ""
 
 const SUBSCRIBE_ENDPOINT =
-  `${process.env.REACT_APP_MAILCHIMP_ENDPOINT}/subscribe` || ""
+  `${process.env.REACT_APP_ENDPOINT_URL}/subscribe` || ""
 
 const METADATA_ENDPOINT =
   `${process.env.REACT_APP_ENDPOINT_URL}/auth/metadata` || ""
