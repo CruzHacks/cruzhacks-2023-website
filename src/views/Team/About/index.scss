@@ -176,7 +176,7 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 33px;
-    text-align: justify;
+    text-align: center;
     color: $dark-white;
 
     .app--dark & {
@@ -191,7 +191,6 @@
       width: 80%;
       font-size: 16px;
       line-height: 21px;
-      text-align: center;
       height: auto;
       display: block;
       margin-left: auto;
@@ -208,7 +207,7 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 33px;
-    text-align: justify;
+    text-align: center;
 
     .app--dark & {
       color: $dark-gray;
@@ -222,7 +221,6 @@
       width: 80%;
       font-size: 16px;
       line-height: 21px;
-      text-align: center;
       height: auto;
       display: block;
       margin-left: auto;
