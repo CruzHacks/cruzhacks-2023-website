@@ -1,3 +1,30 @@
+@use "../../stylesheets/fonts";
+@import "../../stylesheets/fonts";
+
 .error__container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 5em;
+  &--title {
+    display: flex;
+    @include fonts.h1;
+    font-size: 8vw;
+  }
+  &--blurb {
+    display: flex;
+    text-align: center;
+    @include fonts.h2;
+    font-size: 3vw;
+  }
+}
+
+.clouds__container.errorview {
+  top: 0;
+}
+
+.cloud.third.errorview {
+  opacity: 0;
 }

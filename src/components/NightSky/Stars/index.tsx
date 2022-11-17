@@ -5,6 +5,7 @@ import "./index.scss"
 const Stars: React.FC = () => (
   <div className='stars'>
     <Particles
+      canvasClassName='stars__particles'
       options={{
         fpsLimit: 60,
         interactivity: {
