@@ -55,7 +55,9 @@ const FAQsData = [
       answer: (
         <>
           Thanks to our generous sponsors, CruzHacks 2023 is free for our
-          student attendees!
+          student attendees, mentors, judges, and volunteers! We will cover all
+          meals for the entire duration of the event. Note: CruzHacks 2023 may
+          be unable to cover travel costs.
         </>
       ),
     },
@@ -66,6 +68,17 @@ const FAQsData = [
           Nope! No experience is required. We’re looking for applicants who are
           passionate about learning something new and creating a vision. 25% of
           hackers in 2021 and 47% in 2020 were first time hackers.
+        </>
+      ),
+    },
+    {
+      question: "What should I bring?",
+      answer: (
+        <>
+          Some essential things to bring include a laptop (with charger), an
+          empty bag for swag, a change of clothes if you plan on spending the
+          night, and a sleeping bag/blanket if you&apos;re not local to Santa
+          Cruz!
         </>
       ),
     },
@@ -144,6 +157,15 @@ const FAQsData = [
         <>
           Yes! Mentors with various skills are present throughout the event to
           assist anyone on their project.
+        </>
+      ),
+    },
+    {
+      question: "How do you evaluate the applications?",
+      answer: (
+        <>
+          The short answer responses are the most critical part of your
+          application. Make sure to put effort into those responses!
         </>
       ),
     },
