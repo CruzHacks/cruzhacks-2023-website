@@ -437,14 +437,9 @@
   font-size: 1.15em;
   font-weight: 500;
 
-  @media screen and (min-width: 800px) and (max-width: 1000px) {
+  @media screen and (max-width: 1000px) {
+    margin-top: 15px;
     flex-direction: column;
-  }
-
-  @media screen and (max-width: 800px) {
-    padding-top: 1em;
-    font-size: 1em;
-    padding-bottom: 0;
   }
 }
 
@@ -459,7 +454,7 @@
   &::before {
     content: "|";
 
-    @media screen and (min-width: 800px) and (max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
       content: none;
     }
   }
