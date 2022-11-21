@@ -14,7 +14,6 @@
   width: 100%;
   z-index: 1000;
   box-shadow: 0 4px 11px #000;
-  overflow: hidden;
 
   .app--dark & {
     background-color: $dark-dark-purple;
@@ -27,7 +26,7 @@
 
 .nav__container {
   position: relative;
-  width: 100%;
+  min-width: 100%;
   max-width: 1000px;
 
   display: flex;
@@ -51,6 +50,7 @@
 
   &--right {
     flex-grow: 1;
+    max-width: 400px;
 
     display: flex;
     flex-direction: row;
@@ -155,8 +155,8 @@
         background-color: $light-faded-blue;
       }
 
-      img {
-        height: 3em;
+      .logo {
+        height: 4em;
       }
     }
 
@@ -165,13 +165,14 @@
       flex-direction: column;
       align-items: flex-end;
       margin-top: 1.5em;
+      margin-left: auto;
 
       &__dropdown {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 1em;
-        margin-top: 1em;
+        margin-top: 1.5em;
         transition: margin-top 300ms ease;
 
         &.hidden {
@@ -185,4 +186,31 @@
       }
     }
   }
+}
+
+.badge_container {
+  position: relative;
+  width: 80px;
+  height: 65px;
+  margin-right: 1em;
+  z-index: 10;
+
+  @media only screen and (max-width: 600px) {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.mlh_badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+}
+
+.mlhlogo {
+  width: 20vw;
+  max-width: 100px;
+  min-width: 75px;
+  height: 4em;
 }
