@@ -14,7 +14,6 @@
   width: 100%;
   z-index: 1000;
   box-shadow: 0 4px 11px #000;
-  overflow: hidden;
 
   .app--dark & {
     background-color: $dark-dark-purple;
@@ -27,7 +26,7 @@
 
 .nav__container {
   position: relative;
-  width: 100%;
+  min-width: 100%;
   max-width: 1000px;
 
   display: flex;
@@ -164,6 +163,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      width: 90%;
       margin-top: 1.5em;
 
       &__dropdown {
@@ -185,4 +185,29 @@
       }
     }
   }
+}
+
+.badge_container {
+  position: relative;
+  width: 80px;
+  height: 65px;
+  margin-right: 1em;
+  z-index: 10;
+
+  @media only screen and (max-width: 600px) {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.mlh_badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+}
+
+.mlhlogo {
+  width: 3em;
+  height: 3em;
 }
