@@ -86,10 +86,14 @@ const NavBar: React.FC = () => {
       <div className='nav__container'>
         <div className='nav__container--left'>
           <Link to='/'>
-            <CruzHacksLogo />
+            <CruzHacksLogo className='logo' />
           </Link>
           <ThemeSlider />
-          {windowWidthHeight[0] <= 600 ? <MLHLogo className='mlhlogo' /> : ""}
+          {windowWidthHeight[0] <= 600 && windowWidthHeight[0] >= 320 ? (
+            <MLHLogo className='mlhlogo' />
+          ) : (
+            ""
+          )}
         </div>
         <div className='nav__container--right'>
           {windowWidthHeight[0] <= 600 ? dropDown : nav}

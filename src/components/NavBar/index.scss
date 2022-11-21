@@ -155,8 +155,8 @@
         background-color: $light-faded-blue;
       }
 
-      img {
-        height: 3em;
+      .logo {
+        height: 4em;
       }
     }
 
@@ -164,8 +164,8 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      width: 90%;
       margin-top: 1.5em;
+      margin-left: auto;
 
       &__dropdown {
         display: flex;
@@ -209,6 +209,8 @@
 }
 
 .mlhlogo {
-  width: 3em;
-  height: 3em;
+  width: 20vw;
+  max-width: 100px;
+  min-width: 75px;
+  height: 4em;
 }
