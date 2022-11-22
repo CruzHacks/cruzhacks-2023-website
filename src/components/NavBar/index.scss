@@ -176,7 +176,7 @@
         transition: margin-top 300ms ease;
 
         &.hidden {
-          margin-top: -8em;
+          margin-top: -7em;
           z-index: -1;
         }
       }
@@ -192,25 +192,24 @@
   position: relative;
   width: 80px;
   height: 65px;
-  margin-right: 1em;
+  margin-right: 50px;
   z-index: 10;
 
   @media only screen and (max-width: 600px) {
     position: absolute;
-    opacity: 0;
+    top: 100%;
+    right: 0;
+    margin-right: 0;
   }
 }
 
 .mlh_badge {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   width: 80px;
-}
 
-.mlhlogo {
-  width: 20vw;
-  max-width: 100px;
-  min-width: 75px;
-  height: 4em;
+  &:hover {
+    cursor: pointer;
+  }
 }
