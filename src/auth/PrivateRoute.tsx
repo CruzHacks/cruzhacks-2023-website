@@ -1,13 +1,13 @@
 import * as React from "react"
+import { Route } from "react-router-dom"
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react"
-import BGwrapper from "../components/BGwrapper"
+import VerifyView from "../views/Verify/index.view"
 import ErrorView from "../views/Error/index.view"
-import Loading from "../components/Loading"
-// import VerifyView from "../views/Verify/index.view"
 
 interface PrivateRouteProps {
-  component: React.ReactElement
-  role?: string
+  component: React.ComponentType<any>
+  path: string
+  role: string
   exact?: boolean
   sensitive?: boolean
   strict?: boolean
@@ -23,25 +23,37 @@ interface PrivateRouteProps {
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({
   component,
+  path,
   role,
 }: PrivateRouteProps) => {
   const { user } = useAuth0()
-  let route: React.ReactElement = component
+
+  let route: React.ComponentType<any> = component
 
   // redirect if email is not verified
-  /**if (!user?.email_verified) {
+  if (!user?.email_verified) {
     route = VerifyView
-  }**/
-
-  // if admin route, redirect if not admin
-  if (role) {
-    const userRoles = (user && user[`https://cruzhacks.com/roles`]) || []
-    if (userRoles.indexOf(role) === -1) {
-      route = BGwrapper(ErrorView)
-    }
   }
 
-  return route
+  // if admin route, redirect if not admin
+  const userRoles = (user && user[`https://cruzhacks.com/roles`]) || []
+  if (userRoles.indexOf(role) === -1) {
+    route = ErrorView
+  }
+
+  return (
+    <Route
+      element={
+        <>
+          {withAuthenticationRequired(route, {
+            returnTo: path,
+            onRedirecting: () => <div>Redirecting...</div>,
+          })}
+        </>
+      }
+      path={path}
+    />
+  )
 }
 
 PrivateRoute.defaultProps = {
@@ -49,6 +61,4 @@ PrivateRoute.defaultProps = {
   strict: false,
 }
 
-export default withAuthenticationRequired(PrivateRoute, {
-  onRedirecting: () => <Loading message='Redirecting...' />,
-})
+export default PrivateRoute
