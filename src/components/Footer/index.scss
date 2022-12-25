@@ -1,9 +1,11 @@
 @import "../../stylesheets/variables";
 
 .footer__image {
+  position: relative;
   width: 100vw;
   margin-top: 3em;
   margin-bottom: -10px;
+  z-index: 100;
 }
 
 .footer {
