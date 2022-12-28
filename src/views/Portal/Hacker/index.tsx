@@ -1,10 +1,19 @@
 import React from "react"
-import { useAuth0 } from "@auth0/auth0-react"
+import "./index.scss"
+// eslint-disable-next-line max-len
+import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
+import { HackerDashWelcome } from "./components/Welcome/Welcome"
+import { Leaderboard } from "./components/Leaderboard/Leaderboard"
 
 const HackerDash: React.FC = () => {
-  const { user } = useAuth0()
   return (
-    <div className='hackerdash__container'>Welcome, {user && user.name}!</div>
+    <div className='hackerdash__container'>
+      <HackerDashWelcome />
+      <div className='hackerdash__container--row'>
+        <AttendanceStatus />
+        <Leaderboard />
+      </div>
+    </div>
   )
 }
 

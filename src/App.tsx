@@ -16,6 +16,7 @@ import BGwrapper from "./components/BGwrapper"
 import "./App.scss"
 
 const App: React.FC = () => {
+  const location = useLocation().pathname
   React.useEffect(() => {
     document.documentElement.scrollTo({
       top: 0,
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       behavior: "auto",
     })
   }, [useLocation().pathname])
+
   return (
     <div className='app'>
       <Auth0ProviderWithHistory
@@ -37,6 +39,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path='/' element={BGwrapper(Home)} />
               <Route path='team' element={BGwrapper(Team)} />
+              <Route path='portaltest' element={<HackerDash />} />
               <Route
                 path='portal'
                 element={<PrivateRoute component={<Portal />} />}
@@ -56,7 +59,7 @@ const App: React.FC = () => {
               </Route>
               <Route path='*' element={BGwrapper(ErrorView)} />
             </Routes>
-            <Footer />
+            {location != "/portaltest" ? <Footer /> : null}
           </>
         </ThemeProvider>
       </Auth0ProviderWithHistory>
