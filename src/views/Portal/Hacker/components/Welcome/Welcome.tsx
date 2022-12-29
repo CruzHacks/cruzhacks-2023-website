@@ -7,7 +7,7 @@ export const HackerDashWelcome: React.FC = () => {
   return (
     <div className='welcome__container'>
       <div className='welcome__container--message'>
-        Welcome, Sid{user && user.name}!
+        Welcome, {user && user.name}!
       </div>
       <div className='welcome__container__cruzpoints'>
         <div className='welcome__container__cruzpoints--text'>

@@ -55,10 +55,10 @@
             margin-left: auto;
             width: 6em;
             text-align: center;
-            transition: width ease 0.25s;
+            transition: padding ease 0.25s;
             &:hover {
                 cursor: pointer;
-                width: 6.5em;
+                padding: 8px 15px;
             }
         }
     }

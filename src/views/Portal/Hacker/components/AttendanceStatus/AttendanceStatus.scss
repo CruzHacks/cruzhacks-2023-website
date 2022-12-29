@@ -58,7 +58,7 @@
             &--confirm-button {
                 all: unset;
                 display: inline-block;
-                margin: 0;
+                margin: 5px;
                 padding: 8px;
                 border-radius: 6px;
                 border: 1px solid #6F6FE8;
@@ -66,17 +66,16 @@
                 width: 5em;
                 text-align: center;
                 transition: 
-                    width ease 0.25s, 
-                    margin-left ease 0.25s,
-                    margin-right ease 0.25s;
+                    padding ease 0.25s,
+                    margin ease 0.25s;
 
                 &:hover {
                     background-color: #6F6FE8;
                     color: white;
                     cursor: pointer;
-                    width: 5.5em;
-                    margin-left: 0.75em;
-                    margin-right: 0.75em;
+                    padding-top: 11.5px;
+                    padding-bottom: 11.5px;
+                    margin: 1.5px 5px;
                 }
             }
         }
