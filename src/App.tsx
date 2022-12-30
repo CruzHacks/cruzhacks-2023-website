@@ -39,7 +39,6 @@ const App: React.FC = () => {
             <Routes>
               <Route path='/' element={BGwrapper(Home)} />
               <Route path='team' element={BGwrapper(Team)} />
-              <Route path='portaltest' element={<HackerDash />} />
               <Route
                 path='portal'
                 element={<PrivateRoute component={<Portal />} />}
