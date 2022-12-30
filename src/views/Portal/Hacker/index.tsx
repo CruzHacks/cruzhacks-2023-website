@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./index.scss"
 // eslint-disable-next-line max-len
 import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
@@ -11,6 +11,8 @@ import {
 } from "./components/ChecklistItem/ChecklistItem"
 // eslint-disable-next-line max-len
 import { ImportantDatesTable } from "./components/ImportantDatesTable/ImportantDatesTable"
+import axios from "axios"
+import { useAuth0 } from "@auth0/auth0-react"
 
 const checklistProps: Array<ChecklistItemProps> = [
   {
@@ -44,6 +46,29 @@ const checklistProps: Array<ChecklistItemProps> = [
 ]
 
 const HackerDash: React.FC = () => {
+  const { getAccessTokenSilently } = useAuth0()
+
+  useEffect(() => {
+    const getProfile = async () => {
+      try {
+        const token = await getAccessTokenSilently()
+        const getHackerProfileAxiosRequest = {
+          method: "get",
+          url: `${process.env.REACT_APP_ENDPOINT_URL}/hacker/hackerProfile`,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "http://localhost:3000",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+        const profile = await axios(getHackerProfileAxiosRequest)
+        console.log(profile)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getProfile().then()
+  }, [])
   return (
     <div className='hackerdash'>
       <div className='hackerdash__container'>

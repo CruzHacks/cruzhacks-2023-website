@@ -58,7 +58,7 @@ const App: React.FC = () => {
               </Route>
               <Route path='*' element={BGwrapper(ErrorView)} />
             </Routes>
-            {location != "/portaltest" ? <Footer /> : null}
+            {location.match(/\/portal\/*/) ? null : <Footer />}
           </>
         </ThemeProvider>
       </Auth0ProviderWithHistory>
