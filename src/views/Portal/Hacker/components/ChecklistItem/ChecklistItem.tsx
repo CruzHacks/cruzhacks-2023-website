@@ -7,6 +7,8 @@ export interface ChecklistItemProps {
   message: string
   buttonText: string
   onClick(): any
+  isUnclickable?: boolean
+  unClickableText?: string
 }
 
 export const ChecklistItem = (props: ChecklistItemProps) => {
@@ -17,10 +19,12 @@ export const ChecklistItem = (props: ChecklistItemProps) => {
       </div>
       <div className='checklist__container__message'>{props.message}</div>
       <button
-        className='checklist__container__button'
+        className={`checklist__container__button${
+          props.isUnclickable ? "--greyedOut" : ""
+        }`}
         onClick={() => props.onClick()}
       >
-        {props.buttonText}
+        {!props.isUnclickable ? props.buttonText : props.unClickableText}
       </button>
     </div>
   )

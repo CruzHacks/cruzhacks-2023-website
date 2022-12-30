@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import "./index.scss"
 // eslint-disable-next-line max-len
 import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
@@ -11,82 +11,57 @@ import {
 } from "./components/ChecklistItem/ChecklistItem"
 // eslint-disable-next-line max-len
 import { ImportantDatesTable } from "./components/ImportantDatesTable/ImportantDatesTable"
-import axios from "axios"
 import { useAuth0 } from "@auth0/auth0-react"
-
-const checklistProps: Array<ChecklistItemProps> = [
-  {
-    checklistNum: 1,
-    title: "Accept Invitation",
-    message: `Let us know you will be joining us! 
-    We want to make sure we are ready to give you 
-    the best experience for Cruzhacks 2023`,
-    buttonText: "Accept",
-    onClick: () => {},
-  },
-  {
-    checklistNum: 2,
-    title: "Create or join a team",
-    message: `What’s a hackathon without a group 
-    of fellow hackers? Find your team to start 
-    innovating!`,
-    buttonText: "Get Started",
-    onClick: () => {},
-  },
-  {
-    checklistNum: 3,
-    title: "Check out our Hackerpack",
-    message: `You can find everything you need to 
-    know in our hacker packet PDF. It covers what 
-    you need to bring, travel info, workshop info, 
-    and more!`,
-    buttonText: "HackerPack",
-    onClick: () => {},
-  },
-]
+import { checklistProps } from "./Props/checklistprops"
+import { confirmAttendance, getProfile } from "./api"
+// eslint-disable-next-line max-len
+import { ReactComponent as Background } from "../../../assets/HackerPortalBackground.svg"
 
 const HackerDash: React.FC = () => {
   const { getAccessTokenSilently } = useAuth0()
+  const [cruzPoints, setCruzPoints] = useState<number>(0)
+  const [attendanceStatus, setAttendanceStatus] = useState<boolean>(false)
+  const [render, setRender] = useState<boolean>(false)
 
   useEffect(() => {
-    const getProfile = async () => {
-      try {
-        const token = await getAccessTokenSilently()
-        const getHackerProfileAxiosRequest = {
-          method: "get",
-          url: `${process.env.REACT_APP_ENDPOINT_URL}/hacker/hackerProfile`,
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "http://localhost:3000",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-        const profile = await axios(getHackerProfileAxiosRequest)
-        console.log(profile)
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    getProfile().then()
+    getProfile(getAccessTokenSilently, setCruzPoints, setAttendanceStatus).then(
+      () => setRender(true)
+    )
   }, [])
-  return (
-    <div className='hackerdash'>
-      <div className='hackerdash__container'>
-        <HackerDashWelcome />
-        <div className='hackerdash__container--row'>
-          <div className='hackerdash__container--column'>
-            <AttendanceStatus />
-            <Submission canSubmit={true} />
+
+  if (render) {
+    return (
+      <div className='hackerdash'>
+        <div className='hackerdash__container'>
+          <HackerDashWelcome
+            cruzPoints={cruzPoints}
+            setCruzPoints={setCruzPoints}
+          />
+          <div className='hackerdash__container--row'>
+            <div className='hackerdash__container--column'>
+              <AttendanceStatus
+                attendanceStatus={attendanceStatus}
+                confirmHandler={() =>
+                  confirmAttendance(getAccessTokenSilently, setAttendanceStatus)
+                }
+              />
+              <Submission canSubmit={true} />
+            </div>
+            <Leaderboard />
           </div>
-          <Leaderboard />
+        </div>
+        <div className='hackerdash__lower-container'>
+          <Checklist />
+          <ImportantDates />
+        </div>
+        <div className='hackerdash__background'>
+          <Background />
         </div>
       </div>
-      <div className='hackerdash__lower-container'>
-        <Checklist />
-        <ImportantDates />
-      </div>
-    </div>
-  )
+    )
+  } else {
+    return <div className='hackerdash'></div>
+  }
 }
 
 const Checklist = () => {
@@ -107,6 +82,8 @@ const Checklist = () => {
             message={props.message}
             buttonText={props.buttonText}
             onClick={props.onClick}
+            isUnclickable={props.isUnclickable}
+            unClickableText={props.unClickableText}
           />
         ))}
       </div>

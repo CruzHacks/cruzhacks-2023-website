@@ -1,7 +1,15 @@
 import React from "react"
 import "./AttendanceStatus.scss"
 
-export const AttendanceStatus: React.FC = () => {
+interface AttendanceStatusProps {
+  attendanceStatus: boolean
+  confirmHandler(): any
+}
+
+export const AttendanceStatus: React.FC<AttendanceStatusProps> = (
+  props: AttendanceStatusProps
+) => {
+  const { confirmHandler, attendanceStatus } = props
   return (
     <div className='attendance'>
       <div className='attendance__container'>
@@ -9,7 +17,7 @@ export const AttendanceStatus: React.FC = () => {
           <div className='attendance__container__application--text'>
             Application Status:
           </div>
-          <div className='attendance__container__application--status'>
+          <div className='attendance__container__application__status'>
             ACCEPTED
           </div>
         </div>
@@ -17,12 +25,20 @@ export const AttendanceStatus: React.FC = () => {
           <div className='attendance__container__attendance--text'>
             Attendance Status:
           </div>
-          <div className='attendance__container__attendance--status'>
-            NOT CONFIRMED
+          <div
+            // eslint-disable-next-line max-len
+            className={`attendance__container__attendance__status--${attendanceStatus}`}
+          >
+            {attendanceStatus ? "CONFIRMED" : "NOT CONFIRMED"}
           </div>
-          <button className='attendance__container__attendance--confirm-button'>
-            Confirm
-          </button>
+          {!attendanceStatus ? (
+            <button
+              className='attendance__container__attendance--confirm-button'
+              onClick={() => confirmHandler()}
+            >
+              Confirm
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

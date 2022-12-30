@@ -31,19 +31,30 @@
     }
   }
 
-  &__button {
+  @mixin checklist-button {
     all: unset;
-    margin-left: 24px;
     background-color: #6F6FE8;
+    margin-left: 24px;
     border-radius: 6px;
     text-align: center;
     color: white;
     padding: 5px 30px;
     transition: padding ease 0.25s;
+  }
 
+  &__button {
+    
+    @include checklist-button();
+    
     &:hover {
       cursor: pointer;
       padding: 5px 40px;
+    }
+    &--greyedOut {
+      @include checklist-button();
+      background-color: #D4D4D4;
+      color: #525252;
+      
     }
   }
 }
