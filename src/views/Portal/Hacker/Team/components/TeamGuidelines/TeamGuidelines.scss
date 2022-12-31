@@ -2,24 +2,25 @@
 
 .teamguidelines__container {
   color: #2E2E6C;
-  
   padding: 20px;
-  width: 90%;
-  max-width: 550px;
+  width: 100%;
+
   &__header {
     font-family: $inter;
     font-weight: 600;
     color: #7474A1;
     font-size: 24px;
+    
   }
 
   &__guidelines {
+    margin-top: 0px;
     font-family: $nunito;
-    margin-top: 1rem;
-    line-height: 1.5;
+    line-height: 1.25;
     margin-left: -15px;
     &--bullet {
       font-size: 18px;
     }
   }
 }
+
