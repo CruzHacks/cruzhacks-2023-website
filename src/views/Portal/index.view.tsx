@@ -8,8 +8,7 @@ const Portal = () => {
   React.useEffect(() => {
     const userRoles = (user && user[`https://cruzhacks.com/roles`]) || []
     const nickname = user && user.nickname
-    if (userRoles.indexOf("Hacker") != -1)
-      navigate(`hacker/${nickname}/dashboard`)
+    if (userRoles.indexOf("Hacker") != -1) navigate(`hacker/${nickname}/team`)
     else if (userRoles.indexOf("Organizer") != -1)
       navigate(`admin/${nickname}/dashboard`)
     else navigate("error")

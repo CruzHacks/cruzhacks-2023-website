@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import React from "react"
 import "./Leaderboard.scss"
-import { ReactComponent as GoldTrophy } from "../../../../../assets/GoldTrophy.svg"
-import { ReactComponent as SilverTrophy } from "../../../../../assets/SilverTrophy.svg"
-import { ReactComponent as BronzeTrophy } from "../../../../../assets/BronzeTrophy.svg"
+import { ReactComponent as GoldTrophy } from "../../../../../../assets/GoldTrophy.svg"
+import { ReactComponent as SilverTrophy } from "../../../../../../assets/SilverTrophy.svg"
+import { ReactComponent as BronzeTrophy } from "../../../../../../assets/BronzeTrophy.svg"
 
 import {
   Table,
@@ -73,8 +73,7 @@ export const Leaderboard: React.FC = () => {
           borderRadius: 2,
           width: "100%",
           maxHeight: "75%",
-          overflow: "scroll",
-          overflowX: "hidden",
+          overflowY: "scroll",
           marginBottom: "30px",
         }}
       >

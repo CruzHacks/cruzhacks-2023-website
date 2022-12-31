@@ -1,4 +1,4 @@
-@import "../../../../../stylesheets/fonts.scss";
+@import "../../../../../../stylesheets/fonts.scss";
 
 .welcome__container {
     font-family: $inter;
@@ -44,11 +44,9 @@
             border-radius: 10px;
         }
 
-        &--code-button {
+        @mixin code-button {
             all: unset;
-            color: white;
             font-weight: 400;
-            background-color: #8C8CFF;
             padding: 8px 12px;
             border-radius: 10px;
             margin: 5px;
@@ -56,9 +54,21 @@
             width: 6em;
             text-align: center;
             transition: padding ease 0.25s;
+        }
+
+        &--code-button {
+            @include code-button;
+            background-color: #8C8CFF;
+            color: white;
             &:hover {
                 cursor: pointer;
                 padding: 8px 15px;
+            }
+
+            &--disabled {
+                @include code-button;
+                color: #525252;
+                background-color: #d4d4d4;
             }
         }
     }
@@ -69,7 +79,6 @@
     flex-direction: column;
     align-items: center;
     &__exit {
-        
         width: 100%;
         display: flex;
         flex-direction: row-reverse;

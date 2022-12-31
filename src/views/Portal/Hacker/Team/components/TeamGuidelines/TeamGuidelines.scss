@@ -1,0 +1,25 @@
+@import "../../../../../../stylesheets/fonts";
+
+.teamguidelines__container {
+  color: #2E2E6C;
+  
+  padding: 20px;
+  width: 90%;
+  max-width: 550px;
+  &__header {
+    font-family: $inter;
+    font-weight: 600;
+    color: #7474A1;
+    font-size: 24px;
+  }
+
+  &__guidelines {
+    font-family: $nunito;
+    margin-top: 1rem;
+    line-height: 1.5;
+    margin-left: -15px;
+    &--bullet {
+      font-size: 18px;
+    }
+  }
+}

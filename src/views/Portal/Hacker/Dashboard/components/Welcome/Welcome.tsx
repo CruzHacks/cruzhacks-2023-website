@@ -2,13 +2,14 @@ import { useAuth0 } from "@auth0/auth0-react"
 import { Modal } from "@mui/material"
 import { Box, SxProps } from "@mui/system"
 import React, { Dispatch, useState } from "react"
-import { ReactComponent as Exit } from "../../../../../assets/Exit.svg"
+import { ReactComponent as Exit } from "../../../../../../assets/Exit.svg"
 import { submitCruzPointsCode } from "../../api"
 import "./Welcome.scss"
 
 interface WelcomeProps {
   cruzPoints: number
   setCruzPoints: Dispatch<number>
+  enableCruzPoints: boolean
 }
 
 const CruzPointsCodeModal = (props: {
@@ -87,6 +88,12 @@ export const HackerDashWelcome: React.FC<WelcomeProps> = (
   const { user } = useAuth0()
   const { cruzPoints, setCruzPoints } = props
   const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const handleEnterCodeButton = () => {
+    if (props.enableCruzPoints) {
+      setModalOpen(true)
+    }
+  }
+
   return (
     <div className='welcome__container'>
       <CruzPointsCodeModal
@@ -105,8 +112,10 @@ export const HackerDashWelcome: React.FC<WelcomeProps> = (
           {cruzPoints} pts
         </div>
         <button
-          className='welcome__container__cruzpoints--code-button'
-          onClick={() => setModalOpen(true)}
+          className={`welcome__container__cruzpoints--code-button${
+            props.enableCruzPoints ? "" : "--disabled"
+          }`}
+          onClick={() => handleEnterCodeButton()}
         >
           Enter Code
         </button>

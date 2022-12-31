@@ -6,9 +6,10 @@ export interface ChecklistItemProps {
   title: string
   message: string
   buttonText: string
-  onClick(): any
+  onClick: any
   isUnclickable?: boolean
   unClickableText?: string
+  navigator?: any
 }
 
 export const ChecklistItem = (props: ChecklistItemProps) => {
