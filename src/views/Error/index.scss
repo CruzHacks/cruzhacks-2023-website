@@ -23,6 +23,7 @@
     @include fonts.h2;
     font-size: 3vw;
   }
+
   .app--portal & {
     @include variables.dark-background;
   }

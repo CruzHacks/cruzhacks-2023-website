@@ -3,9 +3,9 @@
 
 .lph__container {
   position: relative;
+
   @include variables.livesite-background;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-

@@ -193,7 +193,7 @@
         gap: 1em;
         margin-top: 3em;
         transition: margin-top 300ms ease;
-        
+
         &.hidden {
           margin-top: -13em;
           z-index: -1;
@@ -227,6 +227,7 @@
   top: 0;
   right: 10px;
   width: 80px;
+
   &:hover {
     cursor: pointer;
   }

@@ -24,8 +24,8 @@ $light-light-blue: #4ba5d7;
 $light-lighter-blue: #a0dafa;
 
 // portal theme colors
-$portal-dark-blue: #1B1B37;
-$portal-light-purple: #6F6FE8;
+$portal-dark-blue: #1b1b37;
+$portal-light-purple: #6f6fe8;
 
 @mixin dark-background {
   background: linear-gradient(
@@ -61,7 +61,7 @@ $portal-light-purple: #6F6FE8;
 @mixin livesite-background {
   background: linear-gradient(
     180deg,
-    #1B1B37 0%,
-    #3B3B80 100%
+    #1b1b37 0%,
+    #3b3b80 100%
   );
 }
