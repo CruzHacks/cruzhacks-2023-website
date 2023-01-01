@@ -1,5 +1,29 @@
 @import "../../../../../../stylesheets/fonts";
 
+@mixin choice-button {
+  all: unset;
+  border: 1px solid #6F6FE8;
+  margin: 5px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-family: $inter;
+  font-weight: 400;
+  font-size: 16px;
+  color: #6F6FE8;
+  transition: padding ease 0.25s;
+
+  &:hover {
+    cursor: pointer;
+    padding: 5px 25px;
+  }
+
+  &:active {
+    background-color: #6F6FE8;
+    color: white;
+  }
+}
+
+
 .teambuilder {
   font-family: $nunito;
   color: #3B3B7F;
@@ -11,9 +35,10 @@
 
 .invitation-type {
   &__options {
-
-    @mixin choice-button {
-      all: unset;
+    display: inline-flex;
+    
+    &--selected {
+      width: fit-content;
       border: 1px solid #6F6FE8;
       margin: 5px;
       padding: 5px 20px;
@@ -21,36 +46,26 @@
       font-family: $inter;
       font-weight: 400;
       font-size: 16px;
-      color: #6F6FE8;
       transition: padding ease 0.25s;
-
-      &:hover {
-        cursor: pointer;
-        background-color: #6F6FE8;
-        color: white;
-        padding: 5px 25px;
-      }
+      background-color: #7DD076;
+      border-color: #7DD076;
+      color: white;
     }
 
     &--button {
       @include choice-button;
 
-      &--selected {
-        @include choice-button();
-        background-color: #D4D4D4;
-        border-color: #D4D4D4;
-        color: white;
-        &:hover {
-          pointer-events: none;
-          background-color: #D4D4D4;
-          padding: 5px 20px;
-        }
-      }
     }
   }
 }
 
 .createteam {
+  margin-top: 2em;
+  margin-left: 1em;
+  &__title {
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
   @mixin text-boxes {
     width: 80%;
     height: 30px;
@@ -59,10 +74,16 @@
     padding-left: 10px;
     margin-top: 10px;
   }
-
+  
   &__naming {
     &__input {
       @include text-boxes();
+    }
+    
+
+    &__create {
+      @include choice-button();
+      margin-top: 10px;
     }
   }
 
@@ -71,7 +92,13 @@
     &__input {
       @include text-boxes();
     }
+
+    &__invite {
+      @include choice-button();
+      margin-top: 10px;
+    }
   }
+
 }
 
 .jointeam {

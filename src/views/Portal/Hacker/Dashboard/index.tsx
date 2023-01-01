@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useEffect, useState } from "react"
-import { confirmAttendance, getProfile } from "./api"
+import { confirmAttendance, getHackerProfile } from "./api"
 // eslint-disable-next-line max-len
 import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
 import { ChecklistItem } from "./components/ChecklistItem/ChecklistItem"
@@ -19,9 +19,11 @@ export const MainDash = () => {
   const [render, setRender] = useState<boolean>(false)
 
   useEffect(() => {
-    getProfile(getAccessTokenSilently, setCruzPoints, setAttendanceStatus).then(
-      () => setRender(true)
-    )
+    getHackerProfile(
+      getAccessTokenSilently,
+      setCruzPoints,
+      setAttendanceStatus
+    ).then(() => setRender(true))
   }, [])
   if (render) {
     return (

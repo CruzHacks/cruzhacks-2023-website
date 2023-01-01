@@ -5,6 +5,7 @@ import { useNavigate, Outlet } from "react-router-dom"
 const Portal = () => {
   const { user } = useAuth0()
   const navigate = useNavigate()
+  console.log(user)
   React.useEffect(() => {
     const userRoles = (user && user[`https://cruzhacks.com/roles`]) || []
     const nickname = user && user.nickname

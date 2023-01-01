@@ -1,10 +1,17 @@
+import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useState } from "react"
+import { changeInvitationMode, createTeam, inviteTeamMember } from "./api"
 import "./TeamBuilder.scss"
 
-type InvitationMode = "JOIN" | "CREATE"
+export type InvitationMode = "JOIN" | "CREATE"
 
-export const TeamBulder = () => {
-  const [invitationType, setInvitationType] = useState<InvitationMode>("JOIN")
+export interface TeamBuilderProps {
+  invitationType: InvitationMode
+  setInvitationType: Dispatch<InvitationMode>
+}
+
+export const TeamBulder = (props: TeamBuilderProps) => {
+  const { invitationType, setInvitationType } = props
 
   return (
     <div className='teambuilder'>
@@ -21,25 +28,26 @@ const InvitationTypeChooser = (props: {
   invitationType: InvitationMode
   setInvitationType: Dispatch<InvitationMode>
 }) => {
+  const { getAccessTokenSilently } = useAuth0()
   return (
     <div className='invitation-type'>
       <div className='invitation-type__header'>
         Would you like to create or join a team?
       </div>
       <div className='invitation-type__options'>
+        <div className='invitation-type__options--selected'>
+          {props.invitationType}
+        </div>
         <button
-          className={`invitation-type__options--button${
-            props.invitationType === "CREATE" ? "--selected" : ""
-          }`}
+          className='invitation-type__options--button'
+          onClick={() => {
+            changeInvitationMode(
+              getAccessTokenSilently,
+              props.setInvitationType
+            )
+          }}
         >
-          Create
-        </button>
-        <button
-          className={`invitation-type__options--button${
-            props.invitationType === "JOIN" ? "--selected" : ""
-          }`}
-        >
-          Join
+          Switch
         </button>
       </div>
     </div>
@@ -73,8 +81,13 @@ const Invitation = (props: { teamName: string }) => {
 }
 
 const CreateTeam = () => {
+  const { getAccessTokenSilently, user } = useAuth0()
+  const [teamName, setTeamName] = useState<string>("")
+  const [invitedMemberEmail, setInvitedMemberEmail] = useState<string>("")
+
   return (
     <div className='createteam'>
+      <div className='createteam__title'>Create Team</div>
       <div className='createteam__naming'>
         <div className='createteam__naming__header'>
           Please input your team name
@@ -83,8 +96,21 @@ const CreateTeam = () => {
           type='text'
           placeholder='Enter Name'
           className='createteam__naming__input'
+          onChange={e => setTeamName(e.target.value)}
         />
       </div>
+      <button
+        className='createteam__naming__create'
+        onClick={() =>
+          createTeam(
+            getAccessTokenSilently,
+            `${user?.given_name} ${user?.family_name}`,
+            teamName
+          )
+        }
+      >
+        Create
+      </button>
       <div className='createteam__invitation'>
         <div className='createteam__invitation__header'>
           Invite existing hackers or add new hackers
@@ -93,8 +119,17 @@ const CreateTeam = () => {
           type='text'
           placeholder='Enter Email'
           className='createteam__invitation__input'
+          onChange={e => setInvitedMemberEmail(e.target.value)}
         />
       </div>
+      <button
+        className='createteam__invitation__invite'
+        onClick={() =>
+          inviteTeamMember(getAccessTokenSilently, invitedMemberEmail)
+        }
+      >
+        Invite
+      </button>
     </div>
   )
 }

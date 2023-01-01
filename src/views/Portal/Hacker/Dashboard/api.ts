@@ -1,7 +1,7 @@
 import axios from "axios"
 import { Dispatch } from "react"
 
-export const getProfile = async (
+export const getHackerProfile = async (
   getAccessTokenSilently: any,
   setCruzPoints: Dispatch<number>,
   setAttendanceStatus: Dispatch<boolean>
@@ -19,7 +19,9 @@ export const getProfile = async (
     }
     const res = await axios(getHackerProfileAxiosRequest)
     const profile = res.data.hackerProfile
+
     setCruzPoints(profile.cruzPoints)
+
     if (profile.isAttending === true || profile.isAttending === false) {
       setAttendanceStatus(profile.isAttending)
     }

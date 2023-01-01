@@ -45,12 +45,18 @@
     width: 75%;
     height: 40px;
     border-radius: 6px;
+    border: 1px solid #6F6FE8;
     text-align: center;
     transition: width ease 0.25s;
 
     &:hover {
       cursor: pointer;
       width: 85%;
+    }
+
+    &:active {
+      color: #6F6FE8;
+      background-color: transparent;
     }
   }
 }
@@ -111,12 +117,15 @@
     &:hover {
       cursor: pointer;
       padding: 5px 15px;
-      background-color: #E55039;
-      color: white;
 
       @media screen and (max-width: 450px) {
         padding: 5px 10px;
       }
+    }
+
+    &:active {
+      background-color: #E55039;
+      color: white;
     }
   }
 }

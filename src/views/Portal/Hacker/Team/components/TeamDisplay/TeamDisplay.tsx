@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Dispatch } from "react"
 import "./TeamDisplay.scss"
 
 interface TeamMember {
@@ -22,7 +22,9 @@ export interface TeamDisplayProps {
 export const TeamDisplay = (props: TeamDisplayProps) => {
   return (
     <div className='teamdisplay'>
-      <div className='teamdisplay__header'>{props.teamName}</div>
+      <div className='teamdisplay__header'>
+        {props.teamName || "*[No Team]*"}
+      </div>
       <div className='teamdisplay__members'>
         {props.members.map((member: TeamMember) => {
           return (

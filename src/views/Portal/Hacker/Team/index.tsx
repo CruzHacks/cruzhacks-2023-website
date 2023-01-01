@@ -1,5 +1,8 @@
-import React from "react"
-import { TeamBulder } from "./components/TeamBuilder/TeamBuilder"
+import React, { useEffect, useState } from "react"
+import {
+  InvitationMode,
+  TeamBulder,
+} from "./components/TeamBuilder/TeamBuilder"
 import { TeamDisplay, TeamMembers } from "./components/TeamDisplay/TeamDisplay"
 import { TeamGuidelines } from "./components/TeamGuidelines/TeamGuidelines"
 import "./index.scss"
@@ -28,6 +31,10 @@ const SampleTeamMembers: TeamMembers = [
 ]
 
 const TeamFormation: React.FC = () => {
+  const [invitationType, setInvitationType] = useState<InvitationMode>("CREATE")
+  const [teamName, setTeamName] = useState<string>("")
+  useEffect(() => {}, [])
+
   return (
     <div className='teamformation'>
       <div className='teamformation__container'>
@@ -35,9 +42,12 @@ const TeamFormation: React.FC = () => {
           <div className='teamformation__container--col'>
             <div className='teamformation__header'>Team Formation</div>
             <TeamGuidelines />
-            <TeamBulder />
+            <TeamBulder
+              invitationType={invitationType}
+              setInvitationType={setInvitationType}
+            />
           </div>
-          <TeamDisplay members={SampleTeamMembers} teamName='SlugHackers' />
+          <TeamDisplay members={SampleTeamMembers} teamName={teamName} />
         </div>
       </div>
     </div>
