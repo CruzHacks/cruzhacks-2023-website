@@ -1,4 +1,5 @@
 @use "../../stylesheets/fonts";
+@use "../../stylesheets/variables";
 @import "../../stylesheets/fonts";
 
 .error__container {
@@ -6,8 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  gap: 5em;
+  gap: 3em;
 
   &--title {
     display: flex;
@@ -23,12 +23,7 @@
     @include fonts.h2;
     font-size: 3vw;
   }
-}
-
-.clouds__container.errorview {
-  top: 0;
-}
-
-.cloud.third.errorview {
-  opacity: 0;
+  .app--portal & {
+    @include variables.dark-background;
+  }
 }

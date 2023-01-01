@@ -22,6 +22,10 @@
   .app--light & {
     background-color: $light-faded-blue;
   }
+
+  .app--portal & {
+    background-color: $portal-dark-blue;
+  }
 }
 
 .nav__container {
@@ -50,18 +54,16 @@
 
   &--right {
     flex-grow: 1;
-    max-width: 400px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: right;
-
+    max-width: 700px;
     margin-right: 1em;
 
     &--item {
       flex-grow: 1;
-
+      font-size: 0.85em;
       text-align: center;
       position: relative;
     }
@@ -91,6 +93,10 @@
         background-color: $dark-green;
       }
 
+      .app--portal &::after {
+        background-color: $portal-light-purple;
+      }
+
       // Underline Transition
       .active &::after {
         transform: scale3d(1, 1, 1);
@@ -106,11 +112,11 @@
   // padding-right: 10%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .nav {
     align-items: flex-start;
 
-    height: 12em; // height: 4em;
+    height: 4em; // height: 4em;
     width: 100vw;
     box-shadow: none;
 
@@ -119,6 +125,10 @@
     }
 
     .app--light & {
+      background-color: transparent;
+    }
+
+    .app--portal & {
       background-color: transparent;
     }
   }
@@ -138,6 +148,10 @@
       background-color: $light-faded-blue;
     }
 
+    .app--portal & {
+      background-color: $portal-dark-blue;
+    }
+
     &--left {
       position: absolute;
       margin: 0;
@@ -155,6 +169,10 @@
         background-color: $light-faded-blue;
       }
 
+      .app--portal & {
+        background-color: $portal-dark-blue;
+      }
+
       .logo {
         height: 4em;
       }
@@ -168,15 +186,16 @@
       margin-left: auto;
 
       &__dropdown {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 1em;
-        margin-top: 1.5em;
+        margin-top: 3em;
         transition: margin-top 300ms ease;
-
+        
         &.hidden {
-          margin-top: -7em;
+          margin-top: -13em;
           z-index: -1;
         }
       }
@@ -195,10 +214,10 @@
   margin-right: 50px;
   z-index: 10;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 700px) {
     position: absolute;
-    top: 100%;
-    right: 0;
+    top: 81.78px;
+    right: 10px;
     margin-right: 0;
   }
 }
@@ -208,8 +227,16 @@
   top: 0;
   right: 10px;
   width: 80px;
-
   &:hover {
     cursor: pointer;
   }
+}
+
+.logo-title {
+  font-family: $barlow;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  color: white;
+  margin-left: -0.75em;
 }

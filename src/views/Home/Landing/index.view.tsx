@@ -97,7 +97,7 @@ const Landing: React.FC = () => {
   const [state, setState] = useState<number>(0)
   const [message, setMessage] = useState<string>("")
   const [modalOpen, setModalOpen] = useState<boolean>(false)
-  const [theme] = useTheme()
+  const { theme } = useTheme()
   const [sponsorEmailVisible, setSponsorEmailVisible] = useState<boolean>(false)
 
   const isLightClass = () => (theme.mode === "light" ? "--light" : "")
