@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import "./index.scss"
 
-const names = ["clouds__container", "cloud third"]
-
 const ErrorView: React.FC = () => {
   let elem = document.getElementById("footer")
   // get initial dims
