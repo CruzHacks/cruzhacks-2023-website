@@ -2,14 +2,14 @@
 
 @mixin choice-button {
   all: unset;
-  border: 1px solid #6F6FE8;
+  border: 1px solid #6f6fe8;
   margin: 5px;
   padding: 5px 20px;
   border-radius: 5px;
   font-family: $inter;
   font-weight: 400;
   font-size: 16px;
-  color: #6F6FE8;
+  color: #6f6fe8;
   transition: padding ease 0.25s;
 
   &:hover {
@@ -18,15 +18,14 @@
   }
 
   &:active {
-    background-color: #6F6FE8;
+    background-color: #6f6fe8;
     color: white;
   }
 }
 
-
 .teambuilder {
   font-family: $nunito;
-  color: #3B3B7F;
+  color: #3b3b7f;
   padding: 20px;
   width: 90%;
   max-width: 550px;
@@ -36,10 +35,10 @@
 .invitation-type {
   &__options {
     display: inline-flex;
-    
+
     &--selected {
       width: fit-content;
-      border: 1px solid #6F6FE8;
+      border: 1px solid #6f6fe8;
       margin: 5px;
       padding: 5px 20px;
       border-radius: 5px;
@@ -47,14 +46,13 @@
       font-weight: 400;
       font-size: 16px;
       transition: padding ease 0.25s;
-      background-color: #7DD076;
-      border-color: #7DD076;
+      background-color: #7dd076;
+      border-color: #7dd076;
       color: white;
     }
 
     &--button {
       @include choice-button;
-
     }
   }
 }
@@ -62,64 +60,67 @@
 .createteam {
   margin-top: 2em;
   margin-left: 1em;
+
   &__title {
     font-size: 24px;
     margin-bottom: 1rem;
   }
+
   @mixin text-boxes {
     width: 80%;
     height: 30px;
     border-radius: 6px;
-    border: 1px solid #DEDEDE;
+    border: 1px solid #dedede;
     padding-left: 10px;
     margin-top: 10px;
   }
-  
+
   &__naming {
     &__input {
-      @include text-boxes();
+      @include text-boxes;
     }
-    
 
     &__create {
-      @include choice-button();
+      @include choice-button;
       margin-top: 10px;
     }
   }
 
   &__invitation {
     margin-top: 20px;
+
     &__input {
-      @include text-boxes();
+      @include text-boxes;
     }
 
     &__invite {
-      @include choice-button();
+      @include choice-button;
       margin-top: 10px;
     }
   }
-
 }
 
 .jointeam {
   margin-top: 2em;
+
   &__title {
     margin-left: 1rem;
     font-size: 24px;
     margin-bottom: 1rem;
   }
+
   &__container {
     background-color: white;
     width: 100%;
     max-width: 550px;
     height: 236px;
     border-radius: 12px;
-    box-shadow: 0px 1px 20px rgba(205, 205, 205, 0.5);
+    box-shadow: 0 1px 20px rgb(205 205 205 / 50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: $inter;
-    
+
     &__header {
       margin-top: 10px;
       font-size: 22px;
@@ -128,12 +129,12 @@
 
     &__invitations {
       margin-top: 0.5em;
-      border: 1px solid #C4C4C4;
+      border: 1px solid #c4c4c4;
       width: 92%;
       height: 75%;
       border-radius: 6px;
       overflow-y: auto;
-    } 
+    }
   }
 }
 
@@ -143,7 +144,8 @@
   font-weight: 500;
   align-items: center;
   width: calc(100% - 20px);
-  padding: 10px 10px;
+  padding: 10px;
+
   &__buttons {
     margin-left: auto;
 
@@ -163,23 +165,24 @@
     }
 
     &__accept {
-      @include invitation-button();
+      @include invitation-button;
       margin-right: 2.5px;
-      border-color: #6F6FE8;
-      color: #6F6FE8;
+      border-color: #6f6fe8;
+      color: #6f6fe8;
 
       &:hover {
-        background-color: #6F6FE8;
+        background-color: #6f6fe8;
       }
     }
 
     &__decline {
-      @include invitation-button();
+      @include invitation-button;
       margin-left: 2.5px;
-      border-color: #E55039;
-      color: #E55039;
+      border-color: #e55039;
+      color: #e55039;
+
       &:hover {
-        background-color: #E55039;
+        background-color: #e55039;
       }
     }
   }

@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react"
-import React, { Dispatch } from "react"
+import React from "react"
 import { removeTeamMember } from "../TeamBuilder/api"
 import "./TeamDisplay.scss"
 

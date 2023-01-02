@@ -6,10 +6,10 @@
   width: 80%;
   max-width: 500px;
   border-radius: 12px;
-  box-shadow: 0px 2px 20px rgba(205, 205, 205, 0.5);
+  box-shadow: 0 2px 20px rgb(205 205 205 / 50%);
   margin: 1em;
   font-family: $inter;
-  color: #3B3B7F;
+  color: #3b3b7f;
 
   @media screen and (max-width: 400px) {
     margin: 0.5em;
@@ -33,7 +33,7 @@
 
   @mixin checklist-button {
     all: unset;
-    background-color: #6F6FE8;
+    background-color: #6f6fe8;
     margin-left: 24px;
     border-radius: 6px;
     text-align: center;
@@ -43,20 +43,21 @@
   }
 
   &__button {
-    
-    @include checklist-button();
-    
+    @include checklist-button;
+
     &:hover {
       cursor: pointer;
       padding: 5px 40px;
-      background-color: #6F6FE8;
+      background-color: #6f6fe8;
     }
+
     &--greyedOut {
-      @include checklist-button();
-      background-color: #D4D4D4;
+      @include checklist-button;
+      background-color: #d4d4d4;
       color: #525252;
+
       &:hover {
-        background-color: #D4D4D4;
+        background-color: #d4d4d4;
       }
     }
   }

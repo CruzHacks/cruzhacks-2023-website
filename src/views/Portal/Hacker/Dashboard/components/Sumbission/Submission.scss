@@ -1,6 +1,4 @@
-@import "../../../../../../stylesheets/fonts.scss";
-
-
+@import "../../../../../../stylesheets/fonts";
 
 .submission__container {
   display: flex;
@@ -8,8 +6,8 @@
   background-color: white;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0px 2px 20px #d9d9d9;
-  color: #3B3B7F;
+  box-shadow: 0 2px 20px #d9d9d9;
+  color: #3b3b7f;
   font-family: $inter;
   width: 100%;
   max-width: 550px;
@@ -25,14 +23,13 @@
     font-weight: 400;
     margin-bottom: 1em;
   }
-  
+
   &__submit-button {
-    
     &--false {
       all: unset;
       border-radius: 6px;
-      background-color: #E8E8E8;
-      color: #BFBABA;
+      background-color: #e8e8e8;
+      color: #bfbaba;
       width: 120px;
       padding: 5px 10px;
       text-align: center;
@@ -41,7 +38,7 @@
     &--true {
       all: unset;
       border-radius: 6px;
-      background-color: #8C8CFF;
+      background-color: #8c8cff;
       color: white;
       width: 120px;
       padding: 5px 10px;
@@ -55,4 +52,3 @@
     }
   }
 }
-
