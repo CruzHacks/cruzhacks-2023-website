@@ -1,6 +1,289 @@
+@use "../../../stylesheets/variables";
+@use "../../../stylesheets/fonts";
+@use "../../../stylesheets/responsiveness";
+@import "../../../stylesheets/variables";
+@import "../../../stylesheets/fonts";
+
 .admindash__container {
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #f0f0f0;
+  margin-top: 4em;
+
+  &--top {
+    display: flex;
+    align-items: center;
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      flex-direction: row;
+    }
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &--text1 {
+    padding-top: 87px;
+    font-family: $inter;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 30px;
+    display: flex;
+    text-align: center;
+    color: #3b3b7f;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      //width: 80%;
+      font-size: 30px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      padding-left: 48px;
+      justify-content: left;
+    }
+  }
+
+  &--text2 {
+    padding-top: 38px;
+    font-family: $nunito-sans;
+    font-size: 32px;
+    font-weight: 400;
+    color: #575775;
+    display: flex;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      //width: 80%;
+      font-size: 30px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      padding-left: 75px;
+      justify-content: left;
+    }
+  }
+
+  &--announcement {
+    width: 306px;
+    height: 63px;
+    background: #5cb03e;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-top: 40px;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      margin-left: 200px;
+      margin-top: 87px;
+    }
+
+    a {
+      display: inline-block;
+      font-family: $nunito-sans;
+      font-size: 20px;
+      line-height: 27px;
+      text-align: center;
+    }
+  }
+
+  &--boxes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 23px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &--text3 {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+
+    color: #3b3b7f;
+
+    margin-top: 44px;
+    margin-bottom: 20px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      text-align: center;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      margin-left: 48px;
+    }
+  }
+  &--table {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+.manage-card {
+  background-color: #ffffff;
+  width: 382px;
+  height: 174px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 20px rgba(179, 179, 179, 0.25);
+  border-radius: 6px;
+
+  @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+    width: 382px;
+    margin-right: 26px;
+  }
+
+  &--title {
+    color: #2f2f7a;
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding-top: 30px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      text-align: center;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      padding-left: 42px;
+    }
+  }
+
+  &--blurb {
+    font-family: $nunito-sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    padding-top: 33px;
+
+    color: #2f2f7a;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      text-align: center;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      padding-left: 42px;
+      width: 266px;
+      height: 66px;
+    }
+  }
+}
+
+.announcement-modal__container {
+  &--title {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      text-align: center;
+      padding-top: 30px;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      padding-top: 49px;
+      padding-left: 44px;
+      width: 488px;
+      height: 27px;
+    }
+
+    color: #000000;
+  }
+
+  &--dropdown {
+    padding-top: 9px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-left: 25px;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      margin-left: 44px;
+    }
+  }
+
+  &--input {
+    margin-top: 20px;
+
+    outline: none;
+    border: 2px solid #fafafa;
+
+    background: #fafafa;
+    border-radius: 6px;
+    resize: "none";
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-left: 25px;
+      margin-right: 25px;
+      height: 150px;
+      width: 275px;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      margin-left: 44px;
+      width: 617px;
+      height: 189px;
+    }
+  }
+
+  &--submit {
+    background: #6f6fe8;
+    border-radius: 6px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-left: 150px;
+      margin-right: 25px;
+      margin-top: 15px;
+      height: 30px;
+      width: 150px;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      margin-left: 469px;
+      margin-top: 23px;
+
+      height: 36px;
+      width: 192px;
+    }
+
+    a {
+      display: inline-block;
+      font-family: $nunito-sans;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 27px;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
 }
