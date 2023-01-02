@@ -1,57 +1,56 @@
+import { useAuth0 } from "@auth0/auth0-react"
 import React, { useEffect, useState } from "react"
+import { getTeamProfile } from "./components/TeamBuilder/api"
 import {
+  Invitation,
   InvitationMode,
   TeamBulder,
 } from "./components/TeamBuilder/TeamBuilder"
-import { TeamDisplay, TeamMembers } from "./components/TeamDisplay/TeamDisplay"
+import { TeamDisplay, TeamMember } from "./components/TeamDisplay/TeamDisplay"
 import { TeamGuidelines } from "./components/TeamGuidelines/TeamGuidelines"
 import "./index.scss"
 
-const SampleTeamMembers: TeamMembers = [
-  {
-    position: 1,
-    name: "Sidhanta Sharma",
-  },
-  {
-    position: 2,
-    name: "",
-  },
-  {
-    position: 3,
-    name: "",
-  },
-  {
-    position: 4,
-    name: "",
-  },
-  {
-    position: 5,
-    name: "",
-  },
-]
-
 const TeamFormation: React.FC = () => {
-  const [invitationType, setInvitationType] = useState<InvitationMode>("CREATE")
+  const [invitationType, setInvitationType] = useState<InvitationMode>("JOIN")
   const [teamName, setTeamName] = useState<string>("")
-  useEffect(() => {}, [])
+  const [teamMembers, setTeamMembers] = useState<Array<TeamMember>>([])
+  const [render, setRender] = useState<boolean>(false)
+  const [invitations, setInvitations] = useState<Array<Invitation>>([])
+  const { getAccessTokenSilently } = useAuth0()
 
-  return (
-    <div className='teamformation'>
-      <div className='teamformation__container'>
-        <div className='teamformation__container--row'>
-          <div className='teamformation__container--col'>
-            <div className='teamformation__header'>Team Formation</div>
-            <TeamGuidelines />
-            <TeamBulder
-              invitationType={invitationType}
-              setInvitationType={setInvitationType}
-            />
+  useEffect(() => {
+    getTeamProfile(
+      getAccessTokenSilently,
+      setTeamName,
+      setTeamMembers,
+      setInvitationType,
+      setInvitations
+    ).then(() => setRender(true))
+  }, [])
+  if (render) {
+    return (
+      <div className='teamformation'>
+        <div className='teamformation__container'>
+          <div className='teamformation__container--row'>
+            <div className='teamformation__container--col'>
+              <div className='teamformation__header'>Team Formation</div>
+              <TeamGuidelines />
+              <TeamBulder
+                setTeamName={setTeamName}
+                invitationType={invitationType}
+                setInvitationType={setInvitationType}
+                setTeamMembers={setTeamMembers}
+                invites={invitations}
+              />
+            </div>
+            <TeamDisplay members={teamMembers} teamName={teamName} />
           </div>
-          <TeamDisplay members={SampleTeamMembers} teamName={teamName} />
         </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return <div className='teamformation'></div>
+  }
 }
 
 export default TeamFormation

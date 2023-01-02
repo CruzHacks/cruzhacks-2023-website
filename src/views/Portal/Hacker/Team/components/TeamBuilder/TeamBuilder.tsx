@@ -1,5 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useState } from "react"
+import { TeamMember } from "../TeamDisplay/TeamDisplay"
 import { changeInvitationMode, createTeam, inviteTeamMember } from "./api"
 import "./TeamBuilder.scss"
 
@@ -8,6 +9,14 @@ export type InvitationMode = "JOIN" | "CREATE"
 export interface TeamBuilderProps {
   invitationType: InvitationMode
   setInvitationType: Dispatch<InvitationMode>
+  setTeamName: Dispatch<string>
+  setTeamMembers: Dispatch<Array<TeamMember>>
+  invites: Array<Invitation>
+}
+
+export interface Invitation {
+  teamName: string
+  status: "PENDING" | "ACCEPTED" | "DECLINED"
 }
 
 export const TeamBulder = (props: TeamBuilderProps) => {
@@ -19,7 +28,14 @@ export const TeamBulder = (props: TeamBuilderProps) => {
         invitationType={invitationType}
         setInvitationType={setInvitationType}
       />
-      {invitationType === "JOIN" ? <JoinTeam /> : <CreateTeam />}
+      {invitationType === "JOIN" ? (
+        <JoinTeam invites={props.invites} />
+      ) : (
+        <CreateTeam
+          setTeamName={props.setTeamName}
+          setTeamMembers={props.setTeamMembers}
+        />
+      )}
     </div>
   )
 }
@@ -54,14 +70,16 @@ const InvitationTypeChooser = (props: {
   )
 }
 
-const JoinTeam = () => {
+const JoinTeam = (props: { invites: Array<Invitation> }) => {
   return (
     <div className='jointeam'>
       <div className='jointeam__title'>Join Team</div>
       <div className='jointeam__container'>
         <div className='jointeam__container__header'>Pending Invitations</div>
         <div className='jointeam__container__invitations'>
-          <Invitation teamName='Slug Hackers' />
+          {props.invites.map(invite => (
+            <Invitation key={invite.teamName} teamName={invite.teamName} />
+          ))}
         </div>
       </div>
     </div>
@@ -80,9 +98,12 @@ const Invitation = (props: { teamName: string }) => {
   )
 }
 
-const CreateTeam = () => {
+const CreateTeam = (props: {
+  setTeamName: Dispatch<string>
+  setTeamMembers: Dispatch<Array<TeamMember>>
+}) => {
   const { getAccessTokenSilently, user } = useAuth0()
-  const [teamName, setTeamName] = useState<string>("")
+  const [teamNameInput, setTeamNameInput] = useState<string>("")
   const [invitedMemberEmail, setInvitedMemberEmail] = useState<string>("")
 
   return (
@@ -96,7 +117,7 @@ const CreateTeam = () => {
           type='text'
           placeholder='Enter Name'
           className='createteam__naming__input'
-          onChange={e => setTeamName(e.target.value)}
+          onChange={e => setTeamNameInput(e.target.value)}
         />
       </div>
       <button
@@ -105,7 +126,9 @@ const CreateTeam = () => {
           createTeam(
             getAccessTokenSilently,
             `${user?.given_name} ${user?.family_name}`,
-            teamName
+            teamNameInput,
+            props.setTeamName,
+            props.setTeamMembers
           )
         }
       >

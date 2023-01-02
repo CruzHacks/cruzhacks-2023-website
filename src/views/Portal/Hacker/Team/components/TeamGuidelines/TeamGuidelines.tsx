@@ -14,6 +14,9 @@ export const TeamGuidelines = () => {
         <li className='teamguidelines__container__guidelines--bullet'>
           All members must be a confirmed attendee
         </li>
+        <li className='teamguidelines__container__guidelines--bullet'>
+          Please keep names appropriate or all members will be disqualified
+        </li>
       </ul>
     </div>
   )

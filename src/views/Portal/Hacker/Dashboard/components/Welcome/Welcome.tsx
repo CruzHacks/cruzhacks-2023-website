@@ -55,13 +55,14 @@ const CruzPointsCodeModal = (props: {
           />
           <button
             className='cruzpoints__modal__submit-button'
-            onClick={() =>
+            onClick={() => {
               submitCruzPointsCode(
                 getAccessTokenSilently,
                 code,
                 props.setCruzPoints
               )
-            }
+              props.setOpen(false)
+            }}
           >
             Enter
           </button>

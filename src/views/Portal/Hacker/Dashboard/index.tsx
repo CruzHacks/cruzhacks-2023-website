@@ -25,6 +25,7 @@ export const MainDash = () => {
       setAttendanceStatus
     ).then(() => setRender(true))
   }, [])
+
   if (render) {
     return (
       <div className='maindash'>
@@ -48,7 +49,10 @@ export const MainDash = () => {
           </div>
         </div>
         <div className='maindash__lower-container'>
-          <Checklist />
+          <Checklist
+            attendanceStatus={attendanceStatus}
+            setAttendanceStatus={setAttendanceStatus}
+          />
           <ImportantDates />
         </div>
       </div>
@@ -58,7 +62,11 @@ export const MainDash = () => {
   }
 }
 
-const Checklist = () => {
+const Checklist = (props: {
+  attendanceStatus: boolean
+  setAttendanceStatus: Dispatch<boolean>
+}) => {
+  const { getAccessTokenSilently } = useAuth0()
   return (
     <div className='checklist'>
       <div className='checklist__title'>
@@ -74,8 +82,10 @@ const Checklist = () => {
           title={checklistProps[0].title}
           message={checklistProps[0].message}
           buttonText={checklistProps[0].buttonText}
-          onClick={checklistProps[0].onClick}
-          isUnclickable={checklistProps[0].isUnclickable}
+          onClick={() =>
+            confirmAttendance(getAccessTokenSilently, props.setAttendanceStatus)
+          }
+          isUnclickable={props.attendanceStatus}
           unClickableText={checklistProps[0].unClickableText}
         />
         <ChecklistItem

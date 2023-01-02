@@ -1,22 +1,17 @@
+import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch } from "react"
+import { removeTeamMember } from "../TeamBuilder/api"
 import "./TeamDisplay.scss"
 
-interface TeamMember {
+export interface TeamMember {
   position: number
   name: string
+  id: string
 }
-
-export type TeamMembers = [
-  TeamMember,
-  TeamMember,
-  TeamMember,
-  TeamMember,
-  TeamMember
-]
 
 export interface TeamDisplayProps {
   teamName: string
-  members: TeamMembers
+  members: Array<TeamMember>
 }
 
 export const TeamDisplay = (props: TeamDisplayProps) => {
@@ -30,8 +25,9 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
           return (
             <TeamMemberTag
               key={member.position}
+              id={member.id}
               name={member.name}
-              position={member.position}
+              position={member.position + 1}
             />
           )
         })}
@@ -45,13 +41,21 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
   )
 }
 
-const TeamMemberTag = (props: { name?: string; position: number }) => {
+const TeamMemberTag = (props: TeamMember) => {
+  const { getAccessTokenSilently } = useAuth0()
   return (
     <div className='membertag'>
       <div className='membertag--position'>Member {props.position}:&nbsp;</div>
       <div className='membertag--name'>{props.name || "<Empty>"}</div>
       {props.name ? (
-        <button className='membertag--remove'>Remove</button>
+        <button
+          className='membertag--remove'
+          onClick={() => {
+            removeTeamMember(getAccessTokenSilently, props.id)
+          }}
+        >
+          Remove
+        </button>
       ) : null}
     </div>
   )
