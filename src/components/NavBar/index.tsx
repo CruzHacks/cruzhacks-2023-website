@@ -14,8 +14,8 @@ import DropdownButton from "./DropdownButton"
 const NavBar: React.FC = () => {
   const { isAuthenticated, user } = useAuth0()
   const [navHidden, setNavHidden] = useState(true)
-  const [portalView, setPortalView] = useState(false)
   const { theme, forceTheme, revertTheme } = useTheme()
+  const [portalView, setPortalView] = useState(false)
 
   const page = useLocation().pathname
   const re = new RegExp("(?<=/portal/)(.*)(?=/.*/.*)", "g")
@@ -221,8 +221,12 @@ const NavBar: React.FC = () => {
 
   const portalLeft = (
     <>
-      <CruzHacksLogo className='logo' />
-      <div className='logo-title'>CRUZHACKS</div>
+      <Link to='/'>
+        <span className='portal-full-logo'>
+          <CruzHacksLogo className='logo' />
+          <div className='logo-title'>CRUZHACKS</div>
+        </span>
+      </Link>
     </>
   )
 
