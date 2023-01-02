@@ -15,6 +15,7 @@
     @include responsiveness.screen(small-laptop, desktop, big-desktop) {
       flex-direction: row;
     }
+
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       flex-direction: column;
     }
@@ -31,7 +32,6 @@
     color: #3b3b7f;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
-      //width: 80%;
       font-size: 30px;
       justify-content: center;
       text-align: center;
@@ -52,7 +52,6 @@
     display: flex;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
-      //width: 80%;
       font-size: 30px;
       justify-content: center;
       text-align: center;
@@ -68,7 +67,7 @@
     width: 306px;
     height: 63px;
     background: #5cb03e;
-    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 18px rgba(0 0 0 / 25%);
     border-radius: 6px;
     text-align: center;
     align-items: center;
@@ -106,7 +105,7 @@
   }
 
   &--text3 {
-    font-family: "Nunito Sans";
+    font-family: $nunito-sans;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -125,6 +124,7 @@
       margin-left: 48px;
     }
   }
+
   &--table {
     margin-left: 50px;
     margin-right: 50px;
@@ -132,11 +132,11 @@
 }
 
 .manage-card {
-  background-color: #ffffff;
+  background-color: #fff;
   width: 382px;
   height: 174px;
   border: 1px solid #e0e0e0;
-  box-shadow: 0px 4px 20px rgba(179, 179, 179, 0.25);
+  box-shadow: 0 4px 20px rgba(179 179 179 / 25%);
   border-radius: 6px;
 
   @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
@@ -194,7 +194,7 @@
 
 .announcement-modal__container {
   &--title {
-    font-family: "Nunito Sans";
+    font-family: $nunito-sans;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -212,7 +212,7 @@
       height: 27px;
     }
 
-    color: #000000;
+    color: #000;
   }
 
   &--dropdown {
@@ -283,7 +283,7 @@
       font-size: 20px;
       line-height: 27px;
       text-align: center;
-      color: #ffffff;
+      color: #fff;
     }
   }
 }
