@@ -1,19 +1,25 @@
 import React from "react"
+import { useLocation } from "react-router-dom"
 import { useTheme } from "../../contexts/ThemeContext/ThemeContext"
 
 import "./index.scss"
 
 const Footer: React.FC = () => {
   const [theme] = useTheme()
-
+  const location = useLocation()
   return (
     <>
-      <img
-        className='footer__image'
-        src={
-          process.env.PUBLIC_URL + "/illustration_footer-" + theme.mode + ".svg"
-        }
-      />
+      {location.pathname.match(/\/portal\/*/) ? null : (
+        <img
+          className='footer__image'
+          src={
+            process.env.PUBLIC_URL +
+            "/illustration_footer-" +
+            theme.mode +
+            ".svg"
+          }
+        />
+      )}
       <footer className='footer'>
         <div className='footer__container'>
           <div className='footer__container--left'>

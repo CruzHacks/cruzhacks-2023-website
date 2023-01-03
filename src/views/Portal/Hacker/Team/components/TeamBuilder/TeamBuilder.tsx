@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useState } from "react"
 import { TeamMember } from "../TeamDisplay/TeamDisplay"
-import { changeInvitationMode, createTeam, inviteTeamMember } from "./api"
+import { changeInvitationMode, createTeam, inviteTeamMember } from "../../api"
 import "./TeamBuilder.scss"
 
 export type InvitationMode = "JOIN" | "CREATE"
@@ -16,7 +16,6 @@ export interface TeamBuilderProps {
 
 export interface Invitation {
   teamName: string
-  status: "PENDING" | "ACCEPTED" | "DECLINED"
 }
 
 export const TeamBulder = (props: TeamBuilderProps) => {

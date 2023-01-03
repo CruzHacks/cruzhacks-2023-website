@@ -1,7 +1,10 @@
 import { Dispatch } from "react"
 import axios from "axios"
-import { Invitation, InvitationMode } from "./TeamBuilder"
-import { TeamMember } from "../TeamDisplay/TeamDisplay"
+import {
+  Invitation,
+  InvitationMode,
+} from "./components/TeamBuilder/TeamBuilder"
+import { TeamMember } from "./components/TeamDisplay/TeamDisplay"
 
 export const getHackerProfile = async (
   getAccessTokenSilently: any,
