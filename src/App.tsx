@@ -8,12 +8,13 @@ import Footer from "./components/Footer"
 import Home from "./views/Home/index.view"
 import Team from "./views/Team/index.view"
 import Portal from "./views/Portal/index.view"
-import HackerDash from "./views/Portal/Hacker"
 import AdminDash from "./views/Portal/Admin"
 import ErrorView from "./views/Error/index.view"
 import BGwrapper from "./components/BGwrapper"
 
 import "./App.scss"
+import TeamFormation from "./views/Portal/Hacker/Team"
+import { MainDash } from "./views/Portal/Hacker/Dashboard"
 
 const App: React.FC = () => {
   React.useEffect(() => {
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       behavior: "auto",
     })
   }, [useLocation().pathname])
+
   return (
     <div className='app'>
       <Auth0ProviderWithHistory
@@ -50,9 +52,10 @@ const App: React.FC = () => {
                 <Route
                   path='hacker/:uname/dashboard'
                   element={
-                    <PrivateRoute role='Hacker' component={<HackerDash />} />
+                    <PrivateRoute role='Hacker' component={<MainDash />} />
                   }
                 />
+                <Route path='hacker/:uname/team' element={<TeamFormation />} />
               </Route>
               <Route path='*' element={BGwrapper(ErrorView)} />
             </Routes>
