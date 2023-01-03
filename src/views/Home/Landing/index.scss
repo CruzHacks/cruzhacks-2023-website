@@ -458,6 +458,10 @@
       content: none;
     }
   }
+
+  @media screen and (max-width: 400px) {
+    font-size: 14px;
+  }
   gap: 0.25em;
   display: flex;
   align-items: center;
