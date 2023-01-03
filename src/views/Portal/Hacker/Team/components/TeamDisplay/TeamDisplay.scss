@@ -8,7 +8,9 @@
   color: black;
   width: 90%;
   max-width: 550px;
-  height: 500px;
+  min-height: fit-content;
+  height: 60vh;
+  max-height: 600px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 1px 20px rgb(205 205 205 / 50%);
@@ -35,11 +37,13 @@
     color: #3b3b7f;
     font-weight: 600;
     font-size: 14px;
+    text-align: justify;
   }
 
   &__submit-button {
     all: unset;
     margin-top: 2em;
+    margin-bottom: 1em;
     background-color: #6f6fe8;
     color: white;
     width: 75%;
