@@ -1,0 +1,165 @@
+@import "../../../../../../stylesheets/fonts";
+
+.welcome__container {
+  font-family: $inter;
+  color: #3b3b7f;
+  font-weight: bold;
+  font-size: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+
+  &--message {
+    text-align: left;
+    width: 100%;
+    max-width: 550px;
+    margin: 1rem;
+    padding: 0 10px;
+  }
+
+  &__cruzpoints {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin: 0 1em;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px #d9d9d9;
+    padding: 10px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 550px;
+
+    @media screen and (max-width: 450px) {
+      font-size: 12px;
+    }
+
+    &--points {
+      width: 4em;
+      text-align: center;
+      padding: 8px 12px;
+      margin: 0 1rem;
+      background-color: #ededff;
+      border-radius: 10px;
+    }
+
+    @mixin code-button {
+      all: unset;
+      font-weight: 400;
+      padding: 8px 12px;
+      border-radius: 10px;
+      margin: 5px;
+      margin-left: auto;
+      width: 6em;
+      text-align: center;
+      transition: padding ease 0.25s;
+    }
+
+    &--code-button {
+      @include code-button;
+      background-color: #8c8cff;
+      color: white;
+
+      &:hover {
+        cursor: pointer;
+        padding: 8px 15px;
+      }
+
+      &--disabled {
+        @include code-button;
+        color: #525252;
+        background-color: #d4d4d4;
+      }
+    }
+  }
+}
+
+.cruzpoints__modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__exit {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+
+    &--button {
+      all: unset;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &--svg {
+        padding: 10px;
+      }
+    }
+  }
+
+  &__header {
+    margin-top: 10%;
+    color: #ffbd00;
+    font-family: $nunito;
+    font-size: 64px;
+
+    @media screen and (max-width: 500px) {
+      font-size: 45px;
+    }
+  }
+
+  &__subtext {
+    margin: 10px;
+    color: #464696;
+    font-family: $inter;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__code-box {
+    border: none;
+    background-color: #f5f5f5;
+    width: 40%;
+    height: 25px;
+    text-align: center;
+    color: #464696;
+  }
+
+  &__submit-button {
+    all: unset;
+    margin-top: 20px;
+    background-color: #6f6fe8;
+    border-radius: 6px;
+    font-family: $inter;
+    width: 30%;
+    height: 25px;
+    text-align: center;
+    color: white;
+    padding: 2px;
+    transition: padding ease 0.25s;
+
+    &:hover {
+      cursor: pointer;
+      padding: 2px 10px;
+    }
+  }
+
+  &__explanation {
+    margin: 12% 30px 10px;
+    font-family: $inter;
+
+    &__header {
+      font-size: 18px;
+      color: #464696;
+    }
+
+    &__text {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #1d1d3f;
+      line-height: 1.5;
+    }
+  }
+}

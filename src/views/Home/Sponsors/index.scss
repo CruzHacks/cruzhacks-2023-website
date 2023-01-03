@@ -1,3 +1,20 @@
+@use "../../../stylesheets/fonts";
+
 .sponsors__container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  max-height: 700px;
+
+  @include fonts.subheader;
+  font-size: min(4vw, 40px);
+  gap: 1em;
+
+  &--icons {
+    display: flex;
+
+    .sponsorsIcons {
+      height: 90%;
+    }
+  }
 }

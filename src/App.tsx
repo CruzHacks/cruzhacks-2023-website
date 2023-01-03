@@ -1,16 +1,20 @@
 import React from "react"
 import Auth0ProviderWithHistory from "./auth/Auth0ProviderWithHistory"
-import Home from "./views/Home/index.view"
-import ErrorView from "./views/Error/index.view"
-import Team from "./views/Team/index.view"
-import NavBar from "./components/NavBar"
-import "./App.scss"
-import { Routes, Route, useLocation } from "react-router-dom"
 import ThemeProvider from "./contexts/ThemeContext/ThemeContext"
+import { Routes, Route, useLocation } from "react-router-dom"
+import PrivateRoute from "./auth/PrivateRoute"
+import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
-import NightSky from "./components/NightSky"
+import Home from "./views/Home/index.view"
+import Team from "./views/Team/index.view"
+import Portal from "./views/Portal/index.view"
+import AdminDash from "./views/Portal/Admin"
+import ErrorView from "./views/Error/index.view"
+import BGwrapper from "./components/BGwrapper"
 
 import "./App.scss"
+import TeamFormation from "./views/Portal/Hacker/Team"
+import { MainDash } from "./views/Portal/Hacker/Dashboard"
 
 const App: React.FC = () => {
   React.useEffect(() => {
@@ -21,26 +25,51 @@ const App: React.FC = () => {
     })
   }, [useLocation().pathname])
 
+  const disablePortal = true
+
   return (
     <div className='app'>
       <Auth0ProviderWithHistory
         domain={process.env.REACT_APP_AUTH0_DOMAIN || ""}
         clientId={process.env.REACT_APP_AUTH0_CLIENTID || ""}
         audience={process.env.REACT_APP_AUTH0_AUDIENCE || ""}
-        redirectUri={window.location.origin}
+        redirectUri={`${window.location.origin}/portal`}
       >
         <ThemeProvider>
           <>
-            <NightSky />
-            <div className='fg'>
-              <NavBar />
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='*' element={<ErrorView />} />
-                <Route path='team' element={<Team />} />
-              </Routes>
-              <Footer />
-            </div>
+            <NavBar />
+            <Routes>
+              <Route path='/' element={BGwrapper(Home)} />
+              <Route path='team' element={BGwrapper(Team)} />
+              {disablePortal ? null : (
+                <Route
+                  path='portal'
+                  element={<PrivateRoute component={<Portal />} />}
+                >
+                  <Route
+                    path='admin/:uname/dashboard'
+                    element={
+                      <PrivateRoute
+                        role='Organizer'
+                        component={<AdminDash />}
+                      />
+                    }
+                  />
+                  <Route
+                    path='hacker/:uname/dashboard'
+                    element={
+                      <PrivateRoute role='Hacker' component={<MainDash />} />
+                    }
+                  />
+                  <Route
+                    path='hacker/:uname/team'
+                    element={<TeamFormation />}
+                  />
+                </Route>
+              )}
+              <Route path='*' element={BGwrapper(ErrorView)} />
+            </Routes>
+            <Footer />
           </>
         </ThemeProvider>
       </Auth0ProviderWithHistory>

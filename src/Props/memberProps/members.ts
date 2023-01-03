@@ -114,7 +114,7 @@ const members: MemberProps[] = [
     name: "Elizabeth Fonseca",
     title: "Design",
     image: images.eFonseca,
-    LinkedInLink: "",
+    LinkedInLink: "https://www.linkedin.com/in/elizabethlfonseca",
   },
 ]
 

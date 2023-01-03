@@ -156,7 +156,7 @@ const Landing: React.FC = () => {
           </div>
           <div className='location'>
             <LocationOnIcon />
-            In-Person @ UC Santa Cruz
+            Stevenson Event Center @ UC Santa Cruz
           </div>
         </div>
         <div className='landing__container--inputs'>
