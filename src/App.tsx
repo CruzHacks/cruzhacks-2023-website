@@ -17,7 +17,6 @@ import TeamFormation from "./views/Portal/Hacker/Team"
 import { MainDash } from "./views/Portal/Hacker/Dashboard"
 
 const App: React.FC = () => {
-  const location = useLocation().pathname
   React.useEffect(() => {
     document.documentElement.scrollTo({
       top: 0,
