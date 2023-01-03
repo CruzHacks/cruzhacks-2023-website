@@ -25,6 +25,8 @@ const App: React.FC = () => {
     })
   }, [useLocation().pathname])
 
+  const disablePortal = true
+
   return (
     <div className='app'>
       <Auth0ProviderWithHistory
@@ -39,24 +41,32 @@ const App: React.FC = () => {
             <Routes>
               <Route path='/' element={BGwrapper(Home)} />
               <Route path='team' element={BGwrapper(Team)} />
-              <Route
-                path='portal'
-                element={<PrivateRoute component={<Portal />} />}
-              >
+              {disablePortal ? null : (
                 <Route
-                  path='admin/:uname/dashboard'
-                  element={
-                    <PrivateRoute role='Organizer' component={<AdminDash />} />
-                  }
-                />
-                <Route
-                  path='hacker/:uname/dashboard'
-                  element={
-                    <PrivateRoute role='Hacker' component={<MainDash />} />
-                  }
-                />
-                <Route path='hacker/:uname/team' element={<TeamFormation />} />
-              </Route>
+                  path='portal'
+                  element={<PrivateRoute component={<Portal />} />}
+                >
+                  <Route
+                    path='admin/:uname/dashboard'
+                    element={
+                      <PrivateRoute
+                        role='Organizer'
+                        component={<AdminDash />}
+                      />
+                    }
+                  />
+                  <Route
+                    path='hacker/:uname/dashboard'
+                    element={
+                      <PrivateRoute role='Hacker' component={<MainDash />} />
+                    }
+                  />
+                  <Route
+                    path='hacker/:uname/team'
+                    element={<TeamFormation />}
+                  />
+                </Route>
+              )}
               <Route path='*' element={BGwrapper(ErrorView)} />
             </Routes>
             <Footer />
