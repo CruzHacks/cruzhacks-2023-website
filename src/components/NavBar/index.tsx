@@ -54,11 +54,10 @@ const NavBar: React.FC = () => {
       </Link>
       <span className='nav__container--right--item'>{auth()}</span>
       <div className='nav__container--right--item'>
-        {/* Can add logo back once we get MLH affiliation */}
-        {/* <img
+        <img
           src={process.env.PUBLIC_URL + "/logo_MLH-main-white.svg"}
           alt='Major League Hacking Logo'
-        /> */}
+        />
       </div>
     </>
   )
