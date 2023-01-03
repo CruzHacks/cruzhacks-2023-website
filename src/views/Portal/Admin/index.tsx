@@ -126,7 +126,7 @@ const style2: SxProps = {
 }
 
 const checkSize = () => {
-  if (window.innerWidth <= 992) {
+  if (window.innerWidth <= 500) {
     return style1
   }
   return style2

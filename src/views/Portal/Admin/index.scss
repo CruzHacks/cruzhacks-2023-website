@@ -26,13 +26,19 @@
     font-family: $inter;
     font-weight: 600;
     font-size: 48px;
-    line-height: 30px;
+    line-height: 55px;
     display: flex;
     text-align: center;
     color: #3b3b7f;
 
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    @include responsiveness.screen(smallest, phone) {
       font-size: 30px;
+      line-height: 35px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @include responsiveness.screen(tablet, large-tablet) {
       justify-content: center;
       text-align: center;
     }
@@ -47,12 +53,21 @@
     padding-top: 38px;
     font-family: $nunito-sans;
     font-size: 32px;
+    line-height: 37px;
     font-weight: 400;
     color: #575775;
     display: flex;
 
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
-      font-size: 30px;
+    @include responsiveness.screen(smallest, phone) {
+      font-size: 25px;
+      line-height: 30px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @include responsiveness.screen(tablet, large-tablet) {
+      font-size: 35px;
+      line-height: 40px;
       justify-content: center;
       text-align: center;
     }
@@ -78,6 +93,11 @@
       margin-top: 40px;
     }
 
+    @include responsiveness.screen(tablet, large-tablet) {
+      width: 400px;
+      height: 80px;
+    }
+
     @include responsiveness.screen(small-laptop, desktop, big-desktop) {
       margin-left: 200px;
       margin-top: 87px;
@@ -89,6 +109,11 @@
       font-size: 20px;
       line-height: 27px;
       text-align: center;
+
+      @include responsiveness.screen(tablet, large-tablet) {
+        font-size: 25px;
+        line-height: 32px;
+      }
     }
   }
 
@@ -101,6 +126,7 @@
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       flex-direction: column;
+      margin-top: 45px;
     }
   }
 
@@ -163,6 +189,11 @@
       text-align: center;
     }
 
+    @include responsiveness.screen(tablet, large-tablet) {
+      font-size: 30px;
+      line-height: 34px;
+    }
+
     @include responsiveness.screen(small-laptop, desktop, big-desktop) {
       padding-left: 42px;
     }
@@ -184,6 +215,11 @@
       padding-right: 20px;
     }
 
+    @include responsiveness.screen(tablet, large-tablet) {
+      font-size: 20px;
+      line-height: 25px;
+    }
+
     @include responsiveness.screen(small-laptop, desktop, big-desktop) {
       padding-left: 42px;
       width: 266px;
@@ -200,12 +236,18 @@
     font-size: 20px;
     line-height: 27px;
 
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    @include responsiveness.screen(smallest, phone) {
       text-align: center;
       padding-top: 30px;
     }
 
-    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+    @include responsiveness.screen(
+      tablet,
+      large-tablet,
+      small-laptop,
+      desktop,
+      big-desktop
+    ) {
       padding-top: 49px;
       padding-left: 44px;
       width: 488px;
@@ -218,11 +260,17 @@
   &--dropdown {
     padding-top: 9px;
 
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    @include responsiveness.screen(smallest, phone) {
       margin-left: 25px;
     }
 
-    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+    @include responsiveness.screen(
+      tablet,
+      large-tablet,
+      small-laptop,
+      desktop,
+      big-desktop
+    ) {
       margin-left: 44px;
     }
   }
@@ -237,14 +285,20 @@
     border-radius: 6px;
     resize: "none";
 
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    @include responsiveness.screen(smallest, phone) {
       margin-left: 25px;
       margin-right: 25px;
       height: 150px;
       width: 275px;
     }
 
-    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+    @include responsiveness.screen(
+      tablet,
+      large-tablet,
+      small-laptop,
+      desktop,
+      big-desktop
+    ) {
       margin-left: 44px;
       width: 617px;
       height: 189px;
@@ -259,7 +313,7 @@
     justify-content: center;
     display: flex;
 
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    @include responsiveness.screen(smallest, phone) {
       margin-left: 150px;
       margin-right: 25px;
       margin-top: 15px;
@@ -267,7 +321,13 @@
       width: 150px;
     }
 
-    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+    @include responsiveness.screen(
+      tablet,
+      large-tablet,
+      small-laptop,
+      desktop,
+      big-desktop
+    ) {
       margin-left: 469px;
       margin-top: 23px;
 
