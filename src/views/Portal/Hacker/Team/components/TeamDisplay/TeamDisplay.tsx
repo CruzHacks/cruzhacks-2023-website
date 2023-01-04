@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React from "react"
-import { removeTeamMember } from "../TeamBuilder/api"
+import { removeTeamMember } from "../../api"
 import "./TeamDisplay.scss"
 
 export interface TeamMember {

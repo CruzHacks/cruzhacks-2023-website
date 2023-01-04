@@ -8,7 +8,10 @@
   border-radius: 6px;
 
   color: $dark-white;
-  cursor: not-allowed;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   .app--dark & {
     background-color: $dark-light-purple;

@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { useEffect, useState } from "react"
-import { getTeamProfile } from "./components/TeamBuilder/api"
+import { getTeamProfile } from "./api"
 import {
   Invitation,
   InvitationMode,

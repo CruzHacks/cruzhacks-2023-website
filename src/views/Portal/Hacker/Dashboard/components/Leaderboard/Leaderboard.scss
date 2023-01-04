@@ -19,6 +19,14 @@
     font-size: 20px;
     margin: 10px;
   }
+
+  &__no-leaderboard {
+    font-family: $inter;
+    display: flex;
+    align-items: center;
+    height: 220px;
+    justify-content: center;
+  }
 }
 
 .points-table-item {

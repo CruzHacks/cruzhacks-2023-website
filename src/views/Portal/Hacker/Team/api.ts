@@ -1,7 +1,10 @@
 import { Dispatch } from "react"
 import axios from "axios"
-import { Invitation, InvitationMode } from "./TeamBuilder"
-import { TeamMember } from "../TeamDisplay/TeamDisplay"
+import {
+  Invitation,
+  InvitationMode,
+} from "./components/TeamBuilder/TeamBuilder"
+import { TeamMember } from "./components/TeamDisplay/TeamDisplay"
 
 export const getHackerProfile = async (
   getAccessTokenSilently: any,
@@ -153,6 +156,31 @@ export const removeTeamMember = async (
       },
     }
     const res = await axios(removeMemberAxiosRequest)
+    console.log(res)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const acceptInvite = async (
+  getAccessTokenSilently: any,
+  acceptedTeamName: string
+) => {
+  try {
+    const token = await getAccessTokenSilently()
+    const acceptInviteAxiosRequest = {
+      method: "post",
+      url: `${process.env.REACT_APP_ENDPOINT_URL}/teams/acceptInvite`,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        acceptedTeamName: acceptedTeamName,
+      },
+    }
+    const res = await axios(acceptInviteAxiosRequest)
     console.log(res)
   } catch (err) {
     console.log(err)
