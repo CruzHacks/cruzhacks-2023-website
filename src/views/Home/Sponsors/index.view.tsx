@@ -6,9 +6,9 @@ import "./index.scss"
 const Sponsors: React.FC = () => (
   <div className='sponsors'>
     Thanks to our Sponsors!
-    <div className='sponsors__container--icons'>
+    <div className='sponsors--icons'>
       {SponsorsIconsLinks.map(tier => (
-        <div key={nanoid()} className='sponsors__container--icons__row'>
+        <div key={nanoid()} className='sponsors--icons__row'>
           {tier.map(item => (
             <a
               key={nanoid()}
