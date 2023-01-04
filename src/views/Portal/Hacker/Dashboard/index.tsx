@@ -2,7 +2,10 @@ import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useEffect, useState } from "react"
 import { confirmAttendance, getHackerProfile } from "./api"
 // eslint-disable-next-line max-len
-import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
+import {
+  AttendanceStatus,
+  HackerStatus,
+} from "./components/AttendanceStatus/AttendanceStatus"
 import { ChecklistItem } from "./components/ChecklistItem/ChecklistItem"
 // eslint-disable-next-line max-len
 import { ImportantDatesTable } from "./components/ImportantDatesTable/ImportantDatesTable"
@@ -11,12 +14,17 @@ import { Submission } from "./components/Sumbission/Submission"
 import { HackerDashWelcome } from "./components/Welcome/Welcome"
 import { checklistProps } from "./Props/checklistprops"
 import "./index.scss"
+// eslint-disable-next-line max-len
+import { ConfirmationModal } from "./components/ConfirmationModal/ConfirmationModal"
 
 export const MainDash = () => {
   const { getAccessTokenSilently } = useAuth0()
   const [cruzPoints, setCruzPoints] = useState<number>(0)
-  const [attendanceStatus, setAttendanceStatus] = useState<boolean>(false)
+  const [attendanceStatus, setAttendanceStatus] =
+    useState<AttendanceStatus>("NOT CONFIRMED")
   const [render, setRender] = useState<boolean>(false)
+  const [confirmationModalOpen, setConfirmationModalOpen] =
+    useState<boolean>(false)
 
   useEffect(() => {
     getHackerProfile(
@@ -30,20 +38,44 @@ export const MainDash = () => {
     return (
       <div className='maindash'>
         <div className='maindash__container'>
+          <ConfirmationModal
+            open={confirmationModalOpen}
+            setOpen={setConfirmationModalOpen}
+            header={"CONFIRM ATTENDANCE"}
+            body={`Please confirm if you are going to be able to 
+              make it to CruzHacks 2023 so that we can start 
+              planning accordingly to make CruzHacks the best 
+              experience for you!`}
+            primaryButtonText={"Confirm"}
+            primaryButtonHandler={() =>
+              confirmAttendance(
+                getAccessTokenSilently,
+                "CONFIRMED",
+                setAttendanceStatus
+              )
+            }
+            secondaryButtonText={"I will not be attending"}
+            secondaryButtonHandler={() =>
+              confirmAttendance(
+                getAccessTokenSilently,
+                "NOT ATTENDING",
+                setAttendanceStatus
+              )
+            }
+          />
           <HackerDashWelcome
             cruzPoints={cruzPoints}
             setCruzPoints={setCruzPoints}
-            enableCruzPoints={attendanceStatus}
+            enableCruzPoints={attendanceStatus === "CONFIRMED"}
           />
           <div className='maindash__container--row'>
             <div className='maindash__container--column'>
-              <AttendanceStatus
+              <HackerStatus
                 attendanceStatus={attendanceStatus}
-                confirmHandler={() =>
-                  confirmAttendance(getAccessTokenSilently, setAttendanceStatus)
-                }
+                setConfirmationModalOpen={setConfirmationModalOpen}
+                setAttendanceStatus={setAttendanceStatus}
               />
-              <Submission canSubmit={true} />
+              <Submission canSubmit={false} />
             </div>
             <Leaderboard />
           </div>
@@ -52,6 +84,7 @@ export const MainDash = () => {
           <Checklist
             attendanceStatus={attendanceStatus}
             setAttendanceStatus={setAttendanceStatus}
+            setConfirmationModalOpen={setConfirmationModalOpen}
           />
           <ImportantDates />
         </div>
@@ -63,10 +96,10 @@ export const MainDash = () => {
 }
 
 const Checklist = (props: {
-  attendanceStatus: boolean
-  setAttendanceStatus: Dispatch<boolean>
+  attendanceStatus: AttendanceStatus
+  setAttendanceStatus: Dispatch<AttendanceStatus>
+  setConfirmationModalOpen: Dispatch<boolean>
 }) => {
-  const { getAccessTokenSilently } = useAuth0()
   return (
     <div className='checklist'>
       <div className='checklist__title'>
@@ -82,11 +115,13 @@ const Checklist = (props: {
           title={checklistProps[0].title}
           message={checklistProps[0].message}
           buttonText={checklistProps[0].buttonText}
-          onClick={() =>
-            confirmAttendance(getAccessTokenSilently, props.setAttendanceStatus)
+          onClick={() => props.setConfirmationModalOpen(true)}
+          isUnclickable={props.attendanceStatus !== "NOT CONFIRMED"}
+          unClickableText={
+            props.attendanceStatus === "CONFIRMED"
+              ? "Accepted"
+              : "Not Attending"
           }
-          isUnclickable={props.attendanceStatus}
-          unClickableText={checklistProps[0].unClickableText}
         />
         <ChecklistItem
           key={checklistProps[1].checklistNum}
@@ -96,7 +131,7 @@ const Checklist = (props: {
           buttonText={checklistProps[1].buttonText}
           onClick={() => {}}
           isUnclickable={checklistProps[1].isUnclickable}
-          unClickableText={checklistProps[2].unClickableText}
+          unClickableText={checklistProps[1].unClickableText}
         />
         <ChecklistItem
           key={checklistProps[2].checklistNum}

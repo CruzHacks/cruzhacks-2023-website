@@ -1,10 +1,12 @@
 import axios from "axios"
 import { Dispatch } from "react"
+// eslint-disable-next-line max-len
+import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
 
 export const getHackerProfile = async (
   getAccessTokenSilently: any,
   setCruzPoints: Dispatch<number>,
-  setAttendanceStatus: Dispatch<boolean>
+  setAttendanceStatus: Dispatch<AttendanceStatus>
 ) => {
   try {
     const token = await getAccessTokenSilently()
@@ -19,12 +21,8 @@ export const getHackerProfile = async (
     }
     const res = await axios(getHackerProfileAxiosRequest)
     const profile = res.data.hackerProfile
-
     setCruzPoints(profile.cruzPoints)
-
-    if (profile.isAttending === true || profile.isAttending === false) {
-      setAttendanceStatus(profile.isAttending)
-    }
+    setAttendanceStatus(profile.attendanceStatus)
   } catch (err) {
     console.log(err)
   }
@@ -32,23 +30,25 @@ export const getHackerProfile = async (
 
 export const confirmAttendance = async (
   getAccessTokenSilently: any,
-  setAttendanceStatus: Dispatch<boolean>
+  confirmedStatus: AttendanceStatus,
+  setAttendanceStatus: Dispatch<AttendanceStatus>
 ) => {
   try {
     const token = await getAccessTokenSilently()
     const confirmAttendanceAxiosRequest = {
       method: "put",
-      url: `${process.env.REACT_APP_ENDPOINT_URL}/hacker/isAttending`,
+      url: `${process.env.REACT_APP_ENDPOINT_URL}/hacker/setAttendanceStatus`,
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
         Authorization: `Bearer ${token}`,
       },
+      data: {
+        confirmedStatus: confirmedStatus,
+      },
     }
     const res = await axios(confirmAttendanceAxiosRequest)
-    if (res.status === 200) {
-      setAttendanceStatus(true)
-    }
+    setAttendanceStatus(res.data.attendanceStatus)
   } catch (err) {
     console.log(err)
   }

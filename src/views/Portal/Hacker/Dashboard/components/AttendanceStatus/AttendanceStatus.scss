@@ -54,12 +54,18 @@
       }
 
       &__status {
-        &--false {
+        &--NOT-CONFIRMED {
           @extend %status;
           background-color: #d4d4d4;
         }
 
-        &--true {
+        &--NOT-ATTENDING {
+          @extend %status;
+          background-color: #e55039;
+          color: white;
+        }
+
+        &--CONFIRMED {
           @extend %status;
           background-color: #7dd076;
           color: white;
@@ -87,6 +93,29 @@
           padding-top: 11.5px;
           padding-bottom: 11.5px;
           margin: 1.5px 5px;
+        }
+      }
+
+      &__withdraw {
+        margin-top: 10px;
+        white-space: nowrap;
+        font-weight: 400;
+
+        &--text {
+          color: #737373;
+          display: inline-block;
+          margin-right: 5px;
+        }
+
+        &--button {
+          all: unset;
+          font-family: $inter;
+          text-decoration: underline;
+          color: #1f1f46;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
