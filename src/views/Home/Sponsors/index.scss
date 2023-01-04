@@ -13,10 +13,11 @@
   &--icons {
     display: flex;
     flex-direction: column;
+    gap: 0.5em;
 
     &__row {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
     }
   }
@@ -24,24 +25,57 @@
 
 .sponsorIcon {
   margin: 0 1vw 1vh;
+}
+
+.tier1 {
+  width: 90%;
+  height: 90%;
+}
+
+.tier2 {
+  width: 80%;
+  height: 80%;
 
   @include responsiveness.screen(smallest, phone) {
-    width: 55%;
-    height: 55%;
+    width: 75%;
+    height: 75%;
   }
+}
 
-  @include responsiveness.screen(tablet, large-tablet) {
+.tier3 {
+  width: 75%;
+  height: 75%;
+
+  @include responsiveness.screen(smallest, phone) {
     width: 70%;
     height: 70%;
   }
+}
 
-  @include responsiveness.screen(small-laptop, desktop) {
-    width: 90%;
-    height: 90%;
-  }
+.tier4 {
+  width: 70%;
+  height: 70%;
 
-  @include responsiveness.screen(big-desktop) {
-    width: 90%;
-    height: 90%;
+  @include responsiveness.screen(smallest, phone) {
+    width: 65%;
+    height: 65%;
   }
+}
+
+.tier5 {
+  width: 65%;
+  height: 65%;
+
+  @include responsiveness.screen(smallest, phone) {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+.sponsor-anchors {
+  padding: none;
+  margin: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
