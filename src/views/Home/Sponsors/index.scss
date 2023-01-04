@@ -1,7 +1,7 @@
 @use "../../../stylesheets/fonts";
 @use "../../../stylesheets/responsiveness";
 
-.sponsors__container {
+.sponsors {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,6 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-
     }
   }
   

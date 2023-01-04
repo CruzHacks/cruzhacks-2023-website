@@ -4,7 +4,7 @@ import { nanoid } from "nanoid"
 import "./index.scss"
 
 const Sponsors: React.FC = () => (
-  <div className='sponsors__container'>
+  <div className='sponsors'>
     Thanks to our Sponsors!
     <div className='sponsors__container--icons'>
       {SponsorsIconsLinks.map(tier => (
