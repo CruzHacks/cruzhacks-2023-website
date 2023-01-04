@@ -3,9 +3,9 @@ import { ReactComponent as SponsorsIcons } from "../../../assets/Sponsors.svg"
 import "./index.scss"
 
 const Sponsors: React.FC = () => (
-  <div className='sponsors__container'>
+  <div className='sponsors'>
     Thanks to our Sponsors!
-    <div className='sponsors__container--icons'>
+    <div className='sponsors--icons'>
       <SponsorsIcons className='sponsorsIcons' />
     </div>
   </div>
