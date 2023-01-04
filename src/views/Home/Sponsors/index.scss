@@ -1,10 +1,11 @@
 @use "../../../stylesheets/fonts";
 
-.sponsors__container {
+.sponsors {
   text-align: center;
   display: flex;
   flex-direction: column;
-  max-height: 700px;
+  height: 700px;
+  width: 100%;
 
   @include fonts.subheader;
   font-size: min(4vw, 40px);
@@ -15,6 +16,7 @@
 
     .sponsorsIcons {
       height: 90%;
+      width: 100%;
     }
   }
 }
