@@ -1,11 +1,10 @@
 @use "../../../stylesheets/fonts";
+@use "../../../stylesheets/responsiveness";
 
 .sponsors {
   text-align: center;
   display: flex;
   flex-direction: column;
-  height: 700px;
-  width: 100%;
 
   @include fonts.subheader;
   font-size: min(4vw, 40px);
@@ -13,10 +12,36 @@
 
   &--icons {
     display: flex;
+    flex-direction: column;
 
-    .sponsorsIcons {
-      height: 90%;
-      width: 100%;
+    &__row {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
     }
+  }
+}
+
+.sponsorIcon {
+  margin: 0 1vw 1vh;
+
+  @include responsiveness.screen(smallest, phone) {
+    width: 55%;
+    height: 55%;
+  }
+
+  @include responsiveness.screen(tablet, large-tablet) {
+    width: 70%;
+    height: 70%;
+  }
+
+  @include responsiveness.screen(small-laptop, desktop) {
+    width: 90%;
+    height: 90%;
+  }
+
+  @include responsiveness.screen(big-desktop) {
+    width: 90%;
+    height: 90%;
   }
 }
