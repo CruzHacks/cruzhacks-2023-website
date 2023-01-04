@@ -2,7 +2,7 @@
 
 .sponsors {
   text-align: center;
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   height: 700px;
   width: 100%;
@@ -12,7 +12,7 @@
   gap: 1em;
 
   &--icons {
-    display: flex !important;
+    display: flex;
 
     .sponsorsIcons {
       height: 90%;
