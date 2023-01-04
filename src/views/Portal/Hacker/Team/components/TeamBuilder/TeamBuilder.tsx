@@ -1,7 +1,12 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useState } from "react"
 import { TeamMember } from "../TeamDisplay/TeamDisplay"
-import { changeInvitationMode, createTeam, inviteTeamMember } from "../../api"
+import {
+  acceptInvite,
+  changeInvitationMode,
+  createTeam,
+  inviteTeamMember,
+} from "../../api"
 import "./TeamBuilder.scss"
 
 export type InvitationMode = "JOIN" | "CREATE"
@@ -86,11 +91,19 @@ const JoinTeam = (props: { invites: Array<Invitation> }) => {
 }
 
 const Invitation = (props: { teamName: string }) => {
+  const { getAccessTokenSilently } = useAuth0()
   return (
     <div className='invitation'>
       <div className='invitation__header'>{props.teamName}</div>
       <div className='invitation__buttons'>
-        <button className='invitation__buttons__accept'>Accept</button>
+        <button
+          className='invitation__buttons__accept'
+          onClick={() => {
+            acceptInvite(getAccessTokenSilently, props.teamName)
+          }}
+        >
+          Accept
+        </button>
         <button className='invitation__buttons__decline'>Decline</button>
       </div>
     </div>
