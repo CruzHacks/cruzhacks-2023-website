@@ -11,6 +11,7 @@ const Login: React.FC = () => {
       className='login__button'
       type='button'
       onClick={() => loginWithRedirect()}
+      disabled
     >
       Login
     </button>

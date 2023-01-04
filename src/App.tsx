@@ -25,6 +25,7 @@ const App: React.FC = () => {
     })
   }, [useLocation().pathname])
   const disableTeamBuilder = true
+
   return (
     <div className='app'>
       <Auth0ProviderWithHistory
