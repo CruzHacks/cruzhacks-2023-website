@@ -24,7 +24,7 @@ const App: React.FC = () => {
       behavior: "auto",
     })
   }, [useLocation().pathname])
-
+  const disableTeamBuilder = true
   return (
     <div className='app'>
       <Auth0ProviderWithHistory
@@ -55,7 +55,12 @@ const App: React.FC = () => {
                     <PrivateRoute role='Hacker' component={<MainDash />} />
                   }
                 />
-                <Route path='hacker/:uname/team' element={<TeamFormation />} />
+                {disableTeamBuilder ? null : (
+                  <Route
+                    path='hacker/:uname/team'
+                    element={<TeamFormation />}
+                  />
+                )}
               </Route>
               <Route path='*' element={BGwrapper(ErrorView)} />
             </Routes>
