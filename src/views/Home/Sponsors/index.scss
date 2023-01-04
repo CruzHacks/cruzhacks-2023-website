@@ -13,29 +13,33 @@
   &--icons {
     display: flex;
     flex-direction: column;
+
     &__row {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
     }
   }
-  
 }
 
 .sponsorIcon {
-  margin: 0 1vw 1vh 1vw;
+  margin: 0 1vw 1vh;
+
   @include responsiveness.screen(smallest, phone) {
     width: 55%;
     height: 55%;
   }
+
   @include responsiveness.screen(tablet, large-tablet) {
     width: 70%;
-    height: 70%
+    height: 70%;
   }
+
   @include responsiveness.screen(small-laptop, desktop) {
     width: 90%;
     height: 90%;
   }
+
   @include responsiveness.screen(big-desktop) {
     width: 90%;
     height: 90%;
