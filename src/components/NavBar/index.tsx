@@ -5,7 +5,7 @@ import Login from "../Login/index"
 import Logout from "../Logout/index"
 import ThemeSlider from "./ThemeSlider"
 import { ReactComponent as CruzHacksLogo } from "../../assets/CruzHacksLogo.svg"
-import { ReactComponent as MLHTrustBadge2023 } from "../../assets/mlh.svg"
+import { ReactComponent as MLHTrustBadge2023 } from "../../assets/mlhtrust.svg"
 
 import "./index.scss"
 import DropdownButton from "./DropdownButton"
@@ -53,12 +53,6 @@ const NavBar: React.FC = () => {
         <span className='nav__container--right--item__link'>About Us</span>
       </Link>
       <span className='nav__container--right--item'>{auth()}</span>
-      <div className='nav__container--right--item'>
-        <img
-          src={process.env.PUBLIC_URL + "/logo_MLH-main-white.svg"}
-          alt='Major League Hacking Logo'
-        />
-      </div>
     </>
   )
 
