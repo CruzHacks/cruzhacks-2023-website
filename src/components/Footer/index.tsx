@@ -1,15 +1,14 @@
 import React from "react"
-import { useLocation } from "react-router-dom"
 import { useTheme } from "../../contexts/ThemeContext/ThemeContext"
 
 import "./index.scss"
 
 const Footer: React.FC = () => {
-  const [theme] = useTheme()
-  const location = useLocation()
+  const { theme } = useTheme()
+
   return (
     <>
-      {location.pathname.match(/\/portal\/*/) ? null : (
+      {theme.mode !== "portal" && (
         <img
           className='footer__image'
           src={
@@ -20,7 +19,7 @@ const Footer: React.FC = () => {
           }
         />
       )}
-      <footer className='footer'>
+      <footer className='footer' id='footer'>
         <div className='footer__container'>
           <div className='footer__container--left'>
             <a
