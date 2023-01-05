@@ -1,12 +1,14 @@
 import axios from "axios"
 import { Dispatch } from "react"
+import { Message } from "../../../../contexts/PortalBanners/PortalBanner"
 // eslint-disable-next-line max-len
 import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
 
 export const getHackerProfile = async (
   getAccessTokenSilently: any,
   setCruzPoints: Dispatch<number>,
-  setAttendanceStatus: Dispatch<AttendanceStatus>
+  setAttendanceStatus: Dispatch<AttendanceStatus>,
+  setBanner: Dispatch<Message>
 ) => {
   try {
     const token = await getAccessTokenSilently()
@@ -24,14 +26,21 @@ export const getHackerProfile = async (
     setCruzPoints(profile.cruzPoints)
     setAttendanceStatus(profile.attendanceStatus)
   } catch (err) {
-    console.log(err)
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
   }
 }
 
 export const confirmAttendance = async (
   getAccessTokenSilently: any,
   confirmedStatus: AttendanceStatus,
-  setAttendanceStatus: Dispatch<AttendanceStatus>
+  setAttendanceStatus: Dispatch<AttendanceStatus>,
+  setBanner: Dispatch<Message>
 ) => {
   try {
     const token = await getAccessTokenSilently()
@@ -49,8 +58,16 @@ export const confirmAttendance = async (
     }
     const res = await axios(confirmAttendanceAxiosRequest)
     setAttendanceStatus(res.data.attendanceStatus)
+    setBanner({ message: res.data.message, messageType: "SUCCESS" })
   } catch (err) {
-    console.log(err)
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      console.log(err)
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
   }
 }
 
