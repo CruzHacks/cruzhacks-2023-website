@@ -1,0 +1,135 @@
+@import "../../../../../../stylesheets/fonts";
+
+.teamdisplay {
+  margin: 3em 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  width: 90%;
+  max-width: 550px;
+  min-height: fit-content;
+  height: 60vh;
+  max-height: 600px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 20px rgb(205 205 205 / 50%);
+  font-family: $inter;
+
+  &__header {
+    margin-top: 1em;
+    color: #3b3b7f;
+    font-size: 22px;
+  }
+
+  &__members {
+    margin: 1em;
+    width: calc(100% - 2.5em);
+    height: 50%;
+    border: 1px solid #c4c4c4;
+    border-radius: 6px;
+    overflow-y: auto;
+  }
+
+  &__review {
+    margin-top: 1em;
+    padding: 0 25px;
+    color: #3b3b7f;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: justify;
+  }
+
+  &__submit-button {
+    all: unset;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    background-color: #6f6fe8;
+    color: white;
+    width: 75%;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #6f6fe8;
+    text-align: center;
+    transition: width ease 0.25s;
+
+    &:hover {
+      cursor: pointer;
+      width: 85%;
+    }
+
+    &:active {
+      color: #6f6fe8;
+      background-color: transparent;
+    }
+  }
+}
+
+.membertag {
+  font-family: $nunito;
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  padding: 10px;
+  font-size: 22px;
+  width: calc(100% - 20px);
+
+  @media screen and (max-width: 450px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 350px) {
+    font-size: 12px;
+  }
+
+  &--position {
+    color: #424242;
+    font-weight: 600;
+    width: 30%;
+  }
+
+  &--name {
+    padding: 0 2%;
+    color: #595959;
+    font-weight: 400;
+    text-align: left;
+    width: 40%;
+  }
+
+  &--remove {
+    all: unset;
+    border: 1px solid #e55039;
+    border-radius: 6px;
+    margin-left: auto;
+    color: #e55039;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-align: center;
+    transition: padding ease 0.25s;
+    width: 20%;
+
+    @media screen and (max-width: 450px) {
+      font-size: 12px;
+      height: 15px;
+    }
+
+    @media screen and (max-width: 350px) {
+      font-size: 10px;
+      height: 12px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      padding: 5px 15px;
+
+      @media screen and (max-width: 450px) {
+        padding: 5px 10px;
+      }
+    }
+
+    &:active {
+      background-color: #e55039;
+      color: white;
+    }
+  }
+}

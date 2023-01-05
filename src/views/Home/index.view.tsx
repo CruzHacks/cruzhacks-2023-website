@@ -3,7 +3,7 @@ import HeroBlurb from "./HeroBlurb/index.view"
 import FAQs from "./FAQs/index.view"
 import Landing from "./Landing/index.view"
 // import Projects from "./Projects/index.view"
-// import Sponsors from "./Sponsors/index.view"
+import Sponsors from "./Sponsors/index.view"
 import Milestones from "./Milestones/index.view"
 import Tracks from "./Tracks/index.view"
 
@@ -17,6 +17,7 @@ const Home: React.FC = () => (
       <Tracks />
       <Milestones />
       <FAQs />
+      <Sponsors />
     </div>
   </>
 )

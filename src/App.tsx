@@ -9,9 +9,9 @@ import Footer from "./components/Footer"
 import Home from "./views/Home/index.view"
 import Team from "./views/Team/index.view"
 import Portal from "./views/Portal/index.view"
-import HackerDash from "./views/Portal/Hacker"
 import TeamFormation from "./views/Portal/Hacker/Team"
 import Support from "./views/Portal/Hacker/Support"
+import { MainDash } from "./views/Portal/Hacker/Dashboard"
 import AdminDash from "./views/Portal/Admin"
 import UserManagement from "./views/Portal/Admin/UserManagement"
 import ErrorView from "./views/Error/index.view"
@@ -43,6 +43,8 @@ const App: React.FC = () => {
       behavior: "auto",
     })
   }, [useLocation().pathname])
+  const disableTeamBuilder = true
+
   return (
     <div className='app'>
       <Auth0ProviderWithHistory
@@ -88,15 +90,20 @@ const App: React.FC = () => {
                 <Route
                   path='hacker/:userId/dashboard'
                   element={
-                    <PrivateRoute role='Hacker' component={<HackerDash />} />
+                    <PrivateRoute role='Hacker' component={<MainDash />} />
                   }
                 />
-                <Route
-                  path='hacker/:userId/team'
-                  element={
-                    <PrivateRoute role='Hacker' component={<TeamFormation />} />
-                  }
-                />
+                {disableTeamBuilder && (
+                  <Route
+                    path='hacker/:userId/team'
+                    element={
+                      <PrivateRoute
+                        role='Hacker'
+                        component={<TeamFormation />}
+                      />
+                    }
+                  />
+                )}
                 <Route
                   path='hacker/:userId/support'
                   element={

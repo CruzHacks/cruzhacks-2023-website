@@ -6,7 +6,7 @@ import Login from "../Login/index"
 import Logout from "../Logout/index"
 import ThemeSlider from "./ThemeSlider"
 import { ReactComponent as CruzHacksLogo } from "../../assets/CruzHacksLogo.svg"
-import { ReactComponent as MLHTrustBadge2023 } from "../../assets/mlh.svg"
+import { ReactComponent as MLHTrustBadge2023 } from "../../assets/mlhtrust.svg"
 
 import "./index.scss"
 import DropdownButton from "./DropdownButton"
