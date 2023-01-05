@@ -19,43 +19,24 @@ interface ImportantDatesTableItemProps {
 const testImportantDates: Array<ImportantDatesTableItemProps> = [
   {
     id: 1,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
+    date: "Jan 9, 2023: 11:59 PM PST",
+    event: "Deadline to confirm your spot at CruzHacks 2023",
   },
   {
     id: 2,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
+    date: "Jan 11, 2023: 8:00 PM PST",
+    event: "Hacker Packet Released! Check it out for need-to-know information!",
   },
   {
     id: 3,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
+    date: "Jan 15, 2023: 5:00 PM PST",
+    event:
+      "Check-in begins in front of Stevenson Event Center at UC Santa Cruz",
   },
   {
     id: 4,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
-  },
-  {
-    id: 5,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
-  },
-  {
-    id: 6,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
-  },
-  {
-    id: 7,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
-  },
-  {
-    id: 8,
-    date: "Nov 31, 2022: 11:59 PM PST",
-    event: "Applications Close",
+    date: "Jan 15, 2023: 7:00 PM PST",
+    event: "Opening Ceremony begins",
   },
 ]
 
