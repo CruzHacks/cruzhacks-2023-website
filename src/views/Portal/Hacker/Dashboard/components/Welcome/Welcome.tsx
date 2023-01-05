@@ -24,10 +24,10 @@ const CruzPointsCodeModal = (props: {
     transform: "translate(-50%, -50%)",
     backgroundColor: "white",
     boxShadow: 24,
-    height: "70vh",
-    maxHeight: "700px",
-    width: "60vh",
-    maxWidth: "80%",
+    height: "fit-content",
+    minWidth: "400px",
+    width: "30%",
+    paddingBottom: 2,
   }
 
   const [code, setCode] = useState<string>("")
