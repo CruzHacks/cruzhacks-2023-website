@@ -10,7 +10,6 @@ import { ChecklistItem } from "./components/ChecklistItem/ChecklistItem"
 // eslint-disable-next-line max-len
 import { ImportantDatesTable } from "./components/ImportantDatesTable/ImportantDatesTable"
 import { Leaderboard } from "./components/Leaderboard/Leaderboard"
-import { Submission } from "./components/Sumbission/Submission"
 import { HackerDashWelcome } from "./components/Welcome/Welcome"
 import { checklistProps } from "./Props/checklistprops"
 import "./index.scss"
@@ -75,7 +74,7 @@ export const MainDash = () => {
                 setConfirmationModalOpen={setConfirmationModalOpen}
                 setAttendanceStatus={setAttendanceStatus}
               />
-              <Submission canSubmit={false} />
+              {/* <Submission canSubmit={false} /> */}
             </div>
             <Leaderboard />
           </div>
