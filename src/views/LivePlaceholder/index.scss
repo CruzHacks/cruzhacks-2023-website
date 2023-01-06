@@ -3,7 +3,7 @@
 
 .lph__container {
   position: relative;
-
+  height: 100%;
   @include variables.livesite-background;
   display: flex;
   justify-content: center;
