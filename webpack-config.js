@@ -25,9 +25,13 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        /*
-        <Add env variables here>
-        */
+        REACT_APP_AUTH0_DOMAIN: JSON.stringify(process.env.REACT_APP_AUTH0_DOMAIN),
+        REACT_APP_AUTH0_CLIENT: JSON.stringify(process.env.REACT_APP_AUTH0_CLIENT),
+        REACT_APP_AUTH0_AUDIENCE: JSON.stringify(process.env.REACT_APP_AUTH0_AUDIENCE),
+        REACT_APP_RECAPTCHA_SITE_KEY: JSON.stringify(process.env.REACT_APP_RECAPTCHA_SITE_KEY),
+        REACT_APP_API_KEY: JSON.stringify(process.env.REACT_APP_API_KEY),
+        REACT_APP_ENDPOINT_URL: JSON.stringify(process.env.REACT_APP_ENDPOINT_URL),
+        REACT_APP_CORS_ORIGIN: JSON.stringify(process.env.REACT_APP_CORS_ORIGIN),
       },
     }),
   ],

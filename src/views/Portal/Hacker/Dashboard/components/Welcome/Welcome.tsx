@@ -3,6 +3,8 @@ import { Modal } from "@mui/material"
 import { Box, SxProps } from "@mui/system"
 import React, { Dispatch, useState } from "react"
 import { ReactComponent as Exit } from "../../../../../../assets/Exit.svg"
+// eslint-disable-next-line max-len
+import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
 import { submitCruzPointsCode } from "../../api"
 import "./Welcome.scss"
 
@@ -24,14 +26,15 @@ const CruzPointsCodeModal = (props: {
     transform: "translate(-50%, -50%)",
     backgroundColor: "white",
     boxShadow: 24,
-    height: "70vh",
-    maxHeight: "700px",
-    width: "60vh",
-    maxWidth: "80%",
+    height: "fit-content",
+    minWidth: "400px",
+    width: "30%",
+    paddingBottom: 2,
   }
 
   const [code, setCode] = useState<string>("")
   const { getAccessTokenSilently } = useAuth0()
+  const { setBanner } = useBanner()
   return (
     <Modal open={props.open} onClose={() => props.setOpen(false)}>
       <Box sx={style}>
@@ -59,7 +62,8 @@ const CruzPointsCodeModal = (props: {
               submitCruzPointsCode(
                 getAccessTokenSilently,
                 code,
-                props.setCruzPoints
+                props.setCruzPoints,
+                setBanner
               )
               props.setOpen(false)
             }}

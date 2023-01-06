@@ -27,6 +27,10 @@
   .app--light & {
     background-color: $light-faded-blue;
   }
+
+  .app--portal & {
+    background-color: $portal-dark-blue;
+  }
 }
 
 .footer__container {

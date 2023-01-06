@@ -5,7 +5,7 @@ import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
 import "./index.scss"
 
 const Clouds: React.FC = () => {
-  const [theme] = useTheme()
+  const { theme } = useTheme()
 
   if (theme.mode === "dark") {
     return (

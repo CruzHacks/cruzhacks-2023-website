@@ -4,7 +4,7 @@ import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
 import "./index.scss"
 
 const ThemeSlider: React.FC = () => {
-  const [theme, toggleTheme] = useTheme()
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <div className='toggle'>

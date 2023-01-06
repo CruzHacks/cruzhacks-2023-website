@@ -4,17 +4,22 @@ import { useTheme } from "../../contexts/ThemeContext/ThemeContext"
 import "./index.scss"
 
 const Footer: React.FC = () => {
-  const [theme] = useTheme()
+  const { theme } = useTheme()
 
   return (
     <>
-      <img
-        className='footer__image'
-        src={
-          process.env.PUBLIC_URL + "/illustration_footer-" + theme.mode + ".svg"
-        }
-      />
-      <footer className='footer'>
+      {theme.mode !== "portal" && (
+        <img
+          className='footer__image'
+          src={
+            process.env.PUBLIC_URL +
+            "/illustration_footer-" +
+            theme.mode +
+            ".svg"
+          }
+        />
+      )}
+      <footer className='footer' id='footer'>
         <div className='footer__container'>
           <div className='footer__container--left'>
             <a

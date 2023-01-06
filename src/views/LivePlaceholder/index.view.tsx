@@ -1,16 +1,8 @@
 import React, { useState } from "react"
+import { ReactComponent as PhContent } from "../../assets/placeholder.svg"
 import "./index.scss"
 
-interface LoadingProps {
-  message: string
-}
-
-/**
- * Provides an element to display upon loading/redirection.
- * Primary purpose is to mantain consistent styling.
- */
-
-const Loading: React.FC<LoadingProps> = ({ message }: LoadingProps) => {
+const LivePlaceholder: React.FC = () => {
   const elem = document.getElementById("footer")
   // get initial dims
   let footerHeight = 0
@@ -28,14 +20,10 @@ const Loading: React.FC<LoadingProps> = ({ message }: LoadingProps) => {
   }, [])
 
   return (
-    <div className='loading__container' style={{ height: divHeight }}>
-      {message}
+    <div className='lph__container' style={{ height: divHeight }}>
+      <PhContent className='ph-icon' />
     </div>
   )
 }
 
-Loading.defaultProps = {
-  message: "Loading...",
-}
-
-export default Loading
+export default LivePlaceholder

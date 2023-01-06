@@ -1,10 +1,14 @@
 import axios from "axios"
 import { Dispatch } from "react"
+import { Message } from "../../../../contexts/PortalBanners/PortalBanner"
+// eslint-disable-next-line max-len
+import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
 
 export const getHackerProfile = async (
   getAccessTokenSilently: any,
   setCruzPoints: Dispatch<number>,
-  setAttendanceStatus: Dispatch<boolean>
+  setAttendanceStatus: Dispatch<AttendanceStatus>,
+  setBanner: Dispatch<Message>
 ) => {
   try {
     const token = await getAccessTokenSilently()
@@ -19,45 +23,59 @@ export const getHackerProfile = async (
     }
     const res = await axios(getHackerProfileAxiosRequest)
     const profile = res.data.hackerProfile
-
     setCruzPoints(profile.cruzPoints)
-
-    if (profile.isAttending === true || profile.isAttending === false) {
-      setAttendanceStatus(profile.isAttending)
-    }
+    setAttendanceStatus(profile.attendanceStatus)
   } catch (err) {
-    console.log(err)
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
   }
 }
 
 export const confirmAttendance = async (
   getAccessTokenSilently: any,
-  setAttendanceStatus: Dispatch<boolean>
+  confirmedStatus: AttendanceStatus,
+  setAttendanceStatus: Dispatch<AttendanceStatus>,
+  setBanner: Dispatch<Message>
 ) => {
   try {
     const token = await getAccessTokenSilently()
     const confirmAttendanceAxiosRequest = {
       method: "put",
-      url: `${process.env.REACT_APP_ENDPOINT_URL}/hacker/isAttending`,
+      url: `${process.env.REACT_APP_ENDPOINT_URL}/hacker/setAttendanceStatus`,
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
         Authorization: `Bearer ${token}`,
       },
+      data: {
+        confirmedStatus: confirmedStatus,
+      },
     }
     const res = await axios(confirmAttendanceAxiosRequest)
-    if (res.status === 200) {
-      setAttendanceStatus(true)
-    }
+    setAttendanceStatus(res.data.attendanceStatus)
+    setBanner({ message: res.data.message, messageType: "SUCCESS" })
   } catch (err) {
-    console.log(err)
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      console.log(err)
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
   }
 }
 
 export const submitCruzPointsCode = async (
   getAccessTokenSilently: any,
   code: string,
-  setCruzPoints: Dispatch<number>
+  setCruzPoints: Dispatch<number>,
+  setBanner: Dispatch<Message>
 ) => {
   try {
     const token = await getAccessTokenSilently()
@@ -74,10 +92,16 @@ export const submitCruzPointsCode = async (
       },
     }
     const res = await axios(submitCruzPointsAxiosRequest)
-    if (res.status == 200) {
-      setCruzPoints(res.data.updatedPoints)
-    }
+
+    setCruzPoints(res.data.updatedPoints)
+    setBanner({
+      message: `Congrats! You now have ${res.data.updatedPoints} CruzPoints`,
+      messageType: "SUCCESS",
+    })
   } catch (err) {
-    console.log(err)
+    setBanner({
+      message: `Invalid CruzPoints Code`,
+      messageType: "ERROR",
+    })
   }
 }

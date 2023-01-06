@@ -10,6 +10,7 @@ export const Submission = (props: { canSubmit: boolean }) => {
       </div>
       <button
         className={`submission__container__submit-button--${props.canSubmit}`}
+        disabled
       >
         Submit
       </button>

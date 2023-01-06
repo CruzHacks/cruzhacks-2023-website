@@ -24,6 +24,7 @@ export const ChecklistItem = (props: ChecklistItemProps) => {
           props.isUnclickable ? "--greyedOut" : ""
         }`}
         onClick={() => props.onClick()}
+        disabled={props.isUnclickable}
       >
         {!props.isUnclickable ? props.buttonText : props.unClickableText}
       </button>

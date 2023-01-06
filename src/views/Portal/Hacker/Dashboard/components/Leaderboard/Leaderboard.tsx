@@ -21,45 +21,9 @@ interface LeaderboardProps {
   points: number
 }
 
-const test_data: Array<LeaderboardProps> = [
-  {
-    id: 1,
-    position: 1,
-    name: "Test Name 1",
-    college: "UCSC - Cowell",
-    points: 15,
-  },
-  {
-    id: 2,
-    position: 2,
-    name: "Test Name 2",
-    college: "UCSC - Crown",
-    points: 10,
-  },
-  {
-    id: 3,
-    position: 3,
-    name: "Test Name 3",
-    college: "UCSC - Crown",
-    points: 5,
-  },
-  {
-    id: 4,
-    position: 3,
-    name: "Test Name 3",
-    college: "UCSC - Crown",
-    points: 5,
-  },
-  {
-    id: 5,
-    position: 4,
-    name: "Test Name 3",
-    college: "UCSC - Crown",
-    points: 5,
-  },
-]
-
-export const Leaderboard: React.FC = () => {
+export const Leaderboard: React.FC = (props: {
+  leaderboardData?: Array<LeaderboardProps>
+}) => {
   return (
     <div className='leaderboard__container'>
       <div className='leaderboard__container__header'>
@@ -73,25 +37,31 @@ export const Leaderboard: React.FC = () => {
           borderRadius: 2,
           width: "100%",
           maxHeight: "75%",
-          overflowY: "scroll",
+          overflowY: "auto",
           marginBottom: "30px",
         }}
       >
         <Table>
-          <TableBody>
-            {test_data.map((row: LeaderboardProps) => (
-              <TableRow key={row.id} sx={{ height: 40 }}>
-                <TableCell component='th' scope='row'>
-                  <PositionTableItem position={row.position} />
-                </TableCell>
-                <TableCell align='left'>
-                  <NameTableItem name={row.name} college={row.college} />
-                </TableCell>
-                <TableCell align='center'>
-                  <div className='points-table-item'>{row.points}pts</div>
-                </TableCell>
-              </TableRow>
-            ))}
+          <TableBody sx={{ height: 225 }}>
+            {props.leaderboardData ? (
+              props.leaderboardData.map((row: LeaderboardProps) => (
+                <TableRow key={row.id} sx={{ height: 40 }}>
+                  <TableCell component='th' scope='row'>
+                    <PositionTableItem position={row.position} />
+                  </TableCell>
+                  <TableCell align='left'>
+                    <NameTableItem name={row.name} college={row.college} />
+                  </TableCell>
+                  <TableCell align='center'>
+                    <div className='points-table-item'>{row.points}pts</div>
+                  </TableCell>
+                </TableRow>
+              ))
+            ) : (
+              <div className='leaderboard__container__no-leaderboard'>
+                <div>No Leaderboard Stats</div>
+              </div>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

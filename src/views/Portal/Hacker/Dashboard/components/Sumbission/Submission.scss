@@ -25,25 +25,24 @@
   }
 
   &__submit-button {
-    &--false {
+    @mixin submit-button {
       all: unset;
       border-radius: 6px;
-      background-color: #e8e8e8;
-      color: #bfbaba;
       width: 120px;
       padding: 5px 10px;
       text-align: center;
     }
 
+    &--false {
+      @include submit-button;
+      background-color: #d4d4d4;
+      color: #525252;
+    }
+
     &--true {
-      all: unset;
-      border-radius: 6px;
+      @include submit-button;
       background-color: #8c8cff;
       color: white;
-      width: 120px;
-      padding: 5px 10px;
-      text-align: center;
-      transition: width ease 0.25s;
 
       &:hover {
         cursor: pointer;

@@ -19,6 +19,8 @@ export const checklistProps: Array<ChecklistItemProps> = [
     of fellow hackers? Find your team to start 
     innovating!`,
     buttonText: "Get Started",
+    isUnclickable: true,
+    unClickableText: "Get Started",
     onClick: () => {},
   },
   {
@@ -29,6 +31,8 @@ export const checklistProps: Array<ChecklistItemProps> = [
     you need to bring, travel info, workshop info, 
     and more!`,
     buttonText: "HackerPack",
+    isUnclickable: true,
+    unClickableText: "HackerPack",
     onClick: () => {},
   },
 ]
