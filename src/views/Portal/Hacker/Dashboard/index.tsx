@@ -15,8 +15,17 @@ import { checklistProps } from "./Props/checklistprops"
 import "./index.scss"
 // eslint-disable-next-line max-len
 import { ConfirmationModal } from "./components/ConfirmationModal/ConfirmationModal"
+import {
+  BannerProvider,
+  useBanner,
+} from "../../../../contexts/PortalBanners/PortalBanner"
 
-export const MainDash = () => {
+export const MainDash = () => (
+  <BannerProvider>
+    <HackerDash />
+  </BannerProvider>
+)
+const HackerDash = () => {
   const { getAccessTokenSilently } = useAuth0()
   const [cruzPoints, setCruzPoints] = useState<number>(0)
   const [attendanceStatus, setAttendanceStatus] =
@@ -24,12 +33,14 @@ export const MainDash = () => {
   const [render, setRender] = useState<boolean>(false)
   const [confirmationModalOpen, setConfirmationModalOpen] =
     useState<boolean>(false)
+  const { setBanner } = useBanner()
 
   useEffect(() => {
     getHackerProfile(
       getAccessTokenSilently,
       setCruzPoints,
-      setAttendanceStatus
+      setAttendanceStatus,
+      setBanner
     ).then(() => setRender(true))
   }, [])
 
@@ -50,7 +61,8 @@ export const MainDash = () => {
               confirmAttendance(
                 getAccessTokenSilently,
                 "CONFIRMED",
-                setAttendanceStatus
+                setAttendanceStatus,
+                setBanner
               )
             }
             secondaryButtonText={"I will not be attending"}
@@ -58,7 +70,8 @@ export const MainDash = () => {
               confirmAttendance(
                 getAccessTokenSilently,
                 "NOT ATTENDING",
-                setAttendanceStatus
+                setAttendanceStatus,
+                setBanner
               )
             }
           />

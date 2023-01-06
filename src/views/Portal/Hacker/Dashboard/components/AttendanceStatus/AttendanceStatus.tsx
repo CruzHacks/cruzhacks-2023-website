@@ -3,6 +3,8 @@ import "./AttendanceStatus.scss"
 import { confirmAttendance } from "../../api"
 import { useAuth0 } from "@auth0/auth0-react"
 import { ConfirmationModal } from "../ConfirmationModal/ConfirmationModal"
+// eslint-disable-next-line max-len
+import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
 
 export type AttendanceStatus = "NOT CONFIRMED" | "CONFIRMED" | "NOT ATTENDING"
 
@@ -17,6 +19,7 @@ export const HackerStatus: React.FC<AttendanceStatusProps> = (
 ) => {
   const { attendanceStatus, setConfirmationModalOpen } = props
   const { getAccessTokenSilently } = useAuth0()
+  const { setBanner } = useBanner()
   const [openWithdrawModal, setOpenWithdrawModal] = useState<boolean>(false)
   const attendanceStatusModifier = (attendanceStatus: AttendanceStatus) => {
     switch (attendanceStatus) {
@@ -46,7 +49,8 @@ export const HackerStatus: React.FC<AttendanceStatusProps> = (
           confirmAttendance(
             getAccessTokenSilently,
             "NOT ATTENDING",
-            props.setAttendanceStatus
+            props.setAttendanceStatus,
+            setBanner
           )
         }
         secondaryButtonText={"I will still be attending"}
