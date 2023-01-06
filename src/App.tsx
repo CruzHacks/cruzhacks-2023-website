@@ -105,12 +105,6 @@ const App: React.FC = () => {
                   />
                 )}
                 <Route
-                  path='hacker/:userId/support'
-                  element={
-                    <PrivateRoute role='Hacker' component={<Support />} />
-                  }
-                />
-                <Route
                   path='hacker/:userId/live'
                   element={
                     <PrivateRoute
