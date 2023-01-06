@@ -29,14 +29,39 @@ const testImportantDates: Array<ImportantDatesTableItemProps> = [
   },
   {
     id: 3,
-    date: "Jan 15, 2023: 5:00 PM PST",
+    date: "Jan 13, 2023: 5:00 PM PST",
     event:
       "Check-in begins in front of Stevenson Event Center at UC Santa Cruz",
   },
   {
     id: 4,
-    date: "Jan 15, 2023: 7:00 PM PST",
+    date: "Jan 13, 2023: 7:00 PM PST",
     event: "Opening Ceremony begins",
+  },
+  {
+    id: 5,
+    date: "Jan 13, 2023: 9:00 PM PST",
+    event: "Hacking begins, Workshops begin",
+  },
+  {
+    id: 6,
+    date: "Jan 15, 2023: 9:00 AM PST",
+    event: "Code Freeze",
+  },
+  {
+    id: 7,
+    date: "Jan 15, 2023: 11:00 AM PST",
+    event: "Expo/Demo/Judging begins",
+  },
+  {
+    id: 8,
+    date: "Jan 15, 2023: 2:00 PM PST",
+    event: "Closing Ceremony begins, Winners announced",
+  },
+  {
+    id: 9,
+    date: "Jan 15, 2023: 4:00 PM PST",
+    event: "CruzHacks 2023 Concludes",
   },
 ]
 
