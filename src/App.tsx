@@ -9,7 +9,7 @@ import Home from "./views/Home/index.view"
 import Team from "./views/Team/index.view"
 import Portal from "./views/Portal/index.view"
 import HackerDash from "./views/Portal/Hacker"
-import AdminDash from "./views/Portal/Admin"
+import AdminDash from "./views/Portal/Admin/Dashboard"
 import ErrorView from "./views/Error/index.view"
 import BGwrapper from "./components/BGwrapper"
 
