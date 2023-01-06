@@ -74,7 +74,8 @@ export const confirmAttendance = async (
 export const submitCruzPointsCode = async (
   getAccessTokenSilently: any,
   code: string,
-  setCruzPoints: Dispatch<number>
+  setCruzPoints: Dispatch<number>,
+  setBanner: Dispatch<Message>
 ) => {
   try {
     const token = await getAccessTokenSilently()
@@ -91,10 +92,16 @@ export const submitCruzPointsCode = async (
       },
     }
     const res = await axios(submitCruzPointsAxiosRequest)
-    if (res.status == 200) {
-      setCruzPoints(res.data.updatedPoints)
-    }
+
+    setCruzPoints(res.data.updatedPoints)
+    setBanner({
+      message: `Congrats! You now have ${res.data.updatedPoints} CruzPoints`,
+      messageType: "SUCCESS",
+    })
   } catch (err) {
-    console.log(err)
+    setBanner({
+      message: `Invalid CruzPoints Code`,
+      messageType: "ERROR",
+    })
   }
 }
