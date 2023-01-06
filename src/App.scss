@@ -13,7 +13,7 @@ body,
 #root,
 #root > div {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
   overscroll-behavior: contain;
   position: sticky;
   overflow-x: clip;
