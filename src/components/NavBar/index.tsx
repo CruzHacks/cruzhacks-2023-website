@@ -123,6 +123,7 @@ const NavBar: React.FC = () => {
       >
         <span className='nav__container--right--item__link'>Dashboard</span>
       </Link>
+      {/*
       <Link
         className={
           "nav__container--right--item " +
@@ -133,16 +134,7 @@ const NavBar: React.FC = () => {
       >
         <span className='nav__container--right--item__link'>Team</span>
       </Link>
-      <Link
-        className={
-          "nav__container--right--item " +
-          (page == `/portal/hacker/${userId}/support` ? "active" : "")
-        }
-        to='../support'
-        relative='path'
-      >
-        <span className='nav__container--right--item__link'>Support</span>
-      </Link>
+      */}
       <Link
         className='nav__container--right--item'
         to='../live'
