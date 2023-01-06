@@ -26,11 +26,12 @@ body,
   min-height: 100%;
   display: flex;
   flex-direction: column;
+
   .app--light {
     @include AppThemeSizing;
     @include variables.light-background;
   }
-  
+
   .app--dark {
     @include AppThemeSizing;
     @include variables.dark-background;
