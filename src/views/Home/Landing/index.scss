@@ -466,3 +466,41 @@
   display: flex;
   align-items: center;
 }
+
+.MyPortal__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MyPortal {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 78%;
+  height: 35px;
+  padding: 0 5px;
+  border-radius: 6px;
+  font-family: $nunito;
+  font-size: 18px;
+  color: white;
+
+  .app--light & {
+    background-color: transparent;
+    border: 1px solid $light-orange;
+
+    &:hover {
+      background-color: $light-orange;
+    }
+  }
+
+  .app--dark & {
+    background-color: transparent;
+    border: 1px solid $dark-light-purple;
+
+    &:hover {
+      background-color: $dark-light-purple;
+    }
+  }
+}

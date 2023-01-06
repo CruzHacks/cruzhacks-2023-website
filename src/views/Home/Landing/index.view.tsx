@@ -14,7 +14,7 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import LocationOnIcon from "@mui/icons-material/LocationOn"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
 import { Modal, Box, SxProps, Fade } from "@mui/material"
-
+import { useNavigate } from "react-router"
 const SubmissionStates = {
   NotSubmitted: 0,
   Loading: 1,
@@ -99,7 +99,7 @@ const Landing: React.FC = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { theme } = useTheme()
   const [sponsorEmailVisible, setSponsorEmailVisible] = useState<boolean>(false)
-
+  const navigate = useNavigate()
   const isLightClass = () => (theme.mode === "light" ? "--light" : "")
   const showSponsorEmailCopiedMsg = () => {
     setSponsorEmailVisible(true)
@@ -183,31 +183,45 @@ const Landing: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className='landing__container--inputs__row2'>
-            <button
-              // eslint-disable-next-line max-len
-              className={`landing__container--inputs__row2--button1${isLightClass()}`}
-              onClick={e => {
-                navigator.clipboard.writeText("sponsor@cruzhacks.com")
-                showSponsorEmailCopiedMsg()
-                window.location.href = "mailto:sponsor@cruzhacks.com"
-                e.preventDefault()
-              }}
-            >
-              Sponsor Us
-            </button>
-            <button
-              // eslint-disable-next-line max-len
-              className={`landing__container--inputs__row2--button2${isLightClass()}`}
-              onClick={() => setModalOpen(true)}
-            >
-              Apply
-            </button>
-            <ApplicationModal
-              modalOpen={modalOpen}
-              setModalOpen={setModalOpen}
-            />
-          </div>
+          {/* eslint-disable */}
+          {/*
+          
+            <div className='landing__container--inputs__row2'>
+              <button
+                // eslint-disable-next-line max-len
+                className={`landing__container--inputs__row2--button1${isLightClass()}`}
+                onClick={e => {
+                  navigator.clipboard.writeText("sponsor@cruzhacks.com")
+                  showSponsorEmailCopiedMsg()
+                  window.location.href = "mailto:sponsor@cruzhacks.com"
+                  e.preventDefault()
+                }}
+              >
+                Sponsor Us
+              </button>
+              <button
+                // eslint-disable-next-line max-len
+                className={`landing__container--inputs__row2--button2${isLightClass()}`}
+                onClick={() => setModalOpen(true)}
+              >
+                Apply
+              </button>
+              <ApplicationModal
+                modalOpen={modalOpen}
+                setModalOpen={setModalOpen}
+              />
+            </div>
+          */}
+          {/* eslint-enable */}
+        </div>
+        <div className='MyPortal__container'>
+          <button
+            // eslint-disable-next-line max-len
+            className={`MyPortal`}
+            onClick={() => navigate("/redirect")}
+          >
+            Portal
+          </button>
         </div>
         {message && (
           <div

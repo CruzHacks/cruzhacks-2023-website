@@ -19,6 +19,7 @@ import {
   BannerProvider,
   useBanner,
 } from "../../../../contexts/PortalBanners/PortalBanner"
+import Spinner from "../../../../components/Spinner"
 
 export const MainDash = () => (
   <BannerProvider>
@@ -103,7 +104,7 @@ const HackerDash = () => {
       </div>
     )
   } else {
-    return <div className='maindash'></div>
+    return <Spinner />
   }
 }
 
