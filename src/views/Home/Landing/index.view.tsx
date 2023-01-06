@@ -1,4 +1,4 @@
-import React, { useState, Dispatch } from "react"
+import React, { useState } from "react"
 import { subscribeMailchimp } from "../../../utils/api"
 import { validateEmail } from "../../../utils/validate"
 import "./index.scss"
@@ -13,7 +13,7 @@ import {
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import LocationOnIcon from "@mui/icons-material/LocationOn"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
-import { Modal, Box, SxProps, Fade } from "@mui/material"
+// import { SxProps } from "@mui/material"
 import { useNavigate } from "react-router"
 const SubmissionStates = {
   NotSubmitted: 0,
@@ -22,6 +22,7 @@ const SubmissionStates = {
   Errored: 3,
 }
 
+/*
 const style: SxProps = {
   position: "absolute",
   top: "50%",
@@ -47,64 +48,67 @@ const ApplicationModal = ({
   const openApplication = (link: string) => {
     window.open(link, "_blank")
   }
-
+  
   return (
     <Modal
-      open={modalOpen}
-      onClose={() => setModalOpen(false)}
-      aria-labelledby='apply modal'
-      aria-describedby='choose application type'
+    open={modalOpen}
+    onClose={() => setModalOpen(false)}
+    aria-labelledby='apply modal'
+    aria-describedby='choose application type'
     >
-      <Fade in={modalOpen}>
-        <Box sx={style}>
-          <div className='application-modal__container'>
-            <div className='application-modal__container__title'>
-              APPLICATION TYPE
-            </div>
-            <button
-              onClick={() =>
-                openApplication("https://forms.gle/RiY8GDxoCR1xmCbc7")
-              }
-              className='application-modal__container--button'
-            >
-              Hacker Application
-            </button>
-            <button
-              onClick={() =>
-                openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
-              }
-              className='application-modal__container--button'
-            >
-              Mentor / Judge Application
-            </button>
-            <button
-              onClick={() =>
-                openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
-              }
-              className='application-modal__container--button'
-            >
-              Volunteer Application
-            </button>
-          </div>
-        </Box>
-      </Fade>
+    <Fade in={modalOpen}>
+    <Box sx={style}>
+    <div className='application-modal__container'>
+    <div className='application-modal__container__title'>
+    APPLICATION TYPE
+    </div>
+    <button
+    onClick={() =>
+      openApplication("https://forms.gle/RiY8GDxoCR1xmCbc7")
+    }
+    className='application-modal__container--button'
+    >
+    Hacker Application
+    </button>
+    <button
+    onClick={() =>
+      openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
+    }
+    className='application-modal__container--button'
+    >
+    Mentor / Judge Application
+    </button>
+    <button
+    onClick={() =>
+      openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
+    }
+    className='application-modal__container--button'
+    >
+    Volunteer Application
+    </button>
+    </div>
+    </Box>
+    </Fade>
     </Modal>
-  )
-}
-
+    )
+  }
+  
+*/
 const Landing: React.FC = () => {
   const [email, setEmail] = useState<string>("")
   const [state, setState] = useState<number>(0)
   const [message, setMessage] = useState<string>("")
-  const [modalOpen, setModalOpen] = useState<boolean>(false)
+  // const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { theme } = useTheme()
-  const [sponsorEmailVisible, setSponsorEmailVisible] = useState<boolean>(false)
+  // const [sponsorEmailVisible, setSponsorEmailVisible]
+  // = useState<boolean>(false)
   const navigate = useNavigate()
   const isLightClass = () => (theme.mode === "light" ? "--light" : "")
-  const showSponsorEmailCopiedMsg = () => {
+  /*
+    const showSponsorEmailCopiedMsg = () => {
     setSponsorEmailVisible(true)
     setTimeout(() => setSponsorEmailVisible(false), 5000)
-  }
+  }*/
   const handleSubmit = () => {
     if (!validateEmail(email)) {
       setState(SubmissionStates.Errored)
@@ -232,13 +236,13 @@ const Landing: React.FC = () => {
             {message}
           </div>
         )}
-        <div
+        {/*<div
           className={`landing__container__email-copied-msg${
             sponsorEmailVisible ? "--visible" : ""
           }`}
         >
           Sponsor Email Copied!
-        </div>
+        </div>*/}
       </div>
 
       <div className='landing__socials-mobile'>
