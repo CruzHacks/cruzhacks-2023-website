@@ -17,8 +17,11 @@ const NavBar: React.FC = () => {
   const { theme, forceTheme, revertTheme } = useTheme()
   const [portalView, setPortalView] = useState(false)
 
+  const userRoles = (user && user[`https://cruzhacks.com/roles`]) || []
+  const role = userRoles.length > 0 ? userRoles[0] : ""
+
   const page = useLocation().pathname
-  const re = new RegExp("(?<=/portal/)(.*)(?=/.*/.*)", "g")
+  const re = new RegExp("portal", "g")
   const auth = () => {
     if (isAuthenticated) return <Logout location={window.location.origin} />
     else return <Login />
@@ -157,34 +160,25 @@ const NavBar: React.FC = () => {
        */}
     </>
   )
+  const route = page.match(re)
   useEffect(() => {
-    switch (route && route[0]) {
-      case "admin":
-        if (theme.mode !== "portal") forceTheme()
-        if (!portalView) setPortalView(true)
-        break
-      case "hacker":
-        if (theme.mode !== "portal") forceTheme()
-        if (!portalView) setPortalView(true)
-        break
-      default:
-        if (theme.mode === "portal") revertTheme()
-        if (portalView) setPortalView(false)
-        break
+    if (route && route[0] === "portal") {
+      if (theme.mode !== "portal") forceTheme()
+      if (!portalView) setPortalView(true)
+    } else {
+      if (theme.mode === "portal") revertTheme()
+      if (portalView) setPortalView(false)
     }
   }, [page])
   let nav
-  const route = page.match(re)
-  switch (route && route[0]) {
-    case "admin":
+  if (route && route[0] === "portal") {
+    if (role === "Organizer") {
       nav = adminNav
-      break
-    case "hacker":
+    } else {
       nav = hackerNav
-      break
-    default:
-      nav = baseNav
-      break
+    }
+  } else {
+    nav = baseNav
   }
 
   // TODO: https://codepen.io/tonkec/pen/XXgdoo?editors=1100
