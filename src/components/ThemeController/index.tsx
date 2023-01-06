@@ -6,7 +6,7 @@ interface Props {
 }
 
 const ThemeController: React.FC<Props> = ({ children }: Props) => {
-  const [theme] = useTheme()
+  const { theme } = useTheme()
 
   return <div className={`app--${theme.mode}`}>{children}</div>
 }

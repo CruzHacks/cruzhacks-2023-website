@@ -10,9 +10,9 @@ interface LoadingProps {
  * Primary purpose is to mantain consistent styling.
  */
 
-const Loading: React.FC<LoadingProps> = ({ message }: LoadingProps) => (
-  <div className='loading__container'>{message}</div>
-)
+const Loading: React.FC<LoadingProps> = ({ message }: LoadingProps) => {
+  return <div className='loading__container'>{message}</div>
+}
 
 Loading.defaultProps = {
   message: "Loading...",

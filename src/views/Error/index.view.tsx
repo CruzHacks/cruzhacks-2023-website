@@ -1,24 +1,29 @@
-import React from "react"
+import React, { useState } from "react"
 import "./index.scss"
 
-const names = ["clouds__container", "cloud third"]
-
 const ErrorView: React.FC = () => {
+  let elem = document.getElementById("footer")
+  // get initial dims
+  let footerHeight = 0
+  if (elem) footerHeight = elem.offsetHeight
+  const [divHeight, setDivHeight] = useState(window.innerHeight - footerHeight)
+
   React.useEffect(() => {
-    names.forEach(name => {
-      const elem = document.getElementsByClassName(name)
-      elem[0].classList.add("errorview")
-    })
-    const cleanup = () => {
-      names.forEach(name => {
-        const elem = document.getElementsByClassName(name)
-        elem[0].classList.remove("errorview")
-      })
+    function handleResize() {
+      // resize dims
+      if (elem) setDivHeight(window.innerHeight - elem.offsetHeight)
     }
-    return cleanup
+    if (footerHeight === 0) {
+      // if footer was not loaded yet, try to query again
+      elem = document.getElementById("footer")
+      handleResize()
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
+
   return (
-    <div className='error__container'>
+    <div className='error__container' style={{ height: divHeight }}>
       <div className='error__container--title'>404</div>
       <div className='error__container--blurb'>
         Oops! We Can&apos;t Find What You&apos;re Looking For

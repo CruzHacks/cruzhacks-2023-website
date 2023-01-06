@@ -1,3 +1,81 @@
-.sponsors__container {
+@use "../../../stylesheets/fonts";
+@use "../../../stylesheets/responsiveness";
+
+.sponsors {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  @include fonts.subheader;
+  font-size: min(4vw, 40px);
+  gap: 1em;
+
+  &--icons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.sponsorIcon {
+  margin: 0 1vw 1vh;
+}
+
+.tier1 {
+  width: 90%;
+  height: 90%;
+}
+
+.tier2 {
+  width: 80%;
+  height: 80%;
+
+  @include responsiveness.screen(smallest, phone) {
+    width: 75%;
+    height: 75%;
+  }
+}
+
+.tier3 {
+  width: 75%;
+  height: 75%;
+
+  @include responsiveness.screen(smallest, phone) {
+    width: 70%;
+    height: 70%;
+  }
+}
+
+.tier4 {
+  width: 70%;
+  height: 70%;
+
+  @include responsiveness.screen(smallest, phone) {
+    width: 65%;
+    height: 65%;
+  }
+}
+
+.tier5 {
+  width: 65%;
+  height: 65%;
+
+  @include responsiveness.screen(smallest, phone) {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+.sponsor-anchors {
+  padding: none;
+  margin: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

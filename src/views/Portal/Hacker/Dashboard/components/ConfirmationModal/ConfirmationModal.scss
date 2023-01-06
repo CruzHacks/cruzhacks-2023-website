@@ -1,0 +1,79 @@
+@import "../../../../../../stylesheets/fonts";
+
+.confirmation-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 80%;
+  padding: 15px;
+  max-width: 600px;
+
+  &__close {
+    width: 100%;
+
+    &__button {
+      all: unset;
+      float: right;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $inter;
+    font-size: 24px;
+    font-weight: 500;
+    color: #464696;
+  }
+
+  &__body {
+    margin-top: 20px;
+    font-family: $nunito;
+    font-size: 16px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    &__confirm {
+      all: unset;
+      background-color: #6f6fe8;
+      font-family: $inter;
+      margin: 0 20px;
+      height: 2.5em;
+      width: 130px;
+      text-align: center;
+      border-radius: 6px;
+      color: white;
+      transition: padding ease 0.25s;
+
+      &:hover {
+        padding: 0 10px;
+        cursor: pointer;
+      }
+    }
+
+    &__not-attending {
+      all: unset;
+      margin: 20px;
+      font-family: $inter;
+      text-decoration: underline;
+      color: #1f1f46;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

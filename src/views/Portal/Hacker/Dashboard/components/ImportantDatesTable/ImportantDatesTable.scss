@@ -1,0 +1,18 @@
+.important-dates-table-item {
+  display: flex;
+  color: #30306d;
+  justify-content: left;
+  align-items: center;
+  margin-left: 10px;
+  width: 100%;
+
+  &--date {
+    font-weight: 400;
+    width: calc(45% - 10px);
+  }
+
+  &--event {
+    font-weight: 700;
+    width: 55%;
+  }
+}

@@ -3,7 +3,7 @@ import { getUserTheme, updateUserTheme } from "../../utils/api"
 import { useAuth0 } from "@auth0/auth0-react"
 
 interface Theme {
-  mode: "dark" | "light"
+  mode: "dark" | "light" | "portal"
 }
 
 const initialTheme: Theme = {
@@ -14,14 +14,32 @@ const initialTheme: Theme = {
       : "light",
 }
 
-export type ThemeContextType =
-  | [typeof initialTheme, () => void]
-  | [Theme, () => void]
-
-export const ThemeContext = createContext<ThemeContextType>([
-  initialTheme,
-  () => {},
-])
+/* export type ThemeContextType =
+  | [
+      theme: typeof initialTheme,
+      toggleTheme: () => void,
+      forceTheme: (arg0: "dark" | "light") => void,
+      revertTheme: () => void
+    ]
+  | [
+      theme: Theme,
+      toggleTheme: () => void,
+      forceTheme: (arg0: "dark" | "light") => void,
+      revertTheme: () => void
+    ]
+*/
+interface ThemeContextType {
+  theme: Theme
+  toggleTheme: () => void
+  forceTheme: () => void
+  revertTheme: () => void
+}
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: initialTheme,
+  toggleTheme: () => {},
+  forceTheme: () => {},
+  revertTheme: () => {},
+})
 export const useTheme = () => useContext(ThemeContext)
 
 interface Props {
@@ -30,6 +48,7 @@ interface Props {
 
 export const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
   const [theme, setTheme] = useState(initialTheme)
+  const [revert, setRevert] = useState(initialTheme)
   const { isAuthenticated, getAccessTokenSilently } = useAuth0()
   const validThemes = /light|dark/
   // console.log("Theme is", theme)
@@ -75,8 +94,21 @@ export const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
     }
   }
 
+  const forceTheme = () => {
+    // force a theme for a certain view with intent to revert to user-specified
+    setRevert(theme)
+    setTheme({ mode: "portal" })
+  }
+
+  const revertTheme = () => {
+    // revert from a forced theme
+    setTheme(revert)
+  }
+
   return (
-    <ThemeContext.Provider value={[theme, toggleTheme]}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, forceTheme, revertTheme }}
+    >
       <div className={`app--${theme.mode}`}>{children}</div>
     </ThemeContext.Provider>
   )
