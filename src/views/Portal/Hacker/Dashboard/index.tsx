@@ -103,7 +103,7 @@ const HackerDash = () => {
       </div>
     )
   } else {
-    return null
+    return <div className='maindash'></div>
   }
 }
 
