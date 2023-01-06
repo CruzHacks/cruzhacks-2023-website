@@ -489,17 +489,19 @@
   .app--light & {
     background-color: transparent;
     border: 1px solid $light-orange;
-
-    &:hover {
-      background-color: $light-orange;
-    }
   }
 
   .app--dark & {
     background-color: transparent;
     border: 1px solid $dark-light-purple;
+  }
 
-    &:hover {
+  &:hover {
+    .app--light & {
+      background-color: $light-orange;
+    }
+
+    .app--dark & {
       background-color: $dark-light-purple;
     }
   }

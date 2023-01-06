@@ -2,7 +2,7 @@
 @use "stylesheets/responsiveness";
 @import "stylesheets/variables";
 
-@mixin AppThemeSizing {
+@mixin appthemesizing {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
@@ -13,7 +13,7 @@ body,
 #root,
 #root > div {
   margin: 0;
-  padding: 0 !important;
+  padding: 0;
   overscroll-behavior: contain;
   position: sticky;
   overflow-x: clip;
@@ -28,17 +28,17 @@ body,
   flex-direction: column;
 
   .app--light {
-    @include AppThemeSizing;
+    @include appthemesizing;
     @include variables.light-background;
   }
 
   .app--dark {
-    @include AppThemeSizing;
+    @include appthemesizing;
     @include variables.dark-background;
   }
 
   .app--portal {
-    @include AppThemeSizing;
+    @include appthemesizing;
   }
 }
 
