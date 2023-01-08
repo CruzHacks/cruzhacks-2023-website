@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
+import { NotificationProps } from "../Props/props"
 
 const RECAPTCHA_VERIFICATION_ENDPOINT =
   `${process.env.REACT_APP_ENDPOINT_URL}/verifyRecaptcha/submit` || ""
@@ -11,6 +12,9 @@ const SUBSCRIBE_ENDPOINT =
 
 const METADATA_ENDPOINT =
   `${process.env.REACT_APP_ENDPOINT_URL}/auth/metadata` || ""
+
+const LIVE_NOTIFY_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/notify` || ""
 
 const API_KEY = process.env.REACT_APP_API_KEY || ""
 
@@ -100,5 +104,43 @@ export function getUserTheme(authToken: string) {
   return axios
     .get(METADATA_ENDPOINT, axiosConfig)
     .then((res: AxiosResponse) => res)
+    .catch(err => err)
+}
+
+export function registerToTopic(
+  clientRegistrationToken: string,
+  topic: string,
+  authToken: string
+) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  }
+  return axios
+    .put(
+      `${LIVE_NOTIFY_ENDPOINT}/register`,
+      {
+        registrationToken: clientRegistrationToken,
+        topic: topic,
+      },
+      axiosConfig
+    )
+    .then(res => res)
+    .catch(err => err)
+}
+
+export function createNotification(
+  message: NotificationProps,
+  authToken: string
+) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  }
+  return axios
+    .post(`${LIVE_NOTIFY_ENDPOINT}/send`, message, axiosConfig)
+    .then(res => res)
     .catch(err => err)
 }

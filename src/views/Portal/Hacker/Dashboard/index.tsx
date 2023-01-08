@@ -45,7 +45,7 @@ const HackerDash = () => {
     ).then(() => setRender(true))
   }, [])
 
-  if (render) {
+  if (!render) {
     return (
       <div className='maindash'>
         <div className='maindash__container'>
