@@ -23,7 +23,7 @@ const Schedule = () => {
   const [selected, setSelected] = useState<number>(0)
   return (
     <div className='schedule'>
-      <div>SCHEDULE</div>
+      <div className='schedule__title'>SCHEDULE</div>
       <ScheduleTabs
         pageNumbers={3}
         selected={selected}
