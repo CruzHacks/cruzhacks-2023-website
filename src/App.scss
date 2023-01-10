@@ -12,11 +12,12 @@ html,
 body,
 #root,
 #root > div {
+  position: relative;
   margin: 0;
   padding: 0;
   overscroll-behavior: contain;
-  overflow-x: clip;
   height: 100vh;
+  overflow-x: clip;
 }
 
 .app {
