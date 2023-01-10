@@ -8,7 +8,7 @@ const Sponsors: React.FC = () => (
     Thanks to our Sponsors!
     <div className='sponsors--icons'>
       {SponsorsIconsLinks.map((tier, index) => (
-        <div key={nanoid()} className='sponsors--icons__row'>
+        <div key={nanoid()} className={`sponsors--icons__row row${index + 1}`}>
           {tier.map(item => (
             <a
               className='sponsor-anchors'
@@ -20,7 +20,7 @@ const Sponsors: React.FC = () => (
               rel='noreferrer'
             >
               {React.createElement(item.icon, {
-                className: `sponsorIcon tier${index + 1}`,
+                className: `sponsorIcon tier${index + 1} ${item.alt}`,
               })}
             </a>
           ))}
