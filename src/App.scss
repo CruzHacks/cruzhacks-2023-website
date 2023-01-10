@@ -24,6 +24,7 @@ body,
   color: $dark-white;
   display: flex;
   flex-direction: column;
+
   .app--light {
     @include appthemesizing;
     @include variables.light-background;
