@@ -1,0 +1,80 @@
+@import "../../../stylesheets/fonts";
+
+.schedule {
+  font-family: $inter;
+  font-size: 34px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.schedule-tabs {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  &__tab {
+    @mixin tab {
+      all: unset;
+      border-radius: 8px 8px 0px 0px;
+      font-size: 22px;
+      height: 40px; 
+
+      &:hover {
+        cursor: pointer;
+      }
+  
+      &.selected {
+        background-color: #DCDCDC;
+        filter: drop-shadow(0px 0px 10px #CDCDCD);
+        color: #32244D;
+      }
+    }
+    @include tab;
+    background-color: #32244D;
+
+    &--light {
+      @include tab;
+      background-color: #D45C3E;
+      
+    }
+    
+  }
+}
+
+.schedule-page {
+  background-color: #DCDCDC;
+  color: #291D40;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  border-radius: 0px 0px 8px 8px;
+  filter: drop-shadow(0px 10px 10px #CDCDCD);
+  font-size: 20px;
+  font-family: $nunito;
+  width: 90%;
+
+  &__title {
+    
+    border-bottom: 1px solid #534868;
+    padding-bottom: 3px;
+    width: 85%;
+    text-align: left;
+    font-style: italic;
+  }
+
+  &__event {
+    width: 85%;
+    display: inline-flex;
+    &--name {
+
+    }
+
+    &--time {
+      margin-left: auto;
+    }
+  }
+}
