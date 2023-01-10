@@ -138,7 +138,6 @@ const ManageTable = () => {
   const [render, setRender] = useState<boolean>(false)
   const { setBanner } = useBanner()
 
-  /*
   useEffect(() => {
     getApplicants(getAccessTokenSilently, setBanner, setApplicants).then(() =>
       setRender(true)
@@ -146,7 +145,7 @@ const ManageTable = () => {
   }, [])
 
   console.log(applicants)
-*/
+
   //if (render) {
   return (
     <TableContainer component={Paper}>
