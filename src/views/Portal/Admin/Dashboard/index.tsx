@@ -1,9 +1,7 @@
-import React, { useState, Dispatch } from "react"
+import React, { useState, useEffect, Dispatch } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
-import {
-  ManageCards,
-  ManageCardProps,
-} from "../../../../Props/Management/props"
+import { ManageCards, ManageCardProps } from "../Props/Management/props"
+import { useNavigate } from "react-router-dom"
 
 import {
   Table,
@@ -29,12 +27,26 @@ import {
 
 import "./index.scss"
 
-const ManageCard = (props: ManageCardProps) => (
-  <div className='manage-card'>
-    <div className='manage-card--title'>{props.title}</div>
-    <div className='manage-card--blurb'>{props.blurb}</div>
-  </div>
-)
+const ManageCard = (props: ManageCardProps) => {
+  const navigate = useNavigate()
+  const { user } = useAuth0()
+  const nickname = user && user.nickname
+  const openPage = (title: string) => {
+    if (title === "MANAGE USERS") {
+      navigate(`../admin/${nickname}/users`)
+    }
+    if (title === "JUDGING") {
+      return window.open("https://cruzhacks-2023.devpost.com/users/login")
+    }
+  }
+
+  return (
+    <div onClick={() => openPage(props.title)} className='manage-card'>
+      <div className='manage-card--title'>{props.title}</div>
+      <div className='manage-card--blurb'>{props.blurb}</div>
+    </div>
+  )
+}
 
 interface AnnouncementModalProps {
   modalOpen: boolean
@@ -245,6 +257,7 @@ const ProjectTable = () => {
 const AdminDash: React.FC = () => {
   const { user } = useAuth0()
   const [modalOpen, setModalOpen] = useState<boolean>(false)
+
   return (
     <div className='admindash__container'>
       <div className='admindash__container--top'>
@@ -268,10 +281,6 @@ const AdminDash: React.FC = () => {
         {ManageCards.map(({ title, blurb }: ManageCardProps) => (
           <ManageCard key={title} title={title} blurb={blurb} />
         ))}
-      </div>
-      <div className='admindash__container--text3'>Project Submissions</div>
-      <div className='admindash__container--table'>
-        <ProjectTable />
       </div>
     </div>
   )

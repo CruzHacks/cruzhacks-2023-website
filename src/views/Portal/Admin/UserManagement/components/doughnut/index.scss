@@ -1,0 +1,78 @@
+@use "../../../../../../stylesheets/variables";
+@use "../../../../../../stylesheets/fonts";
+@use "../../../../../../stylesheets/responsiveness";
+@import "../../../../../../stylesheets/variables";
+@import "../../../../../../stylesheets/fonts";
+
+.stats__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+
+  margin-top: 31px;
+  margin-bottom: 23px;
+  width: 90%;
+  //height: 30em;
+  background-color: #fff;
+  border-radius: 12px;
+  text-align: center;
+
+  &--donut {
+    padding-bottom: 50px;
+    //margin-top: 25px;
+    text-align: center;
+    margin: 50px;
+    margin-bottom: 25px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-left: 25px;
+      margin-right: 25px;
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &--text {
+    //margin-top: 20px;
+    margin-bottom: 10px;
+
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+
+    color: #6f6f94;
+  }
+
+  &--link {
+    margin-bottom: 20px;
+    font-family: $nunito-sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+
+    text-decoration-line: underline;
+
+    color: #6464d2;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.donutchart {
+  &--innertext {
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+}

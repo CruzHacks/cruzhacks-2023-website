@@ -12,8 +12,9 @@ import Portal from "./views/Portal/index.view"
 import TeamFormation from "./views/Portal/Hacker/Team"
 // import Support from "./views/Portal/Hacker/Support"
 import { MainDash } from "./views/Portal/Hacker/Dashboard"
-import AdminDash from "./views/Portal/Admin"
+import AdminDash from "./views/Portal/Admin/Dashboard"
 import UserManagement from "./views/Portal/Admin/UserManagement"
+import HackerOverview from "./views/Portal/Admin/HackerOverview"
 import ErrorView from "./views/Error/index.view"
 import LivePlaceholder from "./views/LivePlaceholder/index.view"
 import BGwrapper from "./components/BGwrapper"
@@ -75,6 +76,15 @@ const App: React.FC = () => {
                     <PrivateRoute
                       role='Organizer'
                       component={<UserManagement />}
+                    />
+                  }
+                />
+                <Route
+                  path='admin/:userId/overview'
+                  element={
+                    <PrivateRoute
+                      role='Organizer'
+                      component={<HackerOverview />}
                     />
                   }
                 />
