@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 2em;
+
   &__title {
     margin-bottom: 0.75em;
   }
@@ -18,12 +19,13 @@
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
   &__tab {
     @mixin tab {
       all: unset;
-      border-radius: 8px 8px 0px 0px;
+      border-radius: 8px 8px 0 0;
       font-size: 22px;
-      height: 40px; 
+      height: 40px;
 
       @media screen and (max-width: 400px) {
         font-size: 16px;
@@ -32,41 +34,40 @@
       &:hover {
         cursor: pointer;
       }
-  
+
       &.selected {
-        background-color: #DCDCDC;
-        filter: drop-shadow(0px 10px 20px #CDCDCD);
-        color: #32244D;
+        background-color: #dcdcdc;
+        filter: drop-shadow(0 10px 20px #cdcdcd);
+        color: #32244d;
       }
     }
+
     @include tab;
-    background-color: #32244D;
+    background-color: #32244d;
 
     &--light {
       @include tab;
-      background-color: #D45C3E;
-      
+      background-color: #d45c3e;
     }
-    
   }
 }
 
 .schedule-page {
-  background-color: #DCDCDC;
-  color: #291D40;
+  background-color: #dcdcdc;
+  color: #291d40;
   min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  border-radius: 0px 0px 8px 8px;
-  filter: drop-shadow(0px 10px 10px #CDCDCD);
+  border-radius: 0 0 8px 8px;
+  filter: drop-shadow(0 10px 10px #cdcdcd);
   font-size: 20px;
   font-family: $nunito;
   width: 90%;
 
   &__title {
-    
+
     border-bottom: 1px solid #534868;
     padding-bottom: 3px;
     width: 85%;
