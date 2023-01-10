@@ -10,6 +10,15 @@ import {
 } from "../../../Props/HackerStats/props"
 import "./index.scss"
 
+const handleDimensions = () => {
+  if (window.innerWidth <= 992) {
+    return 250
+  }
+  if (window.innerWidth <= 450) {
+    return 200
+  }
+  return 320
+}
 export const DecisionData = () => (
   <div className='stats__container'>
     {DecisionStats.map(({ name, stats, colors }: HackerStatsProps) => (
@@ -20,8 +29,8 @@ export const DecisionData = () => (
           innerRadius={0.75}
           outerRadius={0.95}
           legend={false}
-          height={320}
-          width={320}
+          height={handleDimensions()}
+          width={handleDimensions()}
           colors={colors}
           strokeColor={"none"}
           data={stats}
@@ -41,8 +50,8 @@ export const DemographicsData = () => (
           innerRadius={0.75}
           outerRadius={0.95}
           legend={false}
-          height={320}
-          width={320}
+          height={handleDimensions()}
+          width={handleDimensions()}
           colors={colors}
           strokeColor={"none"}
           data={stats}
@@ -58,15 +67,6 @@ const ApplicantData = () => {
   const nickname = user && user.nickname
   const handleClick = () => {
     navigate(`../admin/${nickname}/overview`)
-  }
-  const handleDimensions = () => {
-    if (window.innerWidth <= 992) {
-      return 250
-    }
-    if (window.innerWidth <= 450) {
-      return 200
-    }
-    return 320
   }
   return (
     <div className='stats__container'>

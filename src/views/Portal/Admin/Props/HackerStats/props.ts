@@ -291,7 +291,16 @@ const education = [
   },
 ]
 
-const color_set1 = ["#7DCFB6", "#EB7474", "#FFE665", "#66E4F5"]
+const color_set1 = [
+  "#7DCFB6",
+  "#EB7474",
+  "#FFE665",
+  "#66E4F5",
+  "#f79457",
+  "#5f6ede",
+  "#f27eee",
+  "#7ef28f",
+]
 const color_set2 = [
   "#FFBD3D",
   "#A15EF5",
@@ -299,6 +308,10 @@ const color_set2 = [
   "#0AD6B1",
   "#EB7474",
   "#f048bb",
+  "#f79457",
+  "#5f6ede",
+  "#f27eee",
+  "#7ef28f",
 ]
 
 export interface HackerStatsProps {

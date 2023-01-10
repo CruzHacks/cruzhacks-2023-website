@@ -30,7 +30,7 @@
     padding-top: 30px;
     padding-left: 30px;
 
-    font-family: "Inter";
+    font-family: $inter;
     font-style: normal;
     font-weight: 600;
     font-size: 40px;
@@ -42,7 +42,7 @@
       padding-top: 35px;
       font-size: 30px;
       line-height: 35px;
-      padding-left: 0px;
+      padding-left: 0;
     }
   }
 
@@ -71,10 +71,9 @@
 
     background: #f4f4f4;
     border-radius: 6px;
-    border: 0px solid #ccc;
 
     input::placeholder {
-      font-family: "Nunito Sans";
+      font-family: $nunito-sans;
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
@@ -82,7 +81,7 @@
 
       color: #999898;
     }
-    font-family: "Nunito Sans";
+    font-family: $nunito-sans;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

@@ -14,28 +14,22 @@
   margin-top: 31px;
   margin-bottom: 23px;
   width: 90%;
-  //height: 30em;
   background-color: #fff;
   border-radius: 12px;
   text-align: center;
 
   &--donut {
     padding-bottom: 50px;
-    //margin-top: 25px;
     text-align: center;
     margin: 50px;
     margin-bottom: 25px;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
-      margin-left: 25px;
-      margin-right: 25px;
-      margin-top: 25px;
-      margin-bottom: 15px;
+      margin: 25px, 25px, 25px, 15px;
     }
   }
 
   &--text {
-    //margin-top: 20px;
     margin-bottom: 10px;
 
     font-family: $inter;
