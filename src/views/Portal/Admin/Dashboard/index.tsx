@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch } from "react"
+import React, { useState, Dispatch } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { ManageCards, ManageCardProps } from "../Props/Management/props"
 import { useNavigate } from "react-router-dom"
@@ -215,44 +215,6 @@ const rows = [
     "Not Applicable"
   ),
 ]
-
-const ProjectTable = () => {
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell align='right'>Name</TableCell>
-            <TableCell align='right'>Check In</TableCell>
-            <TableCell align='right'>Status</TableCell>
-            <TableCell align='right'>Role</TableCell>
-            <TableCell align='right'>Last Activity</TableCell>
-            <TableCell align='right'>Evaluation Progress</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component='th' scope='row'>
-                {row.id}
-              </TableCell>
-              <TableCell align='right'>{row.name}</TableCell>
-              <TableCell align='right'>{row.check_in}</TableCell>
-              <TableCell align='right'>{row.status}</TableCell>
-              <TableCell align='right'>{row.role}</TableCell>
-              <TableCell align='right'>{row.last_activity}</TableCell>
-              <TableCell align='right'>{row.eval_prog}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  )
-}
 
 const AdminDash: React.FC = () => {
   const { user } = useAuth0()
