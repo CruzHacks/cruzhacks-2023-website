@@ -6573,9 +6573,9 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-firebase-tools@^11.3.0:
+firebase-tools@^11.4.0:
   version "11.20.0"
-  resolved "https://registry.npmjs.org/firebase-tools/-/firebase-tools-11.20.0.tgz"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.20.0.tgz#ae9f0ad0add8680d8552db5c1582ebf49091ace6"
   integrity sha512-jFDqWcYuydvHbx1uE1iDSx2pmqyIe2YuF7Jrf28HxU4VZyRPXII010v9OfT8cn5EJlA47WTDWuO2Fbx8EYPL7g==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
