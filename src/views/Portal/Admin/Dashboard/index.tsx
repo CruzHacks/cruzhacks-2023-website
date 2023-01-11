@@ -4,13 +4,6 @@ import { ManageCards, ManageCardProps } from "../Props/Management/props"
 import { useNavigate } from "react-router-dom"
 
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
   Modal,
   Fade,
   Box,

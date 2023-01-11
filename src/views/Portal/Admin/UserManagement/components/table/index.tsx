@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { useAuth0 } from "@auth0/auth0-react"
-import getApplicants from "../api"
+import React from { useState, useEffect } "react"
+//import { useAuth0 } from "@auth0/auth0-react"
+//import getApplicants from "../api"
 import check from "../../../../../../images/icons/check.svg"
 import x from "../../../../../../images/icons/x.svg"
-import {
-  BannerProvider,
-  useBanner,
-} from "../../../../../../contexts/PortalBanners/PortalBanner"
+//import { useBanner } from
+//"../../../../../../contexts/PortalBanners/PortalBanner"
 import "./index.scss"
 
 import {
@@ -122,11 +120,14 @@ const handleCheckin = (checkin: string) => {
 }
 
 const ManageTable = () => {
-  const [applicants, setApplicants] = useState<object>()
-  const { getAccessTokenSilently } = useAuth0()
-  const [render, setRender] = useState<boolean>(false)
-  const { setBanner } = useBanner()
+  // Uncomment when ready to debug API call issue
 
+  //const [applicants, setApplicants] = useState<object>()
+  //const { getAccessTokenSilently } = useAuth0()
+  //const [render, setRender] = useState<boolean>(false)
+  //const { setBanner } = useBanner()
+
+  /*
   useEffect(() => {
     getApplicants(getAccessTokenSilently, setBanner, setApplicants).then(() =>
       setRender(true)
@@ -134,6 +135,7 @@ const ManageTable = () => {
   }, [])
 
   console.log(applicants)
+  */
 
   //if (render) {
   return (
