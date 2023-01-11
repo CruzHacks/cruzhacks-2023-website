@@ -244,6 +244,8 @@ const AnnouncementModal = ({
         .catch(err => {
           setAlertVariant(3)
           setAlertOpen(true)
+          // below line is to satiate the linter
+          return err
         })
     })
   }
