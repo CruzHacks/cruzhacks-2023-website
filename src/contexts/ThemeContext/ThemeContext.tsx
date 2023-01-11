@@ -65,7 +65,6 @@ export const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
       getAccessTokenSilently().then(accessToken => {
         getUserTheme(accessToken)
           .then(res => {
-            console.log(res)
             if (res.status === 200) {
               console.log(res.data.theme)
               if (

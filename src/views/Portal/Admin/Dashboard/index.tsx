@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import {
   ManageCards,
@@ -16,14 +16,14 @@ import {
   Fade,
   Box,
   SxProps,
-  OutlinedInput,
+  /*OutlinedInput,
   InputLabel,
   MenuItem,
   FormControl,
   ListItemText,
   Select,
   SelectChangeEvent,
-  Checkbox,
+  Checkbox,*/
   Alert,
   AlertProps,
 } from "@mui/material"
@@ -42,7 +42,7 @@ interface AnnouncementModalProps {
   modalOpen: boolean
   handleClose: () => void
 }
-
+/*
 const MenuProps = {
   PaperProps: {
     style: {
@@ -141,7 +141,7 @@ const DropDown = ({ recipient, setRecipient }: any) => {
       </FormControl>
     </div>
   )
-}
+}*/
 
 const style1: SxProps = {
   minWidth: "325px",
@@ -277,6 +277,7 @@ const AnnouncementModal = ({
             */}
             <textarea
               className='announcement-modal__container--input'
+              value={notifyBody}
               onChange={e => handleChange(e)}
             />
             <div

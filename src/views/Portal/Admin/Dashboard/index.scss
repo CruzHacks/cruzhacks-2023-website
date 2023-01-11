@@ -88,13 +88,14 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    transition:  0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: perspective(1px) translateZ(0);
     backface-visibility: hidden;
+
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       margin-top: 40px;
     }
-    
+
     @include responsiveness.screen(tablet, large-tablet) {
       width: 400px;
       height: 80px;
@@ -103,8 +104,8 @@
     @include responsiveness.screen(small-laptop, desktop, big-desktop) {
       margin-left: 200px;
       margin-top: 87px;
-      
     }
+
     &:hover {
       cursor: pointer;
       transform: scale(105%);
@@ -250,7 +251,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
-    width:100%;
+    width: 100%;
 
     @include responsiveness.screen(smallest, phone) {
       text-align: center;
@@ -300,7 +301,6 @@
     background: #fafafa;
     border-radius: 6px;
     resize: none;
-
   }
 
   &--submit {
@@ -312,7 +312,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    transition:  0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: perspective(1px) translateZ(0);
     backface-visibility: hidden;
 
@@ -341,9 +341,8 @@
 
       height: 36px;
       width: 192px;
-
     }
-    
+
     a {
       display: inline-block;
       font-family: $nunito-sans;

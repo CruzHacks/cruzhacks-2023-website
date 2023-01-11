@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { SnackbarProvider, useSnackbar } from "notistack"
-import { app, getTokenWrapper } from "../../firebase"
+import { app, getTokenWrapper } from "../../utils/fcm_api"
 import { onMessage, getMessaging } from "firebase/messaging"
 import { styled } from "@mui/material"
 import "./index.scss"
@@ -22,7 +22,7 @@ const buildAnnouncement = (body: string) => (
 
 const PortalWithNotify: React.FC = () => {
   const [isNotificationEnabled, setNotificationEnabled] = useState(false)
-  const { user, getAccessTokenSilently } = useAuth0()
+  const { getAccessTokenSilently } = useAuth0()
   const { enqueueSnackbar } = useSnackbar()
   const messaging = getMessaging(app)
   onMessage(messaging, payload => {
