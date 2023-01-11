@@ -19,7 +19,7 @@ import { ReactComponent as Wolfram } from "../../assets/sponsors/Wolfram.svg"
 import { ReactComponent as Balsamiq } from "../../assets/sponsors/Balsamiq.svg"
 import { ReactComponent as PCC } from "../../assets/sponsors/PCC.svg"
 import { ReactComponent as Echo } from "../../assets/sponsors/echo3D.svg"
-import { ReactComponent as Verbwire } from "../../assets/sponsors/VerbwireBlack.svg"
+import { ReactComponent as Verbwire } from "../../assets/sponsors/VerbwireWhite.svg"
 /* eslint-enable */
 
 interface SponsorsProps {
