@@ -1,4 +1,4 @@
-import React from { useState, useEffect } "react"
+import React from "react"
 //import { useAuth0 } from "@auth0/auth0-react"
 //import getApplicants from "../api"
 import check from "../../../../../../images/icons/check.svg"
