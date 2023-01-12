@@ -185,30 +185,6 @@ const AnnouncementModal = ({
   )
 }
 
-const createDummy = (
-  id: string,
-  name: string,
-  check_in: string,
-  status: string,
-  role: string,
-  last_activity: string,
-  eval_prog: string
-) => {
-  return { id, name, check_in, status, role, last_activity, eval_prog }
-}
-
-const rows = [
-  createDummy(
-    "1235",
-    "Dummy",
-    "Not Applicable",
-    "Not Applicable",
-    "Hacker",
-    "Never",
-    "Not Applicable"
-  ),
-]
-
 const AdminDash: React.FC = () => {
   const { user } = useAuth0()
   const [modalOpen, setModalOpen] = useState<boolean>(false)
