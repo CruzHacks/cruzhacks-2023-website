@@ -426,10 +426,10 @@
 
 .more-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   vertical-align: bottom;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   gap: 0.5em;
   padding-bottom: 1.5em;
 
@@ -439,6 +439,7 @@
 
   @media screen and (max-width: 1000px) {
     margin-top: 15px;
+    align-items: center;
     flex-direction: column;
   }
 }
@@ -452,7 +453,8 @@
 
 .location {
   &::before {
-    content: "|";
+    // content: "|";
+    content: none;
 
     @media screen and (max-width: 1000px) {
       content: none;
