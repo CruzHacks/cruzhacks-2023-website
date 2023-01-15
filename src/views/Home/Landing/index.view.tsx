@@ -156,7 +156,7 @@ const Landing: React.FC = () => {
         <div className='more-info'>
           <div className='date'>
             <CalendarTodayIcon />
-            Postponed due to weather, date TBD
+            February 3-5
           </div>
           <div className='location'>
             <LocationOnIcon />
