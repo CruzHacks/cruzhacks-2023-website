@@ -426,7 +426,7 @@
 
 .more-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   vertical-align: bottom;
   justify-content: center;
   align-items: left;
@@ -445,16 +445,14 @@
 }
 
 .date {
-
   gap: 0.5em;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
 .location {
   &::before {
-    // content: "|";
-    content: none;
+    content: "|";
 
     @media screen and (max-width: 1000px) {
       content: none;
