@@ -1,18 +1,9 @@
 import React, { useState, Dispatch } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
-import {
-  ManageCards,
-  ManageCardProps,
-} from "../../../../Props/Management/props"
+import { ManageCards, ManageCardProps } from "../Props/Management/props"
+import { useNavigate } from "react-router-dom"
 
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
   Modal,
   Fade,
   Box,
@@ -29,12 +20,26 @@ import {
 
 import "./index.scss"
 
-const ManageCard = (props: ManageCardProps) => (
-  <div className='manage-card'>
-    <div className='manage-card--title'>{props.title}</div>
-    <div className='manage-card--blurb'>{props.blurb}</div>
-  </div>
-)
+const ManageCard = (props: ManageCardProps) => {
+  const navigate = useNavigate()
+  const { user } = useAuth0()
+  const nickname = user && user.nickname
+  const openPage = (title: string) => {
+    if (title === "MANAGE USERS") {
+      navigate(`../admin/${nickname}/users`)
+    }
+    if (title === "JUDGING") {
+      return window.open("https://cruzhacks-2023.devpost.com/users/login")
+    }
+  }
+
+  return (
+    <div onClick={() => openPage(props.title)} className='manage-card'>
+      <div className='manage-card--title'>{props.title}</div>
+      <div className='manage-card--blurb'>{props.blurb}</div>
+    </div>
+  )
+}
 
 interface AnnouncementModalProps {
   modalOpen: boolean
@@ -180,71 +185,10 @@ const AnnouncementModal = ({
   )
 }
 
-const createDummy = (
-  id: string,
-  name: string,
-  check_in: string,
-  status: string,
-  role: string,
-  last_activity: string,
-  eval_prog: string
-) => {
-  return { id, name, check_in, status, role, last_activity, eval_prog }
-}
-
-const rows = [
-  createDummy(
-    "1235",
-    "Dummy",
-    "Not Applicable",
-    "Not Applicable",
-    "Hacker",
-    "Never",
-    "Not Applicable"
-  ),
-]
-
-const ProjectTable = () => {
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell align='right'>Name</TableCell>
-            <TableCell align='right'>Check In</TableCell>
-            <TableCell align='right'>Status</TableCell>
-            <TableCell align='right'>Role</TableCell>
-            <TableCell align='right'>Last Activity</TableCell>
-            <TableCell align='right'>Evaluation Progress</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component='th' scope='row'>
-                {row.id}
-              </TableCell>
-              <TableCell align='right'>{row.name}</TableCell>
-              <TableCell align='right'>{row.check_in}</TableCell>
-              <TableCell align='right'>{row.status}</TableCell>
-              <TableCell align='right'>{row.role}</TableCell>
-              <TableCell align='right'>{row.last_activity}</TableCell>
-              <TableCell align='right'>{row.eval_prog}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  )
-}
-
 const AdminDash: React.FC = () => {
   const { user } = useAuth0()
   const [modalOpen, setModalOpen] = useState<boolean>(false)
+
   return (
     <div className='admindash__container'>
       <div className='admindash__container--top'>
@@ -268,10 +212,6 @@ const AdminDash: React.FC = () => {
         {ManageCards.map(({ title, blurb }: ManageCardProps) => (
           <ManageCard key={title} title={title} blurb={blurb} />
         ))}
-      </div>
-      <div className='admindash__container--text3'>Project Submissions</div>
-      <div className='admindash__container--table'>
-        <ProjectTable />
       </div>
     </div>
   )
