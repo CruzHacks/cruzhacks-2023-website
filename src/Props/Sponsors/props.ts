@@ -18,6 +18,8 @@ import { ReactComponent as StickerMule } from "../../assets/sponsors/StickerMule
 import { ReactComponent as Wolfram } from "../../assets/sponsors/Wolfram.svg"
 import { ReactComponent as Balsamiq } from "../../assets/sponsors/Balsamiq.svg"
 import { ReactComponent as PCC } from "../../assets/sponsors/PCC.svg"
+import { ReactComponent as Echo } from "../../assets/sponsors/echo3D.svg"
+import { ReactComponent as Verbwire } from "../../assets/sponsors/VerbwireWhite.svg"
 /* eslint-enable */
 
 interface SponsorsProps {
@@ -124,6 +126,16 @@ export const SponsorsIconsLinks: Array<Array<SponsorsProps>> = [
       link: "https://pacificcookie.com/",
       icon: PCC,
       alt: "Pacific Cookie Company",
+    },
+    {
+      link: "https://www.echo3d.com/",
+      icon: Echo,
+      alt: "echo3D",
+    },
+    {
+      link: "https://www.verbwire.com/",
+      icon: Verbwire,
+      alt: "Verbwire",
     },
   ],
 ]

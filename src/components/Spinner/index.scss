@@ -12,7 +12,7 @@
   position: relative;
   font-size: 11px;
   background: #6f6fe8;
-  animation: escaleY 1s infinite ease-in-out;
+  animation: escale-y 1s infinite ease-in-out;
   width: 1em;
   height: 4em;
   animation-delay: -0.16s;
@@ -27,7 +27,7 @@
   background: #6f6fe8;
   width: 1em;
   height: 4em;
-  animation: escaleY 1s infinite ease-in-out;
+  animation: escale-y 1s infinite ease-in-out;
 }
 
 .spinner::before {
@@ -35,7 +35,7 @@
   animation-delay: -0.32s;
 }
 
-@keyframes escaleY {
+@keyframes escale-y {
   0%,
   80%,
   100% {
