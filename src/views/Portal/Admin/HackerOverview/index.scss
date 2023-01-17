@@ -1,0 +1,30 @@
+@use "../../../../stylesheets/variables";
+@use "../../../../stylesheets/fonts";
+@use "../../../../stylesheets/responsiveness";
+@import "../../../../stylesheets/variables";
+@import "../../../../stylesheets/fonts";
+
+.overview__container {
+  background-color: #f0f0f0;
+  margin-top: 4em;
+
+  &--title {
+    width: 1440px;
+    height: 97px;
+
+    background: #f9f9ff;
+  }
+
+  &--text {
+    padding-top: 25px;
+    padding-left: 30px;
+
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #3b3b7f;
+  }
+}

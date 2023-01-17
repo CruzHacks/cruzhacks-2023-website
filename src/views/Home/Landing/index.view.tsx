@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { Dispatch, useState } from "react"
 import { subscribeMailchimp } from "../../../utils/api"
 import { validateEmail } from "../../../utils/validate"
 import "./index.scss"
@@ -15,6 +15,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
 // import { SxProps } from "@mui/material"
 import { useNavigate } from "react-router"
+import { SxProps, Modal, Fade, Box } from "@mui/material"
 const SubmissionStates = {
   NotSubmitted: 0,
   Loading: 1,
@@ -22,7 +23,6 @@ const SubmissionStates = {
   Errored: 3,
 }
 
-/*
 const style: SxProps = {
   position: "absolute",
   top: "50%",
@@ -48,67 +48,66 @@ const ApplicationModal = ({
   const openApplication = (link: string) => {
     window.open(link, "_blank")
   }
-  
+
   return (
     <Modal
-    open={modalOpen}
-    onClose={() => setModalOpen(false)}
-    aria-labelledby='apply modal'
-    aria-describedby='choose application type'
+      open={modalOpen}
+      onClose={() => setModalOpen(false)}
+      aria-labelledby='apply modal'
+      aria-describedby='choose application type'
     >
-    <Fade in={modalOpen}>
-    <Box sx={style}>
-    <div className='application-modal__container'>
-    <div className='application-modal__container__title'>
-    APPLICATION TYPE
-    </div>
-    <button
-    onClick={() =>
-      openApplication("https://forms.gle/RiY8GDxoCR1xmCbc7")
-    }
-    className='application-modal__container--button'
-    >
-    Hacker Application
-    </button>
-    <button
-    onClick={() =>
-      openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
-    }
-    className='application-modal__container--button'
-    >
-    Mentor / Judge Application
-    </button>
-    <button
-    onClick={() =>
-      openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
-    }
-    className='application-modal__container--button'
-    >
-    Volunteer Application
-    </button>
-    </div>
-    </Box>
-    </Fade>
+      <Fade in={modalOpen}>
+        <Box sx={style}>
+          <div className='application-modal__container'>
+            <div className='application-modal__container__title'>
+              APPLICATION TYPE
+            </div>
+            <button
+              onClick={() =>
+                openApplication("https://forms.gle/8aUb3KDnAvxca5nr9")
+              }
+              className='application-modal__container--button'
+            >
+              Hacker Application
+            </button>
+            <button
+              onClick={() =>
+                openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
+              }
+              className='application-modal__container--button'
+            >
+              Mentor / Judge Application
+            </button>
+            <button
+              onClick={() =>
+                openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
+              }
+              className='application-modal__container--button'
+            >
+              Volunteer Application
+            </button>
+          </div>
+        </Box>
+      </Fade>
     </Modal>
-    )
-  }
-  
-*/
+  )
+}
+
 const Landing: React.FC = () => {
   const [email, setEmail] = useState<string>("")
   const [state, setState] = useState<number>(0)
   const [message, setMessage] = useState<string>("")
-  // const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { theme } = useTheme()
-  // const [sponsorEmailVisible, setSponsorEmailVisible]
-  // = useState<boolean>(false)
+  // eslint-disable-next-line max-len
+  // const [sponsorEmailVisible, setSponsorEmailVisible] = useState<boolean>(false)
   const navigate = useNavigate()
   const isLightClass = () => (theme.mode === "light" ? "--light" : "")
-  /*
-    const showSponsorEmailCopiedMsg = () => {
-    setSponsorEmailVisible(true)
-    setTimeout(() => setSponsorEmailVisible(false), 5000)
-  }*/
+
+  // const showSponsorEmailCopiedMsg = () => {
+  //   setSponsorEmailVisible(true)
+  //   setTimeout(() => setSponsorEmailVisible(false), 5000)
+  // }
   const handleSubmit = () => {
     if (!validateEmail(email)) {
       setState(SubmissionStates.Errored)
@@ -156,7 +155,7 @@ const Landing: React.FC = () => {
         <div className='more-info'>
           <div className='date'>
             <CalendarTodayIcon />
-            February 3-5
+            February 3-5, 2023
           </div>
           <div className='location'>
             <LocationOnIcon />
@@ -187,38 +186,29 @@ const Landing: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* eslint-disable */}
-          {/*
-          
-            <div className='landing__container--inputs__row2'>
-              <button
-                // eslint-disable-next-line max-len
-                className={`landing__container--inputs__row2--button1${isLightClass()}`}
-                onClick={e => {
-                  navigator.clipboard.writeText("sponsor@cruzhacks.com")
-                  showSponsorEmailCopiedMsg()
-                  window.location.href = "mailto:sponsor@cruzhacks.com"
-                  e.preventDefault()
-                }}
-              >
-                Sponsor Us
-              </button>
-              <button
-                // eslint-disable-next-line max-len
-                className={`landing__container--inputs__row2--button2${isLightClass()}`}
-                onClick={() => setModalOpen(true)}
-              >
-                Apply
-              </button>
-              <ApplicationModal
-                modalOpen={modalOpen}
-                setModalOpen={setModalOpen}
-              />
-            </div>
-          */}
-          {/* eslint-enable */}
+
+          <div className='landing__container--inputs__row2'>
+            <button
+              // eslint-disable-next-line max-len
+              className={`landing__container--inputs__row2--button1${isLightClass()}`}
+              onClick={() => navigate("/redirect")}
+            >
+              Portal
+            </button>
+            <button
+              // eslint-disable-next-line max-len
+              className={`landing__container--inputs__row2--button2${isLightClass()}`}
+              onClick={() => setModalOpen(true)}
+            >
+              Apply
+            </button>
+            <ApplicationModal
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+            />
+          </div>
         </div>
-        <div className='MyPortal__container'>
+        {/* <div className='MyPortal__container'>
           <button
             // eslint-disable-next-line max-len
             className={`MyPortal`}
@@ -226,7 +216,7 @@ const Landing: React.FC = () => {
           >
             Portal
           </button>
-        </div>
+        </div> */}
         {message && (
           <div
             className={
