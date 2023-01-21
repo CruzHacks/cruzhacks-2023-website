@@ -19,7 +19,7 @@ export const getApplicants = async (
       },
     }
     const res = await axios(getApplicantsAxiosRequest)
-    const applicants = res.data.appDocuments
+    const applicants = res.data.applications
     setApplicants(applicants)
   } catch (err) {
     if (axios.isAxiosError(err)) {
