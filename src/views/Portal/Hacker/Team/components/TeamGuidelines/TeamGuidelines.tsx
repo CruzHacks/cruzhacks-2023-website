@@ -6,7 +6,7 @@ export const TeamGuidelines = () => {
       <div className='teamguidelines__container__header'>Team Guidelines</div>
       <ul className='teamguidelines__container__guidelines'>
         <li className='teamguidelines__container__guidelines--bullet'>
-          Must be comprised of 1-5 hackers
+          Must be comprised of 1-4 hackers
         </li>
         <li className='teamguidelines__container__guidelines--bullet'>
           The project must completed at the event

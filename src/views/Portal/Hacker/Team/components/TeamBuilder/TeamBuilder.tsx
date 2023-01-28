@@ -1,22 +1,21 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useState } from "react"
-import { TeamMember } from "../TeamDisplay/TeamDisplay"
 import {
-  acceptInvite,
+  rsvpInvite,
   changeInvitationMode,
   createTeam,
   inviteTeamMember,
 } from "../../api"
 import "./TeamBuilder.scss"
+import { TeamFormationProps } from "../.."
+// eslint-disable-next-line max-len
+import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
 
 export type InvitationMode = "JOIN" | "CREATE"
 
 export interface TeamBuilderProps {
-  invitationType: InvitationMode
-  setInvitationType: Dispatch<InvitationMode>
-  setTeamName: Dispatch<string>
-  setTeamMembers: Dispatch<Array<TeamMember>>
-  invites: Array<Invitation>
+  teamPage: TeamFormationProps
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>
 }
 
 export interface Invitation {
@@ -24,21 +23,19 @@ export interface Invitation {
 }
 
 export const TeamBulder = (props: TeamBuilderProps) => {
-  const { invitationType, setInvitationType } = props
-
   return (
     <div className='teambuilder'>
       <InvitationTypeChooser
-        invitationType={invitationType}
-        setInvitationType={setInvitationType}
+        invitationType={props.teamPage.invitationType}
+        setTeamPage={props.setTeamPage}
       />
-      {invitationType === "JOIN" ? (
-        <JoinTeam invites={props.invites} />
-      ) : (
-        <CreateTeam
-          setTeamName={props.setTeamName}
-          setTeamMembers={props.setTeamMembers}
+      {props.teamPage.invitationType === "JOIN" ? (
+        <JoinTeam
+          invites={props.teamPage.invitations}
+          setTeamPage={props.setTeamPage}
         />
+      ) : (
+        <CreateTeam teamPage={props.teamPage} setTeamPage={props.setTeamPage} />
       )}
     </div>
   )
@@ -46,9 +43,10 @@ export const TeamBulder = (props: TeamBuilderProps) => {
 
 const InvitationTypeChooser = (props: {
   invitationType: InvitationMode
-  setInvitationType: Dispatch<InvitationMode>
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>
 }) => {
   const { getAccessTokenSilently } = useAuth0()
+  const { setBanner } = useBanner()
   return (
     <div className='invitation-type'>
       <div className='invitation-type__header'>
@@ -63,7 +61,8 @@ const InvitationTypeChooser = (props: {
           onClick={() => {
             changeInvitationMode(
               getAccessTokenSilently,
-              props.setInvitationType
+              props.setTeamPage,
+              setBanner
             )
           }}
         >
@@ -74,7 +73,10 @@ const InvitationTypeChooser = (props: {
   )
 }
 
-const JoinTeam = (props: { invites: Array<Invitation> }) => {
+const JoinTeam = (props: {
+  invites: Array<Invitation>
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>
+}) => {
   return (
     <div className='jointeam'>
       <div className='jointeam__title'>Join Team</div>
@@ -82,7 +84,11 @@ const JoinTeam = (props: { invites: Array<Invitation> }) => {
         <div className='jointeam__container__header'>Pending Invitations</div>
         <div className='jointeam__container__invitations'>
           {props.invites.map(invite => (
-            <Invitation key={invite.teamName} teamName={invite.teamName} />
+            <Invitation
+              key={invite.teamName}
+              teamName={invite.teamName}
+              setTeamPage={props.setTeamPage}
+            />
           ))}
         </div>
       </div>
@@ -90,8 +96,12 @@ const JoinTeam = (props: { invites: Array<Invitation> }) => {
   )
 }
 
-const Invitation = (props: { teamName: string }) => {
+const Invitation = (props: {
+  teamName: string
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>
+}) => {
   const { getAccessTokenSilently } = useAuth0()
+  const { setBanner } = useBanner()
   return (
     <div className='invitation'>
       <div className='invitation__header'>{props.teamName}</div>
@@ -99,72 +109,105 @@ const Invitation = (props: { teamName: string }) => {
         <button
           className='invitation__buttons__accept'
           onClick={() => {
-            acceptInvite(getAccessTokenSilently, props.teamName)
+            rsvpInvite(
+              getAccessTokenSilently,
+              props.setTeamPage,
+              props.teamName,
+              "ACCEPTED",
+              setBanner
+            )
           }}
         >
           Accept
         </button>
-        <button className='invitation__buttons__decline'>Decline</button>
+        <button
+          className='invitation__buttons__decline'
+          onClick={() => {
+            rsvpInvite(
+              getAccessTokenSilently,
+              props.setTeamPage,
+              props.teamName,
+              "DECLINE",
+              setBanner
+            )
+          }}
+        >
+          Decline
+        </button>
       </div>
     </div>
   )
 }
 
 const CreateTeam = (props: {
-  setTeamName: Dispatch<string>
-  setTeamMembers: Dispatch<Array<TeamMember>>
+  teamPage: TeamFormationProps
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>
 }) => {
   const { getAccessTokenSilently, user } = useAuth0()
   const [teamNameInput, setTeamNameInput] = useState<string>("")
   const [invitedMemberEmail, setInvitedMemberEmail] = useState<string>("")
-
+  const { setBanner } = useBanner()
   return (
     <div className='createteam'>
       <div className='createteam__title'>Create Team</div>
-      <div className='createteam__naming'>
-        <div className='createteam__naming__header'>
-          Please input your team name
-        </div>
-        <input
-          type='text'
-          placeholder='Enter Name'
-          className='createteam__naming__input'
-          onChange={e => setTeamNameInput(e.target.value)}
-        />
-      </div>
-      <button
-        className='createteam__naming__create'
-        onClick={() =>
-          createTeam(
-            getAccessTokenSilently,
-            `${user?.given_name} ${user?.family_name}`,
-            teamNameInput,
-            props.setTeamName,
-            props.setTeamMembers
-          )
-        }
-      >
-        Create
-      </button>
-      <div className='createteam__invitation'>
-        <div className='createteam__invitation__header'>
-          Invite existing hackers or add new hackers
-        </div>
-        <input
-          type='text'
-          placeholder='Enter Email'
-          className='createteam__invitation__input'
-          onChange={e => setInvitedMemberEmail(e.target.value)}
-        />
-      </div>
-      <button
-        className='createteam__invitation__invite'
-        onClick={() =>
-          inviteTeamMember(getAccessTokenSilently, invitedMemberEmail)
-        }
-      >
-        Invite
-      </button>
+      {!props.teamPage.teamLeader ? (
+        <>
+          <div className='createteam__naming'>
+            <div className='createteam__naming__header'>
+              Please Input Your Team Name
+            </div>
+            <input
+              type='text'
+              placeholder='Enter Name'
+              className='createteam__naming__input'
+              onChange={e => setTeamNameInput(e.target.value)}
+            />
+          </div>
+          <button
+            className='createteam__naming__create'
+            onClick={() =>
+              createTeam(
+                getAccessTokenSilently,
+                `${user?.given_name} ${user?.family_name}`,
+                teamNameInput,
+                props.setTeamPage,
+                setBanner
+              )
+            }
+          >
+            Create
+          </button>
+        </>
+      ) : (
+        <>
+          <div className='createteam__invitation'>
+            <div className='createteam__invitation__header'>
+              Invite Hackers To Your Team!
+            </div>
+            <input
+              type='text'
+              placeholder='Enter Email'
+              className='createteam__invitation__input'
+              value={invitedMemberEmail}
+              onChange={e => setInvitedMemberEmail(e.target.value)}
+            />
+          </div>
+          <button
+            className='createteam__invitation__invite'
+            onClick={() => {
+              setInvitedMemberEmail("")
+              inviteTeamMember(
+                getAccessTokenSilently,
+                invitedMemberEmail,
+                props.setTeamPage,
+                setBanner
+              )
+            }}
+          >
+            Invite
+          </button>
+        </>
+      )}
     </div>
   )
 }

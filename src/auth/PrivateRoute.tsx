@@ -26,8 +26,9 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   role,
 }: PrivateRouteProps) => {
   const { user } = useAuth0()
-  let route: React.ReactElement = component
+  console.log("🚀 ~ file: PrivateRoute.tsx:29 ~ user", user)
 
+  let route: React.ReactElement = component
   // redirect if email is not verified
   /**if (!user?.email_verified) {
     route = VerifyView
