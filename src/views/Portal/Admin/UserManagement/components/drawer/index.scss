@@ -1,0 +1,173 @@
+@use "../../../../../../stylesheets/variables";
+@use "../../../../../../stylesheets/fonts";
+@use "../../../../../../stylesheets/responsiveness";
+@import "../../../../../../stylesheets/variables";
+@import "../../../../../../stylesheets/fonts";
+
+.drawer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+
+  &--exit {
+    margin-top: 0.5em;
+    align-items: left;
+    justify-content: left;
+    margin-left: 0.5em;
+    width: 100%;
+
+    &--button {
+      //margin-top: 0.5em;
+      //margin-right: 16em;
+      width: 2em;
+      height: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      box-sizing: border-box;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+
+  &--profile-circle {
+    margin-top: 1.5em;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    border: 2px solid #ced4d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+
+    letter-spacing: 0.04em;
+
+    color: #48489b;
+  }
+
+  &--text {
+    margin-top: 3em;
+    margin-right: 4em;
+    @include responsiveness.screen(smallest) {
+      margin-left: 4em;
+    }
+    @include responsiveness.screen(phone, tablet) {
+      margin-left: 2em;
+    }
+
+    &--name {
+      margin-bottom: 0.25em;
+
+      font-family: $inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+
+      color: #0606a0;
+
+      @include responsiveness.screen(smallest, phone) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    &--hacker {
+      margin-bottom: 1em;
+      font-family: $inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+
+      @include responsiveness.screen(smallest, phone) {
+        font-size: 14px;
+        line-height: 17px;
+      }
+
+      color: #48489b;
+    }
+
+    &--email {
+      display: flex;
+      flex-direction: row;
+
+      &--title {
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #58586f;
+
+        @include responsiveness.screen(smallest, phone) {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+
+      &--text {
+        margin-left: 5px;
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #81819b;
+
+        @include responsiveness.screen(smallest, phone) {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+    }
+  }
+
+  &--checkIn {
+    margin-top: 3em;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 204px;
+    height: 40px;
+
+    background: #fff;
+    border: 1px solid #3b3b8d;
+    border-radius: 6px;
+
+    text-align: center;
+    font-family: $nunito-sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+
+    color: #3b3b8d;
+
+    &:hover {
+      background-color: #3b3b8d;
+      color: #fff;
+
+      cursor: pointer;
+    }
+
+    @include responsiveness.screen(smallest, phone) {
+      width: 80%;
+    }
+  }
+}

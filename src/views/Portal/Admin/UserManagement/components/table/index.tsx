@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Dispatch } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
-import getApplicants from "../api"
+import getHackers, { HackerProps } from "../api"
 import check from "../../../../../../images/icons/check.svg"
 import x from "../../../../../../images/icons/x.svg"
 /* eslint-disable */
 import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
 /* eslint-enable */
 import Spinner from "../../../../../../components/Spinner"
+import HackerProfileDrawer from "../drawer/index"
 import "./index.scss"
 
 import {
@@ -20,58 +21,7 @@ import {
   Paper,
   SxProps,
 } from "@mui/material"
-/*
-const createDummy = (
-  id: string,
-  name: string,
-  check_in: string,
-  status: string,
-  role: string,
-  last_activity: string,
-  eval_prog: string
-) => {
-  return { id, name, check_in, status, role, last_activity, eval_prog }
-}
 
-const rows = [
-  createDummy(
-    "1235",
-    "Dummy",
-    "Not Applicable",
-    "Not Applicable",
-    "Hacker",
-    "Never",
-    "Not Applicable"
-  ),
-  createDummy(
-    "1235",
-    "Dummy",
-    "Checked In",
-    "Accepted",
-    "Judge",
-    "Never",
-    "Not Applicable"
-  ),
-  createDummy(
-    "1235",
-    "Dummy",
-    "Not Checked In",
-    "Rejected",
-    "Hacker",
-    "Never",
-    "Not Applicable"
-  ),
-  createDummy(
-    "1235",
-    "Dummy",
-    "Not Applicable",
-    "Not Applicable",
-    "Judge",
-    "Never",
-    "Not Applicable"
-  ),
-]
-*/
 const StyledTableRow = styled(TableRow)(() => ({
   "&:nth-of-type(even)": {
     backgroundColor: "#FAFBFF",
@@ -104,38 +54,39 @@ const plainCellStyle: SxProps = {
   color: "#000000",
 }
 
-const handleStatus = (status: string) => {
-  if (status == "Accepted") {
-    return "accept"
-  }
-  if (status == "Rejected") {
-    return "reject"
-  }
-  return "not_applicable"
+const handleStatusCSS = (status: boolean) => {
+  return status ? "accept" : "reject"
+}
+
+const handleStatusText = (status: boolean) => {
+  return status ? "accepted" : "not accepted"
 }
 
 const handleCheckin = (checkin: boolean) => {
   return checkin ? check : x
 }
 
-interface HackerProps {
-  id: string
-  name: string
-  checkedIn: boolean
-  status: string
-  // last_activity: string
+const handleCheckInText = (checkin: boolean) => {
+  return checkin ? "Checked In" : "Not Checked In"
+}
+
+export interface HackerDrawerProps {
+  drawerOpen: boolean
+  setDrawerOpen: Dispatch<boolean>
+  props: HackerProps
 }
 
 const ManageTable = () => {
   // Uncomment when ready to debug API call issue
 
-  const [applicants, setApplicants] = useState<Array<any>>([])
+  const [hackers, setHackers] = useState<Array<any>>([])
   const { getAccessTokenSilently } = useAuth0()
   const [render, setRender] = useState<boolean>(false)
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const { setBanner } = useBanner()
 
   useEffect(() => {
-    getApplicants(getAccessTokenSilently, setBanner, setApplicants).then(() =>
+    getHackers(getAccessTokenSilently, setBanner, setHackers).then(() =>
       setRender(true)
     )
   }, [])
@@ -147,15 +98,16 @@ const ManageTable = () => {
           <TableHead>
             <TableRow sx={{ bgcolor: "#FAFBFF" }}>
               <TableCell sx={headStyle}>ID</TableCell>
-              <TableCell align='right' sx={headStyle}>
+              <TableCell align='left' sx={headStyle}>
                 Name
               </TableCell>
-              <TableCell sx={headStyle} align='right'>
+              <TableCell sx={headStyle} align='left'>
                 Check In
               </TableCell>
-              <TableCell sx={headStyle} align='right'>
+              <TableCell sx={headStyle} align='left'>
                 Status
               </TableCell>
+              {/*}
               <TableCell sx={headStyle} align='right'>
                 Role
               </TableCell>
@@ -165,13 +117,24 @@ const ManageTable = () => {
               <TableCell sx={headStyle} align='right'>
                 Evaluation Progress
               </TableCell>
+    */}
             </TableRow>
           </TableHead>
           <TableBody>
-            {applicants.map((applicant: HackerProps, index: number) => (
-              <StyledTableRow key={index}>
-                <TableCell sx={plainCellStyle} component='th' scope='row'>
-                  {applicant.id}
+            {hackers.map((hacker: HackerProps, index: number) => (
+              <StyledTableRow key={index} onClick={() => setDrawerOpen(true)}>
+                <HackerProfileDrawer
+                  drawerOpen={drawerOpen}
+                  setDrawerOpen={setDrawerOpen}
+                  props={hacker}
+                />
+                <TableCell
+                  sx={plainCellStyle}
+                  component='th'
+                  scope='row'
+                  align='left'
+                >
+                  {hacker.email}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -182,34 +145,33 @@ const ManageTable = () => {
                     fontHeight: 22,
                     color: "#6488E5",
                   }}
-                  align='right'
+                  align='left'
                 >
-                  {applicant.name}
+                  {hacker.firstName + " " + hacker.lastName}
                 </TableCell>
-                <TableCell sx={plainCellStyle} align='right'>
-                  {
-                    <div className='check_in__container'>
-                      <div className='check_in__container--text'>
-                        {applicant.checkedIn}
+                {
+                  <TableCell sx={plainCellStyle} align='left'>
+                    {
+                      <div className='check_in__container'>
+                        <div className='check_in__container--text'>
+                          {handleCheckInText(hacker.checkedIn)}
+                        </div>
+                        <img src={handleCheckin(hacker.checkedIn)} />
                       </div>
-                      <img src={handleCheckin(applicant.checkedIn)} />
-                    </div>
-                  }
-                </TableCell>
-                <TableCell align='right'>
+                    }
+                  </TableCell>
+                }
+                <TableCell align='left'>
                   <div
-                    className={`status__container-${handleStatus(
-                      applicant.status
+                    className={`status__container-${handleStatusCSS(
+                      hacker.status
                     )}`}
                   >
-                    <div className='status__container'>{applicant.status}</div>
+                    <div className='status__container'>
+                      {handleStatusText(hacker.status)}
+                    </div>
                   </div>
                 </TableCell>
-                {/*
-                <TableCell sx={plainCellStyle} align='right'>
-                  {applicant.last_activity}
-                </TableCell>
-                */}
               </StyledTableRow>
             ))}
           </TableBody>
