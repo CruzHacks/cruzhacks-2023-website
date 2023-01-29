@@ -1,6 +1,5 @@
-import React, { Dispatch, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./index.scss"
-import { HackerProps } from "../api"
 import { HackerDrawerProps } from "../table/index"
 import { Drawer } from "@mui/material"
 import exit from "../../../../../../assets/Exit.svg"
