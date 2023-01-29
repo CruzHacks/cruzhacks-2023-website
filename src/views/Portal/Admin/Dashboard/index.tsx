@@ -27,7 +27,7 @@ import {
   Alert,
   AlertProps,
 } from "@mui/material"
-import { createNotification } from "../../../../utils/api"
+import { createAnnouncement } from "../../../../utils/api"
 
 import "./index.scss"
 
@@ -220,18 +220,14 @@ const AnnouncementModal = ({
       setAlertVariant(1)
       return
     }
-    /* if (recipient.length === 0) {
-      setAlertOpen(true)
-      setAlertVariant(2)
-      return
-    } */
+
     getAccessTokenSilently().then(accessToken => {
       const message = {
         topic: "Announcements",
         title: "",
         body: notifyBody,
       }
-      createNotification(message, accessToken)
+      createAnnouncement(message, accessToken)
         .then(res => {
           if (res.status === 201) {
             setAlertVariant(0)

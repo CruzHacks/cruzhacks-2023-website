@@ -107,30 +107,7 @@ export function getUserTheme(authToken: string) {
     .catch(err => err)
 }
 
-export function registerToTopic(
-  clientRegistrationToken: string,
-  topic: string,
-  authToken: string
-) {
-  const axiosConfig: AxiosRequestConfig = {
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },
-  }
-  return axios
-    .put(
-      `${LIVE_NOTIFY_ENDPOINT}/register`,
-      {
-        registrationToken: clientRegistrationToken,
-        topic: topic,
-      },
-      axiosConfig
-    )
-    .then(res => res)
-    .catch(err => err)
-}
-
-export function createNotification(
+export function createAnnouncement(
   message: NotificationProps,
   authToken: string
 ) {

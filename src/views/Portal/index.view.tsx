@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { SnackbarProvider, useSnackbar } from "notistack"
-import { app, getTokenWrapper } from "../../utils/fcm_api"
-import { onMessage, getMessaging } from "firebase/messaging"
+import { getDatabase } from "firebase/database"
 import { styled } from "@mui/material"
 import "./index.scss"
 
@@ -24,21 +23,23 @@ const PortalWithNotify: React.FC = () => {
   const [isNotificationEnabled, setNotificationEnabled] = useState(false)
   const { getAccessTokenSilently } = useAuth0()
   const { enqueueSnackbar } = useSnackbar()
-  const messaging = getMessaging(app)
-  onMessage(messaging, payload => {
-    console.log(payload)
-    if (payload && payload.notification && payload.notification.body)
-      enqueueSnackbar(buildAnnouncement(payload.notification.body), {
-        preventDuplicate: true,
-      })
-  })
-  useEffect(() => {
-    if (!isNotificationEnabled) {
-      getAccessTokenSilently().then(accessToken =>
-        getTokenWrapper(setNotificationEnabled, "Announcements", accessToken)
-      )
-    }
-  }, [])
+
+  // const db = getDatabase(app);
+
+  // onMessage(messaging, payload => {
+  //   console.log(payload)
+  //   if (payload && payload.notification && payload.notification.body)
+  //     enqueueSnackbar(buildAnnouncement(payload.notification.body), {
+  //       preventDuplicate: true,
+  //     })
+  // })
+  // useEffect(() => {
+  //   if (!isNotificationEnabled) {
+  //     getAccessTokenSilently().then(accessToken =>
+  //       getTokenWrapper(setNotificationEnabled, "Announcements", accessToken)
+  //     )
+  //   }
+  // }, [])
 
   return <Outlet />
 }
