@@ -149,9 +149,9 @@ const CreateTeam = (props: {
   const { setBanner } = useBanner()
   return (
     <div className='createteam'>
-      <div className='createteam__title'>Create Team</div>
       {!props.teamPage.teamLeader ? (
         <>
+          <div className='createteam__title'>Create Team</div>
           <div className='createteam__naming'>
             <div className='createteam__naming__header'>
               Please Input Your Team Name
@@ -180,6 +180,7 @@ const CreateTeam = (props: {
         </>
       ) : (
         <>
+          <div className='createteam__title'>Invite Members</div>
           <div className='createteam__invitation'>
             <div className='createteam__invitation__header'>
               Invite Hackers To Your Team!
