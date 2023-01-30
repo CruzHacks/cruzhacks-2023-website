@@ -29,7 +29,7 @@ const getHackers = async (
     const res = await axios(getHackersAxiosRequest)
     const hackersData = res.data.hackers
 
-    /*
+    /*]]
     const hackerData = <Array<HackerProps>>
     hackerArray.forEach(hacker => {
       hackersData.push({

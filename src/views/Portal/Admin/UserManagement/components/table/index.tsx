@@ -76,6 +76,17 @@ export interface HackerDrawerProps {
   props: HackerProps
 }
 
+const handleDrawerOpen = (
+  event: any,
+  setDrawerOpen: Dispatch<boolean>,
+  setProps: Dispatch<HackerProps>,
+  hacker: HackerProps
+) => {
+  console.log(event)
+  setDrawerOpen(true)
+  setProps(hacker)
+}
+
 const ManageTable = () => {
   // Uncomment when ready to debug API call issue
 
@@ -84,6 +95,13 @@ const ManageTable = () => {
   const [render, setRender] = useState<boolean>(false)
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const { setBanner } = useBanner()
+  const [hackerDrawerProps, setDrawerProps] = useState<HackerProps>({
+    email: "dummy",
+    firstName: "dummy",
+    lastName: "dummy",
+    checkedIn: false,
+    status: false,
+  })
 
   useEffect(() => {
     getHackers(getAccessTokenSilently, setBanner, setHackers).then(() =>
@@ -107,26 +125,21 @@ const ManageTable = () => {
               <TableCell sx={headStyle} align='left'>
                 Status
               </TableCell>
-              {/*}
-              <TableCell sx={headStyle} align='right'>
-                Role
-              </TableCell>
-              <TableCell sx={headStyle} align='right'>
-                Last Activity
-              </TableCell>
-              <TableCell sx={headStyle} align='right'>
-                Evaluation Progress
-              </TableCell>
-    */}
             </TableRow>
           </TableHead>
           <TableBody>
             {hackers.map((hacker: HackerProps, index: number) => (
-              <StyledTableRow key={index} onClick={() => setDrawerOpen(true)}>
+              <StyledTableRow
+                key={index}
+                onClick={() =>
+                  handleDrawerOpen(index, setDrawerOpen, setDrawerProps, hacker)
+                }
+                className={`row-${index}`}
+              >
                 <HackerProfileDrawer
                   drawerOpen={drawerOpen}
                   setDrawerOpen={setDrawerOpen}
-                  props={hacker}
+                  props={hackerDrawerProps}
                 />
                 <TableCell
                   sx={plainCellStyle}

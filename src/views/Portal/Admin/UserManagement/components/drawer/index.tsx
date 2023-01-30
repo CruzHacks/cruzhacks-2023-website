@@ -9,6 +9,7 @@ const HackerProfileDrawer = ({
   setDrawerOpen,
   props,
 }: HackerDrawerProps) => {
+  console.log({ props })
   const [windowWidth, setWidth] = useState<number>(500)
 
   const handleDrawerWidth = () => {
