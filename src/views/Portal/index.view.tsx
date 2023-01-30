@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { SnackbarProvider, useSnackbar } from "notistack"
-import { getDatabase } from "firebase/database"
+import { initializeApp } from "firebase/app"
+import {
+  connectDatabaseEmulator,
+  getDatabase,
+  onValue,
+  ref,
+} from "firebase/database"
 import { styled } from "@mui/material"
 import "./index.scss"
+
+const config = process.env.REACT_APP_FIREBASE_CONFIG || ""
+
+const firebaseConfig = JSON.parse(config)
+export const app = initializeApp(firebaseConfig)
 
 const StyledSnackbarProvider = styled(SnackbarProvider)`
   &.SnackbarItem-contentRoot {
@@ -24,22 +35,25 @@ const PortalWithNotify: React.FC = () => {
   const { getAccessTokenSilently } = useAuth0()
   const { enqueueSnackbar } = useSnackbar()
 
-  // const db = getDatabase(app);
+  const db = getDatabase(app)
+  if (location.hostname === "localhost") {
+    connectDatabaseEmulator(db, "localhost", 9000)
+  }
 
-  // onMessage(messaging, payload => {
-  //   console.log(payload)
-  //   if (payload && payload.notification && payload.notification.body)
-  //     enqueueSnackbar(buildAnnouncement(payload.notification.body), {
-  //       preventDuplicate: true,
-  //     })
-  // })
-  // useEffect(() => {
-  //   if (!isNotificationEnabled) {
-  //     getAccessTokenSilently().then(accessToken =>
-  //       getTokenWrapper(setNotificationEnabled, "Announcements", accessToken)
-  //     )
-  //   }
-  // }, [])
+  // Update announcements
+  useEffect(() => {
+    const announcements = ref(db, "Announcements")
+    return onValue(announcements, snapshot => {
+      const data = snapshot.val()
+
+      if (snapshot.exists()) {
+        const latestUpdate: any = Object.values(data).reverse()[0]
+        enqueueSnackbar(buildAnnouncement(latestUpdate.body), {
+          preventDuplicate: true,
+        })
+      }
+    })
+  }, [])
 
   return <Outlet />
 }
