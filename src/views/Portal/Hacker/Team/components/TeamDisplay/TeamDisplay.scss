@@ -24,11 +24,12 @@
     width: 90%;
     justify-content: center;
     position: relative;
+
     &__title {
-      width: 100%; 
+      width: 100%;
       text-align: center;
-      
     }
+
     &__delete {
       all: unset;
       position: absolute;
@@ -47,12 +48,12 @@
       &:hover {
         cursor: pointer;
         padding: 5px 15px;
-  
+
         @media screen and (max-width: 450px) {
           padding: 5px 10px;
         }
       }
-      
+
       &:active {
         background-color: #e55039;
         color: white;
