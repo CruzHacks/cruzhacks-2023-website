@@ -68,6 +68,9 @@
     border: 1px solid #c4c4c4;
     border-radius: 6px;
     overflow-y: auto;
+    list-style-position: inside;
+    counter-reset: listcounter;
+    counter-increment: listcounter;
   }
 
   &__review {
@@ -106,11 +109,21 @@
 
 .membertag {
   font-family: $nunito;
+  font-size: 22px;
+  width: 100%;
+
+  &::before {
+    content: 'Member ' counter(listcounter);
+    padding: 10px;
+    color: #424242;
+    user-select: all;
+  }
+
   display: inline-flex;
   align-items: center;
   justify-content: left;
   padding: 10px;
-  font-size: 22px;
+ 
   width: calc(100% - 20px);
 
   @media screen and (max-width: 450px) {
@@ -120,7 +133,7 @@
   @media screen and (max-width: 350px) {
     font-size: 12px;
   }
-
+  
   &--position {
     color: #424242;
     font-weight: 600;

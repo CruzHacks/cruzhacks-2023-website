@@ -19,7 +19,6 @@ export interface TeamDisplayProps {
 export const TeamDisplay = (props: TeamDisplayProps) => {
   const { user, getAccessTokenSilently } = useAuth0()
   const { setBanner } = useBanner()
-  let position = 0
 
   return (
     <div className='teamdisplay'>
@@ -45,13 +44,11 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
       </div>
       <div className='teamdisplay__members'>
         {props.teamPage.teamMembers.map((member: TeamMember) => {
-          position++
           return (
             <TeamMemberTag
               key={member.memberID}
               id={member.memberID}
               name={member.memberName}
-              position={position}
               type='ACCEPTED'
               teamLeader={props.teamPage.teamLeader}
               setTeamPage={props.setTeamPage}
@@ -59,13 +56,11 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
           )
         })}
         {props.teamPage.invitedTeamMembers.map((member: TeamMember) => {
-          position++
           return (
             <TeamMemberTag
               key={member.memberID}
               id={member.memberID}
               name={member.memberName}
-              position={position}
               type='INVITED'
               teamLeader={props.teamPage.teamLeader}
               setTeamPage={props.setTeamPage}
@@ -90,7 +85,6 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
 }
 
 interface TeamMemberTagProps {
-  position: number
   name: string
   id: string
   type: "INVITED" | "ACCEPTED"
@@ -104,13 +98,10 @@ const TeamMemberTag = (props: TeamMemberTagProps) => {
   const { setBanner } = useBanner()
   return (
     <div className='membertag'>
-      <div className={`membertag--position`}>
-        Member {props.position}:&nbsp;
-      </div>
       <div className={`membertag--name ${props.type}`}>
         {props.name || "<Empty>"}
       </div>
-      {props.teamLeader === user?.sub && props.id !== props.teamLeader ? (
+      {props.teamLeader === user?.sub && props.id === props.teamLeader ? (
         <button
           className='membertag--remove'
           onClick={() => {
