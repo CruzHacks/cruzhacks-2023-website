@@ -3,7 +3,7 @@ import React, { Dispatch } from "react"
 import { TeamFormationProps } from "../.."
 // eslint-disable-next-line max-len
 import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
-import { deleteTeam, removeTeamMember } from "../../api"
+import { deleteTeam, lockTeam, removeTeamMember } from "../../api"
 import "./TeamDisplay.scss"
 
 export interface TeamMember {
@@ -77,7 +77,14 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
         Please take a moment to review your team above. If everything looks
         correct, please press submit and get excited to hack with us very soon!
       </div>
-      <button className='teamdisplay__submit-button'>Submit</button>
+      <button
+        className='teamdisplay__submit-button'
+        onClick={() => {
+          lockTeam(getAccessTokenSilently, setBanner)
+        }}
+      >
+        Submit
+      </button>
     </div>
   )
 }

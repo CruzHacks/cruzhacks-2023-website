@@ -98,7 +98,6 @@ export const changeInvitationMode = async (
       },
     }
     const res = await axios(changeInvitationModeAxiosRequest)
-    console.log(res.data)
     setTeamPage({ invitationType: res.data.newInvitationMode })
   } catch (err) {
     if (axios.isAxiosError(err)) {
@@ -128,7 +127,6 @@ export const getTeamProfile = async (
       },
     }
     const res = await axios(getTeamProfileAxiosRequest)
-    console.log(res.data)
     const teamProfile: Partial<TeamFormationProps> = {
       teamName: res.data.teamName,
       teamMembers: res.data.members,
@@ -253,6 +251,34 @@ export const deleteTeam = async (
     const res = await axios(deleteTeamAxiosRequest)
     setBanner({ message: res.data.message, messageType: "SUCCESS" })
     setTeamPage({ teamName: "", teamMembers: [], teamLeader: "" })
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
+  }
+}
+
+export const lockTeam = async (
+  getAccessTokenSilently: any,
+  setBanner: Dispatch<Message>
+) => {
+  try {
+    const token = await getAccessTokenSilently()
+    const lockTeamAxiosRequest = {
+      method: "post",
+      url: `${process.env.REACT_APP_ENDPOINT_URL}/teams/lockTeam`,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    const res = await axios(lockTeamAxiosRequest)
+    setBanner({ message: res.data.message, messageType: "SUCCESS" })
   } catch (err) {
     if (axios.isAxiosError(err)) {
       const axiosError: any = err

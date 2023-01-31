@@ -44,7 +44,6 @@ export const BannerProvider = (props: { children: any }) => {
     setVisible(true)
     clearTimerRef.current = setTimeout(() => {
       setVisible(false)
-      console.log("set timeout ended")
     }, 4700)
   }, [message])
 
