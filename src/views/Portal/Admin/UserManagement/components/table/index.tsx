@@ -54,12 +54,11 @@ const plainCellStyle: SxProps = {
   color: "#000000",
 }
 
-const handleStatusCSS = (status: boolean) => {
-  return status ? "accept" : "reject"
-}
-
-const handleStatusText = (status: boolean) => {
-  return status ? "accepted" : "not accepted"
+const handleStatusCSS = (status: string) => {
+  if (status == "CONFIRMED") {
+    return "accept"
+  }
+  return "reject"
 }
 
 const handleCheckin = (checkin: boolean) => {
@@ -73,6 +72,7 @@ const handleCheckInText = (checkin: boolean) => {
 export interface HackerDrawerProps {
   drawerOpen: boolean
   setDrawerOpen: Dispatch<boolean>
+  setHackers: Dispatch<Array<any>>
   props: HackerProps
 }
 
@@ -96,11 +96,12 @@ const ManageTable = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const { setBanner } = useBanner()
   const [hackerDrawerProps, setDrawerProps] = useState<HackerProps>({
+    id: "dummy",
     email: "dummy",
     firstName: "dummy",
     lastName: "dummy",
     checkedIn: false,
-    status: false,
+    attendanceStatus: "NOT CONFIRMED",
   })
 
   useEffect(() => {
@@ -139,6 +140,7 @@ const ManageTable = () => {
                 <HackerProfileDrawer
                   drawerOpen={drawerOpen}
                   setDrawerOpen={setDrawerOpen}
+                  setHackers={setHackers}
                   props={hackerDrawerProps}
                 />
                 <TableCell
@@ -147,7 +149,7 @@ const ManageTable = () => {
                   scope='row'
                   align='left'
                 >
-                  {hacker.email}
+                  {hacker.id}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -177,11 +179,11 @@ const ManageTable = () => {
                 <TableCell align='left'>
                   <div
                     className={`status__container-${handleStatusCSS(
-                      hacker.status
+                      hacker.attendanceStatus
                     )}`}
                   >
                     <div className='status__container'>
-                      {handleStatusText(hacker.status)}
+                      {hacker.attendanceStatus}
                     </div>
                   </div>
                 </TableCell>

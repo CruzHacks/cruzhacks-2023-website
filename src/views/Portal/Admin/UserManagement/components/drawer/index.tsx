@@ -1,15 +1,34 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Dispatch } from "react"
+import { useAuth0 } from "@auth0/auth0-react"
 import "./index.scss"
+import { Message } from "../../../../../../contexts/PortalBanners/PortalBanner"
 import { HackerDrawerProps } from "../table/index"
+import getHackers, { checkIn } from "../api"
 import { Drawer } from "@mui/material"
+/* eslint-disable */
+import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
+/* eslint-enable */
 import exit from "../../../../../../assets/Exit.svg"
+
+const handleCheckIn = (
+  getAccessTokenSilently: any,
+  setBanner: Dispatch<Message>,
+  setHackers: Dispatch<Array<any>>,
+  id: string
+) => {
+  checkIn(getAccessTokenSilently, setBanner, id)
+  getHackers(getAccessTokenSilently, setBanner, setHackers)
+}
 
 const HackerProfileDrawer = ({
   drawerOpen,
   setDrawerOpen,
+  setHackers,
   props,
 }: HackerDrawerProps) => {
   console.log({ props })
+  const { getAccessTokenSilently } = useAuth0()
+  const { setBanner } = useBanner()
   const [windowWidth, setWidth] = useState<number>(500)
 
   const handleDrawerWidth = () => {
@@ -76,7 +95,19 @@ const HackerProfileDrawer = ({
               </div>
             </div>
           </div>
-          <div className='drawer__container--checkIn'>Check In</div>
+          <div
+            className='drawer__container--checkIn'
+            onClick={() =>
+              handleCheckIn(
+                getAccessTokenSilently,
+                setBanner,
+                setHackers,
+                props.id
+              )
+            }
+          >
+            Check In
+          </div>
         </div>
       }
     </Drawer>
