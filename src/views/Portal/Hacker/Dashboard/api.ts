@@ -62,7 +62,6 @@ export const confirmAttendance = async (
   } catch (err) {
     if (axios.isAxiosError(err)) {
       const axiosError: any = err
-      console.log(err)
       setBanner({
         message: axiosError.response.data.error,
         messageType: "ERROR",
