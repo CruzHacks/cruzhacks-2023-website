@@ -23,7 +23,7 @@ const FAQsData = [
         <>
           CruzHacks 2023 will take place in CruzHacks is a 3 day event that
           starts Friday night and ends Sunday afternoon. This year, it will take
-          place on January 13-15, 2023 (the Friday-Sunday of MLK Weekend).
+          place on Feb 3-5, 2023 (the Friday-Sunday of MLK Weekend).
         </>
       ),
     },

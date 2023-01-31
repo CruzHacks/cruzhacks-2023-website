@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-import { useAuth0 } from "@auth0/auth0-react"
+import React, { useEffect } from "react"
 import { SnackbarProvider, useSnackbar } from "notistack"
 import { initializeApp } from "firebase/app"
 import {
@@ -31,8 +30,6 @@ const buildAnnouncement = (body: string) => (
 )
 
 const PortalWithNotify: React.FC = () => {
-  const [isNotificationEnabled, setNotificationEnabled] = useState(false)
-  const { getAccessTokenSilently } = useAuth0()
   const { enqueueSnackbar } = useSnackbar()
 
   const db = getDatabase(app)

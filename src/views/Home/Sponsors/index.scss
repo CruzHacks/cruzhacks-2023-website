@@ -23,8 +23,8 @@
   }
 }
 
-.sponsorIcon {
-  margin: 0 1vw 1vh;
+.row5 {
+  margin-top: 0.5em;
 }
 
 .tier1 {
@@ -63,12 +63,12 @@
 }
 
 .tier5 {
-  width: 65%;
-  height: 65%;
+  width: 80%;
+  height: 80%;
 
   @include responsiveness.screen(smallest, phone) {
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 80%;
   }
 }
 
@@ -78,4 +78,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.Verbwire {
+  min-width: 90%;
+}
+
+.echo3D {
+  min-height: 90%;
 }

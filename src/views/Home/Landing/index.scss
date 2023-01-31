@@ -429,7 +429,7 @@
   flex-direction: row;
   vertical-align: bottom;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   gap: 0.5em;
   padding-bottom: 1.5em;
 
@@ -439,14 +439,14 @@
 
   @media screen and (max-width: 1000px) {
     margin-top: 15px;
+    align-items: center;
     flex-direction: column;
   }
 }
 
 .date {
-
   gap: 0.5em;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
