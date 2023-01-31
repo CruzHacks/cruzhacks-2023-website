@@ -1,15 +1,7 @@
 import React, { useState, Dispatch } from "react"
-import { useAuth0 } from "@auth0/auth0-react"
 import "./index.scss"
 import ManageTable from "./components/table/index"
 import ApplicantData from "./components/doughnut/index"
-/* eslint-disable */
-import {
-  useBanner,
-  Message,
-} from "../../../../contexts/PortalBanners/PortalBanner"
-/* eslint-enable */
-import getHackers from "./components/api"
 
 export interface TableProps {
   search: string
