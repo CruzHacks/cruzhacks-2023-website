@@ -8,6 +8,7 @@ import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner
 /* eslint-enable */
 import Spinner from "../../../../../../components/Spinner"
 import HackerProfileDrawer from "../drawer/index"
+import { TableProps } from "../../index"
 import "./index.scss"
 
 import {
@@ -87,10 +88,10 @@ const handleDrawerOpen = (
   setProps(hacker)
 }
 
-const ManageTable = () => {
+const ManageTable = ({ search, hackers, setHackers }: TableProps) => {
   // Uncomment when ready to debug API call issue
 
-  const [hackers, setHackers] = useState<Array<any>>([])
+  //const [hackers, setHackers] = useState<Array<any>>(hackerSearched)
   const { getAccessTokenSilently } = useAuth0()
   const [render, setRender] = useState<boolean>(false)
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
@@ -129,66 +130,79 @@ const ManageTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {hackers.map((hacker: HackerProps, index: number) => (
-              <StyledTableRow
-                key={index}
-                onClick={() =>
-                  handleDrawerOpen(index, setDrawerOpen, setDrawerProps, hacker)
-                }
-                className={`row-${index}`}
-              >
-                <HackerProfileDrawer
-                  drawerOpen={drawerOpen}
-                  setDrawerOpen={setDrawerOpen}
-                  setHackers={setHackers}
-                  props={hackerDrawerProps}
-                />
-                <TableCell
-                  sx={plainCellStyle}
-                  component='th'
-                  scope='row'
-                  align='left'
-                >
-                  {hacker.id}
-                </TableCell>
-                <TableCell
-                  sx={{
-                    fontFamily: "Nunito Sans",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    fontSize: 16,
-                    fontHeight: 22,
-                    color: "#6488E5",
-                  }}
-                  align='left'
-                >
-                  {hacker.firstName + " " + hacker.lastName}
-                </TableCell>
-                {
-                  <TableCell sx={plainCellStyle} align='left'>
-                    {
-                      <div className='check_in__container'>
-                        <div className='check_in__container--text'>
-                          {handleCheckInText(hacker.checkedIn)}
-                        </div>
-                        <img src={handleCheckin(hacker.checkedIn)} />
-                      </div>
+            {hackers.map((hacker: HackerProps, index: number) => {
+              if (
+                hacker.email.includes(search) ||
+                hacker.firstName.includes(search) ||
+                hacker.lastName.includes(search)
+              ) {
+                return (
+                  <StyledTableRow
+                    key={index}
+                    onClick={() =>
+                      handleDrawerOpen(
+                        index,
+                        setDrawerOpen,
+                        setDrawerProps,
+                        hacker
+                      )
                     }
-                  </TableCell>
-                }
-                <TableCell align='left'>
-                  <div
-                    className={`status__container-${handleStatusCSS(
-                      hacker.attendanceStatus
-                    )}`}
+                    className={`row-${index}`}
                   >
-                    <div className='status__container'>
-                      {hacker.attendanceStatus}
-                    </div>
-                  </div>
-                </TableCell>
-              </StyledTableRow>
-            ))}
+                    <HackerProfileDrawer
+                      drawerOpen={drawerOpen}
+                      setDrawerOpen={setDrawerOpen}
+                      setHackers={setHackers}
+                      props={hackerDrawerProps}
+                    />
+                    <TableCell
+                      sx={plainCellStyle}
+                      component='th'
+                      scope='row'
+                      align='left'
+                    >
+                      {hacker.id}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontFamily: "Nunito Sans",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        fontSize: 16,
+                        fontHeight: 22,
+                        color: "#6488E5",
+                      }}
+                      align='left'
+                    >
+                      {hacker.firstName + " " + hacker.lastName}
+                    </TableCell>
+                    {
+                      <TableCell sx={plainCellStyle} align='left'>
+                        {
+                          <div className='check_in__container'>
+                            <div className='check_in__container--text'>
+                              {handleCheckInText(hacker.checkedIn)}
+                            </div>
+                            <img src={handleCheckin(hacker.checkedIn)} />
+                          </div>
+                        }
+                      </TableCell>
+                    }
+                    <TableCell align='left'>
+                      <div
+                        className={`status__container-${handleStatusCSS(
+                          hacker.attendanceStatus
+                        )}`}
+                      >
+                        <div className='status__container'>
+                          {hacker.attendanceStatus}
+                        </div>
+                      </div>
+                    </TableCell>
+                  </StyledTableRow>
+                )
+              }
+            })}
           </TableBody>
         </Table>
       </TableContainer>

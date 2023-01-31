@@ -51,7 +51,9 @@ export const getHackers = async (
     const token = await getAccessTokenSilently()
     const getHackersAxiosRequest = {
       method: "get",
+      /* eslint-disable */
       url: `${process.env.REACT_APP_ENDPOINT_URL}/admin/getHackers`,
+      /* eslint-enable */
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
