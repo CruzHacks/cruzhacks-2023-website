@@ -8,6 +8,7 @@ import Milestones from "./Milestones/index.view"
 import Tracks from "./Tracks/index.view"
 
 import "./index.scss"
+import Speakers from "./Speakers/index.view"
 
 const Home: React.FC = () => (
   <>
@@ -16,6 +17,7 @@ const Home: React.FC = () => (
       <HeroBlurb />
       <Tracks />
       <Milestones />
+      <Speakers />
       <FAQs />
       <Sponsors />
     </div>

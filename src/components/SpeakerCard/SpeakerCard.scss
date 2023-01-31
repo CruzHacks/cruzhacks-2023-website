@@ -1,0 +1,50 @@
+@import "../../stylesheets/fonts";
+.speaker-card {
+  border-radius: 12px;
+  border: 1px solid white;
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.98);
+  padding: 20px;
+  min-width: 90%;
+  max-width: 600px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  overflow-x: hidden;
+
+  &__photo {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 20px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+    font-family: $inter;
+
+    &__name {
+      font-size: 48px;
+      text-align: center;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 24px;
+      color: #D0D0D0;
+    }
+
+    &__blurb {
+      text-align: center;
+      margin-top: 20px;
+      width: 80%;
+      color: #A3A3A3;
+    }
+  }
+}

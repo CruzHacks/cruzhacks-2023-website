@@ -1,0 +1,16 @@
+@import "../../../stylesheets/fonts";
+
+.speakers {
+  &__header {
+    font-family: $inter;
+    font-size: 34px;
+    text-align: center;
+    font-weight: 500;
+    margin: 30px 0px;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+  }
+}

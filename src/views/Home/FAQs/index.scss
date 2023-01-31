@@ -1,15 +1,19 @@
 @import "../../../stylesheets/variables";
 @import "../../../stylesheets/fonts";
 
-.faqs__container {
-  text-align: center;
-  flex-direction: row;
+.faqs {
 
-  h2 {
+  &__header {
     font-family: $inter;
     font-size: 34px;
     padding-bottom: 1em;
   }
+
+  &__container {
+  text-align: center;
+  flex-direction: row;
+
+  
 
   padding: 2em 0;
 
@@ -92,6 +96,7 @@
       width: 19em;
     }
   }
+}
 }
 
 @media only screen and (max-width: 800px) {
