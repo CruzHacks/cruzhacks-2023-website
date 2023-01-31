@@ -101,7 +101,7 @@ const TeamMemberTag = (props: TeamMemberTagProps) => {
       <div className={`membertag--name ${props.type}`}>
         {props.name || "<Empty>"}
       </div>
-      {props.teamLeader === user?.sub && props.id === props.teamLeader ? (
+      {props.teamLeader === user?.sub && props.id !== props.teamLeader ? (
         <button
           className='membertag--remove'
           onClick={() => {
