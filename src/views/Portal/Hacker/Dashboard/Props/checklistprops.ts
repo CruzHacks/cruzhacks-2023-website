@@ -19,7 +19,7 @@ export const checklistProps: Array<ChecklistItemProps> = [
     of fellow hackers? Find your team to start 
     innovating!`,
     buttonText: "Get Started",
-    isUnclickable: true,
+    isUnclickable: false,
     unClickableText: "Get Started",
     onClick: () => {},
   },
