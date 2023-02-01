@@ -213,10 +213,12 @@ export const rsvpInvite = async (
     const res = await axios(acceptInviteAxiosRequest)
     setTeamPage({
       invitations: res.data.newInvitations,
+      teamName: res.data.teamData.teamName,
       teamLeader: res.data.teamData.teamLeader,
       teamMembers: res.data.teamData.members,
       invitedTeamMembers: res.data.teamData.invitedTeamMembers,
     })
+    setBanner({ messageType: "SUCCESS", message: `You Joined ${teamName}` })
   } catch (err) {
     if (axios.isAxiosError(err)) {
       const axiosError: any = err
