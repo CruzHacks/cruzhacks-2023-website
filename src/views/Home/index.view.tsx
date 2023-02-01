@@ -6,6 +6,7 @@ import Landing from "./Landing/index.view"
 import Sponsors from "./Sponsors/index.view"
 import Milestones from "./Milestones/index.view"
 import Tracks from "./Tracks/index.view"
+import Schedule from "./Schedule"
 
 import "./index.scss"
 
@@ -15,6 +16,7 @@ const Home: React.FC = () => (
     <div className='home__container'>
       <HeroBlurb />
       <Tracks />
+      <Schedule />
       <Milestones />
       <FAQs />
       <Sponsors />
