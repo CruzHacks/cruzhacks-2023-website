@@ -1,5 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { useEffect, useReducer, useState } from "react"
+import Spinner from "../../../../components/Spinner"
 import {
   BannerProvider,
   useBanner,
@@ -67,7 +68,7 @@ const TeamFormation: React.FC = () => {
       </BannerProvider>
     )
   } else {
-    return <div className='teamformation'></div>
+    return <Spinner />
   }
 }
 
