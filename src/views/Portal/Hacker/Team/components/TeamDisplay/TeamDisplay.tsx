@@ -1,33 +1,69 @@
 import { useAuth0 } from "@auth0/auth0-react"
-import React from "react"
-import { removeTeamMember } from "../../api"
+import React, { Dispatch } from "react"
+import { TeamFormationProps } from "../.."
+// eslint-disable-next-line max-len
+import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
+import { deleteTeam, lockTeam, removeTeamMember } from "../../api"
 import "./TeamDisplay.scss"
 
 export interface TeamMember {
-  position: number
-  name: string
-  id: string
+  memberName: string
+  memberID: string
 }
 
 export interface TeamDisplayProps {
-  teamName: string
-  members: Array<TeamMember>
+  teamPage: TeamFormationProps
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>
 }
 
 export const TeamDisplay = (props: TeamDisplayProps) => {
+  const { user, getAccessTokenSilently } = useAuth0()
+  const { setBanner } = useBanner()
+
   return (
     <div className='teamdisplay'>
       <div className='teamdisplay__header'>
-        {props.teamName || "*[No Team]*"}
+        <div className='teamdisplay__header__title'>
+          {props.teamPage.teamName || "*[No Team]*"}
+        </div>
+        {props.teamPage.teamLeader === user?.sub ? (
+          <button
+            className='teamdisplay__header__delete'
+            onClick={() =>
+              deleteTeam(
+                getAccessTokenSilently,
+                props.teamPage.teamName,
+                props.setTeamPage,
+                setBanner
+              )
+            }
+          >
+            Delete
+          </button>
+        ) : null}
       </div>
       <div className='teamdisplay__members'>
-        {props.members.map((member: TeamMember) => {
+        {props.teamPage.teamMembers.map((member: TeamMember) => {
           return (
             <TeamMemberTag
-              key={member.position}
-              id={member.id}
-              name={member.name}
-              position={member.position + 1}
+              key={member.memberID}
+              id={member.memberID}
+              name={member.memberName}
+              type='ACCEPTED'
+              teamLeader={props.teamPage.teamLeader}
+              setTeamPage={props.setTeamPage}
+            />
+          )
+        })}
+        {props.teamPage.invitedTeamMembers.map((member: TeamMember) => {
+          return (
+            <TeamMemberTag
+              key={member.memberID}
+              id={member.memberID}
+              name={member.memberName}
+              type='INVITED'
+              teamLeader={props.teamPage.teamLeader}
+              setTeamPage={props.setTeamPage}
             />
           )
         })}
@@ -36,22 +72,46 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
         Please take a moment to review your team above. If everything looks
         correct, please press submit and get excited to hack with us very soon!
       </div>
-      <button className='teamdisplay__submit-button'>Submit</button>
+      <button
+        className='teamdisplay__submit-button'
+        onClick={() => {
+          lockTeam(getAccessTokenSilently, setBanner)
+        }}
+      >
+        Submit
+      </button>
     </div>
   )
 }
 
-const TeamMemberTag = (props: TeamMember) => {
-  const { getAccessTokenSilently } = useAuth0()
+interface TeamMemberTagProps {
+  name: string
+  id: string
+  type: "INVITED" | "ACCEPTED"
+  teamLeader: string
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>
+}
+
+const TeamMemberTag = (props: TeamMemberTagProps) => {
+  const { getAccessTokenSilently, user } = useAuth0()
+
+  const { setBanner } = useBanner()
   return (
     <div className='membertag'>
-      <div className='membertag--position'>Member {props.position}:&nbsp;</div>
-      <div className='membertag--name'>{props.name || "<Empty>"}</div>
-      {props.name ? (
+      <div className={`membertag--name ${props.type}`}>
+        {props.name || "<Empty>"}
+      </div>
+      {props.teamLeader === user?.sub && props.id !== props.teamLeader ? (
         <button
           className='membertag--remove'
           onClick={() => {
-            removeTeamMember(getAccessTokenSilently, props.id)
+            removeTeamMember(
+              getAccessTokenSilently,
+              props.id,
+              props.name,
+              props.setTeamPage,
+              setBanner
+            )
           }}
         >
           Remove

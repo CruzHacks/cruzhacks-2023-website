@@ -44,7 +44,6 @@ const App: React.FC = () => {
       behavior: "auto",
     })
   }, [useLocation().pathname])
-  const disableTeamBuilder = true
 
   return (
     <div className='app'>
@@ -103,17 +102,12 @@ const App: React.FC = () => {
                     <PrivateRoute role='Hacker' component={<MainDash />} />
                   }
                 />
-                {disableTeamBuilder && (
-                  <Route
-                    path='hacker/:userId/team'
-                    element={
-                      <PrivateRoute
-                        role='Hacker'
-                        component={<TeamFormation />}
-                      />
-                    }
-                  />
-                )}
+                <Route
+                  path='hacker/:userId/team'
+                  element={
+                    <PrivateRoute role='Hacker' component={<TeamFormation />} />
+                  }
+                />
                 <Route
                   path='hacker/:userId/live'
                   element={
