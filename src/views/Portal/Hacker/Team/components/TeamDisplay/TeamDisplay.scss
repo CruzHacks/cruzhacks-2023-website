@@ -20,6 +20,45 @@
     margin-top: 1em;
     color: #3b3b7f;
     font-size: 22px;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    position: relative;
+
+    &__title {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__delete {
+      all: unset;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border: 1px solid #e55039;
+      border-radius: 6px;
+      margin-left: auto;
+      color: #e55039;
+      font-size: 14px;
+      padding: 5px 10px;
+      text-align: center;
+      transition: padding ease 0.25s;
+      width: 15%;
+
+      &:hover {
+        cursor: pointer;
+        padding: 5px 15px;
+
+        @media screen and (max-width: 450px) {
+          padding: 5px 10px;
+        }
+      }
+
+      &:active {
+        background-color: #e55039;
+        color: white;
+      }
+    }
   }
 
   &__members {
@@ -29,6 +68,9 @@
     border: 1px solid #c4c4c4;
     border-radius: 6px;
     overflow-y: auto;
+    list-style-position: inside;
+    counter-reset: listcounter;
+    counter-increment: listcounter;
   }
 
   &__review {
@@ -67,11 +109,20 @@
 
 .membertag {
   font-family: $nunito;
+  font-size: 22px;
+
+  &::before {
+    content: "Member " counter(listcounter);
+    padding: 10px;
+    color: #424242;
+    user-select: all;
+  }
+
   display: inline-flex;
   align-items: center;
   justify-content: left;
   padding: 10px;
-  font-size: 22px;
+
   width: calc(100% - 20px);
 
   @media screen and (max-width: 450px) {
@@ -86,6 +137,10 @@
     color: #424242;
     font-weight: 600;
     width: 30%;
+
+    &.INVITED {
+      color: #e55039;
+    }
   }
 
   &--name {
@@ -94,6 +149,10 @@
     font-weight: 400;
     text-align: left;
     width: 40%;
+
+    &.INVITED {
+      color: #e55039;
+    }
   }
 
   &--remove {

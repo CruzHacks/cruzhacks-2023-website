@@ -8,6 +8,10 @@
   background-color: #f0f0f0;
   margin-top: 4em;
 
+  @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+    height: 100%;
+  }
+
   &--top {
     display: flex;
     align-items: center;
@@ -132,11 +136,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 23px;
+    margin-top: 60px;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       flex-direction: column;
       margin-top: 45px;
+    }
+
+    @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+      margin-bottom: 215px;
     }
   }
 
@@ -164,13 +172,14 @@
   &--table {
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 50px;
   }
 }
 
 .manage-card {
   background-color: #fff;
-  width: 382px;
-  height: 174px;
+  width: 402px;
+  height: 197px;
   border: 1px solid #e0e0e0;
   box-shadow: 0 4px 20px rgba(179 179 179 / 25%);
   border-radius: 6px;
@@ -181,12 +190,11 @@
   }
 
   @include responsiveness.screen(small-laptop, desktop, big-desktop) {
-    width: 382px;
     margin-right: 26px;
 
     &:hover {
-      height: 177px;
-      width: 385px;
+      height: 200px;
+      width: 405px;
       margin: -1.5px 24.5px -1.5px -1.5px;
 
       cursor: pointer;

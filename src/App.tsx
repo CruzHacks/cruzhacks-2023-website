@@ -14,6 +14,7 @@ import TeamFormation from "./views/Portal/Hacker/Team"
 import { MainDash } from "./views/Portal/Hacker/Dashboard"
 import AdminDash from "./views/Portal/Admin/Dashboard"
 import UserManagement from "./views/Portal/Admin/UserManagement"
+import HackerOverview from "./views/Portal/Admin/HackerOverview"
 import ErrorView from "./views/Error/index.view"
 import LivePlaceholder from "./views/LivePlaceholder/index.view"
 import BGwrapper from "./components/BGwrapper"
@@ -43,7 +44,6 @@ const App: React.FC = () => {
       behavior: "auto",
     })
   }, [useLocation().pathname])
-  const disableTeamBuilder = true
 
   return (
     <div className='app'>
@@ -79,6 +79,15 @@ const App: React.FC = () => {
                   }
                 />
                 <Route
+                  path='admin/:userId/overview'
+                  element={
+                    <PrivateRoute
+                      role='Organizer'
+                      component={<HackerOverview />}
+                    />
+                  }
+                />
+                <Route
                   path='admin/:userId/live'
                   element={
                     <PrivateRoute
@@ -93,17 +102,12 @@ const App: React.FC = () => {
                     <PrivateRoute role='Hacker' component={<MainDash />} />
                   }
                 />
-                {disableTeamBuilder && (
-                  <Route
-                    path='hacker/:userId/team'
-                    element={
-                      <PrivateRoute
-                        role='Hacker'
-                        component={<TeamFormation />}
-                      />
-                    }
-                  />
-                )}
+                <Route
+                  path='hacker/:userId/team'
+                  element={
+                    <PrivateRoute role='Hacker' component={<TeamFormation />} />
+                  }
+                />
                 <Route
                   path='hacker/:userId/live'
                   element={
