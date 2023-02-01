@@ -20,6 +20,7 @@ import {
   useBanner,
 } from "../../../../contexts/PortalBanners/PortalBanner"
 import Spinner from "../../../../components/Spinner"
+import { useNavigate } from "react-router-dom"
 
 export const MainDash = () => (
   <BannerProvider>
@@ -113,6 +114,8 @@ const Checklist = (props: {
   setAttendanceStatus: Dispatch<AttendanceStatus>
   setConfirmationModalOpen: Dispatch<boolean>
 }) => {
+  const navigate = useNavigate()
+  const { user } = useAuth0()
   return (
     <div className='checklist'>
       <div className='checklist__title'>
@@ -142,7 +145,7 @@ const Checklist = (props: {
           title={checklistProps[1].title}
           message={checklistProps[1].message}
           buttonText={checklistProps[1].buttonText}
-          onClick={() => {}}
+          onClick={() => navigate(`/portal/hacker/${user?.nickname}/team`)}
           isUnclickable={checklistProps[1].isUnclickable}
           unClickableText={checklistProps[1].unClickableText}
         />
