@@ -3,9 +3,7 @@
   border-radius: 12px;
   border: 1px solid white;
   box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.98);
-  padding: 20px;
   min-width: 90%;
-  max-width: 600px;
   height: 400px;
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +11,11 @@
   align-items: center;
   margin: 20px;
   overflow-x: hidden;
+  transition: transform ease 0.5s;
+
+  @media screen and (max-width: 800px ) {
+    height: 550px;
+  }
 
   &__photo {
     border-radius: 50%;
@@ -20,6 +23,10 @@
     height: 200px;
     object-fit: cover;
     margin: 20px;
+
+    @media screen and (max-width: 800px ) {
+      margin: 10px;
+    }
   }
 
   &__info {
@@ -28,6 +35,9 @@
     width: 60%;
     align-items: center;
     font-family: $inter;
+    @media screen and (max-width: 700px) {
+      width: 100%;
+    }
 
     &__name {
       font-size: 48px;
@@ -45,6 +55,10 @@
       margin-top: 20px;
       width: 80%;
       color: #A3A3A3;
+
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
     }
   }
 }

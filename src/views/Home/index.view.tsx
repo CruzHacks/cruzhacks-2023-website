@@ -9,6 +9,7 @@ import Tracks from "./Tracks/index.view"
 
 import "./index.scss"
 import Speakers from "./Speakers/index.view"
+import SpeakerProps from "../../Props/SpeakerProps/props"
 
 const Home: React.FC = () => (
   <>
@@ -17,7 +18,7 @@ const Home: React.FC = () => (
       <HeroBlurb />
       <Tracks />
       <Milestones />
-      <Speakers />
+      <Speakers speakerData={SpeakerProps} />
       <FAQs />
       <Sponsors />
     </div>

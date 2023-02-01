@@ -1,21 +1,25 @@
 import React from "react"
 import "./SpeakerCard.scss"
-import SatyaNadella from "../../assets/SpeakerImages/SatyaNadella.jpg"
 
-const SpeakerCard = () => {
+export interface SpeakerData {
+  image: string
+  name: string
+  title: string
+  blurb: string
+  key: number
+}
+
+const SpeakerCard = (props: {
+  style?: React.CSSProperties
+  data: SpeakerData
+}) => {
   return (
-    <div className='speaker-card'>
-      <img className='speaker-card__photo' src={SatyaNadella} />
+    <div style={props.style || {}} className='speaker-card'>
+      <img className='speaker-card__photo' src={props.data.image} />
       <div className='speaker-card__info'>
-        <div className='speaker-card__info__name'>Satya Nadella</div>
-        <div className='speaker-card__info__title'>
-          CEO @ Microsoft | Opening Speaker
-        </div>
-        <div className='speaker-card__info__blurb'>
-          Short Blub Copy and Pasted from Linkedin Bio djsfhf dsfsjdhfjksdh
-          djshdfjsdhfjnb dsjkf skdjfhksj dhf fjsdfjsdk jfhsd jfhskj dhf
-          dfhsdjfhdsjfs jdfndsjfdjfshs
-        </div>
+        <div className='speaker-card__info__name'>{props.data.name}</div>
+        <div className='speaker-card__info__title'>{props.data.title}</div>
+        <div className='speaker-card__info__blurb'>{props.data.blurb}</div>
       </div>
     </div>
   )
