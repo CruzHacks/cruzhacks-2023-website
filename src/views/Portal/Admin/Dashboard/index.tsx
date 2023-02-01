@@ -1,4 +1,4 @@
-import React, { useState, Dispatch } from "react"
+import React, { useState, useEffect } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { ManageCards, ManageCardProps } from "../Props/Management/props"
 import { useNavigate } from "react-router-dom"
@@ -8,15 +8,18 @@ import {
   Fade,
   Box,
   SxProps,
-  OutlinedInput,
+  /*OutlinedInput,
   InputLabel,
   MenuItem,
   FormControl,
   ListItemText,
   Select,
   SelectChangeEvent,
-  Checkbox,
+  Checkbox,*/
+  Alert,
+  AlertProps,
 } from "@mui/material"
+import { createAnnouncement } from "../../../../utils/api"
 
 import "./index.scss"
 
@@ -43,9 +46,9 @@ const ManageCard = (props: ManageCardProps) => {
 
 interface AnnouncementModalProps {
   modalOpen: boolean
-  setModalOpen: Dispatch<boolean>
+  handleClose: () => void
 }
-
+/*
 const MenuProps = {
   PaperProps: {
     style: {
@@ -68,18 +71,29 @@ const checkDropStyle = () => {
   return DropStyle2
 }
 
-const recipients = ["Everyone", "Hackers", "Judges"]
+const recipients = ["Hackers", "Admin"]
 
-const DropDown = () => {
-  const [recipient, setRecipient] = React.useState<string[]>([])
-
+const DropDown = ({ recipient, setRecipient }: any) => {
+  const [checked, setChecked] = useState<boolean>(false)
   const handleChange = (event: SelectChangeEvent<typeof recipient>) => {
     const {
       target: { value },
     } = event
-    setRecipient(typeof value === "string" ? value.split(",") : value)
+    console.log(value)
+    if (value.indexOf("Everyone") === -1) {
+      if (checked) setChecked(false)
+      setRecipient(typeof value === "string" ? value.split(",") : value)
+    } else handleEveryone()
   }
-
+  const handleEveryone = () => {
+    if (recipient.length === recipients.length && checked) {
+      setRecipient([])
+      setChecked(false)
+    } else {
+      setRecipient(recipients)
+      setChecked(true)
+    }
+  }
   return (
     <div>
       <FormControl sx={checkDropStyle}>
@@ -103,6 +117,18 @@ const DropDown = () => {
           renderValue={selected => selected.join(", ")}
           MenuProps={MenuProps}
         >
+          <MenuItem value={"Everyone"}>
+            <Checkbox
+              sx={{
+                color: "#6F6FE8",
+                "&.Mui-checked": {
+                  color: "#6F6FE8",
+                },
+              }}
+              checked={checked}
+            />
+            <ListItemText primary={"Everyone"} />
+          </MenuItem>
           {recipients.map(group => (
             <MenuItem key={group} value={group}>
               <Checkbox
@@ -121,11 +147,11 @@ const DropDown = () => {
       </FormControl>
     </div>
   )
-}
+}*/
 
 const style1: SxProps = {
-  width: "325px",
-  height: "365px",
+  minWidth: "325px",
+  minHeight: "365px",
   bgcolor: "#FFFFFF",
   outline: "none",
   borderRadius: "6px",
@@ -136,8 +162,8 @@ const style1: SxProps = {
 }
 
 const style2: SxProps = {
-  width: "705px",
-  height: "465px",
+  minWidth: "505px",
+  minHeight: "333px",
   bgcolor: "#FFFFFF",
   outline: "none",
   borderRadius: "6px",
@@ -154,28 +180,114 @@ const checkSize = () => {
   return style2
 }
 
+interface ResponsesProps {
+  message: string
+  severity: AlertProps["severity"]
+}
+const responses: Array<ResponsesProps> = [
+  {
+    message: "Successfully Delivered Announcement 😎",
+    severity: "success",
+  },
+  {
+    message: "An announcement must have a body... 😑",
+    severity: "warning",
+  },
+  {
+    message: "Please select a recipient from the dropdown... 😑",
+    severity: "warning",
+  },
+  {
+    message: "Unable to deliver message, please try again. 🤬",
+    severity: "error",
+  },
+]
+
 const AnnouncementModal = ({
   modalOpen,
-  setModalOpen,
+  handleClose,
 }: AnnouncementModalProps) => {
+  // const [recipient, setRecipient] = useState<string[]>([])
+  const [notifyBody, setNotifyBody] = useState<string>("")
+  const [alertOpen, setAlertOpen] = useState(false)
+  const [alertVariant, setAlertVariant] = useState(0)
+
+  const { getAccessTokenSilently } = useAuth0()
+
+  useEffect(() => {
+    if (alertOpen) setTimeout(() => setAlertOpen(false), 5000)
+  }, [alertOpen])
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setNotifyBody(e.target.value)
+  const handleSubmit = () => {
+    if (notifyBody === "") {
+      setAlertOpen(true)
+      setAlertVariant(1)
+      return
+    }
+
+    getAccessTokenSilently().then(accessToken => {
+      const message = {
+        topic: "Announcements",
+        title: "",
+        body: notifyBody,
+      }
+      createAnnouncement(message, accessToken)
+        .then(res => {
+          if (res.status === 201) {
+            setAlertVariant(0)
+            setAlertOpen(true)
+            setNotifyBody("")
+          } else {
+            throw new Error(res.body.message)
+          }
+        })
+        .catch(err => {
+          setAlertVariant(3)
+          setAlertOpen(true)
+          // below line is to satiate the linter
+          return err
+        })
+    })
+  }
   return (
     <Modal
       open={modalOpen}
-      onClose={() => setModalOpen(false)}
+      onClose={handleClose}
       aria-labelledby='announcement modal'
       aria-describedby='choose message for'
     >
       <Fade in={modalOpen}>
         <Box sx={checkSize}>
+          {alertOpen && (
+            <Fade in={alertOpen} unmountOnExit>
+              <Alert
+                className='announcement-alert'
+                severity={responses[alertVariant].severity}
+              >
+                {responses[alertVariant].message}
+              </Alert>
+            </Fade>
+          )}
           <div className='announcement-modal__container'>
             <div className='announcement-modal__container--title'>
-              Who is this message for?
+              What do you want to say?
             </div>
+            {/*
             <div className='announcement-modal__container--dropdown'>
-              <DropDown />
+              <DropDown recipient={recipient} setRecipient={setRecipient} />
             </div>
-            <textarea className='announcement-modal__container--input' />
-            <div className='announcement-modal__container--submit'>
+            */}
+            <textarea
+              className='announcement-modal__container--input'
+              value={notifyBody}
+              onChange={e => handleChange(e)}
+            />
+            <div
+              className='announcement-modal__container--submit'
+              onClick={handleSubmit}
+            >
               <a>Submit</a>
             </div>
           </div>
@@ -189,6 +301,9 @@ const AdminDash: React.FC = () => {
   const { user } = useAuth0()
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
+  const handleOpen = () => setModalOpen(true)
+  const handleClose = () => setModalOpen(false)
+
   return (
     <div className='admindash__container'>
       <div className='admindash__container--top'>
@@ -200,13 +315,13 @@ const AdminDash: React.FC = () => {
             What would you like to do today?
           </div>
         </div>
-        <div className='admindash__container--announcement'>
-          <a onClick={() => setModalOpen(true)}>Make Live Announcement</a>
-          <AnnouncementModal
-            modalOpen={modalOpen}
-            setModalOpen={setModalOpen}
-          />
+        <div
+          className='admindash__container--announcement'
+          onClick={handleOpen}
+        >
+          <a>Make Live Announcement</a>
         </div>
+        <AnnouncementModal modalOpen={modalOpen} handleClose={handleClose} />
       </div>
       <div className='admindash__container--boxes'>
         {ManageCards.map(({ title, blurb }: ManageCardProps) => (

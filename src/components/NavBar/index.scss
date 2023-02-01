@@ -59,7 +59,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: right;
-    max-width: 700px;
+    max-width: 750px;
     margin-right: 1em;
 
     &--item {
@@ -113,7 +113,7 @@
   // padding-right: 10%;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 850px) {
   .nav {
     align-items: flex-start;
 
@@ -191,12 +191,12 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: 1em;
+        gap: 1.5em;
         margin-top: 3em;
         transition: margin-top 300ms ease;
 
         &.hidden {
-          margin-top: -13em;
+          margin-top: -10em;
           z-index: -1;
         }
       }
@@ -215,7 +215,7 @@
   margin-right: 50px;
   z-index: 10;
 
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 850px) {
     position: absolute;
     top: 81.78px;
     right: 10px;
@@ -238,9 +238,13 @@
   font-family: $barlow;
   font-style: normal;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 28px;
   color: white;
   margin-left: -0.75em;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 }
 
 .portal-full-logo {

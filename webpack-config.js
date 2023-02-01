@@ -32,6 +32,7 @@ module.exports = {
         REACT_APP_API_KEY: JSON.stringify(process.env.REACT_APP_API_KEY),
         REACT_APP_ENDPOINT_URL: JSON.stringify(process.env.REACT_APP_ENDPOINT_URL),
         REACT_APP_CORS_ORIGIN: JSON.stringify(process.env.REACT_APP_CORS_ORIGIN),
+        REACT_APP_FIREBASE_CONFIG: JSON.stringify(process.env.REACT_APP_FIREBASE_CONFIG),
       },
     }),
   ],
