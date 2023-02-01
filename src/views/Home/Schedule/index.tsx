@@ -1,5 +1,6 @@
 import React, { Dispatch, useState } from "react"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
+import { scheduleEvents } from "../../../Props/ScheduleProps/props"
 import "./index.scss"
 
 export interface ScheduleEvent {
@@ -12,15 +13,34 @@ interface SchedulePageProps {
   events: Array<ScheduleEvent>
 }
 
-const SampleEvents: Array<ScheduleEvent> = [
-  {
-    name: "Opening Ceremony",
-    time: "5:00pm",
-  },
-]
-
 const Schedule = () => {
   const [selected, setSelected] = useState<number>(0)
+  const schedulePage = () => {
+    switch (selected) {
+      case 0:
+        return (
+          <SchedulePage
+            date='Friday, February 3, 2023'
+            events={scheduleEvents[0]}
+          />
+        )
+      case 1:
+        return (
+          <SchedulePage
+            date='Saturday, February 4, 2023'
+            events={scheduleEvents[1]}
+          />
+        )
+      case 2:
+        return (
+          <SchedulePage
+            date='Sunday, February 5, 2023'
+            events={scheduleEvents[2]}
+          />
+        )
+    }
+  }
+
   return (
     <div className='schedule'>
       <div className='schedule__title'>SCHEDULE</div>
@@ -29,7 +49,7 @@ const Schedule = () => {
         selected={selected}
         setSelected={setSelected}
       />
-      <SchedulePage date='Friday, January 15' events={SampleEvents} />
+      {schedulePage()}
     </div>
   )
 }
@@ -63,10 +83,16 @@ const SchedulePage = ({ date, events }: SchedulePageProps) => {
   return (
     <div className='schedule-page'>
       <div className='schedule-page__title'>{date}</div>
-      <div className='schedule-page__event'>
-        <div className='schedule-page__event--name'>{events[0].name}</div>
-        <div className='schedule-page__event--time'>{events[0].time}</div>
-      </div>
+      {events.map(event => {
+        return (
+          <>
+            <div className='schedule-page__event'>
+              <div className='schedule-page__event--name'>{event.name}</div>
+              <div className='schedule-page__event--time'>{event.time}</div>
+            </div>
+          </>
+        )
+      })}
     </div>
   )
 }
