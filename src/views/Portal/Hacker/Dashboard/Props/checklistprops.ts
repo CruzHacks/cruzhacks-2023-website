@@ -35,8 +35,9 @@ export const checklistProps: Array<ChecklistItemProps> = [
     unClickableText: "HackerPack",
     onClick: () => {
       window.open(
-        // eslint-disable-next-line max-len
-        "https://docs.google.com/document/d/e/2PACX-1vTHyuHwcNdhtdovapKJCD5SAlRBkmFsfolBVPRDmoN1O9l6E-nQ0j8AAYWr5_edgVV6JgqdbIkhUYnQ/pub",
+        "https://docs.google.com/document/d/e/2P\
+        ACX-1vTHyuHwcNdhtdovapKJCD5SAlRBkmFsfolBV\
+        PRDmoN1O9l6E-nQ0j8AAYWr5_edgVV6JgqdbIkhUYnQ/pub",
         "_blank"
       )
     },
