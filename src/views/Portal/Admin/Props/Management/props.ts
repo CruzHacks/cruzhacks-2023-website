@@ -18,4 +18,8 @@ export const ManageCards: Array<ManageCardProps> = [
     title: "JUDGING",
     blurb: "Review hacker projects, score, disqualify, etc. through Devpost.",
   },
+  {
+    title: "CruzPoints",
+    blurb: "Manage CruzPoints Activities",
+  },
 ]

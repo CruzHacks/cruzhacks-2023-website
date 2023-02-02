@@ -20,6 +20,7 @@ import LivePlaceholder from "./views/LivePlaceholder/index.view"
 import BGwrapper from "./components/BGwrapper"
 
 import "./App.scss"
+import CruzPointsManager from "./views/Portal/Admin/CruzPointsManager"
 
 const LoginRedirect = () => {
   const { user } = useAuth0()
@@ -75,6 +76,15 @@ const App: React.FC = () => {
                     <PrivateRoute
                       role='Organizer'
                       component={<UserManagement />}
+                    />
+                  }
+                />
+                <Route
+                  path='admin/:userId/cruzpoints'
+                  element={
+                    <PrivateRoute
+                      role='Organizer'
+                      component={<CruzPointsManager />}
                     />
                   }
                 />

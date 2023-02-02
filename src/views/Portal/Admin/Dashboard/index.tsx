@@ -34,6 +34,10 @@ const ManageCard = (props: ManageCardProps) => {
     if (title === "JUDGING") {
       return window.open("https://cruzhacks-2023.devpost.com/users/login")
     }
+
+    if (title === "CruzPoints") {
+      navigate(`../admin/${nickname}/cruzpoints`)
+    }
   }
 
   return (
