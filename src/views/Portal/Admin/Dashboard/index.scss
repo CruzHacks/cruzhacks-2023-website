@@ -92,6 +92,9 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: perspective(1px) translateZ(0);
+    backface-visibility: hidden;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       margin-top: 40px;
@@ -105,16 +108,11 @@
     @include responsiveness.screen(small-laptop, desktop, big-desktop) {
       margin-left: 200px;
       margin-top: 87px;
+    }
 
-      &:hover {
-        height: 66px;
-        width: 309px;
-        margin-top: 85.5px;
-        margin-bottom: -1.5px;
-        margin-left: 198.5px;
-
-        cursor: pointer;
-      }
+    &:hover {
+      cursor: pointer;
+      transform: scale(105%);
     }
 
     a {
@@ -261,6 +259,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
+    width: 100%;
 
     @include responsiveness.screen(smallest, phone) {
       text-align: center;
@@ -276,7 +275,6 @@
     ) {
       padding-top: 49px;
       padding-left: 44px;
-      width: 488px;
       height: 27px;
     }
 
@@ -303,45 +301,37 @@
 
   &--input {
     margin-top: 20px;
-
+    margin-left: 7%;
+    width: 85%;
+    height: 200px;
     outline: none;
     border: 2px solid #fafafa;
-
     background: #fafafa;
     border-radius: 6px;
-    resize: "none";
-
-    @include responsiveness.screen(smallest, phone) {
-      margin-left: 25px;
-      margin-right: 25px;
-      height: 150px;
-      width: 275px;
-    }
-
-    @include responsiveness.screen(
-      tablet,
-      large-tablet,
-      small-laptop,
-      desktop,
-      big-desktop
-    ) {
-      margin-left: 44px;
-      width: 617px;
-      height: 189px;
-    }
+    resize: none;
   }
 
   &--submit {
     background: #6f6fe8;
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
     border-radius: 6px;
     text-align: center;
     align-items: center;
     justify-content: center;
     display: flex;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: perspective(1px) translateZ(0);
+    backface-visibility: hidden;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(105%);
+    }
 
     @include responsiveness.screen(smallest, phone) {
-      margin-left: 150px;
-      margin-right: 25px;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 15px;
       height: 30px;
       width: 150px;
@@ -354,21 +344,11 @@
       desktop,
       big-desktop
     ) {
-      margin-left: 469px;
+      margin-left: auto;
       margin-top: 23px;
 
       height: 36px;
       width: 192px;
-
-      &:hover {
-        height: 39px;
-        width: 195px;
-        margin-top: 21.5px;
-        margin-bottom: -1.5px;
-        margin-left: 467.5px;
-
-        cursor: pointer;
-      }
     }
 
     a {

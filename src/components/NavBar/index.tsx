@@ -123,7 +123,6 @@ const NavBar: React.FC = () => {
       >
         <span className='nav__container--right--item__link'>Dashboard</span>
       </Link>
-      {/*
       <Link
         className={
           "nav__container--right--item " +
@@ -134,7 +133,6 @@ const NavBar: React.FC = () => {
       >
         <span className='nav__container--right--item__link'>Team</span>
       </Link>
-      */}
       <Link
         className='nav__container--right--item'
         to='../live'
@@ -210,7 +208,7 @@ const NavBar: React.FC = () => {
       <Link to='/'>
         <span className='portal-full-logo'>
           <CruzHacksLogo className='logo' />
-          <div className='logo-title'>CRUZHACKS</div>
+          <div className='logo-title'>CRUZHACKS MyPortal</div>
         </span>
       </Link>
     </>
@@ -223,7 +221,7 @@ const NavBar: React.FC = () => {
           {portalView ? portalLeft : landingLeft}
         </div>
         <div className='nav__container--right'>
-          {windowWidthHeight[0] <= 700 ? dropDown : nav}
+          {windowWidthHeight[0] <= 850 ? dropDown : nav}
         </div>
         {!portalView && navHidden && MLHbadge}
       </div>

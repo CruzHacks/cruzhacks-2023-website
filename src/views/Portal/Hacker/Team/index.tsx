@@ -1,5 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useReducer, useState } from "react"
+import Spinner from "../../../../components/Spinner"
+import {
+  BannerProvider,
+  useBanner,
+} from "../../../../contexts/PortalBanners/PortalBanner"
 import { getTeamProfile } from "./api"
 import {
   Invitation,
@@ -10,46 +15,60 @@ import { TeamDisplay, TeamMember } from "./components/TeamDisplay/TeamDisplay"
 import { TeamGuidelines } from "./components/TeamGuidelines/TeamGuidelines"
 import "./index.scss"
 
+export interface TeamFormationProps {
+  invitationType: InvitationMode
+  teamName: string
+  teamMembers: Array<TeamMember>
+  invitedTeamMembers: Array<TeamMember>
+  teamLeader: string
+  invitations: Array<Invitation>
+}
+
 const TeamFormation: React.FC = () => {
-  const [invitationType, setInvitationType] = useState<InvitationMode>("JOIN")
-  const [teamName, setTeamName] = useState<string>("")
-  const [teamMembers, setTeamMembers] = useState<Array<TeamMember>>([])
   const [render, setRender] = useState<boolean>(false)
-  const [invitations, setInvitations] = useState<Array<Invitation>>([])
   const { getAccessTokenSilently } = useAuth0()
 
+  const initialTeamPage: TeamFormationProps = {
+    invitationType: "JOIN",
+    teamName: "",
+    teamMembers: [],
+    invitedTeamMembers: [],
+    teamLeader: "",
+    invitations: [],
+  }
+  const teamPageReducer = (
+    state: TeamFormationProps,
+    action: Partial<TeamFormationProps>
+  ) => {
+    return { ...state, ...action }
+  }
+
+  const [teamPage, setTeamPage] = useReducer(teamPageReducer, initialTeamPage)
+  const { setBanner } = useBanner()
   useEffect(() => {
-    getTeamProfile(
-      getAccessTokenSilently,
-      setTeamName,
-      setTeamMembers,
-      setInvitationType,
-      setInvitations
-    ).then(() => setRender(true))
+    getTeamProfile(getAccessTokenSilently, setTeamPage, setBanner).then(() =>
+      setRender(true)
+    )
   }, [])
   if (render) {
     return (
-      <div className='teamformation'>
-        <div className='teamformation__container'>
-          <div className='teamformation__container--row'>
-            <div className='teamformation__container--col'>
-              <div className='teamformation__header'>Team Formation</div>
-              <TeamGuidelines />
-              <TeamBulder
-                setTeamName={setTeamName}
-                invitationType={invitationType}
-                setInvitationType={setInvitationType}
-                setTeamMembers={setTeamMembers}
-                invites={invitations}
-              />
+      <BannerProvider>
+        <div className='teamformation'>
+          <div className='teamformation__container'>
+            <div className='teamformation__container--row'>
+              <div className='teamformation__container--col'>
+                <div className='teamformation__header'>Team Formation</div>
+                <TeamGuidelines />
+                <TeamBulder setTeamPage={setTeamPage} teamPage={teamPage} />
+              </div>
+              <TeamDisplay teamPage={teamPage} setTeamPage={setTeamPage} />
             </div>
-            <TeamDisplay members={teamMembers} teamName={teamName} />
           </div>
         </div>
-      </div>
+      </BannerProvider>
     )
   } else {
-    return <div className='teamformation'></div>
+    return <Spinner />
   }
 }
 
