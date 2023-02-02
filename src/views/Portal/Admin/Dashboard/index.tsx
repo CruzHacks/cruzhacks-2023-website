@@ -31,6 +31,9 @@ const ManageCard = (props: ManageCardProps) => {
     if (title === "MANAGE USERS") {
       navigate(`../admin/${nickname}/users`)
     }
+    if (title == "QR CODE CHECK IN") {
+      navigate(`../admin/${nickname}/checkin`)
+    }
     if (title === "JUDGING") {
       return window.open("https://cruzhacks-2023.devpost.com/users/login")
     }
