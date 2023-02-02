@@ -30,7 +30,7 @@
   &__left-button {
     all: unset;
     position: absolute;
-    left: 0%;
+    left: -30px;
     height: 60px;
     text-align: center;
     font-size: 48px;
@@ -60,7 +60,7 @@
   &__right-button {
     all: unset;
     position: absolute;
-    right: 160px;
+    right: 130px;
     height: 60px;
     text-align: center;
     font-size: 48px;
