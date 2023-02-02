@@ -1,9 +1,13 @@
 import { SpeakerData } from "../../components/SpeakerCard/SpeakerCard"
-import SatyaNadella from "../../assets/SpeakerImages/SatyaNadella.jpg"
-
+import MichealLopp from "../../assets/SpeakerImages/MichaelLopp.jpg"
+import RaghavJandhyala from "../../assets/SpeakerImages/RaghavJandhyala.jpg"
+import NadaMilkovic from "../../assets/SpeakerImages/NadaMilkovic.jpg"
+import GregorVebleMikie from "../../assets/SpeakerImages/GregorVebleMikie.jpg"
+import BrentHaddad from "../../assets/SpeakerImages/BrentHaddad.jpg"
+import AlexanderWolf from "../../assets/SpeakerImages/AlexanderWolf.jpg"
 const SpeakerProps: Array<SpeakerData> = [
   {
-    image: SatyaNadella,
+    image: MichealLopp,
     name: "Micheal Lopp",
     title: "Senior Director of Engineering @ Apple; UCSC Alumni",
     blurb: `Michael Lopp is a veteran Silicon Valley-based engineering
@@ -15,7 +19,7 @@ const SpeakerProps: Array<SpeakerData> = [
     key: 0,
   },
   {
-    image: SatyaNadella,
+    image: RaghavJandhyala,
     name: "Raghav Jandhyala",
     title: "Chief Product Officer, Microsoft Dynamics 365",
     blurb: `Raghav Jandhyala is Chief Product Officer at Microsoft for 
@@ -30,7 +34,16 @@ const SpeakerProps: Array<SpeakerData> = [
     key: 1,
   },
   {
-    image: SatyaNadella,
+    image: BrentHaddad,
+    name: "Brent Haddad",
+    title: `Brent Haddad, MBA, Ph.D.
+    Professor of Environmental Studies, UCSC
+    Co-founder, HackUCSC`,
+    blurb: ``,
+    key: 2,
+  },
+  {
+    image: NadaMilkovic,
     name: "Nada Miljkovic",
     title: `Co-Founder @ GetVirtual; Project Manager for UCSC’s 
     Center for Innovation and Entrepreneurial Development`,
@@ -41,10 +54,10 @@ const SpeakerProps: Array<SpeakerData> = [
      of Directors at United Agency Services &  E.A.R.T.H Lab SF, and CEO &
       Co-Founder of GetVirtual.
     `,
-    key: 2,
+    key: 3,
   },
   {
-    image: SatyaNadella,
+    image: GregorVebleMikie,
     name: "Gregor Veble Mikić",
     title: "Chief Aerodynamicist at Joby Aviation",
     blurb: `Gregor Veble Mikić is head of Flight Research & Flight Physics 
@@ -56,7 +69,21 @@ const SpeakerProps: Array<SpeakerData> = [
      battery powered Taurus G4, the aircraft that won the NASA Green Flight 
      Challenge sponsored by Google competition in 2011.
     `,
-    key: 3,
+    key: 4,
+  },
+  {
+    image: AlexanderWolf,
+    name: "Alexander Wolf",
+    title: "Dean of the Baskin School of Engineering at UC Santa Cruz",
+    blurb: `Alexander Wolf serves as dean of the Baskin School of Engineering 
+    and is a distinguished professor of computer science and engineering at the 
+    University of California, Santa Cruz.Alex’s research interests span the 
+    areas of distributed systems, networking, and software engineering. His 
+    achievements include seminal work in software architecture, business 
+    analytics, and information-centric networks. His more recent projects 
+    concern cloud computing, data-center networking, and service-based systems 
+    hosted on MANETs.`,
+    key: 5,
   },
 ]
 

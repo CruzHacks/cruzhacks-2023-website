@@ -8,6 +8,7 @@ export interface SpeakerData {
   title: string
   blurb: string
   key: number
+  linkedIn?: string
 }
 
 const SpeakerCard = (props: {
@@ -16,10 +17,19 @@ const SpeakerCard = (props: {
 }) => {
   return (
     <div style={props.style || {}} className='speaker-card'>
-      <div>
-        <img className='speaker-card__photo' src={props.data.image} />
-        <div className='speaker-card__linkedin'>
-          <LinkedIn />
+      <div className='speaker-card__speaker'>
+        <img className='speaker-card__speaker__photo' src={props.data.image} />
+        <div className='speaker-card__speaker__linkedin'>
+          {props.data.linkedIn ? (
+            <button
+              className='speaker-card__speaker__linkedin--button'
+              onClick={() => {
+                window.open("https://linkedin.com", "_blank")
+              }}
+            >
+              <LinkedIn />
+            </button>
+          ) : null}
         </div>
       </div>
       <div className='speaker-card__info'>

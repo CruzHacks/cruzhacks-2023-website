@@ -60,13 +60,17 @@
   &__right-button {
     all: unset;
     position: absolute;
-    right: 0%;
+    right: 160px;
     height: 60px;
     text-align: center;
     font-size: 48px;
     width: 60px;
     background-color: transparent;
     border-radius: 50%;
+
+    @media screen and (max-width: 800px) {
+      right: -40px;
+    }
 
     &::before {
       width: 30px;
