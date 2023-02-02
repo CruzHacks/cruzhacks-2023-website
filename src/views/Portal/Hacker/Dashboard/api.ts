@@ -98,9 +98,12 @@ export const submitCruzPointsCode = async (
       messageType: "SUCCESS",
     })
   } catch (err) {
-    setBanner({
-      message: `Invalid CruzPoints Code`,
-      messageType: "ERROR",
-    })
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
   }
 }
