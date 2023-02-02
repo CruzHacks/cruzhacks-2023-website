@@ -31,8 +31,14 @@ export const checklistProps: Array<ChecklistItemProps> = [
     you need to bring, travel info, workshop info, 
     and more!`,
     buttonText: "HackerPack",
-    isUnclickable: true,
+    isUnclickable: false,
     unClickableText: "HackerPack",
-    onClick: () => {},
+    onClick: () => {
+      window.open(
+        // eslint-disable-next-line max-len
+        "https://docs.google.com/document/d/e/2PACX-1vTHyuHwcNdhtdovapKJCD5SAlRBkmFsfolBVPRDmoN1O9l6E-nQ0j8AAYWr5_edgVV6JgqdbIkhUYnQ/pub",
+        "_blank"
+      )
+    },
   },
 ]
