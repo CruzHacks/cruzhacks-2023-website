@@ -1,3 +1,4 @@
+import { ReactComponent as LinkedIn } from "../../assets/Linkedin.svg"
 import React from "react"
 import "./SpeakerCard.scss"
 
@@ -15,7 +16,12 @@ const SpeakerCard = (props: {
 }) => {
   return (
     <div style={props.style || {}} className='speaker-card'>
-      <img className='speaker-card__photo' src={props.data.image} />
+      <div>
+        <img className='speaker-card__photo' src={props.data.image} />
+        <div className='speaker-card__linkedin'>
+          <LinkedIn />
+        </div>
+      </div>
       <div className='speaker-card__info'>
         <div className='speaker-card__info__name'>{props.data.name}</div>
         <div className='speaker-card__info__title'>{props.data.title}</div>

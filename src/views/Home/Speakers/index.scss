@@ -22,7 +22,7 @@
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    overflow: hidden;
+    overflow: visible;
     align-items: center;
     width: 100%;
   }
@@ -47,6 +47,8 @@
       display: inline-block;
       transform: rotate(135deg);
       opacity: 75%;
+      position: relative;
+      left: 8px;
     }
 
     &:hover {
@@ -73,6 +75,8 @@
       border: solid white;
       border-width: 0 5px 5px 0;
       display: inline-block;
+      position: relative;
+      right: 5px;
       transform: rotate(315deg);
       opacity: 75%;
     }
