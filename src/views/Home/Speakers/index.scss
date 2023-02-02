@@ -3,6 +3,7 @@
 .speakers {
   display: flex;
   justify-content: center;
+
   &__container {
     width: 110%;
 
@@ -10,85 +11,85 @@
       width: 90%;
     }
 
-  &__header {
-    font-family: $inter;
-    font-size: 34px;
-    text-align: center;
-    font-weight: 500;
-    margin: 30px 0px;
-  }
+    &__header {
+      font-family: $inter;
+      font-size: 34px;
+      text-align: center;
+      font-weight: 500;
+      margin: 30px 0;
+    }
 
-  &__cards {
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: visible;
-    align-items: center;
-    width: 100%;
-  }
-
-  &__left-button {
-    all: unset;
-    position: absolute;
-    left: -30px;
-    height: 60px;
-    text-align: center;
-    font-size: 48px;
-    width: 60px;
-    background-color: transparent;
-    border-radius: 50%;
-
-    &::before {
-      width: 30px;
-      height: 30px;
-      content: '';
-      border: solid white;
-      border-width: 0 5px 5px 0;
-      display: inline-block;
-      transform: rotate(135deg);
-      opacity: 75%;
+    &__cards {
       position: relative;
-      left: 8px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: visible;
+      align-items: center;
+      width: 100%;
     }
 
-    &:hover {
-      background-color: black;
-      opacity: 50%;
+    &__left-button {
+      all: unset;
+      position: absolute;
+      left: -30px;
+      height: 60px;
+      text-align: center;
+      font-size: 48px;
+      width: 60px;
+      background-color: transparent;
+      border-radius: 50%;
+
+      &::before {
+        width: 30px;
+        height: 30px;
+        content: "";
+        border: solid white;
+        border-width: 0 5px 5px 0;
+        display: inline-block;
+        transform: rotate(135deg);
+        opacity: 0.75;
+        position: relative;
+        left: 8px;
+      }
+
+      &:hover {
+        background-color: black;
+        opacity: 0.5;
+      }
+    }
+
+    &__right-button {
+      all: unset;
+      position: absolute;
+      right: 130px;
+      height: 60px;
+      text-align: center;
+      font-size: 48px;
+      width: 60px;
+      background-color: transparent;
+      border-radius: 50%;
+
+      @media screen and (max-width: 800px) {
+        right: -60px;
+      }
+
+      &::before {
+        width: 30px;
+        height: 30px;
+        content: "";
+        border: solid white;
+        border-width: 0 5px 5px 0;
+        display: inline-block;
+        position: relative;
+        right: 5px;
+        transform: rotate(315deg);
+        opacity: 0.75;
+      }
+
+      &:hover {
+        background-color: black;
+        opacity: 0.5;
+      }
     }
   }
-
-  &__right-button {
-    all: unset;
-    position: absolute;
-    right: 130px;
-    height: 60px;
-    text-align: center;
-    font-size: 48px;
-    width: 60px;
-    background-color: transparent;
-    border-radius: 50%;
-
-    @media screen and (max-width: 800px) {
-      right: -40px;
-    }
-
-    &::before {
-      width: 30px;
-      height: 30px;
-      content: '';
-      border: solid white;
-      border-width: 0 5px 5px 0;
-      display: inline-block;
-      position: relative;
-      right: 5px;
-      transform: rotate(315deg);
-      opacity: 75%;
-    }
-
-    &:hover {
-      background-color: black;
-      opacity: 50%;
-    }
-  }
-}
 }

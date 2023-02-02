@@ -24,7 +24,7 @@ const SpeakerCard = (props: {
             <button
               className='speaker-card__speaker__linkedin--button'
               onClick={() => {
-                window.open("https://linkedin.com", "_blank")
+                window.open(props.data.linkedIn, "_blank")
               }}
             >
               <LinkedIn />

@@ -5,6 +5,8 @@ import NadaMilkovic from "../../assets/SpeakerImages/NadaMilkovic.jpg"
 import GregorVebleMikie from "../../assets/SpeakerImages/GregorVebleMikie.jpg"
 import BrentHaddad from "../../assets/SpeakerImages/BrentHaddad.jpg"
 import AlexanderWolf from "../../assets/SpeakerImages/AlexanderWolf.jpg"
+import MarkAdams from "../../assets/SpeakerImages/MarkAdams.jpg"
+
 const SpeakerProps: Array<SpeakerData> = [
   {
     image: MichealLopp,
@@ -16,6 +18,7 @@ const SpeakerProps: Array<SpeakerData> = [
      When he's not deeply worrying about his work, he writes 
      about backpacks, bridges, humans, and leadership at the popular weblog, 
      Rands in Repose. He currently works at Apple.`,
+    linkedIn: "https://www.linkedin.com/in/michaellopp/",
     key: 0,
   },
   {
@@ -31,7 +34,22 @@ const SpeakerProps: Array<SpeakerData> = [
     Cloud & Machine Learning. He has a Masters Degree in CS from SIUC 
     and Adv Machine Learning from Harvard. 
     `,
+    linkedIn: "https://www.linkedin.com/in/raghav-jandhyala-2988413/",
     key: 1,
+  },
+  {
+    image: MarkAdams,
+    name: "Mark Adams",
+    title: `Co-founder of CruzHacks / OnePlus Amazon Account Manager`,
+    blurb: `As a student, Mark co-founded HACK UCSC/CruzHacks with Brent
+    Haddad and Doug Erickson. Since graduating he has hacked his way 
+    through numerous challenges, from successfully crowdfunding and launching 
+    an Amazon FBA business, creating a top 10 ranked ProductHunt app (when it 
+    was cool), procuring millions in PPE and Capital Medical Equipment for 
+    Amazon during the chaos of the early pandemic and now launching the 
+    upcoming OnePlus 11 5G on Amazon. Feel free to reach out about E-commerce 
+    at the hackathon or on Linkedin!`,
+    key: 2,
   },
   {
     image: BrentHaddad,
@@ -39,7 +57,14 @@ const SpeakerProps: Array<SpeakerData> = [
     title: `Brent Haddad, MBA, Ph.D.
     Professor of Environmental Studies, UCSC
     Co-founder, HackUCSC`,
-    blurb: ``,
+    blurb: `Brent Haddad was involved in a number of start-ups (emissions
+       trading, bank-based financial advising) early in his career.  He 
+       became a professor and studied efforts to create new markets for 
+       environmental goods and services, including water and green energy.  
+       He served as Associate Dean of Engineering and Director of the UCSC 
+       Center for Entrepreneurship. Now he's a Professor of Environmental 
+       Studies at UCSC.
+    `,
     key: 2,
   },
   {
@@ -54,6 +79,7 @@ const SpeakerProps: Array<SpeakerData> = [
      of Directors at United Agency Services &  E.A.R.T.H Lab SF, and CEO &
       Co-Founder of GetVirtual.
     `,
+    linkedIn: "https://www.linkedin.com/in/namiljkovic/",
     key: 3,
   },
   {
@@ -69,6 +95,7 @@ const SpeakerProps: Array<SpeakerData> = [
      battery powered Taurus G4, the aircraft that won the NASA Green Flight 
      Challenge sponsored by Google competition in 2011.
     `,
+    linkedIn: "https://www.linkedin.com/in/gregorv/",
     key: 4,
   },
   {
@@ -83,6 +110,7 @@ const SpeakerProps: Array<SpeakerData> = [
     analytics, and information-centric networks. His more recent projects 
     concern cloud computing, data-center networking, and service-based systems 
     hosted on MANETs.`,
+    linkedIn: "https://www.linkedin.com/in/alexanderlwolf/",
     key: 5,
   },
 ]
