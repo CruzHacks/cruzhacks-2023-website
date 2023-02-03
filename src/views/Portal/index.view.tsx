@@ -34,7 +34,11 @@ const PortalWithNotify: React.FC = () => {
 
   const db = getDatabase(app)
   if (location.hostname === "localhost") {
-    connectDatabaseEmulator(db, "localhost", 9000)
+    try {
+      connectDatabaseEmulator(db, "localhost", 9000)
+    } catch (err) {
+      // catch to prevent entire app crashing
+    }
   }
 
   // Update announcements

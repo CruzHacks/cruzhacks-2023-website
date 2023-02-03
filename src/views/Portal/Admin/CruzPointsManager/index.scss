@@ -1,0 +1,55 @@
+@import "../../../../stylesheets/fonts";
+
+.manager {
+  width: 100%;
+  margin-top: 200px;
+  height: 100%;
+}
+
+.activity {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-family: $inter;
+
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 50%;
+    height: 400px;
+    padding: 20px;
+
+    &__activity-name {
+      &--chooser {
+        width: 200px;
+      }
+    }
+    
+    &__activity-type {
+      margin-top: 20px;
+
+      &--chooser {
+        width: 200px;
+      }
+    }
+
+    &__submit {
+      margin-top: 20px;
+      width: 200px;
+    }
+  }
+}
+
+.datepicker {
+  font-family: $nunito-sans;
+  margin-bottom: 20px;
+  &--title {
+    font-size: 24px;
+  }
+  &--input {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+}
