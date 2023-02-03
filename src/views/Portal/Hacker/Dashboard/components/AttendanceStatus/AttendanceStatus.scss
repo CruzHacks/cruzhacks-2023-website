@@ -36,21 +36,28 @@
     &__checkin {
       display: flex;
       justify-content: center;
-
+      border-radius: 12px;
+      
       &--button {
         all: unset;
         height: 40px;
-        width: 200px;
+        width: calc(100%);
         font-weight: 500;
         background-color: #8c8cff;
+        border: #8c8cff solid 2px;
+        box-shadow: 0 2px 20px rgb(205 205 205 / 50%);
         border-radius: 12px;
         text-align: center;
         color: white;
         transition: padding 0.25s ease;
 
         &:hover {
-          padding: 0 10px;
           cursor: pointer;
+        }
+
+        &:active {
+          background-color: transparent;
+          color: #8c8cff;
         }
       }
     }
