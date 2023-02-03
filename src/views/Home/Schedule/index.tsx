@@ -2,6 +2,7 @@ import React, { Dispatch, useState } from "react"
 import { useTheme } from "../../../contexts/ThemeContext/ThemeContext"
 import { scheduleEvents } from "../../../Props/ScheduleProps/props"
 import "./index.scss"
+import { nanoid } from "nanoid"
 
 export interface ScheduleEvent {
   name: string
@@ -85,12 +86,10 @@ const SchedulePage = ({ date, events }: SchedulePageProps) => {
       <div className='schedule-page__title'>{date}</div>
       {events.map(event => {
         return (
-          <>
-            <div className='schedule-page__event'>
-              <div className='schedule-page__event--name'>{event.name}</div>
-              <div className='schedule-page__event--time'>{event.time}</div>
-            </div>
-          </>
+          <div className='schedule-page__event' key={nanoid()}>
+            <div className='schedule-page__event--name'>{event.name}</div>
+            <div className='schedule-page__event--time'>{event.time}</div>
+          </div>
         )
       })}
     </div>

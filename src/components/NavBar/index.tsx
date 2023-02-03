@@ -62,7 +62,7 @@ const NavBar: React.FC = () => {
           className={
             "nav__container--right--item " + (page == "/portal" ? "active" : "")
           }
-          to='/redirect'
+          to='/myPortal'
         >
           <span className='nav__container--right--item__link'>Portal</span>
         </Link>

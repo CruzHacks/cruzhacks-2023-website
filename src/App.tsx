@@ -19,20 +19,35 @@ import QRCheckIn from "./views/Portal/Admin/QRCheckIn"
 import ErrorView from "./views/Error/index.view"
 import LivePlaceholder from "./views/LivePlaceholder/index.view"
 import BGwrapper from "./components/BGwrapper"
+import { useSearchParams } from "react-router-dom"
 
 import "./App.scss"
 
 const LoginRedirect = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [searchParams, setSearchParams] = useSearchParams()
+  let ext = searchParams.get("ext")
+
+  const allowedRoutes = {
+    hacker: ["dashboard", "team"],
+    admin: ["dashboard", "users", "overview", "checkin"],
+  }
+
   const { user } = useAuth0()
   const navigate = useNavigate()
   React.useEffect(() => {
     const userRoles = (user && user[`https://cruzhacks.com/roles`]) || []
     const nickname = user && user.nickname
-    if (userRoles.indexOf("Hacker") != -1)
-      navigate(`../portal/hacker/${nickname}/dashboard`)
-    else if (userRoles.indexOf("Organizer") != -1)
-      navigate(`../portal/admin/${nickname}/dashboard`)
-    else navigate("error")
+
+    if (userRoles.indexOf("Hacker") != -1) {
+      const found = allowedRoutes.hacker.find(p => p === ext)
+      if (!found) ext = "dashboard"
+      navigate(`../portal/hacker/${nickname}/${ext}`)
+    } else if (userRoles.indexOf("Organizer") != -1) {
+      const found = allowedRoutes.admin.find(p => p === ext)
+      if (!found) ext = "dashboard"
+      navigate(`../portal/admin/${nickname}/${ext}`)
+    } else navigate("error")
   }, [])
   return <>Loading ...</>
 }
@@ -52,7 +67,7 @@ const App: React.FC = () => {
         domain={process.env.REACT_APP_AUTH0_DOMAIN || ""}
         clientId={process.env.REACT_APP_AUTH0_CLIENTID || ""}
         audience={process.env.REACT_APP_AUTH0_AUDIENCE || ""}
-        redirectUri={`${window.location.origin}/redirect`}
+        redirectUri={`${window.location.origin}/myPortal`}
       >
         <ThemeProvider>
           <>
@@ -126,7 +141,7 @@ const App: React.FC = () => {
                 />
               </Route>
               <Route
-                path='/redirect'
+                path='/myPortal'
                 element={<PrivateRoute component={<LoginRedirect />} />}
               />
               <Route path='*' element={<ErrorView />} />
