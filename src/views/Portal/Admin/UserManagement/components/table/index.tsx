@@ -4,7 +4,10 @@ import getHackers, { HackerProps } from "../api"
 import check from "../../../../../../images/icons/check.svg"
 import x from "../../../../../../images/icons/x.svg"
 /* eslint-disable */
-import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
+import {
+  BannerProvider,
+  useBanner,
+} from "../../../../../../contexts/PortalBanners/PortalBanner"
 /* eslint-enable */
 import Spinner from "../../../../../../components/Spinner"
 import HackerProfileDrawer from "../drawer/index"

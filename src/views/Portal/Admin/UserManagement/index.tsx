@@ -2,6 +2,7 @@ import React, { useState, Dispatch } from "react"
 import "./index.scss"
 import ManageTable from "./components/table/index"
 import ApplicantData from "./components/doughnut/index"
+import { BannerProvider } from "../../../../contexts/PortalBanners/PortalBanner"
 
 export interface TableProps {
   search: string
@@ -21,27 +22,29 @@ const UserManagement: React.FC = () => {
   const [hackers, setHackers] = useState<Array<any>>([])
 
   return (
-    <div className='usermgmt__container'>
-      <div className='usermgmt__container--top'>
-        <div className='usermgmt__container--title'>User Management</div>
+    <BannerProvider>
+      <div className='usermgmt__container'>
+        <div className='usermgmt__container--top'>
+          <div className='usermgmt__container--title'>User Management</div>
+        </div>
+        <ApplicantData />
+        <div className='usermgmt__container--top-table'>
+          <input
+            className='usermgmt__container--search-bar'
+            type='text'
+            placeholder='Search People or Email'
+            onChange={event => handleOnChange(event, setSearchText)}
+          ></input>
+        </div>
+        <div className='usermgmt__container--table'>
+          <ManageTable
+            search={searchText}
+            hackers={hackers}
+            setHackers={setHackers}
+          />
+        </div>
       </div>
-      <ApplicantData />
-      <div className='usermgmt__container--top-table'>
-        <input
-          className='usermgmt__container--search-bar'
-          type='text'
-          placeholder='Search People or Email'
-          onChange={event => handleOnChange(event, setSearchText)}
-        ></input>
-      </div>
-      <div className='usermgmt__container--table'>
-        <ManageTable
-          search={searchText}
-          hackers={hackers}
-          setHackers={setHackers}
-        />
-      </div>
-    </div>
+    </BannerProvider>
   )
 }
 

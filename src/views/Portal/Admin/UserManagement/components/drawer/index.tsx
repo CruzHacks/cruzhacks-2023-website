@@ -10,24 +10,24 @@ import {
 } from "../../../../../../contexts/PortalBanners/PortalBanner"
 import exit from "../../../../../../assets/Exit.svg"
 
-const handleCheckIn = (
+const handleCheckIn = async (
   getAccessTokenSilently: any,
   setBanner: Dispatch<Message>,
   setHackers: Dispatch<Array<any>>,
   id: string
 ) => {
-  checkIn(getAccessTokenSilently, setBanner, id)
-  getHackers(getAccessTokenSilently, setBanner, setHackers)
+  await checkIn(getAccessTokenSilently, setBanner, id)
+  await getHackers(getAccessTokenSilently, setBanner, setHackers)
 }
 
-const handleRSVP = (
+const handleRSVP = async (
   getAccessTokenSilently: any,
   setBanner: Dispatch<Message>,
   setHackers: Dispatch<Array<any>>,
   id: string
 ) => {
-  rsvp(getAccessTokenSilently, setBanner, id)
-  getHackers(getAccessTokenSilently, setBanner, setHackers)
+  await rsvp(getAccessTokenSilently, setBanner, id)
+  await getHackers(getAccessTokenSilently, setBanner, setHackers)
 }
 
 const HackerProfileDrawer = ({

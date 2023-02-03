@@ -63,7 +63,7 @@ const rsvp = async (
         "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
         Authorization: `Bearer ${token}`,
       },
-      body: {
+      data: {
         hackerID: hackerId,
       },
     }
