@@ -48,6 +48,39 @@ const checkIn = async (
   }
 }
 
+const rsvp = async (
+  getAccessTokenSilently: any,
+  setBanner: Dispatch<Message>,
+  hackerId: string
+) => {
+  try {
+    const token = await getAccessTokenSilently()
+    const checkInAxiosRequest = {
+      method: "put",
+      url: `${process.env.REACT_APP_ENDPOINT_URL}/admin/RSVPHacker`,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
+        Authorization: `Bearer ${token}`,
+      },
+      body: {
+        hackerID: hackerId,
+      },
+    }
+    const res = await axios(checkInAxiosRequest)
+    setBanner({ message: res.data.message, messageType: "SUCCESS" })
+  } catch (err) {
+    console.log(err)
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
+  }
+}
+
 const getHacker = async (
   getAccessTokenSilently: any,
   setBanner: Dispatch<Message>,
@@ -115,6 +148,6 @@ const getHackers = async (
   }
 }
 
-export { checkIn, getHacker }
+export { checkIn, getHacker, rsvp }
 
 export default getHackers

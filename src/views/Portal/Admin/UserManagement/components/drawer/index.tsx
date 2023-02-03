@@ -2,7 +2,7 @@ import React, { useEffect, useState, Dispatch } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import "./index.scss"
 import { HackerDrawerProps } from "../table/index"
-import getHackers, { checkIn } from "../api"
+import getHackers, { checkIn, rsvp } from "../api"
 import { Drawer } from "@mui/material"
 import {
   useBanner,
@@ -17,6 +17,16 @@ const handleCheckIn = (
   id: string
 ) => {
   checkIn(getAccessTokenSilently, setBanner, id)
+  getHackers(getAccessTokenSilently, setBanner, setHackers)
+}
+
+const handleRSVP = (
+  getAccessTokenSilently: any,
+  setBanner: Dispatch<Message>,
+  setHackers: Dispatch<Array<any>>,
+  id: string
+) => {
+  rsvp(getAccessTokenSilently, setBanner, id)
   getHackers(getAccessTokenSilently, setBanner, setHackers)
 }
 
@@ -107,6 +117,19 @@ const HackerProfileDrawer = ({
             }
           >
             Check In
+          </div>
+          <div
+            className='drawer__container--rsvp'
+            onClick={() =>
+              handleRSVP(
+                getAccessTokenSilently,
+                setBanner,
+                setHackers,
+                props.id
+              )
+            }
+          >
+            RSVP
           </div>
         </div>
       }

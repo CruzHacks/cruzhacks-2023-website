@@ -173,4 +173,38 @@
       width: 80%;
     }
   }
+
+  &--rsvp {
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 204px;
+    height: 40px;
+
+    background: #fff;
+    border: 1px solid #3b3b8d;
+    border-radius: 6px;
+
+    text-align: center;
+    font-family: $nunito-sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+
+    color: #3b3b8d;
+
+    &:hover {
+      background-color: #3b3b8d;
+      color: #fff;
+
+      cursor: pointer;
+    }
+
+    @include responsiveness.screen(smallest, phone) {
+      width: 80%;
+    }
+  }
 }
