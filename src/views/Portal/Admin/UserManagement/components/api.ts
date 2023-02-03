@@ -11,6 +11,12 @@ export interface HackerProps {
   attendanceStatus: string
 }
 
+export interface HackerQRProps {
+  id: string
+  firstName: string
+  lastName: string
+}
+
 const checkIn = async (
   getAccessTokenSilently: any,
   setBanner: Dispatch<Message>,
@@ -42,7 +48,41 @@ const checkIn = async (
   }
 }
 
-export const getHackers = async (
+const getHacker = async (
+  getAccessTokenSilently: any,
+  setBanner: Dispatch<Message>,
+  setHacker: Dispatch<any>,
+  id: string
+) => {
+  try {
+    const token = await getAccessTokenSilently()
+    const getHackersAxiosRequest = {
+      method: "get",
+      /* eslint-disable */
+      url: `${process.env.REACT_APP_ENDPOINT_URL}/admin/getHacker/${id}`,
+      /* eslint-enable */
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    const res = await axios(getHackersAxiosRequest)
+    const hackerData = res.data.hacker
+
+    setHacker(hackerData)
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      const axiosError: any = err
+      setBanner({
+        message: axiosError.response.data.error,
+        messageType: "ERROR",
+      })
+    }
+  }
+}
+
+const getHackers = async (
   getAccessTokenSilently: any,
   setBanner: Dispatch<Message>,
   setHackers: Dispatch<Array<any>>
@@ -75,6 +115,6 @@ export const getHackers = async (
   }
 }
 
-export { checkIn }
+export { checkIn, getHacker }
 
 export default getHackers

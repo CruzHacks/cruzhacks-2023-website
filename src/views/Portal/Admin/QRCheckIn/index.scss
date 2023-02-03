@@ -70,3 +70,79 @@
     justify-content: center;
   }
 }
+
+.checkin-modal__container {
+  &--title {
+    margin-top: 2em;
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 23px;
+
+    text-align: center;
+
+    color: #3b3b7f;
+  }
+
+  &--buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &--checkIn {
+      width: 150px;
+      height: 40px;
+      margin-left: 20px;
+
+      //background-color: #5cb03e;
+
+      margin-top: 3em;
+      font-family: "Nunito Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 40px;
+
+      text-align: center;
+
+      border-radius: 6px;
+      border: 1px solid #5cb03e;
+
+      color: #5cb03e;
+
+      &:hover {
+        color: #fff;
+        background-color: #5cb03e;
+      }
+    }
+
+    &--cancel {
+      width: 150px;
+      height: 40px;
+      margin-right: 20px;
+
+      //background-color: #a31919;
+
+      margin-top: 3em;
+      font-family: "Nunito Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 40px;
+
+      text-align: center;
+
+      border-radius: 6px;
+      border: 1px solid #a31919;
+
+      color: #a31919;
+
+      &:hover {
+        color: #fff;
+        background-color: #a31919;
+      }
+    }
+  }
+}
