@@ -111,14 +111,14 @@ const CheckInModal = ({
   )
 }
 
-const handleModal = (
+const handleModal = async (
   result: string,
   setHacker: Dispatch<HackerQRProps>,
   setModalOpen: Dispatch<boolean>,
   getAccessTokenSilently: Dispatch<any>,
   setBanner: Dispatch<Message>
 ) => {
-  getHacker(getAccessTokenSilently, setBanner, setHacker, result)
+  await getHacker(getAccessTokenSilently, setBanner, setHacker, result)
   setModalOpen(true)
 }
 
@@ -127,9 +127,9 @@ const QRCheckIn: React.FC = () => {
   const { getAccessTokenSilently } = useAuth0()
   const { setBanner } = useBanner()
   const [hacker, setHacker] = useState<HackerQRProps>({
-    firstName: "dummy",
-    lastName: "dummy",
-    id: "dummy",
+    firstName: "",
+    lastName: "",
+    id: "",
   })
 
   return (
