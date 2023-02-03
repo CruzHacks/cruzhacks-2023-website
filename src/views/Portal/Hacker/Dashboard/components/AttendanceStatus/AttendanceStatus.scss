@@ -1,4 +1,5 @@
 @import "../../../../../../stylesheets/fonts";
+@import "../../../../../../stylesheets/variables";
 
 .attendance {
   display: flex;
@@ -7,8 +8,8 @@
   max-width: 550px;
   padding: 10px;
   margin: 1rem;
-  height: 8em;
   transition: all ease 1.5s;
+  position: relative;
 
   &__container {
     display: flex;
@@ -30,6 +31,27 @@
       border-radius: 6px;
       padding: 8px;
       margin: 5px;
+    }
+
+    &__checkin {
+      display: flex;
+      justify-content: center;
+      &--button {
+        all: unset;
+        height: 40px;
+        width: 200px;
+        background-color: #8c8cff;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+        transition: padding 0.25s ease;
+
+        &:hover {
+          padding: 0px 10px;
+          cursor: pointer;
+        }
+      }   
+
     }
 
     &__application {
@@ -119,5 +141,13 @@
         }
       }
     }
+  }
+}
+
+.qr-code {
+  &__text {
+    font-family: $inter;
+    font-size: 24px;
+    text-align: center;
   }
 }
