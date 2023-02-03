@@ -75,7 +75,8 @@ export const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
               } else throw "invalid theme"
             } else throw "unable to fetch requested resource"
           })
-          .catch()
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          .catch(e => {})
       })
     }
   }, [isAuthenticated])
