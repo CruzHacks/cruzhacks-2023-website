@@ -1,95 +1,96 @@
 @import "../../../stylesheets/variables";
 @import "../../../stylesheets/fonts";
 
-.faqs__container {
-  text-align: center;
-  flex-direction: row;
-
-  h2 {
+.faqs {
+  &__header {
     font-family: $inter;
     font-size: 34px;
     padding-bottom: 1em;
   }
 
-  padding: 2em 0;
-
-  &--qas {
-    display: flex;
-    gap: 2.5em;
+  &__container {
+    text-align: center;
     flex-direction: row;
-    align-items: stretch;
-    transition: 300ms;
+    padding: 2em 0;
 
-    h3 {
-      font-weight: normal;
+    &--qas {
+      display: flex;
+      gap: 2.5em;
+      flex-direction: row;
+      align-items: stretch;
+      transition: 300ms;
+
+      h3 {
+        font-weight: normal;
+      }
+
+      &--left {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
+
+      &--right {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
     }
 
-    &--left {
-      flex: 1;
-
+    &--blurb {
+      font-family: $inter;
+      float: right;
+      width: 18em;
+      margin-top: 3em;
+      padding: 1.5em;
+      position: relative;
+      transition: all ease 0.25s;
+      height: 3em;
       display: flex;
       flex-direction: column;
-      gap: 1em;
-    }
+      justify-content: center;
+      align-items: center;
 
-    &--right {
-      flex: 1;
+      background-color: $dark-gray;
+      box-shadow: 0 0 16px rgb(255 255 255 / 25%);
+      border-radius: 12px;
 
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-  }
-
-  &--blurb {
-    font-family: $inter;
-    float: right;
-    width: 18em;
-    margin-top: 3em;
-    padding: 1.5em;
-    position: relative;
-    transition: all ease 0.25s;
-    height: 3em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background-color: $dark-gray;
-    box-shadow: 0 0 16px rgb(255 255 255 / 25%);
-    border-radius: 12px;
-
-    font-size: 1em;
-    color: black;
-    text-align: left;
-
-    h3 {
       font-size: 1em;
-      margin: 0;
-      width: 75%;
-    }
+      color: black;
+      text-align: left;
 
-    p {
-      margin: 0;
-      width: 75%;
-    }
+      h3 {
+        font-size: 1em;
+        margin: 0;
+        width: 75%;
+      }
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -15px;
-      right: 50px;
-      border-width: 15px 15px 0;
-      border-style: solid;
-      border-color: $dark-gray transparent;
-      display: block;
-      width: 0;
-    }
+      p {
+        margin: 0;
+        width: 75%;
+      }
 
-    &:hover {
-      height: 3.5em;
-      margin-top: 2.5em;
-      width: 19em;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        right: 50px;
+        border-width: 15px 15px 0;
+        border-style: solid;
+        border-color: $dark-gray transparent;
+        display: block;
+        width: 0;
+      }
+
+      &:hover {
+        height: 3.5em;
+        margin-top: 2.5em;
+        width: 19em;
+      }
     }
   }
 }

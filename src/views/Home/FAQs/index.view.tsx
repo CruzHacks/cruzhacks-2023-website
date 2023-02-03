@@ -6,7 +6,7 @@ import "./index.scss"
 const FAQs: React.FC = () => {
   return (
     <div className='faqs__container'>
-      <h2>Q&A</h2>
+      <div className='faqs__header'>Q&A</div>
       <div className='faqs__container--qas'>
         <div className='faqs__container--qas--left'>
           {/* FAQsText[0] refers to left Blurbs */}
