@@ -23,7 +23,6 @@ const checkIn = async (
   hackerId: string
 ) => {
   try {
-    console.log("PUT REQUEST")
     const token = await getAccessTokenSilently()
     const checkInAxiosRequest = {
       method: "put",
@@ -37,9 +36,9 @@ const checkIn = async (
     const res = await axios(checkInAxiosRequest)
     setBanner({ message: res.data.message, messageType: "SUCCESS" })
   } catch (err) {
+    console.log(err)
     if (axios.isAxiosError(err)) {
       const axiosError: any = err
-      console.log(err)
       setBanner({
         message: axiosError.response.data.error,
         messageType: "ERROR",

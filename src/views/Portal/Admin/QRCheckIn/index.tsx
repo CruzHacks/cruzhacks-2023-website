@@ -9,6 +9,7 @@ import {
 import {
   useBanner,
   Message,
+  BannerProvider,
 } from "../../../../contexts/PortalBanners/PortalBanner"
 import "./index.scss"
 
@@ -122,7 +123,7 @@ const handleModal = async (
   setModalOpen(true)
 }
 
-const QRCheckIn: React.FC = () => {
+const QRCheckInContainer: React.FC = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { getAccessTokenSilently } = useAuth0()
   const { setBanner } = useBanner()
@@ -156,7 +157,7 @@ const QRCheckIn: React.FC = () => {
               }
 
               if (error) {
-                console.info(error)
+                // console.info(error)
               }
             }}
           />
@@ -172,5 +173,11 @@ const QRCheckIn: React.FC = () => {
     </div>
   )
 }
+
+const QRCheckIn = () => (
+  <BannerProvider>
+    <QRCheckInContainer />
+  </BannerProvider>
+)
 
 export default QRCheckIn
