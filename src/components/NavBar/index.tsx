@@ -97,15 +97,16 @@ const NavBar: React.FC = () => {
           User Management
         </span>
       </Link>
-      <Link
+      <a
         className='nav__container--right--item'
-        to='../live'
-        relative='path'
+        href='https://live.cruzhacks.com/'
+        rel='no-referrer noreferrer'
+        target='_blank'
       >
         <span className='nav__container--right--item__link logout__button'>
           CruzHacks Live
         </span>
-      </Link>
+      </a>
       <span className='nav__container--right--item'>
         <Logout location={window.location.origin} />
       </span>
@@ -133,15 +134,16 @@ const NavBar: React.FC = () => {
       >
         <span className='nav__container--right--item__link'>Team</span>
       </Link>
-      <Link
+      <a
         className='nav__container--right--item'
-        to='../live'
-        relative='path'
+        href='https://live.cruzhacks.com/'
+        rel='no-referrer noreferrer'
+        target='_blank'
       >
         <span className='nav__container--right--item__link logout__button'>
           CruzHacks Live
         </span>
-      </Link>
+      </a>
       <span className='nav__container--right--item'>
         <Logout location={window.location.origin} />
       </span>

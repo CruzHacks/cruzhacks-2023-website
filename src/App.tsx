@@ -17,7 +17,7 @@ import UserManagement from "./views/Portal/Admin/UserManagement"
 import HackerOverview from "./views/Portal/Admin/HackerOverview"
 import QRCheckIn from "./views/Portal/Admin/QRCheckIn"
 import ErrorView from "./views/Error/index.view"
-import LivePlaceholder from "./views/LivePlaceholder/index.view"
+// import LivePlaceholder from "./views/LivePlaceholder/index.view"
 import BGwrapper from "./components/BGwrapper"
 import { useSearchParams } from "react-router-dom"
 
@@ -110,15 +110,6 @@ const App: React.FC = () => {
                   }
                 />
                 <Route
-                  path='admin/:userId/live'
-                  element={
-                    <PrivateRoute
-                      role='Organizer'
-                      component={<LivePlaceholder />}
-                    />
-                  }
-                />
-                <Route
                   path='hacker/:userId/dashboard'
                   element={
                     <PrivateRoute role='Hacker' component={<MainDash />} />
@@ -128,15 +119,6 @@ const App: React.FC = () => {
                   path='hacker/:userId/team'
                   element={
                     <PrivateRoute role='Hacker' component={<TeamFormation />} />
-                  }
-                />
-                <Route
-                  path='hacker/:userId/live'
-                  element={
-                    <PrivateRoute
-                      role='Hacker'
-                      component={<LivePlaceholder />}
-                    />
                   }
                 />
               </Route>
