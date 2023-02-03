@@ -15,8 +15,8 @@ import "./index.scss"
 import { Modal, Fade, Box, SxProps } from "@mui/material"
 
 const style1: SxProps = {
-  width: "325px",
-  height: "365px",
+  width: "90%",
+  height: "175px",
   bgcolor: "#FFFFFF",
   outline: "none",
   borderRadius: "6px",
@@ -28,7 +28,7 @@ const style1: SxProps = {
 
 const style2: SxProps = {
   width: "400px",
-  height: "225px",
+  height: "200px",
   bgcolor: "#FFFFFF",
   outline: "none",
   borderRadius: "6px",
@@ -45,15 +45,29 @@ const checkSize = () => {
   return style2
 }
 
+const handleCheckIn = (
+  getAccessTokenSilently: any,
+  setBanner: Dispatch<Message>,
+  setModalOpen: Dispatch<boolean>,
+  id: string
+) => {
+  checkIn(getAccessTokenSilently, setBanner, id)
+  setModalOpen(false)
+}
+
 interface CheckInModalProps {
   modalOpen: boolean
   setModalOpen: Dispatch<boolean>
+  setBanner: Dispatch<Message>
+  getAccessTokenSilently: Dispatch<any>
   hacker: HackerQRProps
 }
 
 const CheckInModal = ({
   modalOpen,
   setModalOpen,
+  setBanner,
+  getAccessTokenSilently,
   hacker,
 }: CheckInModalProps) => {
   return (
@@ -70,11 +84,24 @@ const CheckInModal = ({
               Check in {hacker.firstName} {hacker.lastName}?
             </div>
             <div className='checkin-modal__container--buttons'>
-              <div className='checkin-modal__container--buttons--cancel'>
-                <a>Cancel</a>
+              <div
+                onClick={() => setModalOpen(false)}
+                className='checkin-modal__container--buttons--cancel'
+              >
+                Cancel
               </div>
-              <div className='checkin-modal__container--buttons--checkIn'>
-                <a>Check In</a>
+              <div
+                onClick={() =>
+                  handleCheckIn(
+                    getAccessTokenSilently,
+                    setBanner,
+                    setModalOpen,
+                    hacker.id
+                  )
+                }
+                className='checkin-modal__container--buttons--checkIn'
+              >
+                Check In
               </div>
             </div>
           </div>
@@ -84,15 +111,13 @@ const CheckInModal = ({
   )
 }
 
-const handleCheckIn = (
+const handleModal = (
   result: string,
-  setId: Dispatch<string>,
   setHacker: Dispatch<HackerQRProps>,
   setModalOpen: Dispatch<boolean>,
   getAccessTokenSilently: Dispatch<any>,
   setBanner: Dispatch<Message>
 ) => {
-  setId(result)
   getHacker(getAccessTokenSilently, setBanner, setHacker, result)
   setModalOpen(true)
 }
@@ -100,9 +125,7 @@ const handleCheckIn = (
 const QRCheckIn: React.FC = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { getAccessTokenSilently } = useAuth0()
-  //const [render, setRender] = useState<boolean>(false)
   const { setBanner } = useBanner()
-  const [id, setId] = useState("No result")
   const [hacker, setHacker] = useState<HackerQRProps>({
     firstName: "dummy",
     lastName: "dummy",
@@ -112,50 +135,37 @@ const QRCheckIn: React.FC = () => {
   return (
     <div className='qr__container'>
       <div className='qr__container--title'>
-        <div
-          onClick={() =>
-            handleCheckIn(
-              "ID1",
-              setId,
-              setHacker,
-              setModalOpen,
-              getAccessTokenSilently,
-              setBanner
-            )
-          }
-          className='qr__container--text'
-        >
-          QR Check In
-        </div>
+        <div className='qr__container--text'>QR Check In</div>
       </div>
       <div className='qr__container--box'>
         <div className='qr__container--camera'>
           <QrReader
             constraints={{ facingMode: "environment" }}
             containerStyle={{
-              //display: "flex",
               width: "80%",
-              //height: "100%",
-              //borderRadius: "12px",
             }}
-            /*
             onResult={(result, error) => {
               if (result) {
-                setId(result)
-                getHacker(getAccessTokenSilently, setBanner, setHacker, id)
-                setModalOpen(true)
+                handleModal(
+                  result?.getText(),
+                  setHacker,
+                  setModalOpen,
+                  getAccessTokenSilently,
+                  setBanner
+                )
               }
 
               if (error) {
                 console.info(error)
               }
             }}
-            */
           />
         </div>
         <CheckInModal
           modalOpen={modalOpen}
           setModalOpen={setModalOpen}
+          getAccessTokenSilently={getAccessTokenSilently}
+          setBanner={setBanner}
           hacker={hacker}
         ></CheckInModal>
       </div>
