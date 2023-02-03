@@ -5,6 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react"
 import { ConfirmationModal } from "../ConfirmationModal/ConfirmationModal"
 // eslint-disable-next-line max-len
 import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
+import QRCode from "react-qr-code"
+import { Box, Fade, Modal, SxProps } from "@mui/material"
 
 export type AttendanceStatus = "NOT CONFIRMED" | "CONFIRMED" | "NOT ATTENDING"
 
@@ -21,6 +23,7 @@ export const HackerStatus: React.FC<AttendanceStatusProps> = (
   const { getAccessTokenSilently } = useAuth0()
   const { setBanner } = useBanner()
   const [openWithdrawModal, setOpenWithdrawModal] = useState<boolean>(false)
+  const [openCheckInModal, setOpenCheckInModal] = useState<boolean>(false)
   const attendanceStatusModifier = (attendanceStatus: AttendanceStatus) => {
     switch (attendanceStatus) {
       case "NOT CONFIRMED":
@@ -56,7 +59,16 @@ export const HackerStatus: React.FC<AttendanceStatusProps> = (
         secondaryButtonText={"I will still be attending"}
         secondaryButtonHandler={() => setOpenWithdrawModal(false)}
       />
+      <CheckInModal open={openCheckInModal} setOpen={setOpenCheckInModal} />
       <div className='attendance__container'>
+        <div className='attendance__container__checkin'>
+          <button
+            className='attendance__container__checkin--button'
+            onClick={() => setOpenCheckInModal(true)}
+          >
+            Check In
+          </button>
+        </div>
         <div className='attendance__container__application'>
           <div className='attendance__container__application--text'>
             Application Status:
@@ -102,5 +114,35 @@ export const HackerStatus: React.FC<AttendanceStatusProps> = (
         <div></div>
       </div>
     </div>
+  )
+}
+
+const CheckInModal = (props: { open: boolean; setOpen: Dispatch<boolean> }) => {
+  const { user } = useAuth0()
+  const style: SxProps = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 250,
+    bgcolor: "white",
+    border: "2px solid #243d5e",
+    borderRadius: "10px",
+    boxShadow: 24,
+    p: 2,
+  }
+  return (
+    <Modal open={props.open} onClose={() => props.setOpen(false)}>
+      <Fade in={props.open}>
+        <Box sx={style}>
+          <div>
+            <QRCode value={user?.sub || ""} />
+          </div>
+          <div className='qr-code__text'>
+            {user?.given_name} {user?.family_name}
+          </div>
+        </Box>
+      </Fade>
+    </Modal>
   )
 }
