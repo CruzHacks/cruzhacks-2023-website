@@ -10,6 +10,9 @@ export const Submission = (props: { canSubmit: boolean }) => {
       </div>
       <button
         className={`submission__container__submit-button--${props.canSubmit}`}
+        onClick={() =>
+          window.open("https://cruzhacks-2023.devpost.com/", "_blank")
+        }
         disabled
       >
         Submit

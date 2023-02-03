@@ -65,7 +65,7 @@ const SpeakerProps: Array<SpeakerData> = [
        Center for Entrepreneurship. Now he's a Professor of Environmental 
        Studies at UCSC.
     `,
-    key: 2,
+    key: 3,
   },
   {
     image: NadaMilkovic,
@@ -80,7 +80,7 @@ const SpeakerProps: Array<SpeakerData> = [
       Co-Founder of GetVirtual.
     `,
     linkedIn: "https://www.linkedin.com/in/namiljkovic/",
-    key: 3,
+    key: 4,
   },
   {
     image: GregorVebleMikie,
@@ -96,7 +96,7 @@ const SpeakerProps: Array<SpeakerData> = [
      Challenge sponsored by Google competition in 2011.
     `,
     linkedIn: "https://www.linkedin.com/in/gregorv/",
-    key: 4,
+    key: 5,
   },
   {
     image: AlexanderWolf,
@@ -111,7 +111,7 @@ const SpeakerProps: Array<SpeakerData> = [
     concern cloud computing, data-center networking, and service-based systems 
     hosted on MANETs.`,
     linkedIn: "https://www.linkedin.com/in/alexanderlwolf/",
-    key: 5,
+    key: 6,
   },
 ]
 

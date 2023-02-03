@@ -36,8 +36,8 @@ const PortalWithNotify: React.FC = () => {
   if (location.hostname === "localhost") {
     try {
       connectDatabaseEmulator(db, "localhost", 9000)
-    } catch (err) {
-      // Catch so that improper config doesn't break portal
+    } catch (e) {
+      console.log(e)
     }
   }
 
