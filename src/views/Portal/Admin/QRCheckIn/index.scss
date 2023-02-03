@@ -83,6 +83,11 @@
     text-align: center;
 
     color: #3b3b7f;
+
+    @include responsiveness.screen(smallest, phone) {
+      font-size: 20px;
+      line-height: 23px;
+    }
   }
 
   &--buttons {
@@ -90,16 +95,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 2.5em;
 
     &--checkIn {
       width: 150px;
       height: 40px;
       margin-left: 20px;
 
-      //background-color: #5cb03e;
-
-      margin-top: 3em;
-      font-family: "Nunito Sans";
+      font-family: $nunito-sans;
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
@@ -116,6 +119,13 @@
         color: #fff;
         background-color: #5cb03e;
       }
+
+      @include responsiveness.screen(smallest, phone) {
+        font-size: 20px;
+        width: 125px;
+
+        margin-left: 10px;
+      }
     }
 
     &--cancel {
@@ -123,10 +133,7 @@
       height: 40px;
       margin-right: 20px;
 
-      //background-color: #a31919;
-
-      margin-top: 3em;
-      font-family: "Nunito Sans";
+      font-family: $nunito-sans;
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
@@ -142,6 +149,13 @@
       &:hover {
         color: #fff;
         background-color: #a31919;
+      }
+
+      @include responsiveness.screen(smallest, phone) {
+        font-size: 20px;
+        width: 125px;
+
+        margin-right: 10px;
       }
     }
   }
