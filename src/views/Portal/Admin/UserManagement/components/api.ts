@@ -15,6 +15,7 @@ export interface HackerQRProps {
   id: string
   firstName: string
   lastName: string
+  email: string
 }
 
 const checkIn = async (
