@@ -1,13 +1,13 @@
 import React, { useEffect, useState, Dispatch } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import "./index.scss"
-import { Message } from "../../../../../../contexts/PortalBanners/PortalBanner"
 import { HackerDrawerProps } from "../table/index"
 import getHackers, { checkIn } from "../api"
 import { Drawer } from "@mui/material"
-/* eslint-disable */
-import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
-/* eslint-enable */
+import {
+  useBanner,
+  Message,
+} from "../../../../../../contexts/PortalBanners/PortalBanner"
 import exit from "../../../../../../assets/Exit.svg"
 
 const handleCheckIn = (
