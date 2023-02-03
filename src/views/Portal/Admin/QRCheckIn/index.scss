@@ -90,12 +90,30 @@
     }
   }
 
+  &--email {
+    margin-top: 0.4em;
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+
+    text-align: center;
+
+    color: #000;
+
+    @include responsiveness.screen(smallest, phone) {
+      font-size: 13px;
+      line-height: 17px;
+    }
+  }
+
   &--buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 2.5em;
+    margin-top: 2em;
 
     &--checkIn {
       width: 150px;

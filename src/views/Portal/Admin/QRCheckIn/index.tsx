@@ -17,7 +17,7 @@ import { Modal, Fade, Box, SxProps } from "@mui/material"
 
 const style1: SxProps = {
   width: "90%",
-  height: "175px",
+  height: "190px",
   bgcolor: "#FFFFFF",
   outline: "none",
   borderRadius: "6px",
@@ -28,8 +28,8 @@ const style1: SxProps = {
 }
 
 const style2: SxProps = {
-  width: "400px",
-  height: "200px",
+  width: "450px",
+  height: "215px",
   bgcolor: "#FFFFFF",
   outline: "none",
   borderRadius: "6px",
@@ -84,6 +84,9 @@ const CheckInModal = ({
             <div className='checkin-modal__container--title'>
               Check in {hacker.firstName} {hacker.lastName}?
             </div>
+            <div className='checkin-modal__container--email'>
+              ({hacker.email})
+            </div>
             <div className='checkin-modal__container--buttons'>
               <div
                 onClick={() => setModalOpen(false)}
@@ -130,6 +133,7 @@ const QRCheckInContainer: React.FC = () => {
   const [hacker, setHacker] = useState<HackerQRProps>({
     firstName: "",
     lastName: "",
+    email: "",
     id: "",
   })
 
@@ -157,7 +161,7 @@ const QRCheckInContainer: React.FC = () => {
               }
 
               if (error) {
-                // console.info(error)
+                console.info(error)
               }
             }}
           />
