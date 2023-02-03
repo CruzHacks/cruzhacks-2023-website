@@ -191,7 +191,7 @@ const Landing: React.FC = () => {
             <button
               // eslint-disable-next-line max-len
               className={`landing__container--inputs__row2--button1${isLightClass()}`}
-              onClick={() => navigate("/redirect")}
+              onClick={() => navigate("/myPortal")}
             >
               Portal
             </button>
