@@ -21,6 +21,7 @@ import {
 } from "../../../../contexts/PortalBanners/PortalBanner"
 import Spinner from "../../../../components/Spinner"
 import { useNavigate } from "react-router-dom"
+import { Submission } from "./components/Sumbission/Submission"
 
 export const MainDash = () => (
   <BannerProvider>
@@ -89,7 +90,7 @@ const HackerDash = () => {
                 setConfirmationModalOpen={setConfirmationModalOpen}
                 setAttendanceStatus={setAttendanceStatus}
               />
-              {/* <Submission canSubmit={false} /> */}
+              <Submission canSubmit={true} />
             </div>
             <Leaderboard />
           </div>
