@@ -1,0 +1,99 @@
+@import "../../stylesheets/fonts";
+
+.speaker-card {
+  border-radius: 12px;
+  border: 1px solid white;
+  box-shadow: 0 4px 20px rgb(255 255 255 / 98%);
+  min-width: calc(100% - 200px);
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  overflow-x: hidden;
+  transition: transform ease 0.5s;
+
+  @media screen and (max-width: 1000px) {
+    height: 550px;
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+
+  &__speaker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__photo {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 20px;
+      border: 10px solid white;
+
+      @media screen and (max-width: 1000px) {
+        margin: 10px;
+        width: 175px;
+        height: 175px;
+      }
+    }
+
+    &__linkedin {
+      &--button {
+        all: unset;
+      }
+
+      &:hover {
+        filter: drop-shadow(3px 5px 20px rgb(255 255 255));
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+    font-family: $inter;
+    font-weight: 700;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
+
+    &__name {
+      font-size: 48px;
+      text-align: center;
+
+      @media screen and (max-width: 800px) {
+        font-size: 36px;
+      }
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 24px;
+      color: #d0d0d0;
+
+      @media screen and (max-width: 800px) {
+        font-size: 20px;
+      }
+    }
+
+    &__blurb {
+      text-align: center;
+      margin-top: 20px;
+      width: 80%;
+      color: #a3a3a3;
+      font-weight: 600;
+
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+}

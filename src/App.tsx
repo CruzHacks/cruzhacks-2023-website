@@ -15,6 +15,7 @@ import { MainDash } from "./views/Portal/Hacker/Dashboard"
 import AdminDash from "./views/Portal/Admin/Dashboard"
 import UserManagement from "./views/Portal/Admin/UserManagement"
 import HackerOverview from "./views/Portal/Admin/HackerOverview"
+import QRCheckIn from "./views/Portal/Admin/QRCheckIn"
 import ErrorView from "./views/Error/index.view"
 import LivePlaceholder from "./views/LivePlaceholder/index.view"
 import BGwrapper from "./components/BGwrapper"
@@ -85,6 +86,12 @@ const App: React.FC = () => {
                       role='Organizer'
                       component={<HackerOverview />}
                     />
+                  }
+                />
+                <Route
+                  path='admin/:userId/checkin'
+                  element={
+                    <PrivateRoute role='Organizer' component={<QRCheckIn />} />
                   }
                 />
                 <Route

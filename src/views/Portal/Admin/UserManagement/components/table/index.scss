@@ -9,8 +9,8 @@
 }
 
 .status__container-accept {
-  margin-right: 0;
-  margin-left: auto;
+  // margin-right: 0;
+  // margin-left: auto;
   width: 121px;
   height: 26px;
   background: #edffec;
@@ -31,8 +31,8 @@
 }
 
 .status__container-reject {
-  margin-right: 0;
-  margin-left: auto;
+  // margin-right: 0;
+  // margin-left: auto;
   width: 121px;
   height: 26px;
   background: #ffe7e7;
@@ -51,8 +51,8 @@
 }
 
 .status__container-not_applicable {
-  margin-right: 0;
-  margin-left: auto;
+  // margin-right: 0;
+  // margin-left: auto;
   width: 121px;
   height: 26px;
   background: #e4e4e4;
@@ -75,10 +75,11 @@
 .check_in__container {
   display: flex;
   flex-direction: row;
-  margin-right: 0;
-  margin-left: auto;
-  align-items: right;
-  justify-content: right;
+
+  // margin-right: 0;
+  // margin-left: auto;
+  // align-items: right;
+  // justify-content: right;
 
   &--text {
     margin-right: 5px;
