@@ -2,7 +2,7 @@ import React, { useEffect, useState, Dispatch } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import "./index.scss"
 import { HackerDrawerProps } from "../table/index"
-import getHackers, { checkIn } from "../api"
+import getHackers, { checkIn, rsvp } from "../api"
 import { Drawer } from "@mui/material"
 import {
   useBanner,
@@ -10,14 +10,24 @@ import {
 } from "../../../../../../contexts/PortalBanners/PortalBanner"
 import exit from "../../../../../../assets/Exit.svg"
 
-const handleCheckIn = (
+const handleCheckIn = async (
   getAccessTokenSilently: any,
   setBanner: Dispatch<Message>,
   setHackers: Dispatch<Array<any>>,
   id: string
 ) => {
-  checkIn(getAccessTokenSilently, setBanner, id)
-  getHackers(getAccessTokenSilently, setBanner, setHackers)
+  await checkIn(getAccessTokenSilently, setBanner, id)
+  await getHackers(getAccessTokenSilently, setBanner, setHackers)
+}
+
+const handleRSVP = async (
+  getAccessTokenSilently: any,
+  setBanner: Dispatch<Message>,
+  setHackers: Dispatch<Array<any>>,
+  id: string
+) => {
+  await rsvp(getAccessTokenSilently, setBanner, id)
+  await getHackers(getAccessTokenSilently, setBanner, setHackers)
 }
 
 const HackerProfileDrawer = ({
@@ -107,6 +117,19 @@ const HackerProfileDrawer = ({
             }
           >
             Check In
+          </div>
+          <div
+            className='drawer__container--rsvp'
+            onClick={() =>
+              handleRSVP(
+                getAccessTokenSilently,
+                setBanner,
+                setHackers,
+                props.id
+              )
+            }
+          >
+            RSVP
           </div>
         </div>
       }
