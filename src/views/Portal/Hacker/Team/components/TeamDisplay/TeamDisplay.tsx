@@ -1,8 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react"
-import React, { Dispatch } from "react"
+import React, { Dispatch, useState } from "react"
 import { TeamFormationProps } from "../.."
 // eslint-disable-next-line max-len
 import { useBanner } from "../../../../../../contexts/PortalBanners/PortalBanner"
+// eslint-disable-next-line max-len
+import { ConfirmationModal } from "../../../Dashboard/components/ConfirmationModal/ConfirmationModal"
 import { deleteTeam, lockTeam, removeTeamMember } from "../../api"
 import "./TeamDisplay.scss"
 
@@ -19,9 +21,27 @@ export interface TeamDisplayProps {
 export const TeamDisplay = (props: TeamDisplayProps) => {
   const { user, getAccessTokenSilently } = useAuth0()
   const { setBanner } = useBanner()
+  const [open, setOpen] = useState<boolean>(false)
 
   return (
     <div className='teamdisplay'>
+      <ConfirmationModal
+        open={open}
+        setOpen={setOpen}
+        header='Lock In Team'
+        primaryButtonText='Lock In'
+        primaryButtonHandler={() => {
+          lockTeam(
+            getAccessTokenSilently,
+            props.setTeamPage,
+            props.teamPage.teamName,
+            setBanner
+          )
+        }}
+        secondaryButtonText='Cancel'
+        secondaryButtonHandler={() => setOpen(false)}
+        body='Are you sure you want to lock in your team?'
+      />
       <div className='teamdisplay__header'>
         <div className='teamdisplay__header__title'>
           {props.teamPage.teamName || "*[No Team]*"}
@@ -72,14 +92,14 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
         Please take a moment to review your team above. If everything looks
         correct, please press submit and get excited to hack with us very soon!
       </div>
-      <button
-        className='teamdisplay__submit-button'
-        onClick={() => {
-          lockTeam(getAccessTokenSilently, setBanner)
-        }}
-      >
-        Submit
-      </button>
+      {!props.teamPage.lockedIn ? (
+        <button
+          className='teamdisplay__submit-button'
+          onClick={() => setOpen(true)}
+        >
+          Submit
+        </button>
+      ) : null}
     </div>
   )
 }

@@ -22,6 +22,7 @@ export interface TeamFormationProps {
   invitedTeamMembers: Array<TeamMember>
   teamLeader: string
   invitations: Array<Invitation>
+  lockedIn: boolean
 }
 
 const TeamFormation: React.FC = () => {
@@ -35,6 +36,7 @@ const TeamFormation: React.FC = () => {
     invitedTeamMembers: [],
     teamLeader: "",
     invitations: [],
+    lockedIn: false,
   }
   const teamPageReducer = (
     state: TeamFormationProps,
