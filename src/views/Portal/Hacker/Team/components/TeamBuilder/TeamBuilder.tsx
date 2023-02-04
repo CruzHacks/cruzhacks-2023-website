@@ -23,22 +23,29 @@ export interface Invitation {
 }
 
 export const TeamBulder = (props: TeamBuilderProps) => {
-  return (
-    <div className='teambuilder'>
-      <InvitationTypeChooser
-        invitationType={props.teamPage.invitationType}
-        setTeamPage={props.setTeamPage}
-      />
-      {props.teamPage.invitationType === "JOIN" ? (
-        <JoinTeam
-          invites={props.teamPage.invitations}
+  if (!props.teamPage.lockedIn) {
+    return (
+      <div className='teambuilder'>
+        <InvitationTypeChooser
+          invitationType={props.teamPage.invitationType}
           setTeamPage={props.setTeamPage}
         />
-      ) : (
-        <CreateTeam teamPage={props.teamPage} setTeamPage={props.setTeamPage} />
-      )}
-    </div>
-  )
+        {props.teamPage.invitationType === "JOIN" ? (
+          <JoinTeam
+            invites={props.teamPage.invitations}
+            setTeamPage={props.setTeamPage}
+          />
+        ) : (
+          <CreateTeam
+            teamPage={props.teamPage}
+            setTeamPage={props.setTeamPage}
+          />
+        )}
+      </div>
+    )
+  } else {
+    return null
+  }
 }
 
 const InvitationTypeChooser = (props: {

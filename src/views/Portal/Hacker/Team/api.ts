@@ -134,6 +134,7 @@ export const getTeamProfile = async (
       invitations: res.data.invitations,
       invitedTeamMembers: res.data.invitedMembers,
       teamLeader: res.data.teamLeader,
+      lockedIn: res.data.lockedIn || false,
     }
     teamPageDispatch(teamProfile)
   } catch (err) {
@@ -266,6 +267,8 @@ export const deleteTeam = async (
 
 export const lockTeam = async (
   getAccessTokenSilently: any,
+  setTeamPage: Dispatch<Partial<TeamFormationProps>>,
+  teamName: string,
   setBanner: Dispatch<Message>
 ) => {
   try {
@@ -278,8 +281,12 @@ export const lockTeam = async (
         "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
         Authorization: `Bearer ${token}`,
       },
+      data: {
+        teamName: teamName,
+      },
     }
     const res = await axios(lockTeamAxiosRequest)
+    setTeamPage({ lockedIn: res.data.lockedIn })
     setBanner({ message: res.data.message, messageType: "SUCCESS" })
   } catch (err) {
     if (axios.isAxiosError(err)) {
