@@ -40,7 +40,7 @@ export const TeamDisplay = (props: TeamDisplayProps) => {
         }}
         secondaryButtonText='Cancel'
         secondaryButtonHandler={() => setOpen(false)}
-        body='Are you sure you wawnt to lock in your team?'
+        body='Are you sure you want to lock in your team?'
       />
       <div className='teamdisplay__header'>
         <div className='teamdisplay__header__title'>
