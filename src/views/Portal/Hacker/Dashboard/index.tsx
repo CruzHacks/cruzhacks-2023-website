@@ -1,6 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import React, { Dispatch, useEffect, useState } from "react"
-import { confirmAttendance, getHackerProfile } from "./api"
+import {
+  confirmAttendance,
+  getCruzPointsLeaderBoard,
+  getHackerProfile,
+} from "./api"
 // eslint-disable-next-line max-len
 import {
   AttendanceStatus,
@@ -9,7 +13,10 @@ import {
 import { ChecklistItem } from "./components/ChecklistItem/ChecklistItem"
 // eslint-disable-next-line max-len
 import { ImportantDatesTable } from "./components/ImportantDatesTable/ImportantDatesTable"
-import { Leaderboard } from "./components/Leaderboard/Leaderboard"
+import {
+  Leaderboard,
+  LeaderboardProps,
+} from "./components/Leaderboard/Leaderboard"
 import { HackerDashWelcome } from "./components/Welcome/Welcome"
 import { checklistProps } from "./Props/checklistprops"
 import "./index.scss"
@@ -36,6 +43,7 @@ const HackerDash = () => {
   const [render, setRender] = useState<boolean>(false)
   const [confirmationModalOpen, setConfirmationModalOpen] =
     useState<boolean>(false)
+  const [leaderboard, setLeaderboard] = useState<Array<LeaderboardProps>>([])
   const { setBanner } = useBanner()
 
   useEffect(() => {
@@ -47,6 +55,9 @@ const HackerDash = () => {
     ).then(() => setRender(true))
   }, [])
 
+  useEffect(() => {
+    getCruzPointsLeaderBoard(getAccessTokenSilently, setLeaderboard)
+  }, [])
   if (render) {
     return (
       <div className='maindash'>
@@ -92,7 +103,7 @@ const HackerDash = () => {
               />
               <Submission canSubmit={true} />
             </div>
-            <Leaderboard />
+            <Leaderboard leaderboardData={leaderboard} />
           </div>
         </div>
         <div className='maindash__lower-container'>
