@@ -13,7 +13,7 @@ import {
   TableRow,
 } from "@mui/material"
 
-interface LeaderboardProps {
+export interface LeaderboardProps {
   id: number
   position: number
   name: string
@@ -21,7 +21,7 @@ interface LeaderboardProps {
   points: number
 }
 
-export const Leaderboard: React.FC = (props: {
+export const Leaderboard = (props: {
   leaderboardData?: Array<LeaderboardProps>
 }) => {
   return (

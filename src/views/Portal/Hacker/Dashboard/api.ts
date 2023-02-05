@@ -3,6 +3,7 @@ import { Dispatch } from "react"
 import { Message } from "../../../../contexts/PortalBanners/PortalBanner"
 // eslint-disable-next-line max-len
 import { AttendanceStatus } from "./components/AttendanceStatus/AttendanceStatus"
+import { LeaderboardProps } from "./components/Leaderboard/Leaderboard"
 
 export const getHackerProfile = async (
   getAccessTokenSilently: any,
@@ -102,5 +103,28 @@ export const submitCruzPointsCode = async (
       message: `Invalid CruzPoints Code`,
       messageType: "ERROR",
     })
+  }
+}
+
+export const getCruzPointsLeaderBoard = async (
+  getAccessTokenSilently: any,
+  setLeaderBoard: Dispatch<Array<LeaderboardProps>>
+) => {
+  try {
+    const token = await getAccessTokenSilently()
+    const submitCruzPointsAxiosRequest = {
+      method: "get",
+      url: `${process.env.REACT_APP_ENDPOINT_URL}/cruzpoints/leaderboard`,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": process.env.REACT_APP_CORS_ORIGIN || "",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    const res = await axios(submitCruzPointsAxiosRequest)
+
+    setLeaderBoard(res.data.leaderboard)
+  } catch (err) {
+    setLeaderBoard([])
   }
 }
