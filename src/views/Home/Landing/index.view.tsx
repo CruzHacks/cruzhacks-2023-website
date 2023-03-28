@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Dispatch, useState } from "react"
 import { subscribeMailchimp } from "../../../utils/api"
 import { validateEmail } from "../../../utils/validate"
@@ -36,62 +37,62 @@ const style: SxProps = {
   p: 2,
 }
 
-interface ApplicationModalProps {
-  modalOpen: boolean
-  setModalOpen: Dispatch<boolean>
-}
+// interface ApplicationModalProps {
+//   modalOpen: boolean
+//   setModalOpen: Dispatch<boolean>
+// }
 
-const ApplicationModal = ({
-  modalOpen,
-  setModalOpen,
-}: ApplicationModalProps) => {
-  const openApplication = (link: string) => {
-    window.open(link, "_blank")
-  }
-
-  return (
-    <Modal
-      open={modalOpen}
-      onClose={() => setModalOpen(false)}
-      aria-labelledby='apply modal'
-      aria-describedby='choose application type'
-    >
-      <Fade in={modalOpen}>
-        <Box sx={style}>
-          <div className='application-modal__container'>
-            <div className='application-modal__container__title'>
-              APPLICATION TYPE
-            </div>
-            <button
-              onClick={() =>
-                openApplication("https://forms.gle/8aUb3KDnAvxca5nr9")
-              }
-              className='application-modal__container--button'
-            >
-              Hacker Application
-            </button>
-            <button
-              onClick={() =>
-                openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
-              }
-              className='application-modal__container--button'
-            >
-              Mentor / Judge Application
-            </button>
-            <button
-              onClick={() =>
-                openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
-              }
-              className='application-modal__container--button'
-            >
-              Volunteer Application
-            </button>
-          </div>
-        </Box>
-      </Fade>
-    </Modal>
-  )
-}
+// const ApplicationModal = ({
+//   modalOpen,
+//   setModalOpen,
+// }: ApplicationModalProps) => {
+//   const openApplication = (link: string) => {
+//     window.open(link, "_blank")
+//   }
+//
+//   return (
+//     <Modal
+//       open={modalOpen}
+//       onClose={() => setModalOpen(false)}
+//       aria-labelledby='apply modal'
+//       aria-describedby='choose application type'
+//     >
+//       <Fade in={modalOpen}>
+//         <Box sx={style}>
+//           <div className='application-modal__container'>
+//             <div className='application-modal__container__title'>
+//               APPLICATION TYPE
+//             </div>
+//             <button
+//               onClick={() =>
+//                 openApplication("https://forms.gle/8aUb3KDnAvxca5nr9")
+//               }
+//               className='application-modal__container--button'
+//             >
+//               Hacker Application
+//             </button>
+//             <button
+//               onClick={() =>
+//                 openApplication("https://forms.gle/ofzoJ9VVkZAEhnPv8")
+//               }
+//               className='application-modal__container--button'
+//             >
+//               Mentor / Judge Application
+//             </button>
+//             <button
+//               onClick={() =>
+//                 openApplication("https://forms.gle/R9KtP8VMGGbfVTBx9")
+//               }
+//               className='application-modal__container--button'
+//             >
+//               Volunteer Application
+//             </button>
+//           </div>
+//         </Box>
+//       </Fade>
+//     </Modal>
+//   )
+// }
 
 const Landing: React.FC = () => {
   const [email, setEmail] = useState<string>("")
@@ -188,7 +189,7 @@ const Landing: React.FC = () => {
           </div>
 
           <div className='landing__container--inputs__row2'>
-            <button
+            {/* <button
               // eslint-disable-next-line max-len
               className={`landing__container--inputs__row2--button1${isLightClass()}`}
               onClick={() => navigate("/myPortal")}
@@ -205,18 +206,24 @@ const Landing: React.FC = () => {
             <ApplicationModal
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
-            />
+            /> */}
+            <button
+              // eslint-disable-next-line max-len
+              className={`landing__container--inputs__row2--button1${isLightClass()}`}
+              onClick={() => window.open('https://cruzhacks-2023.devpost.com/', '_blank')}
+            >
+              Devpost
+            </button>
+            <button
+              // eslint-disable-next-line max-len
+              className={`landing__container--inputs__row2--button2${isLightClass()}`}
+              onClick={() => window.open('https://photos.app.goo.gl/LcwPB1kW2ZAt9UcH6', '_blank')}
+            >
+              Photo Album
+            </button>
+
           </div>
         </div>
-        {/* <div className='MyPortal__container'>
-          <button
-            // eslint-disable-next-line max-len
-            className={`MyPortal`}
-            onClick={() => navigate("/redirect")}
-          >
-            Portal
-          </button>
-        </div> */}
         {message && (
           <div
             className={
