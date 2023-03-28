@@ -13,7 +13,12 @@ const stats: Array<Stat> = [
   {
     class: "hackers",
     val: "400+",
-    desc: "HACKERS",
+    desc: "ATTENDEES",
+  },
+  {
+    class: "projects",
+    val: "86",
+    desc: "PROJECTS",
   },
   {
     class: "prizes",
@@ -22,13 +27,8 @@ const stats: Array<Stat> = [
   },
   {
     class: "beginners",
-    val: "56%",
+    val: "62%",
     desc: "FIRST TIME HACKERS",
-  },
-  {
-    class: "gender",
-    val: "27%",
-    desc: "FEMALE AND NONBINARY HACKERS",
   },
 ]
 const Milestones: React.FC = () => {

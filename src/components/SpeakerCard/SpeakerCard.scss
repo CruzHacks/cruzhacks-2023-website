@@ -79,6 +79,10 @@
       font-size: 24px;
       color: #d0d0d0;
 
+      .app--light & {
+        color: white;
+      }
+
       @media screen and (max-width: 800px) {
         font-size: 20px;
       }
@@ -89,6 +93,11 @@
       margin-top: 20px;
       width: 80%;
       color: #a3a3a3;
+
+      .app--light & {
+        color: white;
+      }
+
       font-weight: 600;
 
       @media screen and (max-width: 1000px) {

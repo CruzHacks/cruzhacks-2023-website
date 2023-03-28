@@ -150,7 +150,7 @@
     }
   }
 
-  &--stats__prizes {
+  &--stats__projects {
     @include stat-panel;
 
     @include responsiveness.screen("big-desktop", "desktop") {
@@ -172,7 +172,7 @@
     }
   }
 
-  &--stats__beginners {
+  &--stats__prizes {
     @include stat-panel;
 
     @include responsiveness.screen("big-desktop", "desktop") {
@@ -194,7 +194,7 @@
     }
   }
 
-  &--stats__gender {
+  &--stats__beginners {
     @include stat-panel;
 
     @include responsiveness.screen("big-desktop", "desktop") {
